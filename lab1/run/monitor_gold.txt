@@ -1,0 +1,4 @@
+pattern:0 PIs:00 POs:00
+pattern:1 PIs:10 POs:10
+pattern:2 PIs:11 POs:01
+pattern:3 PIs:01 POs:10

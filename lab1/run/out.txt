@@ -1,0 +1,16 @@
+sa1   NC   U1/I1
+sa0   --   U1/I1
+sa1   NC   U2/I1
+sa0   --   U2/I1
+sa1   NC   U3/I2
+sa0   --   U3/I2
+sa0   NC   U1/O
+sa1   NC   U1/O
+sa1   NC   U2/I2
+sa0   --   U2/I2
+sa1   NC   U3/I1
+sa0   --   U3/I1
+sa1   NC   U5/I1
+sa0   --   U5/I1
+sa1   NC   U5/I2
+sa0   --   U5/I2
