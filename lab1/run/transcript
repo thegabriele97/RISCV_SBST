@@ -1,5 +1,5 @@
 # vsim -c -novopt work.tb_ex1 -do "../simulation_script.tcl" -wlf sim.wlf 
-# Start time: 22:29:05 on Oct 09,2021
+# Start time: 18:31:57 on Oct 11,2021
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
 # //  Questa Sim-64
 # //  Version 10.5c_4 linux_x86_64 Nov 30 2016
@@ -28,9 +28,9 @@
 # Refreshing /home/s281589/TestingFaultToleranceLabs/lab1/run/work.Nand_Gate
 # Loading work.Nand_Gate
 # do ../simulation_script.tcl
-# pattern:0 PIs:00 POs:01
-# pattern:1 PIs:10 POs:11
+# pattern:0 PIs:00 POs:00
+# pattern:1 PIs:10 POs:10
 # pattern:2 PIs:11 POs:01
-# pattern:3 PIs:01 POs:11
-# End time: 22:29:05 on Oct 09,2021, Elapsed time: 0:00:00
+# pattern:3 PIs:01 POs:00
+# End time: 18:31:57 on Oct 11,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 1, Suppressed Warnings: 1

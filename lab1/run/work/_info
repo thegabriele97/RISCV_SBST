@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 d/home/s281589/lab1/run
 vAnd3_Gate
-Z1 !s110 1633811344
+Z1 !s110 1633969916
 !i10b 1
 !s100 QlV:e[W]EUP<6O@FMF[a11
 IX?KMTDd:[]z[h]1TcMMz50
@@ -23,7 +23,7 @@ Z6 OL;L;10.5c_4;63
 r1
 !s85 0
 31
-Z7 !s108 1633811344.000000
+Z7 !s108 1633969916.000000
 Z8 !s107 ../pdt2002.v|
 Z9 !s90 ../pdt2002.v|
 !i113 0

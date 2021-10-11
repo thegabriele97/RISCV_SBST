@@ -8,13 +8,13 @@ for line in $(cat $1); do
 
     echo -e "----------- test $a: $line"
 
-    ./convert_faults.sh run/out.txt $a > run/inject_fault.tcl
+    ./convert_faults.sh $1 $a > run/inject_fault.tcl
     $(./simulation.sh 2> /dev/null)
 
     minus=$(diff run/monitor_gold.txt run/monitor.txt)
 
     if [ $(echo $minus | wc -l) -gt 0 ]; then
-        diff run/monitor_gold.txt run/monitor.txt
+        diff -y --suppress-common-lines run/monitor_gold.txt run/monitor.txt
     fi
 
     echo -e "----------- completed!"
