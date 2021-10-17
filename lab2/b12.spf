@@ -1,0 +1,102 @@
+STIL 1.0 { Design 2005; }
+Header {
+   Title "  TetraMAX (TM)  J-2014.09-SP5-i150417_191917 STIL output";
+   Date "Wed Oct 21 22:52:07 2015";
+   History {
+      Ann {*     Uncollapsed Stuck Fault Summary Report *}
+      Ann {* ----------------------------------------------- *}
+      Ann {* fault class                     code   #faults *}
+      Ann {* ------------------------------  ----  --------- *}
+      Ann {* Detected                         DT          0 *}
+      Ann {* Possibly detected                PT          0 *}
+      Ann {* Undetectable                     UD          0 *}
+      Ann {* ATPG untestable                  AU          0 *}
+      Ann {* Not detected                     ND          0 *}
+      Ann {* ----------------------------------------------- *}
+      Ann {* total faults                                 0 *}
+      Ann {* test coverage                             0.00% *}
+      Ann {* ----------------------------------------------- *}
+      Ann {*  *}
+      Ann {*            Pattern Summary Report *}
+      Ann {* ----------------------------------------------- *}
+      Ann {* #internal patterns                           0 *}
+      Ann {* ----------------------------------------------- *}
+      Ann {*  *}
+      Ann {* rule  severity  #fails  description *}
+      Ann {* ----  --------  ------  --------------------------------- *}
+      Ann {* B9    warning        1  undriven module internal net *}
+      Ann {* B10   warning        1  unconnected module internal net *}
+      Ann {*  *}
+      Ann {* clock_name        off  usage *}
+      Ann {* ----------------  ---  -------------------------- *}
+      Ann {* clock              0    *}
+      Ann {* reset              0    *}
+      Ann {*  *}
+      Ann {* There are no constraint ports *}
+      Ann {* There are no equivalent pins *}
+      Ann {* There are no net connections *}
+   }
+}
+Signals {
+   "clock" In; "reset" In; "start" In; "k[3]" In; "k[2]" In; "k[1]" In; "k[0]" In;
+   "nloss" Out; "nl[3]" Out; "nl[2]" Out; "nl[1]" Out; "nl[0]" Out; "speaker" Out;
+}
+SignalGroups {
+   "_pi" = '"clock" + "reset" + "start" + "k[3]" + "k[2]" + "k[1]" + "k[0]"'; // #signals=7
+   "_in" = '"clock" + "reset" + "start" + "k[3]" + "k[2]" + "k[1]" + "k[0]"'; // #signals=7
+   "_po" = '"nloss" + "nl[3]" + "nl[2]" + "nl[1]" + "nl[0]" + "speaker"'; // #signals=6
+   "_out" = '"nloss" + "nl[3]" + "nl[2]" + "nl[1]" + "nl[0]" + "speaker"'; // #signals=6
+   "_default_In_Timing_" = '"clock" + "reset" + "start" + "k[3]" + "k[2]" +
+   "k[1]" + "k[0]"'; // #signals=7
+   "_default_Out_Timing_" = '"nloss" + "nl[3]" + "nl[2]" + "nl[1]" + "nl[0]" +
+   "speaker"'; // #signals=6
+   "_default_Clk0_Timing_" = '"clock" + "reset"'; // #signals=2
+}
+Timing {
+   WaveformTable "_default_WFT_" {
+      Period '100ns';
+      Waveforms {
+         "_default_In_Timing_" { 0 { '0ns' D; } }
+         "_default_In_Timing_" { 1 { '0ns' U; } }
+         "_default_In_Timing_" { Z { '0ns' Z; } }
+         "_default_In_Timing_" { N { '0ns' N; } }
+         "_default_Clk0_Timing_" { P { '0ns' D; '50ns' U; '80ns' D; } }
+         "_default_Out_Timing_" { X { '0ns' Z; } }
+         "_default_Out_Timing_" { H { '0ns' Z; '40ns' H; } }
+         "_default_Out_Timing_" { T { '0ns' Z; '40ns' T; } }
+         "_default_Out_Timing_" { L { '0ns' Z; '40ns' L; } }
+      }
+   }
+}
+ScanStructures {
+   // Uncomment and modify the following to suit your design
+   // ScanChain "chain_name" { ScanIn "chain_input_name"; ScanOut "chain_output_name"; }
+}
+PatternBurst "_burst_" {
+   PatList { "_pattern_" {
+   }
+}}
+PatternExec {
+   PatternBurst "_burst_";
+}
+Procedures {
+   "multiclock_capture" { W "_default_WFT_";
+      V { "_pi"=\j \r7 #; "_po"=\j \r6 #; }}
+   "allclock_capture" { W "_default_WFT_";
+      V { "_pi"=\j \r7 #; "_po"=\j \r6 #; }}
+   "allclock_launch" { W "_default_WFT_";
+      V { "_pi"=\j \r7 #; "_po"=\j \r6 #; }}
+   "allclock_launch_capture" { W "_default_WFT_";
+      V { "_pi"=\j \r7 #; "_po"=\j \r6 #; }}
+   // Uncomment and modify the following to suit your design
+   // load_unload {
+      // V { "clock" = 0; "reset" = 0; } // force clocks off and scan enable pins active
+      // Shift { V { _si=#; _so=#; "clock" = P; "reset" = P; }} // pulse shift clocks
+   // }
+}
+MacroDefs {
+   "test_setup" {
+      W "_default_WFT_";
+      V { "clock"=0; "reset"=0; }
+   }
+}

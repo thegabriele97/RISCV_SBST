@@ -1,0 +1,142 @@
+
+                                  TetraMAX(R) 
+
+
+                 Version M-2016.12 for linux64 - Nov 21, 2016  
+
+                    Copyright (c) 1996 - 2016 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+
+ Tcl mode is on by default. Use -notcl to run in native mode.
+ Executing startup file "/eda/synopsys/2016-17/RHELx86/TMAX_2016.12/admin/setup/tmaxtcl.rc".
+read_netlist pdt2002.v -library
+ Begin reading netlist ( pdt2002.v )...
+ End parsing Verilog file pdt2002.v with 0 errors.
+ End reading netlist: #modules=35, top=logic_1, #lines=291, CPU_time=0.00 sec, Memory=0MB
+read_netlist c6288.vhd -master
+ Begin reading netlist ( c6288.vhd )...
+ External packages: IEEE.std_logic_1164 c6288.gate_lib. Bit types: std_logic_vector std_logic. 
+ End parsing VHDL file c6288.vhd with 0 errors;
+ End reading netlist: #modules=1, top=c6288, #lines=5455, CPU_time=0.01 sec, Memory=1MB
+# read_netlist b10.v -master
+run_build_model c6288
+ ------------------------------------------------------------------------------
+ Begin build model for topcut = c6288 ...
+ ------------------------------------------------------------------------------
+ There were 64 primitives and 0 faultable pins removed during model optimizations
+ End build model: #primitives=2480, CPU_time=0.00 sec, Memory=1MB
+ ------------------------------------------------------------------------------
+ Begin learning analyses...
+ End learning analyses, total learning CPU time=0.01 sec.
+ ------------------------------------------------------------------------------
+# run_build_model b10
+# add_po_masks -all
+# remove_po_masks datao(1)
+# remove_po_masks datao(2)
+# remove_po_masks datao(3)
+# add_po_masks datao(1)
+# add_po_masks datao(2)
+# add_po_masks datao(3)
+# report_primitives -pos
+add_pi_constraints 1 datai(0)
+# add_pi_constraints x datai(1)
+# add_pi_constraints x datai(2)
+run_drc c6288.stil
+ ------------------------------------------------------------------------------
+ Begin scan design rules checking...
+ ------------------------------------------------------------------------------
+ Begin reading test protocol file c6288.stil...
+ End parsing STIL file c6288.stil with 0 errors.
+ Test protocol file reading completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin simulating test protocol procedures...
+ Test protocol simulation completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin scan chain operation checking...
+ Scan chain operation checking completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin nonscan rules checking...
+ Nonscan cell summary: #DFF=0  #DLAT=0  #RAM_outs=0  tla_usage_type=none
+ Nonscan rules checking completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin DRC dependent learning...
+ Fast-sequential depth results: control=0(0), observe=0(0), detect=0(0), CPU time=0.00 sec
+ DRC dependent learning completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ DRC Summary Report
+ ------------------------------------------------------------------------------
+ No violations occurred during DRC process.
+ Design rules checking was successful, total CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+# run_drc b10.stil
+set_faults -model stuck
+add_faults -all
+ 14560 faults were added to fault list.
+# set_patterns -external c6288.stil
+# run_simulation
+# run_fault_sim
+set_patterns -internal
+run_atpg -auto_compression
+ 
+ ATPG performed for stuck fault model using internal pattern source.
+ ----------------------------------------------------------
+ #patterns     #faults     #ATPG faults  test      process
+ stored     detect/active  red/au/abort  coverage  CPU time
+ ---------  -------------  ------------  --------  --------
+ Begin deterministic ATPG: #uncollapsed_faults=14475, abort_limit=10...
+ 28          14404     63         3/2/6    99.41%      0.23
+ 35             49      0        17/2/6    99.85%      0.24
+ 
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT      14453
+ Possibly detected                PT          0
+ Undetectable                     UD         85
+ ATPG untestable                  AU         22
+ Not detected                     ND          0
+ -----------------------------------------------
+ total faults                             14560
+ test coverage                            99.85%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                          35
+     #basic_scan patterns                    35
+ -----------------------------------------------
+            CPU Usage Summary Report
+ -----------------------------------------------
+ Total CPU time                            0.24
+ -----------------------------------------------
+set_faults -summary verbose -fault_coverage
+ Warning: Unused gate deletion affects fault coverage calculation. (M245)
+report_summaries
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT      14453
+   detected_by_simulation         DS     (14453)
+ Possibly detected                PT          0
+ Undetectable                     UD         85
+   undetectable-tied              UT        (68)
+   undetectable-redundant         UR        (17)
+ ATPG untestable                  AU         22
+   atpg_untestable-not_detected   AN        (22)
+ Not detected                     ND          0
+ -----------------------------------------------
+ total faults                             14560
+ test coverage                            99.85%
+ fault coverage                           99.27%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                          35
+     #basic_scan patterns                    35
+ -----------------------------------------------
+exit

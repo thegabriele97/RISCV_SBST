@@ -1,0 +1,24 @@
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT        890
+   detected_by_simulation         DS       (890)
+ Possibly detected                PT          7
+   not_analyzed-pos_detected      NP         (7)
+ Undetectable                     UD          0
+ ATPG untestable                  AU        483
+   atpg_untestable-not_detected   AN       (483)
+ Not detected                     ND       4788
+   not-controlled                 NC      (2214)
+   not-observed                   NO      (2574)
+ -----------------------------------------------
+ total faults                              6168
+ test coverage                            14.49%
+ fault coverage                           14.49%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                          13
+     #full_sequential patterns               13
+ -----------------------------------------------
