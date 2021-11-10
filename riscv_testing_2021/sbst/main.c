@@ -19,6 +19,6 @@ int main(int argc, char *argv[])
     /* inline assembly */
     //asm volatile("ecall");
     /* write something to stdout */
-    printf("hello mondo world!\n");
+    /* printf("hello mondo world!\n"); */
     return EXIT_SUCCESS;
 }
