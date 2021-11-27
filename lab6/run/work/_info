@@ -7,12 +7,12 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 d/home/s281589/lab6/run
+d/home/s281589/lab6/run
 Eand3_gate
-Z1 w1636493487
-Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
-R0
+Z0 w1636493487
+Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z2 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z3 d/home/s281589/TestingFaultToleranceLabs/lab6/run
 Z4 8../pdt2002_sim.vhd
 Z5 F../pdt2002_sim.vhd
 l0
@@ -21,17 +21,17 @@ VQ?9A<SG>gGghCjm3bJ[L?0
 !s100 Z54bI5L6gZ=BYNjCk6CME1
 Z6 OL;C;10.5c_4;63
 33
-Z7 !s110 1636565327
+Z7 !s110 1636632125
 !i10b 1
-Z8 !s108 1636565327.000000
+Z8 !s108 1636632125.000000
 Z9 !s90 -2008|-suppress|1141|../pdt2002_sim.vhd|
 Z10 !s107 ../pdt2002_sim.vhd|
 !i113 0
 Z11 o-suppress 1141 -2008
 Z12 tExplicit 1 CvgOpt 0
 Abehav
+R1
 R2
-R3
 DEx4 work 9 and3_gate 0 22 Q?9A<SG>gGghCjm3bJ[L?0
 33
 R7
@@ -48,10 +48,10 @@ R10
 R11
 R12
 Eand4_gate
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -69,16 +69,16 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 9 and4_gate 0 22 H4`=63eFE1>oEe3Lkg9TM0
+33
+R7
 l319
 L318
 VjCIojk<[XOU;bb]JHj40H0
 !s100 bI5Q?=Ve;FjdDGHZH]V_?0
 R6
-33
-R7
 !i10b 1
 R8
 R9
@@ -87,10 +87,10 @@ R10
 R11
 R12
 Eand5_gate
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -108,16 +108,16 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 9 and5_gate 0 22 `KT1BL_[LRk=E2L[RH8ze3
+33
+R7
 l336
 L335
 VB4ZzT7jhHX67mj5;gh9JV3
 !s100 ^6JbGcQK`8gLg]U`e2Ah03
 R6
-33
-R7
 !i10b 1
 R8
 R9
@@ -126,10 +126,10 @@ R10
 R11
 R12
 Eand_gate
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -147,8 +147,8 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 8 and_gate 0 22 iiCnmNSR4LEj5Hhk2hmk51
 33
 R7
@@ -172,68 +172,198 @@ r1
 !i10b 1
 !s100 kgz7o3H6Xl4F`UXQZcN`[1
 IKV8_>5fzRM]f;Vm<XU[1=3
+R3
 R0
-R1
 8../b06_scan.v
 F../b06_scan.v
 L0 2
 Z14 OL;L;10.5c_4;63
-R8
+Z15 !s108 1636574320.000000
 !s107 ../b06_scan.v|
 !s90 ../b06_scan.v|
 !i113 0
-Z15 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-Z16 tCvgOpt 0
+Z16 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z17 tCvgOpt 0
 Eb06_testbench
-R1
-Z17 DPx4 ieee 16 std_logic_textio 0 22 V5TSK`;aJKC<l]CEg1>mz1
-Z18 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
-R3
-R2
-Z19 DPx3 std 3 env 0 22 d?`1ck@NdeD@H3RZG7FgZ2
 R0
-Z20 8../b06_testbench.vhd
-Z21 F../b06_testbench.vhd
+Z18 DPx4 ieee 16 std_logic_textio 0 22 V5TSK`;aJKC<l]CEg1>mz1
+Z19 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+R2
+R1
+Z20 DPx3 std 3 env 0 22 d?`1ck@NdeD@H3RZG7FgZ2
+R3
+Z21 8../b06_testbench.vhd
+Z22 F../b06_testbench.vhd
 l0
 L11
 V26cXON2h7gHQf_KFIEFEL2
 !s100 P_gQgQG8oYbghDUzHg[^Y2
 R6
 33
-R7
+Z23 !s110 1636574320
 !i10b 1
-R8
-Z22 !s90 -2008|-suppress|1141|../b06_testbench.vhd|
-Z23 !s107 ../b06_testbench.vhd|
+R15
+Z24 !s90 -2008|-suppress|1141|../b06_testbench.vhd|
+Z25 !s107 ../b06_testbench.vhd|
 !i113 0
 R11
 R12
 Atb
-R17
 R18
-R3
-R2
 R19
-Z24 DEx4 work 13 b06_testbench 0 22 26cXON2h7gHQf_KFIEFEL2
+R2
+R1
+R20
+Z26 DEx4 work 13 b06_testbench 0 22 26cXON2h7gHQf_KFIEFEL2
 33
-R7
+R23
 l60
 L15
 V]em:a8QgV`n_ZGf[3e1GW0
 !s100 c93@QBHEI0i707f=XNO5K3
 R6
 !i10b 1
+R15
+R24
+R25
+!i113 0
+R11
+R12
+vb10
+R13
+r1
+!s85 0
+31
+!i10b 1
+!s100 TafoXMg:^0?oGS4M2HLfS0
+IRT6k_Rci=3_`PLNUe9YA90
+R3
+R0
+8../b10.v
+F../b10.v
+L0 2
+R14
+Z27 !s108 1636582866.000000
+!s107 ../b10.v|
+!s90 ../b10.v|
+!i113 0
+R16
+R17
+Eb10_testbench
+R0
+R18
+R19
+R2
+R1
+R20
+R3
+Z28 8../b10_testbench.vhd
+Z29 F../b10_testbench.vhd
+l0
+L11
+V1I]l>Fd;CT6@;_`97?cSN1
+!s100 =:CM?Q]VeW8khz5W3lel12
+R6
+33
+Z30 !s110 1636582866
+!i10b 1
+R27
+Z31 !s90 -2008|-suppress|1141|../b10_testbench.vhd|
+Z32 !s107 ../b10_testbench.vhd|
+!i113 0
+R11
+R12
+Atb
+R18
+R19
+R2
+R1
+R20
+Z33 DEx4 work 13 b10_testbench 0 22 1I]l>Fd;CT6@;_`97?cSN1
+33
+R30
+l63
+L15
+V_:H<XRdezOWFmj:1dfH;h3
+!s100 O4Q_jefNGz4?z[h1<IO^Z2
+R6
+!i10b 1
+R27
+R31
+R32
+!i113 0
+R11
+R12
+vb12
+R13
+r1
+!s85 0
+31
+!i10b 1
+!s100 W4SaH2iJQlSN_7bSG6@C:2
+ImG`DSSahBgzHcSDAOYgGV1
+R3
+R0
+8../b12.v
+F../b12.v
+L0 2
+R14
 R8
-R22
-R23
+!s107 ../b12.v|
+!s90 ../b12.v|
+!i113 0
+R16
+R17
+Eb12_testbench
+Z34 w1636632066
+R18
+R19
+R2
+R1
+R20
+R3
+Z35 8../b12_testbench.vhd
+Z36 F../b12_testbench.vhd
+l0
+L11
+Vz36GeQCCKPHeR1jGR0VOO0
+!s100 5_E950S_zZSdKaZMlQJ7`0
+R6
+33
+R7
+!i10b 1
+R8
+Z37 !s90 -2008|-suppress|1141|../b12_testbench.vhd|
+Z38 !s107 ../b12_testbench.vhd|
+!i113 0
+R11
+R12
+Atb
+R18
+R19
+R2
+R1
+R20
+Z39 DEx4 work 13 b12_testbench 0 22 z36GeQCCKPHeR1jGR0VOO0
+33
+R7
+l57
+L15
+VLikhQ76@hkGMXQzQ=[gWz0
+!s100 6zVS5zQCL<z4cNA>zzdbX0
+R6
+!i10b 1
+R8
+R37
+R38
 !i113 0
 R11
 R12
 Ebuf_gate
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -251,8 +381,8 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 8 buf_gate 0 22 LiF`A7<z[[RSE8L1hB@O80
 l710
 L709
@@ -271,39 +401,101 @@ R12
 Ccfg_b06_testbench
 eb06_testbench
 atb
-DPx7 verilog 8 vl_types 0 22 bmGnzhS4n>6F^Dki9hX>O3
+Z40 DPx7 verilog 8 vl_types 0 22 bmGnzhS4n>6F^Dki9hX>O3
 DEx4 work 3 b06 0 22 Dg1SIo80bB@j0V0VzS_@n1
-DEx4 work 4 lfsr 0 22 Dg1SIo80bB@j0V0VzS_@n1
+Z41 DEx4 work 4 lfsr 0 22 Dg1SIo80bB@j0V0VzS_@n1
 DAx4 work 13 b06_testbench 2 tb 22 ]em:a8QgV`n_ZGf[3e1GW0
-R17
 R18
-R3
-R2
 R19
-R24
+R2
 R1
-R0
 R20
+R26
+R0
+R3
 R21
+R22
 l0
 L117
 Vk5VOY=Hgh]e0J6I6o=Y440
 !s100 >DPQXSgn?NYglPE;@74@J0
 R6
 33
+R23
+!i10b 1
+R15
+R24
+R25
+!i113 0
+R11
+R12
+Ccfg_b10_testbench
+eb10_testbench
+atb
+R40
+DEx4 work 3 b10 0 22 Dg1SIo80bB@j0V0VzS_@n1
+R41
+DAx4 work 13 b10_testbench 2 tb 22 _:H<XRdezOWFmj:1dfH;h3
+R18
+R19
+R2
+R1
+R20
+R33
+R0
+R3
+R28
+R29
+l0
+L124
+V5`1ZMiD11BzS^geYA?GfB1
+!s100 8=Zl?LKNYD:jI15A988R@2
+R6
+33
+R30
+!i10b 1
+R27
+R31
+R32
+!i113 0
+R11
+R12
+Ccfg_b12_testbench
+eb12_testbench
+atb
+R40
+DEx4 work 3 b12 0 22 Dg1SIo80bB@j0V0VzS_@n1
+R41
+DAx4 work 13 b12_testbench 2 tb 22 LikhQ76@hkGMXQzQ=[gWz0
+R18
+R19
+R2
+R1
+R20
+R39
+R34
+R3
+R35
+R36
+l0
+L116
+VI1i=46WgISg9^;`VK1HUh2
+!s100 ThQW4I5R]g>O`SF^93=c_1
+R6
+33
 R7
 !i10b 1
 R8
-R22
-R23
+R37
+R38
 !i113 0
 R11
 R12
 Eflip_flop_d
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -321,8 +513,8 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 11 flip_flop_d 0 22 HB^>M@g]_O?`jTXjKTJHc3
 l748
 L747
@@ -339,10 +531,10 @@ R10
 R11
 R12
 Eflip_flop_d_preset
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -360,8 +552,8 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 18 flip_flop_d_preset 0 22 2ac[CU^RVQW4Q3J0[LU3<3
 l847
 L846
@@ -378,10 +570,10 @@ R10
 R11
 R12
 Eflip_flop_d_preset_scan
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -399,8 +591,8 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 23 flip_flop_d_preset_scan 0 22 YzYLZO:jTO;i7Fam^]f^L0
 l872
 L871
@@ -417,10 +609,10 @@ R10
 R11
 R12
 Eflip_flop_d_reset
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -438,16 +630,16 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 17 flip_flop_d_reset 0 22 T9go?f@mIAe1RkzEmm:Lk2
+33
+R7
 l795
 L794
 VDk?:Nl<S<>QXM?:6C1?BV2
 !s100 :OzOGW@`T:L5D8NB;2EaR3
 R6
-33
-R7
 !i10b 1
 R8
 R9
@@ -456,10 +648,10 @@ R10
 R11
 R12
 Eflip_flop_d_reset_preset
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -477,8 +669,8 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 24 flip_flop_d_reset_preset 0 22 7@COE@8R^[?El=;;zb6;_1
 l900
 L899
@@ -495,10 +687,10 @@ R10
 R11
 R12
 Eflip_flop_d_reset_preset_scan
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -516,8 +708,8 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 29 flip_flop_d_reset_preset_scan 0 22 f^@J;76IZfmj==H[LhLPa0
 l929
 L928
@@ -534,10 +726,10 @@ R10
 R11
 R12
 Eflip_flop_d_reset_scan
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -555,16 +747,16 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 22 flip_flop_d_reset_scan 0 22 Yo:aEe]60Zf:gF_5=EU853
-33
-R7
 l820
 L819
 V[`Z@g1;fcVa7SP9bO;WWO1
 !s100 heXXUR^a`^FUfj0[3dmFz0
 R6
+33
+R7
 !i10b 1
 R8
 R9
@@ -573,10 +765,10 @@ R10
 R11
 R12
 Eflip_flop_d_scan
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -594,8 +786,8 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 16 flip_flop_d_scan 0 22 0dMk?0P5HD3EYmie]SMHA0
 l770
 L769
@@ -612,10 +804,10 @@ R10
 R11
 R12
 Pgate_lib
-R2
-R3
 R1
+R2
 R0
+R3
 R4
 R5
 l0
@@ -633,10 +825,10 @@ R10
 R11
 R12
 Einv_gate
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -654,8 +846,8 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 8 inv_gate 0 22 <VKcnGCNA^D3Ch[`O:LLE1
 33
 R7
@@ -672,10 +864,10 @@ R10
 R11
 R12
 Elatch_d
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -693,8 +885,8 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 7 latch_d 0 22 ZAblW[IRNScSVSP21j^3m3
 l728
 L727
@@ -718,8 +910,8 @@ r1
 !i10b 1
 !s100 ^l<99=]^E>aLe@mA^3IPc0
 If[hXRO@;De>:nJ531;[S93
+R3
 R0
-R1
 8../lfsr.v
 F../lfsr.v
 L0 6
@@ -728,13 +920,13 @@ R8
 !s107 ../lfsr.v|
 !s90 ../lfsr.v|
 !i113 0
-R15
 R16
+R17
 Enand3_gate
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -752,8 +944,8 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 10 nand3_gate 0 22 `H5mElYCeo;3^V85Z1ZQn2
 33
 R7
@@ -770,10 +962,10 @@ R10
 R11
 R12
 Enand4_gate
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -791,16 +983,16 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 10 nand4_gate 0 22 I7P6M4oSb17_aCcBI=Fm13
+33
+R7
 l387
 L386
 Vg4`@Oi<UWf=8:WPO^I[@V2
 !s100 ^ze09Yl]hYVcS`K35b4SO3
 R6
-33
-R7
 !i10b 1
 R8
 R9
@@ -809,10 +1001,10 @@ R10
 R11
 R12
 Enand5_gate
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -830,16 +1022,16 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 10 nand5_gate 0 22 cI?O7_DKn9VI5E?zk6gZB3
+33
+R7
 l404
 L403
 V]IC?zFfbj8Sifg;aJb2Jb2
 !s100 [W^kARaKTCFeZ`:^;3blH2
 R6
-33
-R7
 !i10b 1
 R8
 R9
@@ -848,10 +1040,10 @@ R10
 R11
 R12
 Enand_gate
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -869,8 +1061,8 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 9 nand_gate 0 22 4lSY995?E2Xi`>OPAGM`l1
 33
 R7
@@ -887,10 +1079,10 @@ R10
 R11
 R12
 Enor3_gate
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -908,8 +1100,8 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 9 nor3_gate 0 22 J68>i:c7hM`K;B1QC>9Ja0
 33
 R7
@@ -926,10 +1118,10 @@ R10
 R11
 R12
 Enor4_gate
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -947,16 +1139,16 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 9 nor4_gate 0 22 ?0Q]DE;IkN1TDIo:4zQgA0
+33
+R7
 l523
 L522
 V2do]Q:;oE7DlcS:1jUGLQ1
 !s100 BkN?@Oc1_78MA7TU[S[]`3
 R6
-33
-R7
 !i10b 1
 R8
 R9
@@ -965,10 +1157,10 @@ R10
 R11
 R12
 Enor5_gate
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -986,8 +1178,8 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 9 nor5_gate 0 22 5^4SV2aDB0BQA9kZeGk<C1
 l540
 L539
@@ -1004,10 +1196,10 @@ R10
 R11
 R12
 Enor_gate
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -1025,8 +1217,8 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 8 nor_gate 0 22 9Q_k6An0P3e^7:Cb7Hz>70
 33
 R7
@@ -1043,10 +1235,10 @@ R10
 R11
 R12
 Eor3_gate
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -1064,8 +1256,8 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 8 or3_gate 0 22 6hOSKmIQTn?DaPhlNFc@H2
 33
 R7
@@ -1082,10 +1274,10 @@ R10
 R11
 R12
 Eor4_gate
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -1103,16 +1295,16 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 8 or4_gate 0 22 DV<CLGUZBCiJnAJ[zCh??0
+33
+R7
 l455
 L454
 Vn_M`1IoF4FNEeIY9351HB3
 !s100 ^6OI9PVEl;0b_;8^]GAOl0
 R6
-33
-R7
 !i10b 1
 R8
 R9
@@ -1121,10 +1313,10 @@ R10
 R11
 R12
 Eor5_gate
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -1142,8 +1334,8 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 8 or5_gate 0 22 @glAQ9GE<o=N<jzon[b@[0
 l472
 L471
@@ -1160,10 +1352,10 @@ R10
 R11
 R12
 Eor_gate
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -1181,8 +1373,8 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 7 or_gate 0 22 9=h;nbE^C:]F3d<14R[I]1
 33
 R7
@@ -1199,10 +1391,10 @@ R10
 R11
 R12
 Ethree_state_buf_gate
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -1220,8 +1412,8 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 20 three_state_buf_gate 0 22 miVaznGPlIZI5L@62FT^S1
 l958
 L957
@@ -1238,10 +1430,10 @@ R10
 R11
 R12
 Exnor3_gate
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -1259,8 +1451,8 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 10 xnor3_gate 0 22 _<561L6HPY9ilH5=h1R<A2
 l642
 L641
@@ -1277,10 +1469,10 @@ R10
 R11
 R12
 Exnor4_gate
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -1298,8 +1490,8 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 10 xnor4_gate 0 22 4`7aNJWPd=1nUS@]7VVN?2
 l659
 L658
@@ -1316,10 +1508,10 @@ R10
 R11
 R12
 Exnor5_gate
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -1337,8 +1529,8 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 10 xnor5_gate 0 22 j3Qkob5MiZ3l`X8UGZ2UD1
 l676
 L675
@@ -1355,10 +1547,10 @@ R10
 R11
 R12
 Exnor_gate
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -1376,8 +1568,8 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 9 xnor_gate 0 22 i;SM7YdE3GUoJz<[G]l^o2
 l625
 L624
@@ -1394,10 +1586,10 @@ R10
 R11
 R12
 Exor3_gate
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -1415,8 +1607,8 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 9 xor3_gate 0 22 FX3cFm_<c7<[h>mghP<<z1
 l574
 L573
@@ -1433,10 +1625,10 @@ R10
 R11
 R12
 Exor4_gate
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -1454,8 +1646,8 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 9 xor4_gate 0 22 657?6F7V;PX9MGc0;P^dG2
 l591
 L590
@@ -1472,10 +1664,10 @@ R10
 R11
 R12
 Exor5_gate
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -1493,8 +1685,8 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 9 xor5_gate 0 22 RTA9MZUinLmCBUNfN7DIn0
 l608
 L607
@@ -1511,10 +1703,10 @@ R10
 R11
 R12
 Exor_gate
+R0
 R1
 R2
 R3
-R0
 R4
 R5
 l0
@@ -1532,8 +1724,8 @@ R10
 R11
 R12
 Abehav
+R1
 R2
-R3
 DEx4 work 8 xor_gate 0 22 i:@f2gYBmF9l0IzdnYYlM1
 l557
 L556

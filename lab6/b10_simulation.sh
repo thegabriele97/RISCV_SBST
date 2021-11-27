@@ -11,7 +11,7 @@ vlog ../lfsr.v
 vcom -2008 -suppress 1141 ../b10_testbench.vhd 
 
 # Invoke QuestaSim shell and run the TCL script
-#vsim -c -novopt work.b10_testbench -do ../b10_simulation_script.tcl  -wlf sim.wlf
+vsim -c -novopt work.b10_testbench -do ../b10_simulation_script.tcl  -wlf sim.wlf
 
 # Alternative: Invoke QuestaSim GUI
-vsim -novopt work.b10_testbench -do ../b10_wave.do -do ../b10_simulation_script.tcl  -wlf sim.wl
+# sim -novopt work.b10_testbench -do ../b10_wave.do -do ../b10_simulation_script.tcl  -wlf sim.wl

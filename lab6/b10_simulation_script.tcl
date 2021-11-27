@@ -1,3 +1,4 @@
 vcd dumpports /b10_testbench/dut/* -file b10_dumpports.vcd
-run 500 ns
-quit
+    run 10000100 ns
+    quit
+    
