@@ -3,6 +3,8 @@
 	.type _sbst_boot, @function
 
 _sbst_boot:
+
+    call _run_march_algorithm
 	//add sp, sp, 16		// this creates space in the stack
 
 	lui	a0, %hi(__TEST_DATA_START)
