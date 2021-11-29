@@ -4,9 +4,8 @@
 
 _march_LA:                          // Execution of the March LA algorithm - a0 contains the 000000000 pattern
     not a1, a0                      // Negated pattern that is stored in a0
-    la t0, RAM_LOCATION             // Load location that contains memory information
-	lw t1, 0*4(t0)                  // RAM starting location
-    lw t2, 1*4(t0)                  // RAM end location
+	la t1, __TEST_DATA_START        // RAM starting location
+    la t2, __RAM_DATA_END           // RAM end location
 
     m1:
         loop_m1:
@@ -14,9 +13,11 @@ _march_LA:                          // Execution of the March LA algorithm - a0 
             addi t1, t1, 4          // Add to reach new RAM location
         bne t1, t2, loop_m1         // Check if reached end location
     
-    m2:
-	    lw t1, 0*4(t0)              // RAM starting location
-        loop_m2:
+    m2:                                                         
+	    la t1, __TEST_DATA_START        // RAM starting location
+        la t2, __RAM_DATA_END           // RAM end location
+        addi t2, t2, -4   
+        loop_m2:                                
             lw t3, 0*4(t2)          // r0
             bne t3, a0, exit_error  // r0
             sw a1, 0*4(t2)          // w1
@@ -29,7 +30,9 @@ _march_LA:                          // Execution of the March LA algorithm - a0 
         bne t1, t2, loop_m2         // Check if reached end location
     
     m3:
-        lw t2, 1*4(t0)              // RAM end location
+	    la t1, __TEST_DATA_START        // RAM starting location
+        la t2, __RAM_DATA_END           // RAM end location
+        addi t2, t2, -4   
 	    loop_m3:
             lw t3, 0*4(t2)          // r1
             bne t3, a1, exit_error  // r1
@@ -43,7 +46,8 @@ _march_LA:                          // Execution of the March LA algorithm - a0 
         bne t1, t2, loop_m3         // Check if reached end location
         
     m4:
-        lw t2, 1*4(t0)              // RAM end location
+	    la t1, __TEST_DATA_START        // RAM starting location
+        la t2, __RAM_DATA_END           // RAM end location
 	    loop_m4:
             lw t3, 0*4(t1)          // r0
             bne t3, a0, exit_error  // r0
@@ -57,7 +61,8 @@ _march_LA:                          // Execution of the March LA algorithm - a0 
         bne t1, t2, loop_m4         // Check if reached end location
         
     m5:
-	    lw t1, 0*4(t0)              // RAM starting location
+	    la t1, __TEST_DATA_START        // RAM starting location
+        la t2, __RAM_DATA_END           // RAM end location
 	    loop_m5:
             lw t3, 0*4(t1)          // r1
             bne t3, a1, exit_error  // r1
@@ -71,7 +76,8 @@ _march_LA:                          // Execution of the March LA algorithm - a0 
         bne t1, t2, loop_m5         // Check if reached end location
         
     m6:
-	    lw t1, 0*4(t0)              // RAM starting location
+	    la t1, __TEST_DATA_START        // RAM starting location
+        la t2, __RAM_DATA_END           // RAM end location
 	    loop_m6:
             lw t3, 0*4(t1)          // r0
             bne t3, a0, exit_error  // r0
@@ -88,33 +94,50 @@ _march_LA:                          // Execution of the March LA algorithm - a0 
 ret
 
 
-_run_march_algorithm:                // C wrapper    
+_run_march_algorithm:                // Entry point    
     li a0, 0                         // First pattern  
     call _march_LA                  
     bne a0, x0, exit_test_error
 
-    la t0, RAM_LOCATION              // Load location that contains memory information
-    lw a0, 2*4(t0)                   // 2 pattern
+    or a0, x0, 0xFF                // 2 pattern
+    sll a0, a0, 8               
+    or a0, x0, 0xFF                
     call _march_LA                  
     bne a0, x0, exit_test_error
 
-    la t0, RAM_LOCATION             
-    lw a0, 3*4(t0)                   // 3 pattern
+    or a0, x0, 0xFF                // 3 pattern
+    sll a0, a0, 16               
+    or a0, x0, 0xFF               
     call _march_LA                  
     bne a0, x0, exit_test_error
 
-    la t0, RAM_LOCATION             
-    lw a0, 4*4(t0)                   // 4 pattern
+    or a0, x0, 0x0F                // 4 pattern
+    sll a0, a0, 8             
+    or a0, x0, 0x0F                
+    sll a0, a0, 8      
+    or a0, x0, 0x0F               
+    sll a0, a0, 8     
+    or a0, x0, 0x0F                
     call _march_LA                  
     bne a0, x0, exit_test_error
 
-    la t0, RAM_LOCATION             
-    lw a0, 5*4(t0)                   // 5 pattern
+    or a0, x0, 0x33                // 5 pattern
+    sll a0, a0, 8             
+    or a0, x0, 0x33                
+    sll a0, a0, 8      
+    or a0, x0, 0x33               
+    sll a0, a0, 8   
+    or a0, x0, 0x33   
     call _march_LA                  
     bne a0, x0, exit_test_error
 
-    la t0, RAM_LOCATION             
-    lw a0, 6*4(t0)                   // 6 pattern
+    or a0, x0, 0x55                // 6 pattern
+    sll a0, a0, 8             
+    or a0, x0, 0x55                
+    sll a0, a0, 8      
+    or a0, x0, 0x55               
+    sll a0, a0, 8   
+    or a0, x0, 0x55 
     call _march_LA                  
     bne a0, x0, exit_test_error
 
@@ -124,13 +147,3 @@ _run_march_algorithm:                // C wrapper
         li a0, 1
     exit_test:
     ret
-
-
-RAM_LOCATION:
-	.long 0x00200000                // RAM starting location
-	.long 0x00200040                // RAM end location - 0x00240000
-    .long 0x0000FFFF                
-    .long 0x00FF00FF
-    .long 0x0F0F0F0F
-    .long 0x33333333
-    .long 0x55555555

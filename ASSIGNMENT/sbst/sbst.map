@@ -1,21 +1,21 @@
 Archive member included to satisfy reference by file (symbol)
 
 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-atexit.o)
-                              /tmp/ccOtoupA.o (atexit)
+                              /tmp/ccgHFQ9j.o (atexit)
 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-exit.o)
-                              /tmp/ccOtoupA.o (exit)
+                              /tmp/ccgHFQ9j.o (exit)
 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-fini.o)
-                              /tmp/ccOtoupA.o (__libc_fini_array)
+                              /tmp/ccgHFQ9j.o (__libc_fini_array)
 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-impure.o)
                               /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-exit.o) (_global_impure_ptr)
 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-init.o)
-                              /tmp/ccOtoupA.o (__libc_init_array)
+                              /tmp/ccgHFQ9j.o (__libc_init_array)
 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-memset.o)
-                              /tmp/ccOtoupA.o (memset)
+                              /tmp/ccgHFQ9j.o (memset)
 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-puts.o)
-                              /tmp/ccLf3Dlv.o (puts)
+                              /tmp/ccVNooJl.o (puts)
 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-reent.o)
-                              /tmp/ccK45lBR.o (errno)
+                              /tmp/ccsfRcr0.o (errno)
 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-strlen.o)
                               /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-puts.o) (strlen)
 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-__atexit.o)
@@ -71,7 +71,6 @@ Allocating common symbols
 Common symbol       size              file
 
 errno               0x4               /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-reent.o)
-d                   0x4               /tmp/cc9IpaTd.o
 
 Memory Configuration
 
@@ -82,11 +81,12 @@ dataram          0x0000000000200000 0x0000000000040000 arwl
 
 Linker script and memory map
 
-LOAD /tmp/ccOtoupA.o
-LOAD /tmp/cc9IpaTd.o
-LOAD /tmp/ccK45lBR.o
-LOAD /tmp/ccLf3Dlv.o
-LOAD /tmp/ccagaf78.o
+LOAD /tmp/ccgHFQ9j.o
+LOAD /tmp/ccDDtXaF.o
+LOAD /tmp/ccsfRcr0.o
+LOAD /tmp/ccVNooJl.o
+LOAD /tmp/ccQEuY2G.o
+LOAD /tmp/ccXUd4n2.o
 LOAD /opt/riscv/riscv32-unknown-elf/lib/libc.a
 LOAD /opt/riscv/riscv32-unknown-elf/lib/libm.a
 LOAD /opt/riscv/lib/gcc/riscv32-unknown-elf/7.1.1/libgcc.a
@@ -101,153 +101,157 @@ LOAD /opt/riscv/lib/gcc/riscv32-unknown-elf/7.1.1/libgcc.a
 .vectors        0x0000000000000000       0x80
                 0x0000000000000000                PROVIDE (__vector_start, .)
  *(.vectors)
- .vectors       0x0000000000000000       0x80 /tmp/ccLf3Dlv.o
+ .vectors       0x0000000000000000       0x80 /tmp/ccVNooJl.o
 
-.init           0x0000000000000080       0x8a
+.init           0x0000000000000080       0x8c
  *(SORT(.init))
  *(.text.start)
- .text.start    0x0000000000000080       0x8a /tmp/ccOtoupA.o
+ .text.start    0x0000000000000080       0x8c /tmp/ccgHFQ9j.o
                 0x0000000000000080                _start
-                0x0000000000000108                _init
-                0x0000000000000108                _fini
+                0x000000000000010a                _init
+                0x000000000000010a                _fini
 
-.text           0x000000000000010a     0x1f0a
+.text           0x000000000000010c     0x203c
  *(.text.unlikely .text.*_unlikely .text.unlikely.*)
  *(.text.exit .text.exit.*)
  *(.text.startup .text.startup.*)
- .text.startup  0x000000000000010a       0x68 /tmp/cc9IpaTd.o
-                0x000000000000010a                main
+ .text.startup  0x000000000000010c        0x4 /tmp/ccDDtXaF.o
+                0x000000000000010c                main
  *(.text.hot .text.hot.*)
  *(.text .stub .text.* .gnu.linkonce.t.*)
- .text          0x0000000000000172        0x0 /tmp/ccOtoupA.o
- .text          0x0000000000000172        0x0 /tmp/cc9IpaTd.o
- .text          0x0000000000000172      0x194 /tmp/ccK45lBR.o
-                0x0000000000000172                unimplemented_syscall
-                0x000000000000018c                nanosleep
-                0x0000000000000198                _access
-                0x00000000000001a4                _chdir
-                0x00000000000001b0                _chmod
-                0x00000000000001bc                _chown
-                0x00000000000001c8                close
-                0x00000000000001cc                _execve
-                0x00000000000001d6                _exit
-                0x00000000000001e2                _faccessat
-                0x00000000000001ee                _fork
-                0x00000000000001f8                fstat
-                0x0000000000000200                _fstatat
-                0x000000000000020c                _ftime
-                0x0000000000000218                _getcwd
-                0x0000000000000224                _getpid
-                0x0000000000000228                _gettimeofday
-                0x0000000000000234                isatty
-                0x000000000000023c                _kill
-                0x0000000000000246                _link
-                0x0000000000000250                lseek
-                0x0000000000000254                _lstat
-                0x0000000000000260                _open
-                0x0000000000000264                _openat
-                0x0000000000000270                read
-                0x0000000000000274                _stat
-                0x000000000000027c                _sysconf
-                0x0000000000000280                _times
-                0x0000000000000284                _unlink
-                0x000000000000028e                _utime
-                0x000000000000029a                _wait
-                0x00000000000002a4                write
-                0x00000000000002ce                _brk
-                0x00000000000002d6                sbrk
- .text          0x0000000000000306        0x0 /tmp/ccLf3Dlv.o
- .text.vecs     0x0000000000000306       0x8c /tmp/ccLf3Dlv.o
- .text          0x0000000000000392      0x1ac /tmp/ccagaf78.o
-                0x0000000000000392                _sbst_boot
- .text          0x000000000000053e        0xa /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-atexit.o)
-                0x000000000000053e                atexit
- .text          0x0000000000000548       0x1a /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-exit.o)
-                0x0000000000000548                exit
- .text          0x0000000000000562       0x46 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-fini.o)
-                0x0000000000000562                __libc_fini_array
- .text          0x00000000000005a8        0x0 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-impure.o)
- .text          0x00000000000005a8       0x60 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-init.o)
-                0x00000000000005a8                __libc_init_array
- .text          0x0000000000000608       0xa8 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-memset.o)
-                0x0000000000000608                memset
- .text          0x00000000000006b0       0x78 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-puts.o)
-                0x00000000000006b0                _puts_r
-                0x0000000000000720                puts
- .text          0x0000000000000728       0xba /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-reent.o)
-                0x0000000000000728                cleanup_glue
-                0x0000000000000748                _reclaim_reent
- .text          0x00000000000007e2       0x12 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-strlen.o)
-                0x00000000000007e2                strlen
- .text          0x00000000000007f4       0x60 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-__atexit.o)
-                0x00000000000007f4                __register_exitproc
- .text          0x0000000000000854       0xaa /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-__call_atexit.o)
-                0x0000000000000854                __call_exitprocs
- .text          0x00000000000008fe      0x1d2 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-findfp.o)
-                0x0000000000000902                _cleanup_r
-                0x000000000000097a                __sfmoreglue
-                0x00000000000009c0                _cleanup
-                0x00000000000009c6                __sinit
-                0x0000000000000a14                __sfp
-                0x0000000000000aac                __sfp_lock_acquire
-                0x0000000000000aae                __sfp_lock_release
-                0x0000000000000ab0                __sinit_lock_acquire
-                0x0000000000000ab2                __sinit_lock_release
-                0x0000000000000ab4                __fp_lock_all
-                0x0000000000000ac2                __fp_unlock_all
- .text          0x0000000000000ad0      0x256 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-freer.o)
-                0x0000000000000ad0                _malloc_trim_r
-                0x0000000000000b88                _free_r
- .text          0x0000000000000d26      0x2d8 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-fvwrite.o)
-                0x0000000000000d26                __sfvwrite_r
- .text          0x0000000000000ffe       0xce /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-fwalk.o)
-                0x0000000000000ffe                _fwalk
-                0x0000000000001060                _fwalk_reent
- .text          0x00000000000010cc      0x48c /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-mallocr.o)
-                0x00000000000010cc                _malloc_r
- .text          0x0000000000001558       0x1a /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-memchr.o)
-                0x0000000000001558                memchr
- .text          0x0000000000001572       0xbe /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-memcpy.o)
-                0x0000000000001572                memcpy
- .text          0x0000000000001630       0x3e /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-memmove.o)
-                0x0000000000001630                memmove
- .text          0x000000000000166e        0x4 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-mlock.o)
-                0x000000000000166e                __malloc_lock
-                0x0000000000001670                __malloc_unlock
- .text          0x0000000000001672      0x38e /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-reallocr.o)
-                0x0000000000001672                _realloc_r
- .text          0x0000000000001a00       0x2c /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-sbrkr.o)
-                0x0000000000001a00                _sbrk_r
- .text          0x0000000000001a2c       0xbe /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-stdio.o)
-                0x0000000000001a2c                __sread
-                0x0000000000001a5c                __seofread
-                0x0000000000001a60                __swrite
-                0x0000000000001aae                __sseek
-                0x0000000000001ae4                __sclose
- .text          0x0000000000001aea       0x30 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-writer.o)
-                0x0000000000001aea                _write_r
- .text          0x0000000000001b1a       0xd8 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-wsetup.o)
-                0x0000000000001b1a                __swsetup_r
- .text          0x0000000000001bf2       0x2c /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-closer.o)
-                0x0000000000001bf2                _close_r
- .text          0x0000000000001c1e       0x94 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-fclose.o)
-                0x0000000000001c1e                _fclose_r
-                0x0000000000001caa                fclose
- .text          0x0000000000001cb2      0x1a6 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-fflush.o)
-                0x0000000000001cb2                __sflush_r
-                0x0000000000001e0e                _fflush_r
-                0x0000000000001e3e                fflush
- .text          0x0000000000001e58       0x30 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-lseekr.o)
-                0x0000000000001e58                _lseek_r
- .text          0x0000000000001e88      0x102 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-makebuf.o)
-                0x0000000000001e88                __swhatbuf_r
-                0x0000000000001eec                __smakebuf_r
- .text          0x0000000000001f8a       0x30 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-readr.o)
-                0x0000000000001f8a                _read_r
- .text          0x0000000000001fba       0x2e /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-fstatr.o)
-                0x0000000000001fba                _fstat_r
- .text          0x0000000000001fe8       0x2c /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-isattyr.o)
-                0x0000000000001fe8                _isatty_r
+ .text          0x0000000000000110        0x0 /tmp/ccgHFQ9j.o
+ .text          0x0000000000000110        0x0 /tmp/ccDDtXaF.o
+ .text          0x0000000000000110      0x194 /tmp/ccsfRcr0.o
+                0x0000000000000110                unimplemented_syscall
+                0x000000000000012a                nanosleep
+                0x0000000000000136                _access
+                0x0000000000000142                _chdir
+                0x000000000000014e                _chmod
+                0x000000000000015a                _chown
+                0x0000000000000166                close
+                0x000000000000016a                _execve
+                0x0000000000000174                _exit
+                0x0000000000000180                _faccessat
+                0x000000000000018c                _fork
+                0x0000000000000196                fstat
+                0x000000000000019e                _fstatat
+                0x00000000000001aa                _ftime
+                0x00000000000001b6                _getcwd
+                0x00000000000001c2                _getpid
+                0x00000000000001c6                _gettimeofday
+                0x00000000000001d2                isatty
+                0x00000000000001da                _kill
+                0x00000000000001e4                _link
+                0x00000000000001ee                lseek
+                0x00000000000001f2                _lstat
+                0x00000000000001fe                _open
+                0x0000000000000202                _openat
+                0x000000000000020e                read
+                0x0000000000000212                _stat
+                0x000000000000021a                _sysconf
+                0x000000000000021e                _times
+                0x0000000000000222                _unlink
+                0x000000000000022c                _utime
+                0x0000000000000238                _wait
+                0x0000000000000242                write
+                0x000000000000026c                _brk
+                0x0000000000000274                sbrk
+ .text          0x00000000000002a4        0x0 /tmp/ccVNooJl.o
+ .text.vecs     0x00000000000002a4       0x8c /tmp/ccVNooJl.o
+ .text          0x0000000000000330      0x1ac /tmp/ccQEuY2G.o
+                0x0000000000000330                _sbst_boot
+ .text          0x00000000000004dc        0x0 /tmp/ccXUd4n2.o
+ .text.run_march_algorithm
+                0x00000000000004dc      0x194 /tmp/ccXUd4n2.o
+                0x00000000000005ec                _run_march_algorithm
+ .text          0x0000000000000670        0xa /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-atexit.o)
+                0x0000000000000670                atexit
+ .text          0x000000000000067a       0x1a /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-exit.o)
+                0x000000000000067a                exit
+ .text          0x0000000000000694       0x46 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-fini.o)
+                0x0000000000000694                __libc_fini_array
+ .text          0x00000000000006da        0x0 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-impure.o)
+ .text          0x00000000000006da       0x60 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-init.o)
+                0x00000000000006da                __libc_init_array
+ .text          0x000000000000073a       0xa8 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-memset.o)
+                0x000000000000073a                memset
+ .text          0x00000000000007e2       0x78 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-puts.o)
+                0x00000000000007e2                _puts_r
+                0x0000000000000852                puts
+ .text          0x000000000000085a       0xba /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-reent.o)
+                0x000000000000085a                cleanup_glue
+                0x000000000000087a                _reclaim_reent
+ .text          0x0000000000000914       0x12 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-strlen.o)
+                0x0000000000000914                strlen
+ .text          0x0000000000000926       0x60 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-__atexit.o)
+                0x0000000000000926                __register_exitproc
+ .text          0x0000000000000986       0xaa /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-__call_atexit.o)
+                0x0000000000000986                __call_exitprocs
+ .text          0x0000000000000a30      0x1d2 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-findfp.o)
+                0x0000000000000a34                _cleanup_r
+                0x0000000000000aac                __sfmoreglue
+                0x0000000000000af2                _cleanup
+                0x0000000000000af8                __sinit
+                0x0000000000000b46                __sfp
+                0x0000000000000bde                __sfp_lock_acquire
+                0x0000000000000be0                __sfp_lock_release
+                0x0000000000000be2                __sinit_lock_acquire
+                0x0000000000000be4                __sinit_lock_release
+                0x0000000000000be6                __fp_lock_all
+                0x0000000000000bf4                __fp_unlock_all
+ .text          0x0000000000000c02      0x256 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-freer.o)
+                0x0000000000000c02                _malloc_trim_r
+                0x0000000000000cba                _free_r
+ .text          0x0000000000000e58      0x2d8 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-fvwrite.o)
+                0x0000000000000e58                __sfvwrite_r
+ .text          0x0000000000001130       0xce /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-fwalk.o)
+                0x0000000000001130                _fwalk
+                0x0000000000001192                _fwalk_reent
+ .text          0x00000000000011fe      0x48c /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-mallocr.o)
+                0x00000000000011fe                _malloc_r
+ .text          0x000000000000168a       0x1a /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-memchr.o)
+                0x000000000000168a                memchr
+ .text          0x00000000000016a4       0xbe /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-memcpy.o)
+                0x00000000000016a4                memcpy
+ .text          0x0000000000001762       0x3e /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-memmove.o)
+                0x0000000000001762                memmove
+ .text          0x00000000000017a0        0x4 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-mlock.o)
+                0x00000000000017a0                __malloc_lock
+                0x00000000000017a2                __malloc_unlock
+ .text          0x00000000000017a4      0x390 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-reallocr.o)
+                0x00000000000017a4                _realloc_r
+ .text          0x0000000000001b34       0x2c /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-sbrkr.o)
+                0x0000000000001b34                _sbrk_r
+ .text          0x0000000000001b60       0xbe /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-stdio.o)
+                0x0000000000001b60                __sread
+                0x0000000000001b90                __seofread
+                0x0000000000001b94                __swrite
+                0x0000000000001be2                __sseek
+                0x0000000000001c18                __sclose
+ .text          0x0000000000001c1e       0x30 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-writer.o)
+                0x0000000000001c1e                _write_r
+ .text          0x0000000000001c4e       0xd8 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-wsetup.o)
+                0x0000000000001c4e                __swsetup_r
+ .text          0x0000000000001d26       0x2c /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-closer.o)
+                0x0000000000001d26                _close_r
+ .text          0x0000000000001d52       0x94 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-fclose.o)
+                0x0000000000001d52                _fclose_r
+                0x0000000000001dde                fclose
+ .text          0x0000000000001de6      0x1a6 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-fflush.o)
+                0x0000000000001de6                __sflush_r
+                0x0000000000001f42                _fflush_r
+                0x0000000000001f72                fflush
+ .text          0x0000000000001f8c       0x30 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-lseekr.o)
+                0x0000000000001f8c                _lseek_r
+ .text          0x0000000000001fbc      0x102 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-makebuf.o)
+                0x0000000000001fbc                __swhatbuf_r
+                0x0000000000002020                __smakebuf_r
+ .text          0x00000000000020be       0x30 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-readr.o)
+                0x00000000000020be                _read_r
+ .text          0x00000000000020ee       0x2e /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-fstatr.o)
+                0x00000000000020ee                _fstat_r
+ .text          0x000000000000211c       0x2c /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-isattyr.o)
+                0x000000000000211c                _isatty_r
  *(.gnu.warning)
 
 .fini
@@ -256,13 +260,13 @@ LOAD /opt/riscv/lib/gcc/riscv32-unknown-elf/7.1.1/libgcc.a
                 [!provide]                        PROVIDE (_etext, .)
                 [!provide]                        PROVIDE (etext, .)
 
-.rodata         0x0000000000002014       0xdc
+.rodata         0x0000000000002148       0xdc
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  .rodata.str1.4
-                0x0000000000002014       0x23 /tmp/ccK45lBR.o
- .rodata        0x0000000000002037       0xb5 /tmp/ccLf3Dlv.o
+                0x0000000000002148       0x23 /tmp/ccsfRcr0.o
+ .rodata        0x000000000000216b       0xb5 /tmp/ccVNooJl.o
  .rodata.str1.4
-                0x00000000000020ec        0x4 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-puts.o)
+                0x0000000000002220        0x4 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-puts.o)
                                           0x2 (size before relaxing)
 
 .rodata1
@@ -281,7 +285,7 @@ LOAD /opt/riscv/lib/gcc/riscv32-unknown-elf/7.1.1/libgcc.a
 
 .gnu_extab
  *(.gnu_extab*)
-                0x00000000000030f0                . = DATA_SEGMENT_ALIGN (CONSTANT (MAXPAGESIZE), CONSTANT (COMMONPAGESIZE))
+                0x0000000000003224                . = DATA_SEGMENT_ALIGN (CONSTANT (MAXPAGESIZE), CONSTANT (COMMONPAGESIZE))
 
 .eh_frame
  *(.eh_frame)
@@ -296,7 +300,7 @@ LOAD /opt/riscv/lib/gcc/riscv32-unknown-elf/7.1.1/libgcc.a
 .exception_ranges
  *(.exception_ranges .exception_ranges*)
 
-.tdata          0x00000000000020f0        0x0
+.tdata          0x0000000000002224        0x0
                 [!provide]                        PROVIDE (__tdata_start, .)
  *(.tdata .tdata.* .gnu.linkonce.td.*)
 
@@ -304,22 +308,22 @@ LOAD /opt/riscv/lib/gcc/riscv32-unknown-elf/7.1.1/libgcc.a
  *(.tbss .tbss.* .gnu.linkonce.tb.*)
  *(.tcommon)
 
-.preinit_array  0x00000000000020f0        0x0
-                0x00000000000020f0                PROVIDE (__preinit_array_start, .)
+.preinit_array  0x0000000000002224        0x0
+                0x0000000000002224                PROVIDE (__preinit_array_start, .)
  *(.preinit_array)
-                0x00000000000020f0                PROVIDE (__preinit_array_end, .)
+                0x0000000000002224                PROVIDE (__preinit_array_end, .)
 
-.init_array     0x00000000000020f0        0x0
-                0x00000000000020f0                PROVIDE (__init_array_start, .)
+.init_array     0x0000000000002224        0x0
+                0x0000000000002224                PROVIDE (__init_array_start, .)
  *(SORT(.init_array.*) SORT(.ctors.*))
  *(.init_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .ctors)
-                0x00000000000020f0                PROVIDE (__init_array_end, .)
+                0x0000000000002224                PROVIDE (__init_array_end, .)
 
-.fini_array     0x00000000000020f0        0x0
-                0x00000000000020f0                PROVIDE (__fini_array_start, .)
+.fini_array     0x0000000000002224        0x0
+                0x0000000000002224                PROVIDE (__fini_array_start, .)
  *(SORT(.fini_array.*) SORT(.dtors.*))
  *(.fini_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .dtors)
-                0x00000000000020f0                PROVIDE (__fini_array_end, .)
+                0x0000000000002224                PROVIDE (__fini_array_end, .)
 
 .ctors
  *crtbegin.o(.ctors)
@@ -335,36 +339,39 @@ LOAD /opt/riscv/lib/gcc/riscv32-unknown-elf/7.1.1/libgcc.a
  *(SORT(.dtors.*))
  *(.dtors)
 
-.TEST_RODATA    0x00000000000020f0       0x14
-                0x00000000000020f0                __TEST_RODATA_START = .
+.TEST_RODATA    0x0000000000002230       0x14
+                0x0000000000002230                __TEST_RODATA_START = .
  *(.TEST_RODATA)
- .TEST_RODATA   0x00000000000020f0       0x14 /tmp/ccagaf78.o
-                0x0000000000002104                __TEST_RODATA_END = .
+ .TEST_RODATA   0x0000000000002230       0x14 /tmp/ccQEuY2G.o
+                0x0000000000002244                __TEST_RODATA_END = .
 
-.rela.dyn       0x0000000000002104        0x0
+.rela.dyn       0x0000000000002244        0x0
  .rela.text.start
-                0x0000000000002104        0x0 /tmp/ccOtoupA.o
- .rela.text     0x0000000000002104        0x0 /tmp/ccOtoupA.o
- .rela.sdata    0x0000000000002104        0x0 /tmp/ccOtoupA.o
+                0x0000000000002244        0x0 /tmp/ccgHFQ9j.o
+ .rela.text     0x0000000000002244        0x0 /tmp/ccgHFQ9j.o
+ .rela.sdata    0x0000000000002244        0x0 /tmp/ccgHFQ9j.o
  .rela.text.vecs
-                0x0000000000002104        0x0 /tmp/ccOtoupA.o
-                0x0000000000002104                . = DATA_SEGMENT_RELRO_END (., 0x0)
+                0x0000000000002244        0x0 /tmp/ccgHFQ9j.o
+ .rela.text.run_march_algorithm
+                0x0000000000002244        0x0 /tmp/ccgHFQ9j.o
+                0x0000000000002244                . = DATA_SEGMENT_RELRO_END (., 0x0)
 
 .TEST_DATA      0x0000000000200000       0x84
                 0x0000000000200000                __TEST_DATA_START = .
  *(.TEST_DATA)
- .TEST_DATA     0x0000000000200000       0x84 /tmp/ccagaf78.o
+ .TEST_DATA     0x0000000000200000       0x84 /tmp/ccQEuY2G.o
                 0x0000000000200000                test_result
                 0x0000000000200084                __TEST_DATA_END = .
 
 .data           0x0000000000200088      0x830
                 0x0000000000200088                __DATA_BEGIN__ = .
  *(.data .data.* .gnu.linkonce.d.*)
- .data          0x0000000000200088        0x0 /tmp/ccOtoupA.o
- .data          0x0000000000200088        0x0 /tmp/cc9IpaTd.o
- .data          0x0000000000200088        0x0 /tmp/ccK45lBR.o
- .data          0x0000000000200088        0x0 /tmp/ccLf3Dlv.o
- .data          0x0000000000200088        0x0 /tmp/ccagaf78.o
+ .data          0x0000000000200088        0x0 /tmp/ccgHFQ9j.o
+ .data          0x0000000000200088        0x0 /tmp/ccDDtXaF.o
+ .data          0x0000000000200088        0x0 /tmp/ccsfRcr0.o
+ .data          0x0000000000200088        0x0 /tmp/ccVNooJl.o
+ .data          0x0000000000200088        0x0 /tmp/ccQEuY2G.o
+ .data          0x0000000000200088        0x0 /tmp/ccXUd4n2.o
  .data          0x0000000000200088        0x0 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-atexit.o)
  .data          0x0000000000200088        0x0 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-exit.o)
  .data          0x0000000000200088        0x0 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-fini.o)
@@ -411,7 +418,7 @@ LOAD /opt/riscv/lib/gcc/riscv32-unknown-elf/7.1.1/libgcc.a
  *(.srodata.cst2)
  *(.srodata .srodata.*)
  *(.sdata .sdata.* .gnu.linkonce.s.*)
- .sdata         0x00000000002008b8        0x4 /tmp/ccK45lBR.o
+ .sdata         0x00000000002008b8        0x4 /tmp/ccsfRcr0.o
  .sdata         0x00000000002008bc        0x8 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-impure.o)
                 0x00000000002008bc                _global_impure_ptr
                 0x00000000002008c0                _impure_ptr
@@ -432,14 +439,15 @@ LOAD /opt/riscv/lib/gcc/riscv32-unknown-elf/7.1.1/libgcc.a
                 0x00000000002008d4                __malloc_top_pad
  *(.scommon)
 
-.bss            0x00000000002008d8       0x30
+.bss            0x00000000002008d8       0x2c
  *(.dynbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x00000000002008d8        0x0 /tmp/ccOtoupA.o
- .bss           0x00000000002008d8        0x0 /tmp/cc9IpaTd.o
- .bss           0x00000000002008d8        0x0 /tmp/ccK45lBR.o
- .bss           0x00000000002008d8        0x0 /tmp/ccLf3Dlv.o
- .bss           0x00000000002008d8        0x0 /tmp/ccagaf78.o
+ .bss           0x00000000002008d8        0x0 /tmp/ccgHFQ9j.o
+ .bss           0x00000000002008d8        0x0 /tmp/ccDDtXaF.o
+ .bss           0x00000000002008d8        0x0 /tmp/ccsfRcr0.o
+ .bss           0x00000000002008d8        0x0 /tmp/ccVNooJl.o
+ .bss           0x00000000002008d8        0x0 /tmp/ccQEuY2G.o
+ .bss           0x00000000002008d8        0x0 /tmp/ccXUd4n2.o
  .bss           0x00000000002008d8        0x0 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-atexit.o)
  .bss           0x00000000002008d8        0x0 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-exit.o)
  .bss           0x00000000002008d8        0x0 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-fini.o)
@@ -475,26 +483,24 @@ LOAD /opt/riscv/lib/gcc/riscv32-unknown-elf/7.1.1/libgcc.a
  .bss           0x0000000000200900        0x0 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-fstatr.o)
  .bss           0x0000000000200900        0x0 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-isattyr.o)
  *(COMMON)
- COMMON         0x0000000000200900        0x4 /tmp/cc9IpaTd.o
-                0x0000000000200900                d
- COMMON         0x0000000000200904        0x4 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-reent.o)
-                0x0000000000200904                errno
-                0x0000000000200908                . = ALIGN ((. != 0x0)?0x4:0x1)
-                0x0000000000200908                . = ALIGN (0x4)
-                0x0000000000200908                . = SEGMENT_START ("ldata-segment", .)
-                0x0000000000200908                . = ALIGN (0x4)
-                0x0000000000200908                __BSS_END__ = .
-                0x0000000000200908                __bss_end = .
+ COMMON         0x0000000000200900        0x4 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-reent.o)
+                0x0000000000200900                errno
+                0x0000000000200904                . = ALIGN ((. != 0x0)?0x4:0x1)
+                0x0000000000200904                . = ALIGN (0x4)
+                0x0000000000200904                . = SEGMENT_START ("ldata-segment", .)
+                0x0000000000200904                . = ALIGN (0x4)
+                0x0000000000200904                __BSS_END__ = .
+                0x0000000000200904                __bss_end = .
                 0x0000000000200888                __global_pointer$ = MIN ((__SDATA_BEGIN__ + 0x800), MAX ((__DATA_BEGIN__ + 0x800), (__BSS_END__ - 0x800)))
-                0x0000000000200908                _end = .
+                0x0000000000200904                _end = .
                 [!provide]                        PROVIDE (end, .)
-                0x0000000000200908                . = DATA_SEGMENT_END (.)
+                0x0000000000200904                . = DATA_SEGMENT_END (.)
 
-.heap           0x0000000000200908      0x400
-                0x0000000000200908                PROVIDE (__heap_start, .)
+.heap           0x0000000000200904      0x400
+                0x0000000000200904                PROVIDE (__heap_start, .)
                 0x0000000000000400                . = __heap_size
- *fill*         0x0000000000200908      0x400 
-                0x0000000000200d08                PROVIDE (__heap_end, .)
+ *fill*         0x0000000000200904      0x400 
+                0x0000000000200d04                PROVIDE (__heap_end, .)
 
 .stack          0x0000000000200d10      0x400
                 [!provide]                        PROVIDE (__stack_start, .)
@@ -502,6 +508,12 @@ LOAD /opt/riscv/lib/gcc/riscv32-unknown-elf/7.1.1/libgcc.a
  *fill*         0x0000000000200d10      0x400 
                 0x0000000000201110                PROVIDE (_sp, .)
                 [!provide]                        PROVIDE (__stack_end, .)
+
+.__RAM_DATA_END
+                0x0000000000201110        0x0
+                0x0000000000201110                __RAM_DATA_END = .
+ *(.RAM_DATA_END)
+                0x0000000000201110                __RAM_DATA_END = .
 
 .stab
  *(.stab)
@@ -523,9 +535,9 @@ LOAD /opt/riscv/lib/gcc/riscv32-unknown-elf/7.1.1/libgcc.a
 
 .comment        0x0000000000000000       0x1a
  *(.comment)
- .comment       0x0000000000000000       0x1a /tmp/cc9IpaTd.o
+ .comment       0x0000000000000000       0x1a /tmp/ccDDtXaF.o
                                          0x1b (size before relaxing)
- .comment       0x000000000000001a       0x1b /tmp/ccK45lBR.o
+ .comment       0x000000000000001a       0x1b /tmp/ccsfRcr0.o
  .comment       0x000000000000001a       0x1b /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-atexit.o)
  .comment       0x000000000000001a       0x1b /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-exit.o)
  .comment       0x000000000000001a       0x1b /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-fini.o)
@@ -562,15 +574,17 @@ LOAD /opt/riscv/lib/gcc/riscv32-unknown-elf/7.1.1/libgcc.a
 .Pulp_Chip.Info
                 0x0000000000000000       0x4e
  .Pulp_Chip.Info
-                0x0000000000000000       0x4e /tmp/ccOtoupA.o
+                0x0000000000000000       0x4e /tmp/ccgHFQ9j.o
  .Pulp_Chip.Info
-                0x000000000000004e        0x0 /tmp/cc9IpaTd.o
+                0x000000000000004e        0x0 /tmp/ccDDtXaF.o
  .Pulp_Chip.Info
-                0x000000000000004e        0x0 /tmp/ccK45lBR.o
+                0x000000000000004e        0x0 /tmp/ccsfRcr0.o
  .Pulp_Chip.Info
-                0x000000000000004e        0x0 /tmp/ccLf3Dlv.o
+                0x000000000000004e        0x0 /tmp/ccVNooJl.o
  .Pulp_Chip.Info
-                0x000000000000004e        0x0 /tmp/ccagaf78.o
+                0x000000000000004e        0x0 /tmp/ccQEuY2G.o
+ .Pulp_Chip.Info
+                0x000000000000004e        0x0 /tmp/ccXUd4n2.o
  .Pulp_Chip.Info
                 0x000000000000004e        0x0 /opt/riscv/riscv32-unknown-elf/lib/libc.a(lib_a-atexit.o)
  .Pulp_Chip.Info
@@ -650,62 +664,67 @@ LOAD /opt/riscv/lib/gcc/riscv32-unknown-elf/7.1.1/libgcc.a
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x0000000000000000       0xa8
+.debug_aranges  0x0000000000000000       0xc8
  *(.debug_aranges)
  .debug_aranges
-                0x0000000000000000       0x20 /tmp/ccOtoupA.o
+                0x0000000000000000       0x20 /tmp/ccgHFQ9j.o
  .debug_aranges
-                0x0000000000000020       0x20 /tmp/cc9IpaTd.o
+                0x0000000000000020       0x20 /tmp/ccDDtXaF.o
  .debug_aranges
-                0x0000000000000040       0x20 /tmp/ccK45lBR.o
+                0x0000000000000040       0x20 /tmp/ccsfRcr0.o
  .debug_aranges
-                0x0000000000000060       0x28 /tmp/ccLf3Dlv.o
+                0x0000000000000060       0x28 /tmp/ccVNooJl.o
  .debug_aranges
-                0x0000000000000088       0x20 /tmp/ccagaf78.o
+                0x0000000000000088       0x20 /tmp/ccQEuY2G.o
+ .debug_aranges
+                0x00000000000000a8       0x20 /tmp/ccXUd4n2.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0x1d72
+.debug_info     0x0000000000000000     0x1d9f
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x0000000000000000       0x5a /tmp/ccOtoupA.o
- .debug_info    0x000000000000005a      0x948 /tmp/cc9IpaTd.o
- .debug_info    0x00000000000009a2     0x1318 /tmp/ccK45lBR.o
- .debug_info    0x0000000000001cba       0x59 /tmp/ccLf3Dlv.o
- .debug_info    0x0000000000001d13       0x5f /tmp/ccagaf78.o
+ .debug_info    0x0000000000000000       0x67 /tmp/ccgHFQ9j.o
+ .debug_info    0x0000000000000067      0x8dc /tmp/ccDDtXaF.o
+ .debug_info    0x0000000000000943     0x1318 /tmp/ccsfRcr0.o
+ .debug_info    0x0000000000001c5b       0x66 /tmp/ccVNooJl.o
+ .debug_info    0x0000000000001cc1       0x6c /tmp/ccQEuY2G.o
+ .debug_info    0x0000000000001d2d       0x72 /tmp/ccXUd4n2.o
 
-.debug_abbrev   0x0000000000000000      0x54c
+.debug_abbrev   0x0000000000000000      0x539
  *(.debug_abbrev)
- .debug_abbrev  0x0000000000000000       0x14 /tmp/ccOtoupA.o
- .debug_abbrev  0x0000000000000014      0x1f0 /tmp/cc9IpaTd.o
- .debug_abbrev  0x0000000000000204      0x322 /tmp/ccK45lBR.o
- .debug_abbrev  0x0000000000000526       0x12 /tmp/ccLf3Dlv.o
- .debug_abbrev  0x0000000000000538       0x14 /tmp/ccagaf78.o
+ .debug_abbrev  0x0000000000000000       0x14 /tmp/ccgHFQ9j.o
+ .debug_abbrev  0x0000000000000014      0x1c9 /tmp/ccDDtXaF.o
+ .debug_abbrev  0x00000000000001dd      0x322 /tmp/ccsfRcr0.o
+ .debug_abbrev  0x00000000000004ff       0x12 /tmp/ccVNooJl.o
+ .debug_abbrev  0x0000000000000511       0x14 /tmp/ccQEuY2G.o
+ .debug_abbrev  0x0000000000000525       0x14 /tmp/ccXUd4n2.o
 
-.debug_line     0x0000000000000000      0xb3f
+.debug_line     0x0000000000000000      0xdc1
  *(.debug_line .debug_line.* .debug_line_end)
- .debug_line    0x0000000000000000      0x163 /tmp/ccOtoupA.o
- .debug_line    0x0000000000000163      0x13d /tmp/cc9IpaTd.o
- .debug_line    0x00000000000002a0      0x3f5 /tmp/ccK45lBR.o
- .debug_line    0x0000000000000695      0x1b2 /tmp/ccLf3Dlv.o
- .debug_line    0x0000000000000847      0x2f8 /tmp/ccagaf78.o
+ .debug_line    0x0000000000000000      0x169 /tmp/ccgHFQ9j.o
+ .debug_line    0x0000000000000169      0x103 /tmp/ccDDtXaF.o
+ .debug_line    0x000000000000026c      0x3f5 /tmp/ccsfRcr0.o
+ .debug_line    0x0000000000000661      0x1b2 /tmp/ccVNooJl.o
+ .debug_line    0x0000000000000813      0x2f8 /tmp/ccQEuY2G.o
+ .debug_line    0x0000000000000b0b      0x2b6 /tmp/ccXUd4n2.o
 
-.debug_frame    0x0000000000000000      0x260
+.debug_frame    0x0000000000000000      0x250
  *(.debug_frame)
- .debug_frame   0x0000000000000000       0x30 /tmp/cc9IpaTd.o
- .debug_frame   0x0000000000000030      0x230 /tmp/ccK45lBR.o
+ .debug_frame   0x0000000000000000       0x20 /tmp/ccDDtXaF.o
+ .debug_frame   0x0000000000000020      0x230 /tmp/ccsfRcr0.o
 
-.debug_str      0x0000000000000000      0x7a8
+.debug_str      0x0000000000000000      0x7b5
  *(.debug_str)
- .debug_str     0x0000000000000000      0x499 /tmp/cc9IpaTd.o
-                                        0x501 (size before relaxing)
- .debug_str     0x0000000000000499      0x30f /tmp/ccK45lBR.o
-                                        0x89f (size before relaxing)
+ .debug_str     0x0000000000000000      0x4a6 /tmp/ccDDtXaF.o
+                                        0x50e (size before relaxing)
+ .debug_str     0x00000000000004a6      0x30f /tmp/ccsfRcr0.o
+                                        0x8ac (size before relaxing)
 
-.debug_loc      0x0000000000000000      0x45b
+.debug_loc      0x0000000000000000      0x41b
  *(.debug_loc)
- .debug_loc     0x0000000000000000       0x61 /tmp/cc9IpaTd.o
- .debug_loc     0x0000000000000061      0x3fa /tmp/ccK45lBR.o
+ .debug_loc     0x0000000000000000       0x21 /tmp/ccDDtXaF.o
+ .debug_loc     0x0000000000000021      0x3fa /tmp/ccsfRcr0.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -727,8 +746,8 @@ LOAD /opt/riscv/lib/gcc/riscv32-unknown-elf/7.1.1/libgcc.a
 
 .debug_ranges   0x0000000000000000       0x30
  *(.debug_ranges)
- .debug_ranges  0x0000000000000000       0x10 /tmp/cc9IpaTd.o
- .debug_ranges  0x0000000000000010       0x20 /tmp/ccLf3Dlv.o
+ .debug_ranges  0x0000000000000000       0x10 /tmp/ccDDtXaF.o
+ .debug_ranges  0x0000000000000010       0x20 /tmp/ccVNooJl.o
 
 .debug_macro
  *(.debug_macro)

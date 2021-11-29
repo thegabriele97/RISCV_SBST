@@ -358,6 +358,12 @@ SECTIONS
    PROVIDE(__stack_end = .);
   } >dataram
 
+.__RAM_DATA_END         : ALIGN(16) 
+  {
+   __RAM_DATA_END = .;
+   *(.RAM_DATA_END)
+   __RAM_DATA_END = .;
+  } >dataram
 
   /* Stabs debugging sections.  */
   .stab          0 : { *(.stab) }
