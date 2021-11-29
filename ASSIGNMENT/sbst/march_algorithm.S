@@ -88,29 +88,32 @@ _march_LA:                          // Execution of the March LA algorithm - a0 
 ret
 
 
-_run_march_algorithm:                // C wrapper
-    la t0, RAM_LOCATION              // Load location that contains memory information
-    
+_run_march_algorithm:                // C wrapper    
     li a0, 0                         // First pattern  
     call _march_LA                  
     bne a0, x0, exit_test_error
 
+    la t0, RAM_LOCATION              // Load location that contains memory information
     lw a0, 2*4(t0)                   // 2 pattern
     call _march_LA                  
     bne a0, x0, exit_test_error
 
+    la t0, RAM_LOCATION             
     lw a0, 3*4(t0)                   // 3 pattern
     call _march_LA                  
     bne a0, x0, exit_test_error
 
+    la t0, RAM_LOCATION             
     lw a0, 4*4(t0)                   // 4 pattern
     call _march_LA                  
     bne a0, x0, exit_test_error
 
+    la t0, RAM_LOCATION             
     lw a0, 5*4(t0)                   // 5 pattern
     call _march_LA                  
     bne a0, x0, exit_test_error
 
+    la t0, RAM_LOCATION             
     lw a0, 6*4(t0)                   // 6 pattern
     call _march_LA                  
     bne a0, x0, exit_test_error
@@ -125,7 +128,7 @@ _run_march_algorithm:                // C wrapper
 
 RAM_LOCATION:
 	.long 0x00200000                // RAM starting location
-	.long 0x00240000                // RAM end location - 0x00240000
+	.long 0x00200040                // RAM end location - 0x00240000
     .long 0x0000FFFF                
     .long 0x00FF00FF
     .long 0x0F0F0F0F
