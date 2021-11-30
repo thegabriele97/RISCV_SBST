@@ -3,18 +3,20 @@
 .type _run_march_algorithm, @function
 
 _march_LA_test:
+    li x31, 2
     not a1, a0                      // Negated pattern that is stored in a0
-	la t1, __TEST_DATA_START        // RAM starting location
-    la t2, __TEST_DATA_START           // RAM end location
-    addi t2, t2, 8
+	la t1, __RAM_DATA_START        // RAM starting location
+    la t2, __RAM_DATA_END           // RAM end location
+    // addi t2, t2, 8
 
-
+    li x31, 3
     m12:
         loop_m12:
             sw a0, 0*4(t1)          // w0
             addi t1, t1, 4          // Add to reach new RAM location
-        bne t1, t2, loop_m12         // Check if reached end location
-ret
+        blt t1, t2, loop_m12         // Check if reached end location
+    li x31, 4
+    ret
 
 
 
@@ -112,9 +114,11 @@ ret
 
 
 _run_march_algorithm:                // Entry point    
+    li x31, 1
     add t4, x0, ra
     li a0, 0                         // First pattern  
     call _march_LA_test                  
+    li x31, 5
     bne a0, x0, exit_test_error
 
     //or a0, x0, 0xFF                // 2 pattern
@@ -166,4 +170,5 @@ _run_march_algorithm:                // Entry point
     exit_test:
 
     add ra, x0, t4
+    li x31, 6
     ret

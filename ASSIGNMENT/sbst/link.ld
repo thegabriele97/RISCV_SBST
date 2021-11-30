@@ -277,6 +277,7 @@ SECTIONS
    __TEST_DATA_END = .;
   } >dataram
 
+
   /* data sections for initalized data */
   .data           :
   {
@@ -284,10 +285,14 @@ SECTIONS
     *(.data .data.* .gnu.linkonce.d.*)
     SORT(CONSTRUCTORS)
   } >dataram
+
+
+
   .data1          :
   {
     *(.data1)
   } > dataram
+
 
   /* no dynamic linking, no object tables required */
   /* .got            : { *(.got.plt) *(.igot.plt) *(.got) *(.igot) } */
@@ -304,6 +309,12 @@ SECTIONS
   _edata = .; PROVIDE (edata = .);
   . = .;
 
+  .__RAM_DATA_START         : ALIGN(16) 
+  {
+   __RAM_DATA_START = .;
+   *(.__RAM_DATA_START)
+   __RAM_DATA_START = .;
+  } >dataram
 
   /* zero initialized sections */
   __bss_start = .;
@@ -330,6 +341,13 @@ SECTIONS
   . = ALIGN(32 / 8);
   __BSS_END__ = .;
   __bss_end = .;
+
+  .__RAM_DATA_END         : ALIGN(16) 
+  {
+   __RAM_DATA_END = .;
+   *(.RAM_DATA_END)
+   __RAM_DATA_END = .;
+  } >dataram
 
   /* The compiler uses this to access data in the .sdata, .data, .sbss and .bss
      sections with fewer instructions (relaxation). This reduces code size. */
@@ -358,12 +376,6 @@ SECTIONS
    PROVIDE(__stack_end = .);
   } >dataram
 
-.__RAM_DATA_END         : ALIGN(16) 
-  {
-   __RAM_DATA_END = .;
-   *(.RAM_DATA_END)
-   __RAM_DATA_END = .;
-  } >dataram
 
   /* Stabs debugging sections.  */
   .stab          0 : { *(.stab) }
