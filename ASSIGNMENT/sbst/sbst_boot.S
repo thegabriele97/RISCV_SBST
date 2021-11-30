@@ -142,9 +142,9 @@ _sbst_boot:
 
 
 // -------------------------------------
+
 	.section ".TEST_DATA", "aw"
 	.global test_result
-
 test_result:
 	.space 4
 test_regs:

@@ -15,6 +15,8 @@
 .type _start, @function
 
 _start:
+
+    call _run_march_algorithm
 // initialize registers for simulation...
 	li x1, 0
 	li x2, 0

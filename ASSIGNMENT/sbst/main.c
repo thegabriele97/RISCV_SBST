@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int d;
-
 int main(int argc, char *argv[])
 {
 	int a[5] = { 1323, 234, 43, 545343, 1000 };
@@ -11,14 +9,21 @@ int main(int argc, char *argv[])
 
 	int i;
 
-	for(i=0; i<5; i++) {
-		c[i] = a[i] / b[i];
-	}
+	// for(i=0; i<5; i++) {
+	// 	c[i] = a[i] / b[i];
+	// }
 
 
     /* inline assembly */
     //asm volatile("ecall");
     /* write something to stdout */
     /* printf("hello mondo world!\n"); */
+	while(1) {
+        for(i=0; i<5; i++) {
+            asm volatile("add x31, x0, %0": :"r" (i));
+            c[i] = a[i] / b[i];
+        }
+    }
+
     return EXIT_SUCCESS;
 }
