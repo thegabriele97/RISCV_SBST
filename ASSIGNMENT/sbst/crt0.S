@@ -16,7 +16,7 @@
 
 _start:
 
-    call _run_march_algorithm
+    //call _run_march_algorithm
 // initialize registers for simulation...
 	li x1, 0
 	li x2, 0
@@ -77,7 +77,8 @@ _start:
 	call __libc_init_array
 
 /* call boot-time software-based self-test */
-	call _sbst_boot
+    call _alu_test
+	//call _sbst_boot
 
 /* call main */
 	lw a0, 0(sp)                    /* a0 = argc */

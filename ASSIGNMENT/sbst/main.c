@@ -18,12 +18,12 @@ int main(int argc, char *argv[])
     //asm volatile("ecall");
     /* write something to stdout */
     /* printf("hello mondo world!\n"); */
-	while(1) {
+	//while(1) {
         for(i=0; i<5; i++) {
             asm volatile("add x31, x0, %0": :"r" (i));
             c[i] = a[i] / b[i];
         }
-    }
+    //}
 
     return EXIT_SUCCESS;
 }
