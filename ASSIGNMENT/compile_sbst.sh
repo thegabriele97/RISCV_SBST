@@ -6,4 +6,5 @@ cd - &>/dev/null
 
 cd ${root_dir}/sbst
 
+make clean
 make

@@ -2,11 +2,14 @@ PROGRAM_NAME = sbst
 
 RISCV                    ?= ~/.riscv
 RISCV_EXE_PREFIX         = $(RISCV)/bin/riscv32-unknown-elf-
+#RISCV_EXE_PREFIX         = ~/pulp/bin/riscv32-unknown-elf-
+#RISCV_EXE_PREFIX         = ~/ri5cy_gnu_toolchain/install/bin/riscv32-unknown-elf-
+
 
 all: $(PROGRAM_NAME).hex
 
 $(PROGRAM_NAME).elf: crt0.S main.c syscalls.c vectors.S sbst_boot.S march_algorithm.S alu.S
-	$(RISCV_EXE_PREFIX)gcc -march=rv32imc -o $@ -w -Os -g -nostdlib \
+	$(RISCV_EXE_PREFIX)gcc -march=rv32imfcxpulpv2 -o $@ -w -Os -g -nostdlib \
 		-Xlinker -Map=$(PROGRAM_NAME).map \
 		-T link.ld \
 		-static \
@@ -21,3 +24,5 @@ $(PROGRAM_NAME).elf: crt0.S main.c syscalls.c vectors.S sbst_boot.S march_algori
 clean:
 	rm -rf $(PROGRAM_NAME).elf $(PROGRAM_NAME).hex $(PROGRAM_NAME).map
 
+where:
+	which $(RISCV_EXE_PREFIX)gcc
