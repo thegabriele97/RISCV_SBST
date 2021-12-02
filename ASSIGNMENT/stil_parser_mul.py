@@ -4,20 +4,24 @@ import re, sys, io
 
 stil_filename = sys.argv[1]
 
-
 signals_bits = [
 	('clk', 1),
 	('rst_n', 1),
 	('enable_i', 1),
-	('operator_i', 7),
-	('operand_a_i', 32),
-	('operand_b_i', 32),
-	('operand_c_i', 32),
-	('vector_mode_i', 2),
+	('operator_i', 3),
+	('short_signed_i', 2),
+	('op_a_i', 32),
+	('op_b_i', 32),
+	('op_c_i', 32),
+	('imm_i', 5),
+	('dot_signed_i', 2),
+	('dot_op_a_i', 32),
+	('dot_op_b_i', 32),
+	('dot_op_c_i', 32),
+	('is_clpx_i', 1),
 	('bmask_a_i', 5),
 	('bmask_b_i', 5),
 	('imm_vec_ext_i', 2),
-	('is_clpx_i', 1),
 	('is_subrot_i', 1),
 	('clpx_shift_i', 2),
 	('ex_ready_i', 1)]

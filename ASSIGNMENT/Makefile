@@ -1,7 +1,8 @@
 .PHONY: zoix
 
 STIL := results/alu_atpg_seq.stil
-OUT_ASM := "/tmp/alu.S"
+OUT_ASM := "./tmp/alu.S"
+DST_ASM := "sbst/alu.S"
 OUT_NOTIM := "not_implemented.log" 
 
 parser:
@@ -11,9 +12,12 @@ parser:
 	@echo -n "Word Count '$(OUT_NOTIM)': "
 	@cat $(OUT_NOTIM) | wc -l
 
-zoix: build
+zoix: put_asm build
 	./run_gate_nogui.sh
 	./run_zoix_fsim.sh
 
 build:
 	./compile_sbst.sh
+
+put_asm:
+	./put_asm.py $(DST_ASM) $(OUT_ASM)
