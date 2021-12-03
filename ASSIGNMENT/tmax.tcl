@@ -6,10 +6,12 @@ set_messages -log tmax.log -replace
 read_netlist ../gate/NangateOpenCellLibrary.tlib -library
 read_netlist ../gate/riscv_core.v
 #run_build_model riscv_core_0_128_1_16_1_1_0_0_0_0_0_0_0_0_0_3_6_15_5_1a110800
-#run_build_model riscv_alu_SHARED_INT_DIV0_FPU0
-run_build_model riscv_mult_SHARED_DSP_MULT0
+run_build_model riscv_alu_SHARED_INT_DIV0_FPU0
+#run_build_model riscv_mult_SHARED_DSP_MULT0
 
-#add_pi_constraints 0 operator_i[6]
+#add_pi_constraints 1 rst_n
+#add_pi_constraints 1 enable_i_BAR
+add_pi_constraints 0 operator_i[6]
 
 run_drc
 
@@ -39,6 +41,6 @@ run_atpg -auto_compression
 set_faults -fault_coverage
 report_faults -level {5 100} > report_faults_hierarchy.txt
 report_faults -level {100 1} -verbose > report_faults_verbose.txt
-report_summaries > ../results/mul_atpg_seq_noconstraints_report_summaries.txt
+report_summaries > ../results/alu_atpg_seq_rst1_en1_op0_report_summaries.txt
 write_faults fsim_faults.txt -replace -all
-write_patterns ../results/mul_atpg_seq_noconstraints.stil -internal -format stil
+write_patterns ../results/alu_atpg_seq_rst1_en1_op0.stil -internal -format stil

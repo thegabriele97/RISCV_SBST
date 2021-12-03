@@ -1,6 +1,7 @@
 PROGRAM_NAME = sbst
 
 RISCV                    ?= ~/.riscv
+#RISCV                    = ~/pulp
 RISCV_EXE_PREFIX         = $(RISCV)/bin/riscv32-unknown-elf-
 #RISCV_EXE_PREFIX         = ~/pulp/bin/riscv32-unknown-elf-
 #RISCV_EXE_PREFIX         = ~/ri5cy_gnu_toolchain/install/bin/riscv32-unknown-elf-

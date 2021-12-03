@@ -119,7 +119,7 @@ sw t2, 4(sp)
 
 li t0, 0x4337f01
 li t1, 0x4337e23
-pv.cmpgeu.b t2, t0, t1
+pv.cmpgeu.sc.b t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x5f14e860
@@ -169,9 +169,18 @@ li t1, 0xef24528f
 and t2, t0, t1
 sw t2, 4(sp)
 
+li t0, 0xc5993104
+p.exths t2, t0
+p.extbs t2, t0
+sw t2, 4(sp)
+
 li t0, 0xd4a8295
 li t1, 0x554a8210
 p.adduN t2, t0, t1, 0x6
+sw t2, 4(sp)
+## -- ##
+li t2, 0xd4a8295
+p.adduNr t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x2b3afb71
@@ -230,10 +239,18 @@ li t0, 0xd35b6cca
 li t1, 0xd35b6cca
 p.adduN t2, t0, t1, 0xe
 sw t2, 4(sp)
+## -- ##
+li t2, 0xd35b6cca
+p.adduNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0xcf5675fb
 li t1, 0xb561d56
 p.subuN t2, t0, t1, 0x1
+sw t2, 4(sp)
+## -- ##
+li t2, 0xcf5675fb
+p.subuNr t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xc41c2f9e
@@ -284,13 +301,18 @@ li t1, 0xccffd47c
 pv.shuffle2.h t2, t0, t1
 sw t2, 4(sp)
 
+li t0, 0x3807fd7f
+p.exthz t2, t0
+p.extbz t2, t0
+sw t2, 4(sp)
+
 li t0, 0x4025aff
 p.clipu t2, t0, 0x8
 sw t2, 4(sp)
 
 li t0, 0xfc54212c
 li t1, 0xfc54082b
-pv.cmpeq.b t2, t0, t1
+pv.cmpeq.sc.b t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x51ee623b
@@ -305,6 +327,11 @@ sw t2, 4(sp)
 li t0, 0xb960b860
 li t1, 0xe45aea1e
 pv.shuffle.h t2, t0, t1
+sw t2, 4(sp)
+
+li t0, 0xba29c871
+p.exthz t2, t0
+p.extbz t2, t0
 sw t2, 4(sp)
 
 li t0, 0x72779541
@@ -334,6 +361,11 @@ li t1, 0x37c5ff45
 divu t2, t0, t1
 sw t2, 4(sp)
 
+li t0, 0x575b87f5
+p.exthz t2, t0
+p.extbz t2, t0
+sw t2, 4(sp)
+
 li t0, 0x7badc17a
 li t1, 0x78848e7b
 bge t0, t1, label_n_1
@@ -353,6 +385,10 @@ sw t2, 4(sp)
 li t0, 0x328a5402
 li t1, 0x3a3fa5a9
 p.subuRN t2, t0, t1, 0x2
+sw t2, 4(sp)
+## -- ##
+li t2, 0x328a5402
+p.subuRNr t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x1d6b02ab
@@ -404,7 +440,7 @@ sw t2, 4(sp)
 
 li t0, 0x2c6042d2
 li t1, 0x2c601949
-pv.cmpge.b t2, t0, t1
+pv.cmpge.sc.b t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x747e5e6d
@@ -455,7 +491,7 @@ sw t2, 4(sp)
 
 li t0, 0x9321e6ec
 li t1, 0x9321e6ec
-pv.cmpgt.h t2, t0, t1
+pv.cmpgt.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x1495a48e
@@ -474,7 +510,7 @@ sw t2, 4(sp)
 
 li t0, 0xed56f39a
 li t1, 0xed58f9a7
-pv.cmplt.h t2, t0, t1
+pv.cmplt.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xa9e42d04
@@ -525,7 +561,7 @@ sw t2, 4(sp)
 
 li t0, 0x8721fced
 li t1, 0xe3ae7d19
-pv.cmpleu.h t2, t0, t1
+pv.cmpleu.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xed60fa7e
@@ -533,13 +569,19 @@ li t1, 0xed60fb11
 pv.min.sc.h t2, t0, t1
 sw t2, 4(sp)
 
+li t2, 0x50f8b85d
 li t0, 0x6ed9fe5b
-p.insert t2, t0, 0x6, 0x1d
+li t1, 0x2ca803c6
+p.insertr t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x9dc5409
 li t1, 0x90260039
 p.subuN t2, t0, t1, 0xf
+sw t2, 4(sp)
+## -- ##
+li t2, 0x9dc5409
+p.subuNr t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xe093c805
@@ -582,6 +624,10 @@ sw t2, 4(sp)
 li t0, 0x4f971721
 li t1, 0x4f960e55
 p.subuN t2, t0, t1, 0x1d
+sw t2, 4(sp)
+## -- ##
+li t2, 0x4f971721
+p.subuNr t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xd14a49a7
@@ -634,10 +680,19 @@ li t0, 0xa22c1a26
 li t1, 0xa22d2a4e
 p.addRN t2, t0, t1, 0xb
 sw t2, 4(sp)
+## -- ##
+li t2, 0xa22c1a26
+p.addRNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0x8851c033
 li t1, 0x5cfa70d2
 pv.shuffle2.h t2, t0, t1
+sw t2, 4(sp)
+
+li t0, 0xb40ffdec
+p.exths t2, t0
+p.extbs t2, t0
 sw t2, 4(sp)
 
 li t0, 0x4df126b7
@@ -670,7 +725,7 @@ sw t2, 4(sp)
 
 li t0, 0x139ac036
 li t1, 0x13063ed6
-pv.cmple.b t2, t0, t1
+pv.cmple.sc.b t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xf5a56317
@@ -716,6 +771,11 @@ sw t2, 4(sp)
 li t0, 0x400001
 li t1, 0xa0a99b0d
 pv.or.sc.h t2, t0, t1
+sw t2, 4(sp)
+
+li t0, 0x4d15ad56
+p.exths t2, t0
+p.extbs t2, t0
 sw t2, 4(sp)
 
 li t0, 0xc40181a6
@@ -888,7 +948,7 @@ label_n_3:
 
 li t0, 0xad279da
 li t1, 0xb737758
-pv.cmpgt.h t2, t0, t1
+pv.cmpgt.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xd92afc81
@@ -988,6 +1048,10 @@ li t0, 0x8ed2fdfe
 li t1, 0x2df69627
 p.subRN t2, t0, t1, 0x1f
 sw t2, 4(sp)
+## -- ##
+li t2, 0x8ed2fdfe
+p.subRNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0x93ddbc9e
 li t1, 0xaff4f1f2
@@ -1007,6 +1071,10 @@ li t0, 0x50cebcf2
 li t1, 0xc06dc8ad
 p.subuRN t2, t0, t1, 0x7
 sw t2, 4(sp)
+## -- ##
+li t2, 0x50cebcf2
+p.subuRNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0x5c5c5d1
 p.cnt t2, t0
@@ -1015,6 +1083,10 @@ sw t2, 4(sp)
 li t0, 0xe381800
 li t1, 0x7bcc8da0
 p.subuRN t2, t0, t1, 0x14
+sw t2, 4(sp)
+## -- ##
+li t2, 0xe381800
+p.subuRNr t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x1ff606b8
@@ -1046,6 +1118,10 @@ li t0, 0x6ab70204
 li t1, 0xf1b5797f
 p.subRN t2, t0, t1, 0x14
 sw t2, 4(sp)
+## -- ##
+li t2, 0x6ab70204
+p.subRNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0x43c5e54b
 li t1, 0x5918fbda
@@ -1054,12 +1130,12 @@ sw t2, 4(sp)
 
 li t0, 0x9ad43f6
 li t1, 0x58762491
-pv.cmple.h t2, t0, t1
+pv.cmple.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xa5468f94
 li t1, 0x96327e52
-pv.cmpltu.b t2, t0, t1
+pv.cmpltu.sc.b t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xbddd717c
@@ -1089,7 +1165,7 @@ label_n_4:
 
 li t0, 0x56d6ed43
 li t1, 0x691bbcd0
-pv.cmpge.b t2, t0, t1
+pv.cmpge.sc.b t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xd060ba47
@@ -1103,7 +1179,7 @@ sw t2, 4(sp)
 
 li t0, 0xebec2086
 li t1, 0xe96590ce
-pv.cmpne.b t2, t0, t1
+pv.cmpne.sc.b t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x29cd91ce
@@ -1139,6 +1215,10 @@ li t0, 0xdd351af4
 li t1, 0xd62e0e53
 p.subuRN t2, t0, t1, 0x12
 sw t2, 4(sp)
+## -- ##
+li t2, 0xdd351af4
+p.subuRNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0xdac23023
 li t1, 0xdfed6fad
@@ -1158,10 +1238,14 @@ li t0, 0x1
 li t1, 0xa3fd86d2
 p.adduN t2, t0, t1, 0x1c
 sw t2, 4(sp)
+## -- ##
+li t2, 0x1
+p.adduNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0x92e80935
 li t1, 0x8703e014
-pv.cmpgeu.h t2, t0, t1
+pv.cmpgeu.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xd7e8705d
@@ -1171,6 +1255,11 @@ sw t2, 4(sp)
 li t0, 0xe1580ae9
 li t1, 0x388819fc
 p.sletu t2, t0, t1
+sw t2, 4(sp)
+
+li t0, 0x36b8d1dc
+p.exthz t2, t0
+p.extbz t2, t0
 sw t2, 4(sp)
 
 li t0, 0x1966cf51
@@ -1194,8 +1283,15 @@ bge t0, t1, label_n_6
 label_n_6:
     sw t2, 4(sp)
 
+li t0, 0xf787349e
+p.exthz t2, t0
+p.extbz t2, t0
+sw t2, 4(sp)
+
+li t2, 0x79a5a100
 li t0, 0x9b6add6f
-p.insert t2, t0, 0x1b, 0x0
+li t1, 0xc0529f7b
+p.insertr t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x94277b7
@@ -1211,7 +1307,7 @@ sw t2, 4(sp)
 
 li t0, 0xd7c8ecf7
 li t1, 0xa24ed833
-pv.cmpleu.h t2, t0, t1
+pv.cmpleu.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xae6f731d
@@ -1298,6 +1394,10 @@ li t0, 0xc49d1dc5
 li t1, 0x4ee90178
 p.subuRN t2, t0, t1, 0x1
 sw t2, 4(sp)
+## -- ##
+li t2, 0xc49d1dc5
+p.subuRNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0xb601a83e
 li t1, 0x8645780d
@@ -1307,6 +1407,10 @@ sw t2, 4(sp)
 li t0, 0x8c5aa7b1
 li t1, 0x3a92a655
 p.adduRN t2, t0, t1, 0x13
+sw t2, 4(sp)
+## -- ##
+li t2, 0x8c5aa7b1
+p.adduRNr t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xc4b26a23
@@ -1328,12 +1432,12 @@ sw t2, 4(sp)
 
 li t0, 0xe886aea0
 li t1, 0xf24adad9
-pv.cmpeq.h t2, t0, t1
+pv.cmpeq.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xdda1f702
 li t1, 0x4f8f30ba
-pv.cmplt.h t2, t0, t1
+pv.cmplt.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x3d9e6722
@@ -1360,10 +1464,18 @@ li t0, 0x434929f0
 li t1, 0xacc6680d
 p.addRN t2, t0, t1, 0x4
 sw t2, 4(sp)
+## -- ##
+li t2, 0x434929f0
+p.addRNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0x5acfd480
 li t1, 0xd2f423fd
 p.adduN t2, t0, t1, 0x1c
+sw t2, 4(sp)
+## -- ##
+li t2, 0x5acfd480
+p.adduNr t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xfcde7a4a
@@ -1375,6 +1487,10 @@ label_n_12:
 li t0, 0x10e1d16e
 li t1, 0xc2952d84
 p.adduRN t2, t0, t1, 0x1e
+sw t2, 4(sp)
+## -- ##
+li t2, 0x10e1d16e
+p.adduRNr t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x1b9a3068
@@ -1390,7 +1506,7 @@ label_n_13:
 
 li t0, 0x724bbd0e
 li t1, 0x89d606e
-pv.cmpgtu.h t2, t0, t1
+pv.cmpgtu.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x67153cab
@@ -1400,7 +1516,7 @@ sw t2, 4(sp)
 
 li t0, 0xb4b6621a
 li t1, 0xa9b28de0
-pv.cmple.h t2, t0, t1
+pv.cmple.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x17a0567a
@@ -1419,6 +1535,10 @@ sw t2, 4(sp)
 li t0, 0xa8e03062
 li t1, 0xaf7d5788
 p.subuN t2, t0, t1, 0x19
+sw t2, 4(sp)
+## -- ##
+li t2, 0xa8e03062
+p.subuNr t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x85d403b7
@@ -1457,10 +1577,14 @@ li t0, 0x78fe26ac
 li t1, 0xcdc8db84
 p.adduRN t2, t0, t1, 0xa
 sw t2, 4(sp)
+## -- ##
+li t2, 0x78fe26ac
+p.adduRNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0x203a702d
 li t1, 0xb34aa7ed
-pv.cmpge.h t2, t0, t1
+pv.cmpge.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x9188145f
@@ -1496,6 +1620,10 @@ li t0, 0x436a6186
 li t1, 0x4588988a
 p.addRN t2, t0, t1, 0x1a
 sw t2, 4(sp)
+## -- ##
+li t2, 0x436a6186
+p.addRNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0x2788a4e9
 li t1, 0xf8d4f5a
@@ -1529,7 +1657,7 @@ sw t2, 4(sp)
 
 li t0, 0x37bd54e0
 li t1, 0xcdf69af4
-pv.cmplt.h t2, t0, t1
+pv.cmplt.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x8678de2b
@@ -1541,6 +1669,10 @@ label_n_17:
 li t0, 0xc4a40220
 li t1, 0x6da1bdc8
 p.subuN t2, t0, t1, 0x1e
+sw t2, 4(sp)
+## -- ##
+li t2, 0xc4a40220
+p.subuNr t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x430d9fd9
@@ -1580,7 +1712,7 @@ sw t2, 4(sp)
 
 li t0, 0x6ae7746d
 li t1, 0x4aee79a9
-pv.cmple.b t2, t0, t1
+pv.cmple.sc.b t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x1ffe0123
@@ -1620,6 +1752,10 @@ li t0, 0x3d7845e7
 li t1, 0xc53aed32
 p.adduN t2, t0, t1, 0x1d
 sw t2, 4(sp)
+## -- ##
+li t2, 0x3d7845e7
+p.adduNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0x5b68eff2
 li t1, 0x37b8579c
@@ -1636,7 +1772,7 @@ sw t2, 4(sp)
 
 li t0, 0xe6fa4770
 li t1, 0x900e7760
-pv.cmpge.h t2, t0, t1
+pv.cmpge.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x7073c5b6
@@ -1658,17 +1794,17 @@ sw t2, 4(sp)
 
 li t0, 0x72fd0034
 li t1, 0x82e59168
-pv.cmpeq.b t2, t0, t1
+pv.cmpeq.sc.b t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xf6e62706
 li t1, 0x26416698
-pv.cmpltu.b t2, t0, t1
+pv.cmpltu.sc.b t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xf6a4471
 li t1, 0x271b6c98
-pv.cmpgtu.h t2, t0, t1
+pv.cmpgtu.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xea0dadeb
@@ -1728,12 +1864,12 @@ label_n_21:
 
 li t0, 0xfeb1135f
 li t1, 0x4107c216
-pv.cmpge.h t2, t0, t1
+pv.cmpge.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x34a5cd91
 li t1, 0xb274da65
-pv.cmpgtu.b t2, t0, t1
+pv.cmpgtu.sc.b t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x300c475e
@@ -1853,13 +1989,27 @@ li t1, 0xc643ad8b
 pv.sra.sc.b t2, t0, t1
 sw t2, 4(sp)
 
+li t0, 0xf9dc8dd9
+p.exths t2, t0
+p.extbs t2, t0
+sw t2, 4(sp)
+
 li t0, 0x20c76404
 li t1, 0x33962933
 p.adduN t2, t0, t1, 0x15
 sw t2, 4(sp)
+## -- ##
+li t2, 0x20c76404
+p.adduNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0x4c61ee64
 p.clip t2, t0, 0x3
+sw t2, 4(sp)
+
+li t0, 0xac0f6526
+p.exths t2, t0
+p.extbs t2, t0
 sw t2, 4(sp)
 
 li t0, 0x4c2c1610
@@ -1919,7 +2069,7 @@ sw t2, 4(sp)
 
 li t0, 0x1e275e4c
 li t1, 0xa07235fd
-pv.cmpeq.h t2, t0, t1
+pv.cmpeq.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x8bf7fc8d
@@ -1945,7 +2095,7 @@ sw t2, 4(sp)
 
 li t0, 0x94bc4cff
 li t1, 0xe583d115
-pv.cmpne.b t2, t0, t1
+pv.cmpne.sc.b t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x5f8459f4
@@ -1969,6 +2119,10 @@ li t0, 0x142f8caf
 li t1, 0xe35c5815
 p.adduRN t2, t0, t1, 0x19
 sw t2, 4(sp)
+## -- ##
+li t2, 0x142f8caf
+p.adduRNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0x450185d8
 li t1, 0x3251e3cc
@@ -1981,8 +2135,10 @@ li t1, 0xf50b6bfb
 sub t2, t0, t1
 sw t2, 4(sp)
 
+li t2, 0x9abfc15
 li t0, 0x1960a6e1
-p.insert t2, t0, 0x7, 0x15
+li t1, 0x6e7c2607
+p.insertr t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x908b8917
@@ -2029,6 +2185,15 @@ li t0, 0xd051995f
 li t1, 0x2242db79
 p.subRN t2, t0, t1, 0x9
 sw t2, 4(sp)
+## -- ##
+li t2, 0xd051995f
+p.subRNr t2, t0, t1
+sw t2, 4(sp)
+
+li t0, 0x591b25c5
+p.exthz t2, t0
+p.extbz t2, t0
+sw t2, 4(sp)
 
 li t0, 0x1826205
 pv.extractu.b t2, t0, 0x1
@@ -2037,6 +2202,10 @@ sw t2, 4(sp)
 li t0, 0x7de1f25b
 li t1, 0x63885a16
 p.addRN t2, t0, t1, 0x11
+sw t2, 4(sp)
+## -- ##
+li t2, 0x7de1f25b
+p.addRNr t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xc34d6750
@@ -2056,7 +2225,7 @@ sw t2, 4(sp)
 
 li t0, 0xe7193768
 li t1, 0x8fdaeec5
-pv.cmpge.b t2, t0, t1
+pv.cmpge.sc.b t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xb4363d07
@@ -2069,6 +2238,11 @@ sw t2, 4(sp)
 
 li t0, 0x99ed45ec
 p.ff1 t2, t0
+sw t2, 4(sp)
+
+li t0, 0xad708a15
+p.exthz t2, t0
+p.extbz t2, t0
 sw t2, 4(sp)
 
 li t0, 0x78adbd00
@@ -2121,7 +2295,7 @@ sw t2, 4(sp)
 
 li t0, 0x9cab0fc4
 li t1, 0xf06ed77d
-pv.cmplt.h t2, t0, t1
+pv.cmplt.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x7b69cbb3
@@ -2156,6 +2330,10 @@ li t0, 0xcdac1df2
 li t1, 0x9f074375
 p.subRN t2, t0, t1, 0x1e
 sw t2, 4(sp)
+## -- ##
+li t2, 0xcdac1df2
+p.subRNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0x5fe112c2
 li t1, 0x6ef07e7f
@@ -2187,7 +2365,7 @@ sw t2, 4(sp)
 
 li t0, 0x86bcdd3e
 li t1, 0x58b2ad94
-pv.cmplt.b t2, t0, t1
+pv.cmplt.sc.b t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x756f175b
@@ -2199,15 +2377,23 @@ li t0, 0x595fdfce
 li t1, 0xf14df823
 p.subuRN t2, t0, t1, 0x19
 sw t2, 4(sp)
+## -- ##
+li t2, 0x595fdfce
+p.subuRNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0x17fc3fbe
 li t1, 0x21bd36d4
-pv.cmplt.h t2, t0, t1
+pv.cmplt.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xcce46a5c
 li t1, 0x1e6d5b55
 p.subuN t2, t0, t1, 0x1
+sw t2, 4(sp)
+## -- ##
+li t2, 0xcce46a5c
+p.subuNr t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x7fb1215b
@@ -2232,7 +2418,7 @@ sw t2, 4(sp)
 
 li t0, 0x5000b5b9
 li t1, 0x1362c6e0
-pv.cmpgtu.b t2, t0, t1
+pv.cmpgtu.sc.b t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xb629ed0e
@@ -2270,7 +2456,7 @@ sw t2, 4(sp)
 
 li t0, 0x8872cad9
 li t1, 0xab50d743
-pv.cmpleu.h t2, t0, t1
+pv.cmpleu.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xef4ad26f
@@ -2300,7 +2486,7 @@ sw t2, 4(sp)
 
 li t0, 0xeb7d2a4a
 li t1, 0x74295fc8
-pv.cmpltu.b t2, t0, t1
+pv.cmpltu.sc.b t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xeb096275
@@ -2332,6 +2518,10 @@ label_n_28:
 li t0, 0xa12ceb90
 li t1, 0xadde4c2
 p.adduN t2, t0, t1, 0x15
+sw t2, 4(sp)
+## -- ##
+li t2, 0xa12ceb90
+p.adduNr t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x20f1c030
@@ -2387,13 +2577,23 @@ li t1, 0xc25297ce
 pv.shuffle2.b t2, t0, t1
 sw t2, 4(sp)
 
+li t0, 0x5b74c0a9
+p.exths t2, t0
+p.extbs t2, t0
+sw t2, 4(sp)
+
+li t0, 0xd8dac5a5
+p.exthz t2, t0
+p.extbz t2, t0
+sw t2, 4(sp)
+
 li t0, 0x645e36c2
 p.ff1 t2, t0
 sw t2, 4(sp)
 
 li t0, 0xc76e1c80
 li t1, 0xfdc6f381
-pv.cmple.h t2, t0, t1
+pv.cmple.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x9dc3da24
@@ -2458,7 +2658,7 @@ sw t2, 4(sp)
 
 li t0, 0x938b42fb
 li t1, 0x8792e39c
-pv.cmpgeu.h t2, t0, t1
+pv.cmpgeu.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xe52b0544
@@ -2471,7 +2671,7 @@ sw t2, 4(sp)
 
 li t0, 0x1a9988c4
 li t1, 0x5e082a49
-pv.cmpleu.h t2, t0, t1
+pv.cmpleu.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x4207d048
@@ -2491,7 +2691,7 @@ sw t2, 4(sp)
 
 li t0, 0x3b6a6152
 li t1, 0x2d7e296
-pv.cmpgtu.b t2, t0, t1
+pv.cmpgtu.sc.b t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xdc582615
@@ -2511,7 +2711,7 @@ sw t2, 4(sp)
 
 li t0, 0x63ba3099
 li t1, 0x34e28370
-pv.cmpgeu.h t2, t0, t1
+pv.cmpgeu.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xdc4671d2
@@ -2526,7 +2726,7 @@ label_n_33:
 
 li t0, 0x14454ffa
 li t1, 0xb2e1495d
-pv.cmpleu.h t2, t0, t1
+pv.cmpleu.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xf51d17e7
@@ -2599,17 +2799,21 @@ label_n_34:
 
 li t0, 0xdc697a71
 li t1, 0xfa794075
-pv.cmpne.h t2, t0, t1
+pv.cmpne.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x38d185fe
 li t1, 0x6f62f3d0
-pv.cmpleu.b t2, t0, t1
+pv.cmpleu.sc.b t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xa558c944
 li t1, 0x8fe2b260
 p.subuRN t2, t0, t1, 0x8
+sw t2, 4(sp)
+## -- ##
+li t2, 0xa558c944
+p.subuRNr t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xd80c9d
@@ -2643,7 +2847,7 @@ sw t2, 4(sp)
 
 li t0, 0x7f0c945b
 li t1, 0xc3dffe34
-pv.cmpgeu.b t2, t0, t1
+pv.cmpgeu.sc.b t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x18125b7b
@@ -2685,6 +2889,11 @@ li t0, 0x916c4cf3
 p.ff1 t2, t0
 sw t2, 4(sp)
 
+li t0, 0x169747d2
+p.exths t2, t0
+p.extbs t2, t0
+sw t2, 4(sp)
+
 li t0, 0x57fc2fbb
 pv.insert.b t2, t0, 0x0
 sw t2, 4(sp)
@@ -2708,10 +2917,18 @@ li t0, 0xca4e311d
 li t1, 0xf9a69dd6
 p.subuRN t2, t0, t1, 0xd
 sw t2, 4(sp)
+## -- ##
+li t2, 0xca4e311d
+p.subuRNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0xf664d80f
 li t1, 0xf9a66314
 p.addRN t2, t0, t1, 0xa
+sw t2, 4(sp)
+## -- ##
+li t2, 0xf664d80f
+p.addRNr t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xe22013c4
@@ -2763,6 +2980,10 @@ li t0, 0xed54e139
 li t1, 0x811dc047
 p.addRN t2, t0, t1, 0x11
 sw t2, 4(sp)
+## -- ##
+li t2, 0xed54e139
+p.addRNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0xa6285865
 p.clipu t2, t0, 0xc
@@ -2770,7 +2991,7 @@ sw t2, 4(sp)
 
 li t0, 0x173e1644
 li t1, 0x7f9720fc
-pv.cmpgtu.b t2, t0, t1
+pv.cmpgtu.sc.b t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xd55afd75
@@ -2795,7 +3016,7 @@ sw t2, 4(sp)
 
 li t0, 0x9a1986b
 li t1, 0xbbf75095
-pv.cmpgt.b t2, t0, t1
+pv.cmpgt.sc.b t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x4d18046b
@@ -2806,7 +3027,7 @@ label_n_37:
 
 li t0, 0x90df4855
 li t1, 0xd4443085
-pv.cmpleu.h t2, t0, t1
+pv.cmpleu.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xd964f905
@@ -2820,7 +3041,7 @@ sw t2, 4(sp)
 
 li t0, 0xf0b117cc
 li t1, 0xe1ea6c6c
-pv.cmplt.h t2, t0, t1
+pv.cmplt.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x200117e7
@@ -2846,6 +3067,10 @@ sw t2, 4(sp)
 li t0, 0x26af679c
 li t1, 0x1fb5c81f
 p.subuN t2, t0, t1, 0x0
+sw t2, 4(sp)
+## -- ##
+li t2, 0x26af679c
+p.subuNr t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x19f840fc
@@ -2884,7 +3109,7 @@ sw t2, 4(sp)
 
 li t0, 0x589fd333
 li t1, 0xd9ce7102
-pv.cmplt.h t2, t0, t1
+pv.cmplt.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x3ef91062
@@ -2914,6 +3139,10 @@ li t0, 0xcc926d90
 li t1, 0x1e1e858
 p.adduRN t2, t0, t1, 0x7
 sw t2, 4(sp)
+## -- ##
+li t2, 0xcc926d90
+p.adduRNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0x7a9b6edb
 li t1, 0x99e3ebb
@@ -2929,13 +3158,19 @@ li t0, 0x88e55ec8
 li t1, 0xc4332a99
 p.adduN t2, t0, t1, 0xd
 sw t2, 4(sp)
+## -- ##
+li t2, 0x88e55ec8
+p.adduNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0x50ee4131
 pv.extractu.b t2, t0, 0x0
 sw t2, 4(sp)
 
+li t2, 0xba4393c4
 li t0, 0xf75969fe
-p.insert t2, t0, 0x7, 0x4
+li t1, 0xb8daa7a7
+p.insertr t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x58d3d5aa
@@ -2966,10 +3201,18 @@ li t0, 0x771e5243
 li t1, 0x14965a
 p.adduN t2, t0, t1, 0x1f
 sw t2, 4(sp)
+## -- ##
+li t2, 0x771e5243
+p.adduNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0x8877f6ec
 li t1, 0x76d3ff7c
 p.addRN t2, t0, t1, 0x3
+sw t2, 4(sp)
+## -- ##
+li t2, 0x8877f6ec
+p.addRNr t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x8a7b5226
@@ -2991,19 +3234,28 @@ li t0, 0x4c91b788
 li t1, 0x4e8d488e
 p.addRN t2, t0, t1, 0x15
 sw t2, 4(sp)
+## -- ##
+li t2, 0x4c91b788
+p.addRNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0x2223e482
 li t1, 0xc21bba0
-pv.cmpne.h t2, t0, t1
+pv.cmpne.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xcde97ccd
 li t1, 0xaaec2ac8
-pv.cmpgt.b t2, t0, t1
+pv.cmpgt.sc.b t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xdd8de62
 p.clb t2, t0
+sw t2, 4(sp)
+
+li t0, 0xecd87120
+p.exthz t2, t0
+p.extbz t2, t0
 sw t2, 4(sp)
 
 li t0, 0xf8c035d9
@@ -3015,6 +3267,10 @@ li t0, 0x694645d1
 li t1, 0x1465e3d7
 p.subuN t2, t0, t1, 0x1f
 sw t2, 4(sp)
+## -- ##
+li t2, 0x694645d1
+p.subuNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0xa38c5d6b
 li t1, 0xa18c11ce
@@ -3023,7 +3279,7 @@ sw t2, 4(sp)
 
 li t0, 0x2c7b2597
 li t1, 0x8fd11b6e
-pv.cmpgtu.b t2, t0, t1
+pv.cmpgtu.sc.b t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xb3e9626b
@@ -3052,7 +3308,7 @@ label_n_39:
 
 li t0, 0x1b03e2a6
 li t1, 0x8cdd1317
-pv.cmpltu.h t2, t0, t1
+pv.cmpltu.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x60fcc500
@@ -3064,6 +3320,10 @@ label_n_40:
 li t0, 0x2c02b207
 li t1, 0x98464e96
 p.subuRN t2, t0, t1, 0x5
+sw t2, 4(sp)
+## -- ##
+li t2, 0x2c02b207
+p.subuRNr t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x67f1cfea
@@ -3083,7 +3343,7 @@ sw t2, 4(sp)
 
 li t0, 0xa6c3fb07
 li t1, 0xe31ff298
-pv.cmpgeu.b t2, t0, t1
+pv.cmpgeu.sc.b t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x4246d460
@@ -3104,6 +3364,11 @@ label_n_42:
 li t0, 0xfe70d289
 li t1, 0xe1afd5ac
 pv.maxu.sc.b t2, t0, t1
+sw t2, 4(sp)
+
+li t0, 0xb365488a
+p.exths t2, t0
+p.extbs t2, t0
 sw t2, 4(sp)
 
 li t0, 0xb75dd4a8
@@ -3133,10 +3398,18 @@ li t0, 0x2954b559
 li t1, 0x1800afe9
 p.addRN t2, t0, t1, 0xc
 sw t2, 4(sp)
+## -- ##
+li t2, 0x2954b559
+p.addRNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0xbf751451
 li t1, 0x5b732bc4
 p.addRN t2, t0, t1, 0x11
+sw t2, 4(sp)
+## -- ##
+li t2, 0xbf751451
+p.addRNr t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x3acb7476
@@ -3151,7 +3424,7 @@ sw t2, 4(sp)
 
 li t0, 0xffb55aab
 li t1, 0x559e261c
-pv.cmpgtu.h t2, t0, t1
+pv.cmpgtu.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x8c03085b
@@ -3162,7 +3435,7 @@ label_n_44:
 
 li t0, 0xaade1508
 li t1, 0x528818d2
-pv.cmpgtu.h t2, t0, t1
+pv.cmpgtu.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x3e70fb72
@@ -3191,7 +3464,7 @@ sw t2, 4(sp)
 
 li t0, 0x3ac0cd97
 li t1, 0xa9f0d12b
-pv.cmpltu.h t2, t0, t1
+pv.cmpltu.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x8648c92a
@@ -3290,6 +3563,11 @@ li t1, 0x8dba9644
 div t2, t0, t1
 sw t2, 4(sp)
 
+li t0, 0x714cd21d
+p.exthz t2, t0
+p.extbz t2, t0
+sw t2, 4(sp)
+
 li t0, 0x32e0a363
 p.clip t2, t0, 0x16
 sw t2, 4(sp)
@@ -3300,7 +3578,7 @@ sw t2, 4(sp)
 
 li t0, 0xef3e0671
 li t1, 0xbb5b688c
-pv.cmpge.b t2, t0, t1
+pv.cmpge.sc.b t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x26adaa42
@@ -3360,7 +3638,7 @@ sw t2, 4(sp)
 
 li t0, 0xe1a460b5
 li t1, 0x25e378a8
-pv.cmpgtu.h t2, t0, t1
+pv.cmpgtu.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x1a4a6454
@@ -3373,6 +3651,10 @@ li t0, 0x9c9c9f3c
 li t1, 0x84495457
 p.subuN t2, t0, t1, 0x1
 sw t2, 4(sp)
+## -- ##
+li t2, 0x9c9c9f3c
+p.subuNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0x4fda7a23
 li t1, 0xb4a76afc
@@ -3382,6 +3664,10 @@ sw t2, 4(sp)
 li t0, 0xa6d0f8e0
 li t1, 0x9eee7f9e
 p.subuRN t2, t0, t1, 0x17
+sw t2, 4(sp)
+## -- ##
+li t2, 0xa6d0f8e0
+p.subuRNr t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xeb66dd6c
@@ -3403,7 +3689,7 @@ label_n_50:
 
 li t0, 0x80ec607a
 li t1, 0x55f6510a
-pv.cmpeq.b t2, t0, t1
+pv.cmpeq.sc.b t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x64186670
@@ -3491,6 +3777,10 @@ li t0, 0x920d619a
 li t1, 0x5e1e0256
 p.subRN t2, t0, t1, 0xe
 sw t2, 4(sp)
+## -- ##
+li t2, 0x920d619a
+p.subRNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0xb7a2c411
 li t1, 0x6dda5d15
@@ -3504,7 +3794,7 @@ sw t2, 4(sp)
 
 li t0, 0xd0d66389
 li t1, 0x98de3c6
-pv.cmpltu.b t2, t0, t1
+pv.cmpltu.sc.b t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xe2cf6c2f
@@ -3538,9 +3828,18 @@ li t1, 0xaf7a2ab5
 pv.sll.sc.h t2, t0, t1
 sw t2, 4(sp)
 
+li t0, 0xd1695bb2
+p.exths t2, t0
+p.extbs t2, t0
+sw t2, 4(sp)
+
 li t0, 0xa007a583
 li t1, 0x7e8f75b2
 p.subuN t2, t0, t1, 0x1
+sw t2, 4(sp)
+## -- ##
+li t2, 0xa007a583
+p.subuNr t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0xd807b005
@@ -3574,6 +3873,10 @@ li t0, 0x66324e0e
 li t1, 0xbec9317f
 p.subuN t2, t0, t1, 0x12
 sw t2, 4(sp)
+## -- ##
+li t2, 0x66324e0e
+p.subuNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0x402ceff3
 li t1, 0xc363788d
@@ -3599,14 +3902,24 @@ li t0, 0x9b785a53
 li t1, 0x109359a1
 p.adduRN t2, t0, t1, 0x10
 sw t2, 4(sp)
+## -- ##
+li t2, 0x9b785a53
+p.adduRNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0x64d76e5f
 li t1, 0xb8f480f5
 p.subuN t2, t0, t1, 0x11
 sw t2, 4(sp)
+## -- ##
+li t2, 0x64d76e5f
+p.subuNr t2, t0, t1
+sw t2, 4(sp)
 
+li t2, 0x15653320
 li t0, 0x25ea8220
-p.insert t2, t0, 0x1a, 0x0
+li t1, 0xb8e3e33a
+p.insertr t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x5c434c18
@@ -3654,6 +3967,10 @@ li t0, 0xa89a7c7e
 li t1, 0x560dd232
 p.subuN t2, t0, t1, 0x6
 sw t2, 4(sp)
+## -- ##
+li t2, 0xa89a7c7e
+p.subuNr t2, t0, t1
+sw t2, 4(sp)
 
 li t0, 0x6ca647c7
 li t1, 0x4d923334
@@ -3680,7 +3997,7 @@ sw t2, 4(sp)
 
 li t0, 0xba3bff1b
 li t1, 0x8d1ad0ee
-pv.cmpne.h t2, t0, t1
+pv.cmpne.sc.h t2, t0, t1
 sw t2, 4(sp)
 
 li t0, 0x1b96bb34

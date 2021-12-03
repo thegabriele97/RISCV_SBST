@@ -39,10 +39,6 @@ instr2operands = {
     '0100111' : ['sll', 'sll', 'pv.sll.sc.h', 'pv.sll.sc.b'],
 
 
-    # sign-/zero-extensions
-    #'0111110' : 'exts',
-    #'0111111' : 'ext',
-
 
     # set lower than operations
     '0000010' : 'slt',
@@ -50,6 +46,8 @@ instr2operands = {
     '0000110' : 'p.slet',
     '0000111' : 'p.sletu',
 
+	# bit manipulation
+    '0101010' : ['p.insertr', 'p.insertr', '', ''],
 
     # insert/extract
     #'0101101' : 'ins',
@@ -71,6 +69,11 @@ instr2operands = {
     '0111000' : ['pv.pack.h', 'pv.packlo.b', 'pv.pack.h', 'pv.packlo.b'],
     '0111001' : ['pv.pack.h', 'pv.packhi.b', 'pv.pack.h', 'pv.packhi.b'],
 
+    
+}
+
+instr2float = {
+
     # fpu
     #'1111111' : 'fkeep',   # hack, to support fcvt.s.d
     #'1000000' : 'fsgnj',
@@ -79,10 +82,10 @@ instr2operands = {
     #'1000011' : 'feq',
     #'1000100' : 'flt',
     #'1000101' : 'fle',
-    #'1000110' : 'fmax',
+    #'1000110' : 'fmax.s',
     #'1000111' : 'fmin',
     #'1001000' : 'fclass'
-    
+
 }
 
 instr2branch = {
@@ -115,6 +118,10 @@ instr2branch = {
 
 instr2single = {
 
+    # sign-/zero-extensions
+    '0111110' : ['p.exths', 'p.extbs'],
+    '0111111' : ['p.exthz', 'p.extbz'],
+
     # bit counting
     '0110110' : 'p.ff1',
     '0110111' : 'p.fl1',
@@ -136,12 +143,12 @@ inst2shortimm = {
 
 inst2triple = {
 
-    '0011010' : 'p.adduN',
-    '0011011' : 'p.subuN',
-    '0011100' : 'p.addRN',
-    '0011101' : 'p.subRN',
-    '0011110' : 'p.adduRN',
-    '0011111' : 'p.subuRN',
+    '0011010' : ['p.adduN', 'p.adduNr'], # p.adduN, adduNr
+    '0011011' : ['p.subuN', 'p.subuNr'], # p.subuN, subuNr
+    '0011100' : ['p.addRN', 'p.addRNr'], # p.addRN, addRNr
+    '0011101' : ['p.subRN', 'p.subRNr'], # p.subRN, subRNr
+    '0011110' : ['p.adduRN', 'p.adduRNr'],# p.adduRN, adduRNr
+    '0011111' : ['p.subuRN', 'p.subuRNr'] # p.subuRN, subuRNr
 
 }
 
@@ -151,7 +158,7 @@ inst2triple_2imm = {
     #'1001001' : 'brev',
     '0101000' : ['p.extract', 'p.extract', 'pv.extract.h', 'pv.extract.b'],
     '0101001' : ['p.extractu', 'p.extractu', 'pv.extractu.h', 'pv.extractu.b'],
-    '0101010' : ['p.insert', 'p.insert', 'pv.insert.h', 'pv.insert.b'],
+    '0101010' : ['', '', 'pv.insert.h', 'pv.insert.b'],
     '0101100' : 'p.bset',
     '0101011' : 'p.bclr',
 
@@ -174,9 +181,11 @@ with open(stil_filename) as stil_file:
 
 		#print("//op: {}, {}".format(pi['operator_i'], pi['vector_mode_i']));
 		is_it = pi['operator_i'] in instr2branch.keys() and int(pi['vector_mode_i'], 2) > 1
+		is_it2 = pi['operator_i'] in instr2operands.keys() and pi['operator_i'] in inst2triple_2imm.keys() and int(pi['vector_mode_i'], 2) < 2
+		is_it3 = pi['operator_i'] in instr2operands.keys() and not pi['operator_i'] in inst2triple_2imm.keys()
 		print_ln = True
 
-		if is_it or pi['operator_i'] in instr2operands.keys():
+		if is_it or is_it2 or is_it3:
 			if not is_it:
 				instr = instr2operands[pi['operator_i']]
 			else:
@@ -185,6 +194,10 @@ with open(stil_filename) as stil_file:
 			if isinstance (instr, list):
 				instr = instr[int(pi['vector_mode_i'], 2)]
 				
+			if is_it2:
+				rs3 = hex(int(pi['operand_c_i'],2))
+				print('li t2, {}'.format(rs3))
+			
 			rs1 = hex(int(pi['operand_a_i'],2))
 			rs2 = hex(int(pi['operand_b_i'],2))
 			print('li t0, {}'.format(rs1))
@@ -202,15 +215,35 @@ with open(stil_filename) as stil_file:
 			print('    sw t2, 4(sp)')
 
 			label_n += 1
+		elif pi['operator_i'] in instr2float.keys():
+			instr = instr2float[pi['operator_i']]
+
+			rs1 = hex(int(pi['operand_a_i'],2))
+			rs2 = hex(int(pi['operand_b_i'],2))
+			print('li t0, {}'.format(rs1))
+			print('li t1, {}'.format(rs2))
+			print('fmv.s.x f0, t0');
+			print('fmv.s.x f1, t1');
+			print('{} f2, f0, f1'.format(instr))
+			print('fmv.x.s t2, f2');
+			print('sw t2, 4(sp)')
+
 		elif pi['operator_i'] in instr2single.keys():
 			instr = instr2single[pi['operator_i']]
 
 			if isinstance (instr, list):
-				instr = instr[int(pi['vector_mode_i'], 2)]
+				if instr[0] == "p.abs":
+					instr = instr[int(pi['vector_mode_i'], 2)]
 				
 			rs1 = hex(int(pi['operand_a_i'],2))
 			print('li t0, {}'.format(rs1))
-			print('{} t2, t0'.format(instr))
+
+			if isinstance (instr, list) and instr[0][0:5] == "p.ext":
+				for s_instr in instr:
+					print('{} t2, t0'.format(s_instr))
+			else:
+				print('{} t2, t0'.format(instr))
+			
 			print('sw t2, 4(sp)')
 
 		elif pi['operator_i'] in inst2shortimm.keys():
@@ -222,13 +255,22 @@ with open(stil_filename) as stil_file:
 			print('sw t2, 4(sp)')
 
 		elif pi['operator_i'] in inst2triple.keys():
-			instr = inst2triple[pi['operator_i']]
+			instr = inst2triple[pi['operator_i']][0]
 			rs1 = hex(int(pi['operand_a_i'],2))
 			rs2 = hex(int(pi['operand_b_i'],2))
 			rs3 = hex(int(pi['operand_c_i'],2) & 0x1f)
 			print('li t0, {}'.format(rs1))
 			print('li t1, {}'.format(rs2))
 			print('{} t2, t0, t1, {}'.format(instr, rs3))
+			print('sw t2, 4(sp)')
+
+			print("## -- ##")
+			instr = inst2triple[pi['operator_i']][1]
+			rs1 = hex(int(pi['operand_a_i'],2))
+			rs2 = hex(int(pi['operand_b_i'],2))
+			rs3 = hex(int(pi['operand_c_i'],2))
+			print('li t2, {}'.format(rs1))
+			print('{} t2, t0, t1'.format(instr))
 			print('sw t2, 4(sp)')
 
 		elif pi['operator_i'] in inst2triple_2imm.keys():
