@@ -1026,6 +1026,165 @@ RF_m3_MATS:  #r1 w0 r0
 ret
 
 
+_stupid_march:
+    la t0, return_addr
+    sw ra, 0*4(t0)
+    la t0, march_pattern
+    lw t0, 0*4(t0)
+
+    #w1
+        la t0, march_pattern
+        lw t0, 0*4(t0)
+        not t0, t0
+        add x1, x0, t0
+        add x2, x0, t0
+        add x3, x0, t0
+        add x4, x0, t0
+        add x5, x0, t0
+        add x6, x0, t0
+        add x7, x0, t0
+        add x8, x0, t0
+        add x9, x0, t0
+        add x10, x0, t0
+        add x11, x0, t0
+        add x12, x0, t0
+        add x13, x0, t0
+        add x14, x0, t0
+        add x15, x0, t0
+        add x16, x0, t0
+        add x17, x0, t0
+        add x18, x0, t0
+        add x19, x0, t0
+        add x20, x0, t0
+        add x21, x0, t0
+        add x22, x0, t0
+        add x23, x0, t0
+        add x24, x0, t0
+        add x25, x0, t0
+        add x26, x0, t0
+        add x27, x0, t0
+        add x28, x0, t0
+        add x29, x0, t0
+        add x30, x0, t0
+        add x31, x0, t0
+
+    #r1
+        la t0, march_pattern
+        lw t0, 0*4(t0)
+        not t0, t0
+        bne x31, t0, exit_wrong_march_stupid
+        bne x30, t0, exit_wrong_march_stupid
+        bne x29, t0, exit_wrong_march_stupid
+        bne x28, t0, exit_wrong_march_stupid
+        bne x27, t0, exit_wrong_march_stupid
+        bne x26, t0, exit_wrong_march_stupid
+        bne x25, t0, exit_wrong_march_stupid
+        bne x24, t0, exit_wrong_march_stupid
+        bne x23, t0, exit_wrong_march_stupid
+        bne x22, t0, exit_wrong_march_stupid
+        bne x21, t0, exit_wrong_march_stupid
+        bne x20, t0, exit_wrong_march_stupid
+        bne x19, t0, exit_wrong_march_stupid
+        bne x18, t0, exit_wrong_march_stupid
+        bne x17, t0, exit_wrong_march_stupid
+        bne x16, t0, exit_wrong_march_stupid
+        bne x15, t0, exit_wrong_march_stupid
+        bne x14, t0, exit_wrong_march_stupid
+        bne x13, t0, exit_wrong_march_stupid
+        bne x12, t0, exit_wrong_march_stupid
+        bne x11, t0, exit_wrong_march_stupid
+        bne x10, t0, exit_wrong_march_stupid
+        bne x9, t0, exit_wrong_march_stupid
+        bne x8, t0, exit_wrong_march_stupid
+        bne x7, t0, exit_wrong_march_stupid
+        bne x6, t0, exit_wrong_march_stupid
+        bne x5, t0, exit_wrong_march_stupid
+        bne x4, t0, exit_wrong_march_stupid
+        bne x3, t0, exit_wrong_march_stupid
+        bne x2, t0, exit_wrong_march_stupid
+        bne x1, t0, exit_wrong_march_stupid
+
+    #w0
+        la t0, march_pattern
+        lw t0, 0*4(t0)
+        add x1, x0, t0
+        add x2, x0, t0
+        add x3, x0, t0
+        add x4, x0, t0
+        add x5, x0, t0
+        add x6, x0, t0
+        add x7, x0, t0
+        add x8, x0, t0
+        add x9, x0, t0
+        add x10, x0, t0
+        add x11, x0, t0
+        add x12, x0, t0
+        add x13, x0, t0
+        add x14, x0, t0
+        add x15, x0, t0
+        add x16, x0, t0
+        add x17, x0, t0
+        add x18, x0, t0
+        add x19, x0, t0
+        add x20, x0, t0
+        add x21, x0, t0
+        add x22, x0, t0
+        add x23, x0, t0
+        add x24, x0, t0
+        add x25, x0, t0
+        add x26, x0, t0
+        add x27, x0, t0
+        add x28, x0, t0
+        add x29, x0, t0
+        add x30, x0, t0
+        add x31, x0, t0
+
+    #r0
+        la t0, march_pattern
+        lw t0, 0*4(t0)
+        bne x31, t0, exit_wrong_march_stupid
+        bne x30, t0, exit_wrong_march_stupid
+        bne x29, t0, exit_wrong_march_stupid
+        bne x28, t0, exit_wrong_march_stupid
+        bne x27, t0, exit_wrong_march_stupid
+        bne x26, t0, exit_wrong_march_stupid
+        bne x25, t0, exit_wrong_march_stupid
+        bne x24, t0, exit_wrong_march_stupid
+        bne x23, t0, exit_wrong_march_stupid
+        bne x22, t0, exit_wrong_march_stupid
+        bne x21, t0, exit_wrong_march_stupid
+        bne x20, t0, exit_wrong_march_stupid
+        bne x19, t0, exit_wrong_march_stupid
+        bne x18, t0, exit_wrong_march_stupid
+        bne x17, t0, exit_wrong_march_stupid
+        bne x16, t0, exit_wrong_march_stupid
+        bne x15, t0, exit_wrong_march_stupid
+        bne x14, t0, exit_wrong_march_stupid
+        bne x13, t0, exit_wrong_march_stupid
+        bne x12, t0, exit_wrong_march_stupid
+        bne x11, t0, exit_wrong_march_stupid
+        bne x10, t0, exit_wrong_march_stupid
+        bne x9, t0, exit_wrong_march_stupid
+        bne x8, t0, exit_wrong_march_stupid
+        bne x7, t0, exit_wrong_march_stupid
+        bne x6, t0, exit_wrong_march_stupid
+        bne x5, t0, exit_wrong_march_stupid
+        bne x4, t0, exit_wrong_march_stupid
+        bne x3, t0, exit_wrong_march_stupid
+        bne x2, t0, exit_wrong_march_stupid
+        bne x1, t0, exit_wrong_march_stupid
+
+    li a0, 0
+    j exit_march_stupid
+    exit_wrong_march_stupid:
+    li a0, 1
+    exit_march_stupid:
+
+    la t0, return_addr
+    lw ra, 0*4(t0)
+ret
+
+
 _run_march_RF_LA_test:                // Entry point    
     # save current registers state 
     la      t0, test_regs
@@ -1051,7 +1210,7 @@ _run_march_RF_LA_test:                // Entry point
     sw      s7, 19*4(t0)
 
     li a0, 0                         // First pattern  
-    call _march_MATS_test                  
+    call _stupid_march                  
     bne a0, x0, exit_test_error_RF
 
     or a0, x0, 0xFF                // 2 pattern
@@ -1059,7 +1218,7 @@ _run_march_RF_LA_test:                // Entry point
     or a0, a0, 0xFF  
     la t0, march_pattern
     sw a0, 0*4(t0)               
-    call _march_MATS_test                  
+    call _stupid_march                  
     bne a0, x0, exit_test_error_RF
 
     or a0, x0, 0xFF                // 3 pattern
@@ -1067,7 +1226,7 @@ _run_march_RF_LA_test:                // Entry point
     or a0, a0, 0xFF  
     la t0, march_pattern
     sw a0, 0*4(t0)               
-    call _march_MATS_test                  
+    call _stupid_march                  
     bne a0, x0, exit_test_error_RF
 
     or a0, x0, 0x0F                // 4 pattern
@@ -1079,7 +1238,7 @@ _run_march_RF_LA_test:                // Entry point
     or a0, a0, 0x0F 
     la t0, march_pattern
     sw a0, 0*4(t0)                 
-    call _march_MATS_test                  
+    call _stupid_march                  
     bne a0, x0, exit_test_error_RF
 
     or a0, x0, 0x33                // 5 pattern
@@ -1091,7 +1250,7 @@ _run_march_RF_LA_test:                // Entry point
     or a0, a0, 0x33 
     la t0, march_pattern
     sw a0, 0*4(t0)    
-    call _march_MATS_test                  
+    call _stupid_march                  
     bne a0, x0, exit_test_error_RF
 
     or a0, x0, 0x55                // 6 pattern
@@ -1103,7 +1262,7 @@ _run_march_RF_LA_test:                // Entry point
     or a0, a0, 0x55 
     la t0, march_pattern
     sw a0, 0*4(t0)  
-    call _march_MATS_test                  
+    call _stupid_march                  
     bne a0, x0, exit_test_error_RF
 
     li a0, 0
