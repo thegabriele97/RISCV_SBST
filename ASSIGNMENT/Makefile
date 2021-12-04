@@ -1,6 +1,6 @@
 .PHONY: zoix
 
-DUT := alu
+DUT := rf
 STIL := results/$(DUT)_atpg_seq.stil
 OUT_ASM := "./tmp/$(DUT).S"
 DST_ASM := "sbst/$(DUT).S"

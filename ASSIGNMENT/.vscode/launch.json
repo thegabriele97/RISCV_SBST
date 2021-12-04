@@ -9,7 +9,7 @@
             "type": "python",
             "request": "launch",
             "program": "${file}",
-            "args": ["sbst/alu.S", "tmp/alu.S"],
+            "args": ["results/rf_atpg_seq.stil", "tmp/alu.S"],
             "console": "integratedTerminal"
         }
     ]
