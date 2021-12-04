@@ -42,8 +42,25 @@ for i in range(0, 32):
 
 
 for db in dbs:
+    print('la x31, _STORAGE_POINTER_')
+    print('li x1, {}'.format(db))
+    print()
+
     for reg in regs:
         print('li {}, {}'.format(reg, db))
+
+        back_reg = regs[-1] if reg != regs[-1] else regs[1]
+        
+        if reg == regs[-1]:
+            print()
+            print('la {}, _STORAGE_POINTER_'.format(back_reg))
+
+        print('sw {}, 20*4({})'.format(reg, back_reg))
+        print('lw {}, 20*4({})'.format(reg, back_reg))
+        print()
+
+    print('li {}, {}'.format(back_reg, db))
+    print()
 
     for reg in regs:
         print('p.mac {}, {}, {}'.format(reg, reg, reg))

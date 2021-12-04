@@ -24,10 +24,11 @@ set_patterns -external dumpports_gate.evcd.fixed  -sensitive -strobe_period { 10
 # run_simulation -sequential
 
 ## Fault list (select one of the following)
-add_faults -all
+#add_faults -all
 #add_faults ex_stage_i/alu_i
 #add_faults ex_stage_i/alu_i/int_div_div_i
 #add_faults ex_stage_i/mult_i
+add_faults id_stage_i/registers_i
 #add_faults id_stage_i/registers_i/riscv_register_file_i
 #add_faults id_stage_i/registers_i/riscv_register_file_i/mem_reg_1__31_
 #read_faults previous_fsim_faults.txt -force_retain_code -add
@@ -40,8 +41,8 @@ run_fault_sim -sequential
 
 ## Reports
 set_faults -fault_coverage
-report_faults -level {5 100} > report_faults_hierarchy.txt
-report_faults -level {100 1} -verbose > report_faults_verbose.txt
+report_faults -level {5 100} > rf_report_faults_hierarchy.txt
+report_faults -level {100 1} -verbose > rf_report_faults_verbose.txt
 #report_summaries > ../results/rf_atpg_seq_report_summaries.txt
 report_summaries
 #write_faults fsim_faults.txt -replace -all
