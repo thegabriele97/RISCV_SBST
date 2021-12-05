@@ -8,7 +8,6 @@ stil_filename = sys.argv[1]
 signals_bits = [
 	('clk', 1),
 	('rst_n', 1),
-	('enable_i', 1),
 	('operator_i', 7),
 	('operand_a_i', 32),
 	('operand_b_i', 32),
@@ -20,7 +19,8 @@ signals_bits = [
 	('is_clpx_i', 1),
 	('is_subrot_i', 1),
 	('clpx_shift_i', 2),
-	('ex_ready_i', 1)]
+	('ex_ready_i', 1),
+	('enable_i_BAR', 1)]
 
 # Opcodes are listed in rtl/include/riscv_defines.sv
 
@@ -166,7 +166,12 @@ inst2triple_2imm = {
 
 label_n = 0
 with open(stil_filename) as stil_file:
+	cnt_patterns = 0
+
+	print('li t3, 0x0')
+
 	for line in stil_file:
+		cnt_patterns += 1
 
 		# Search for "_pi" line
 		matched = re.search(r'"_pi"=([01N]+)', line)
@@ -203,7 +208,7 @@ with open(stil_filename) as stil_file:
 			print('li t0, {}'.format(rs1))
 			print('li t1, {}'.format(rs2))
 			print('{} t2, t0, t1'.format(instr))
-			print('sw t2, 4(sp)')
+			print('xor t3, t3, t2')
 		elif pi['operator_i'] in instr2branch.keys():
 			instr = instr2branch[pi['operator_i']][0]
 			rs1 = hex(int(pi['operand_a_i'],2))
@@ -211,8 +216,9 @@ with open(stil_filename) as stil_file:
 			print('li t0, {}'.format(rs1))
 			print('li t1, {}'.format(rs2))
 			print('{} t0, t1, label_n_{}'.format(instr, label_n))
+			print('xor t3, t3, t0 # should not be executed')
 			print('label_n_{}:'.format(label_n))
-			print('    sw t2, 4(sp)')
+			print('    xor t3, t3, t1')
 
 			label_n += 1
 		elif pi['operator_i'] in instr2float.keys():
@@ -244,7 +250,7 @@ with open(stil_filename) as stil_file:
 			else:
 				print('{} t2, t0'.format(instr))
 			
-			print('sw t2, 4(sp)')
+			print('xor t3, t3, t2')
 
 		elif pi['operator_i'] in inst2shortimm.keys():
 			instr = inst2shortimm[pi['operator_i']]
@@ -252,7 +258,7 @@ with open(stil_filename) as stil_file:
 			rs2 = hex(int(pi['operand_b_i'],2) & 0x1f)
 			print('li t0, {}'.format(rs1))
 			print('{} t2, t0, {}'.format(instr, rs2))
-			print('sw t2, 4(sp)')
+			print('xor t3, t3, t2')
 
 		elif pi['operator_i'] in inst2triple.keys():
 			instr = inst2triple[pi['operator_i']][0]
@@ -262,7 +268,7 @@ with open(stil_filename) as stil_file:
 			print('li t0, {}'.format(rs1))
 			print('li t1, {}'.format(rs2))
 			print('{} t2, t0, t1, {}'.format(instr, rs3))
-			print('sw t2, 4(sp)')
+			print('xor t3, t3, t2')
 
 			print("## -- ##")
 			instr = inst2triple[pi['operator_i']][1]
@@ -271,7 +277,7 @@ with open(stil_filename) as stil_file:
 			rs3 = hex(int(pi['operand_c_i'],2))
 			print('li t2, {}'.format(rs1))
 			print('{} t2, t0, t1'.format(instr))
-			print('sw t2, 4(sp)')
+			print('xor t3, t3, t2')
 
 		elif pi['operator_i'] in inst2triple_2imm.keys():
 			instr = inst2triple_2imm[pi['operator_i']]
@@ -291,11 +297,11 @@ with open(stil_filename) as stil_file:
 				print('li t0, {}'.format(rs1))
 				print('{} t2, t0, {}'.format(instr, rs2))
 			else:
-  				rs1 = hex(int(pi['operand_a_i'],2))
-  				rs2 = hex(int(pi['operand_b_i'],2) & 0x1f)
-  				rs3 = hex(int(pi['operand_c_i'],2) & 0x1f)
-  				print('li t0, {}'.format(rs1))
-  				print('{} t2, t0, {}, {}'.format(instr, rs2, rs3))
+				rs1 = hex(int(pi['operand_a_i'],2))
+				rs2 = hex(int(pi['operand_b_i'],2) & 0x1f)
+				rs3 = hex(int(pi['operand_c_i'],2) & 0x1f)
+				print('li t0, {}'.format(rs1))
+				print('{} t2, t0, {}, {}'.format(instr, rs2, rs3))
 
 
             #if not isinstance (instr, list) or pi['vector_mode_i'] == "00" or pi['vector_mode_i'] == "01":
@@ -310,17 +316,19 @@ with open(stil_filename) as stil_file:
             #	print('li t0, {}'.format(rs1))
             #	print('{} t2, t0, {}'.format(instr, rs2))
                 
-			print('sw t2, 4(sp)')
+			print('xor t3, t3, t2')
 
 		else:
 			#print(f"Not matched op: {pi['operator_i']} rs1 = {hex(int(pi['operand_a_i'],2))} rs2 = {hex(int(pi['operand_b_i'],2))}", file=sys.stderr)
 			print("Not matched op:", pi['operator_i'], "rs1 = ", hex(int(pi['operand_a_i'],2)), "rs2 = ", hex(int(pi['operand_b_i'],2)), file=sys.stderr)
+			# print(line, file=sys.stderr)
 			print_ln = False
+			cnt_patterns -= 1
 
 		if print_ln:
 			print()
 
-		
+print("Total implemented: {}".format(cnt_patterns), file= sys.stderr)		
 
 		
 

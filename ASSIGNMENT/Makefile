@@ -24,3 +24,6 @@ build:
 
 put_asm:
 	./put_asm.py $(DST_ASM) $(OUT_ASM)
+
+get_signature:
+	./get_signature.py

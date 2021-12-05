@@ -41,6 +41,6 @@ run_atpg -auto_compression
 set_faults -fault_coverage
 report_faults -level {5 100} > report_faults_hierarchy.txt
 report_faults -level {100 1} -verbose > report_faults_verbose.txt
-report_summaries > ../results/alu_atpg_seq_rst1_en1_op0_report_summaries.txt
+report_summaries > ../run/alu_atpg_seq.txt
 write_faults fsim_faults.txt -replace -all
-write_patterns ../results/alu_atpg_seq_rst1_en1_op0.stil -internal -format stil
+write_patterns ../run/alu_atpg_seq.stil -internal -format stil

@@ -87,7 +87,7 @@ with open(stil_filename) as stil_file:
 			print('li t0, {}'.format(rs1))
 			print('li t1, {}'.format(rs2))
 			print('{} t2, t0, t1, {}'.format(instr, rs3))
-			print('sw t2, 4(sp)')
+			print('xor t3, t3, t2')
 		elif pi['operator_i'] in instr2mulh.keys():
 
 			instr = instr2mulh[pi['operator_i']]
@@ -101,7 +101,7 @@ with open(stil_filename) as stil_file:
 			print('li t0, {}'.format(rs1))
 			print('li t1, {}'.format(rs2))
 			print('{} t2, t0, t1'.format(instr))
-			print('sw t2, 4(sp)')
+			print('xor t3, t3, t2')
 
 		elif pi['operator_i'] in instr2mac.keys():
 
@@ -115,7 +115,7 @@ with open(stil_filename) as stil_file:
 			print('li t0, {}'.format(rs1))
 			print('li t1, {}'.format(rs2))
 			print('{} t2, t0, t1'.format(instr))
-			print('sw t2, 4(sp)')
+			print('xor t3, t3, t2')
 
 		elif pi['operator_i'] in instr2dot.keys():
 
@@ -142,7 +142,8 @@ with open(stil_filename) as stil_file:
 			print('li t0, {}'.format(rs1))
 			print('li t1, {}'.format(rs2))
 			print('{} t2, t0, t1'.format(instr))
-			print('sw t2, 4(sp)')
+			print('xor t3, t3, t2')
+
 		else:
 			#print(f"Not matched op: {pi['operator_i']} rs1 = {hex(int(pi['operand_a_i'],2))} rs2 = {hex(int(pi['operand_b_i'],2))}", file=sys.stderr)
 			print("Not matched op:", pi['operator_i'], "rs1 = ", hex(int(pi['op_a_i'],2)), "rs2 = ", hex(int(pi['op_b_i'],2)), file=sys.stderr)
@@ -152,7 +153,3 @@ with open(stil_filename) as stil_file:
 			print()
 
 		
-
-		
-
-
