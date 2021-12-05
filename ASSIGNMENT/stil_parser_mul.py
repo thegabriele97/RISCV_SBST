@@ -48,6 +48,14 @@ instr2dot = {
 
 
 with open(stil_filename) as stil_file:
+	cnt_subroutines = 0
+	rem_subroutines = 0
+
+	weights = {
+		0x1: 590,
+		0x2: 540
+	}
+
 	for line in stil_file:
 
 		# Search for "_pi" line
@@ -63,6 +71,16 @@ with open(stil_filename) as stil_file:
 
 		#print("//op: {}, {}".format(pi['operator_i'], pi['vector_mode_i']));
 		print_ln = True
+
+		if rem_subroutines <= 0:
+			print("j check_routine")
+			print("routine_{}: #### NEW SUB ROUTINE ####".format(cnt_subroutines))
+			print("li t0, {}".format(hex(pow(2, cnt_subroutines))))
+			print("not t0, t0")
+			print("and a0, a0, t0")
+			print()
+			rem_subroutines = 650 if pow(2, cnt_subroutines) not in weights else weights[pow(2, cnt_subroutines)]
+			cnt_subroutines += 1
 
 		if pi['operator_i'] in instr2operands.keys():
 
@@ -88,6 +106,7 @@ with open(stil_filename) as stil_file:
 			print('li t1, {}'.format(rs2))
 			print('{} t2, t0, t1, {}'.format(instr, rs3))
 			print('xor t3, t3, t2')
+			rem_subroutines -= 4
 		elif pi['operator_i'] in instr2mulh.keys():
 
 			instr = instr2mulh[pi['operator_i']]
@@ -102,6 +121,7 @@ with open(stil_filename) as stil_file:
 			print('li t1, {}'.format(rs2))
 			print('{} t2, t0, t1'.format(instr))
 			print('xor t3, t3, t2')
+			rem_subroutines -= 4
 
 		elif pi['operator_i'] in instr2mac.keys():
 
@@ -116,6 +136,7 @@ with open(stil_filename) as stil_file:
 			print('li t1, {}'.format(rs2))
 			print('{} t2, t0, t1'.format(instr))
 			print('xor t3, t3, t2')
+			rem_subroutines -= 5
 
 		elif pi['operator_i'] in instr2dot.keys():
 
@@ -143,6 +164,7 @@ with open(stil_filename) as stil_file:
 			print('li t1, {}'.format(rs2))
 			print('{} t2, t0, t1'.format(instr))
 			print('xor t3, t3, t2')
+			rem_subroutines -= 5
 
 		else:
 			#print(f"Not matched op: {pi['operator_i']} rs1 = {hex(int(pi['operand_a_i'],2))} rs2 = {hex(int(pi['operand_b_i'],2))}", file=sys.stderr)
@@ -152,4 +174,13 @@ with open(stil_filename) as stil_file:
 		if print_ln:
 			print()
 
-		
+	print("check_routine:")
+	for i in range(0, cnt_subroutines):
+		if pow(2, i) > 0x400:
+			print("    li t0, {}".format(hex(pow(2, i))))
+			mask = "t0"
+		else:
+			mask = hex(pow(2, i))
+
+		print("    and a1, a0, {}".format(mask))
+		print("	   bne a1, x0, routine_{} #n. {}".format(i, hex(pow(2, i))))

@@ -1,3 +1,9 @@
+j check_routine
+routine_0: #### NEW SUB ROUTINE ####
+li t0, 0x1
+not t0, t0
+and a0, a0, t0
+
 li t2, 0x39bffd36
 li t0, 0x1f501e30
 li t1, 0x4c404cf0
@@ -711,6 +717,12 @@ li t1, 0x535c535c
 mulh t2, t0, t1
 xor t3, t3, t2
 
+j check_routine
+routine_1: #### NEW SUB ROUTINE ####
+li t0, 0x2
+not t0, t0
+and a0, a0, t0
+
 li t0, 0xbd00bd0
 li t1, 0x33ac33ac
 p.muluRN t2, t0, t1, 0x19
@@ -1383,6 +1395,12 @@ li t1, 0x3e974b0b
 p.msu t2, t0, t1
 xor t3, t3, t2
 
+j check_routine
+routine_2: #### NEW SUB ROUTINE ####
+li t0, 0x4
+not t0, t0
+and a0, a0, t0
+
 li t0, 0xa2af0142
 li t1, 0xcc3980c5
 mulhu t2, t0, t1
@@ -1744,3 +1762,10 @@ li t1, 0x9b066ebf
 p.mulsRN t2, t0, t1, 0x1f
 xor t3, t3, t2
 
+check_routine:
+    and a1, a0, 0x1
+	   bne a1, x0, routine_0 #n. 0x1
+    and a1, a0, 0x2
+	   bne a1, x0, routine_1 #n. 0x2
+    and a1, a0, 0x4
+	   bne a1, x0, routine_2 #n. 0x4
