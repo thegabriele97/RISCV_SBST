@@ -167,11 +167,34 @@ inst2triple_2imm = {
 label_n = 0
 with open(stil_filename) as stil_file:
 	cnt_patterns = 0
+	cnt_subroutines = 0
+	rem_subroutines = 0
 
-	print('li t3, 0x0')
+	weights = {
+		0x1: 605,
+		0x2: 635,
+		0x4: 678,
+		0x8: 695,
+		0x10: 685,
+		0x20: 640,
+		0x40: 540,
+		0x80: 595,
+		0x100: 620,
+		0x200: 610,
+		0x400: 635,
+		0x800: 600,
+		0x1000: 540,
+		0x2000: 615,
+		0x4000: 670,
+		0x8000: 605,
+		0x10000: 670
+
+	}
+
+	print("li t3, 0x0")
+	print()
 
 	for line in stil_file:
-		cnt_patterns += 1
 
 		# Search for "_pi" line
 		matched = re.search(r'"_pi"=([01N]+)', line)
@@ -190,6 +213,18 @@ with open(stil_filename) as stil_file:
 		is_it3 = pi['operator_i'] in instr2operands.keys() and not pi['operator_i'] in inst2triple_2imm.keys()
 		print_ln = True
 
+		if rem_subroutines <= 0:
+			print("j check_routine")
+			print("routine_{}: #### NEW SUB ROUTINE ####".format(cnt_subroutines))
+			print("li t0, {}".format(hex(pow(2, cnt_subroutines))))
+			print("not t0, t0")
+			print("and a0, a0, t0")
+			print()
+			rem_subroutines = 650 if pow(2, cnt_subroutines) not in weights else weights[pow(2, cnt_subroutines)]
+			cnt_subroutines += 1
+
+		cnt_patterns += 1
+
 		if is_it or is_it2 or is_it3:
 			if not is_it:
 				instr = instr2operands[pi['operator_i']]
@@ -202,6 +237,10 @@ with open(stil_filename) as stil_file:
 			if is_it2:
 				rs3 = hex(int(pi['operand_c_i'],2))
 				print('li t2, {}'.format(rs3))
+				rem_subroutines -= 1
+
+			if instr[0:3] == "div" or instr[0:3] == "rem":
+				rem_subroutines -= 6
 			
 			rs1 = hex(int(pi['operand_a_i'],2))
 			rs2 = hex(int(pi['operand_b_i'],2))
@@ -209,6 +248,7 @@ with open(stil_filename) as stil_file:
 			print('li t1, {}'.format(rs2))
 			print('{} t2, t0, t1'.format(instr))
 			print('xor t3, t3, t2')
+			rem_subroutines -= 4
 		elif pi['operator_i'] in instr2branch.keys():
 			instr = instr2branch[pi['operator_i']][0]
 			rs1 = hex(int(pi['operand_a_i'],2))
@@ -221,6 +261,7 @@ with open(stil_filename) as stil_file:
 			print('    xor t3, t3, t1')
 
 			label_n += 1
+			rem_subroutines -= 4
 		elif pi['operator_i'] in instr2float.keys():
 			instr = instr2float[pi['operator_i']]
 
@@ -233,7 +274,7 @@ with open(stil_filename) as stil_file:
 			print('{} f2, f0, f1'.format(instr))
 			print('fmv.x.s t2, f2');
 			print('sw t2, 4(sp)')
-
+			rem_subroutines -= 7
 		elif pi['operator_i'] in instr2single.keys():
 			instr = instr2single[pi['operator_i']]
 
@@ -251,7 +292,7 @@ with open(stil_filename) as stil_file:
 				print('{} t2, t0'.format(instr))
 			
 			print('xor t3, t3, t2')
-
+			rem_subroutines -= 3
 		elif pi['operator_i'] in inst2shortimm.keys():
 			instr = inst2shortimm[pi['operator_i']]
 			rs1 = hex(int(pi['operand_a_i'],2))
@@ -259,7 +300,7 @@ with open(stil_filename) as stil_file:
 			print('li t0, {}'.format(rs1))
 			print('{} t2, t0, {}'.format(instr, rs2))
 			print('xor t3, t3, t2')
-
+			rem_subroutines -= 3
 		elif pi['operator_i'] in inst2triple.keys():
 			instr = inst2triple[pi['operator_i']][0]
 			rs1 = hex(int(pi['operand_a_i'],2))
@@ -267,18 +308,18 @@ with open(stil_filename) as stil_file:
 			rs3 = hex(int(pi['operand_c_i'],2) & 0x1f)
 			print('li t0, {}'.format(rs1))
 			print('li t1, {}'.format(rs2))
-			print('{} t2, t0, t1, {}'.format(instr, rs3))
-			print('xor t3, t3, t2')
+			# print('{} t2, t0, t1, {}'.format(instr, rs3))
+			# print('xor t3, t3, t2')
 
-			print("## -- ##")
+			# print("## -- ##")
 			instr = inst2triple[pi['operator_i']][1]
 			rs1 = hex(int(pi['operand_a_i'],2))
 			rs2 = hex(int(pi['operand_b_i'],2))
 			rs3 = hex(int(pi['operand_c_i'],2))
-			print('li t2, {}'.format(rs1))
+			print('li t2, {}'.format(rs3))
 			print('{} t2, t0, t1'.format(instr))
 			print('xor t3, t3, t2')
-
+			rem_subroutines -= 5
 		elif pi['operator_i'] in inst2triple_2imm.keys():
 			instr = inst2triple_2imm[pi['operator_i']]
 
@@ -303,21 +344,8 @@ with open(stil_filename) as stil_file:
 				print('li t0, {}'.format(rs1))
 				print('{} t2, t0, {}, {}'.format(instr, rs2, rs3))
 
-
-            #if not isinstance (instr, list) or pi['vector_mode_i'] == "00" or pi['vector_mode_i'] == "01":
-            #	rs1 = hex(int(pi['operand_a_i'],2))
-            #	rs2 = hex(int(pi['operand_b_i'],2) & 0x1f)
-            #	rs3 = hex(int(pi['operand_c_i'],2) & 0x1f)
-            #	print('li t0, {}'.format(rs1))
-            #	print('{} t2, t0, {}, {}'.format(instr, rs2, rs3))
-            #else:
-            #	rs1 = hex(int(pi['operand_a_i'],2))
-            #	rs2 = hex(int(pi['operand_b_i'],2) & 0x1f)
-            #	print('li t0, {}'.format(rs1))
-            #	print('{} t2, t0, {}'.format(instr, rs2))
-                
 			print('xor t3, t3, t2')
-
+			rem_subroutines -= 3
 		else:
 			#print(f"Not matched op: {pi['operator_i']} rs1 = {hex(int(pi['operand_a_i'],2))} rs2 = {hex(int(pi['operand_b_i'],2))}", file=sys.stderr)
 			print("Not matched op:", pi['operator_i'], "rs1 = ", hex(int(pi['operand_a_i'],2)), "rs2 = ", hex(int(pi['operand_b_i'],2)), file=sys.stderr)
@@ -327,6 +355,22 @@ with open(stil_filename) as stil_file:
 
 		if print_ln:
 			print()
+
+
+	print("check_routine:")
+	for i in range(0, cnt_subroutines):
+		if pow(2, i) > 0x400:
+			print("    li t0, {}".format(hex(pow(2, i))))
+			mask = "t0"
+		else:
+			mask = hex(pow(2, i))
+
+		print("    and a1, a0, {}".format(mask))
+		print("	   bne a1, x0, routine_{} #n. {}".format(i, hex(pow(2, i))))
+
+	# print("    and a1, a0, 0x2")
+	# print("	   bne a1, x0, routine_1")
+
 
 print("Total implemented: {}".format(cnt_patterns), file= sys.stderr)		
 

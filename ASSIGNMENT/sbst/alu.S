@@ -4,9 +4,9 @@
 
 ####################################################################################
 # Software Based Selft Test                                                        #
-# ALU Coverage:                     91.83%                                         #
+# ALU Coverage:                     91.90%                                         #
 # Engineers:                        Battilana Matteo, La Greca Salvatore Gabriele  #
-# Expected signature (on reg.a0):   0x7CF2655C                                     #
+# Expected signature (on reg.a0):   0x77FE20A1                                     #
 ####################################################################################
 
 _alu_test:
@@ -15,6 +15,13 @@ _alu_test:
 
     ##- START -##
     li t3, 0x0
+    
+    j check_routine
+    routine_0: #### NEW SUB ROUTINE ####
+    li t0, 0x1
+    not t0, t0
+    and a0, a0, t0
+    
     li t0, 0x5b7aad11
     li t1, 0x9989ad11
     pv.cmpge.h t2, t0, t1
@@ -40,10 +47,7 @@ _alu_test:
     
     li t0, 0x822d9d99
     li t1, 0xf75331f6
-    p.subRN t2, t0, t1, 0xc
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x822d9d99
+    li t2, 0xc3a2590c
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -64,10 +68,7 @@ _alu_test:
     
     li t0, 0xf4b87177
     li t1, 0xf8023d7a
-    p.adduN t2, t0, t1, 0xb
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xf4b87177
+    li t2, 0xfc5c18eb
     p.adduNr t2, t0, t1
     xor t3, t3, t2
     
@@ -143,19 +144,13 @@ _alu_test:
     
     li t0, 0x7f6661ef
     li t1, 0x3f41a3bf
-    p.adduN t2, t0, t1, 0x1e
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x7f6661ef
+    li t2, 0x2b07b45e
     p.adduNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0x2e38d9fb
     li t1, 0x1b861b0b
-    p.addRN t2, t0, t1, 0x8
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x2e38d9fb
+    li t2, 0x3fd912e8
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -166,10 +161,7 @@ _alu_test:
     
     li t0, 0x96aaf821
     li t1, 0x9ee008e1
-    p.addRN t2, t0, t1, 0x1d
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x96aaf821
+    li t2, 0xa5ac8c7d
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -180,19 +172,13 @@ _alu_test:
     
     li t0, 0x6e84043d
     li t1, 0xf22883bd
-    p.addRN t2, t0, t1, 0x1f
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x6e84043d
+    li t2, 0xa96b231f
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0x219b7e36
     li t1, 0x5bd86044
-    p.subRN t2, t0, t1, 0xf
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x219b7e36
+    li t2, 0x54b5918f
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -277,19 +263,13 @@ _alu_test:
     
     li t0, 0x490df7ec
     li t1, 0x4504f8bd
-    p.addRN t2, t0, t1, 0x6
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x490df7ec
+    li t2, 0x4ffeb2c6
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0x8a56d081
     li t1, 0x35a698c0
-    p.addRN t2, t0, t1, 0x3
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x8a56d081
+    li t2, 0xa7ff5963
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -316,19 +296,13 @@ _alu_test:
     
     li t0, 0xffc70942
     li t1, 0x9e1c23
-    p.subRN t2, t0, t1, 0x1e
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xffc70942
+    li t2, 0x28c5a7be
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0x445048b7
     li t1, 0xc6874483
-    p.subRN t2, t0, t1, 0xc
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x445048b7
+    li t2, 0x92494f2c
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -344,10 +318,7 @@ _alu_test:
     
     li t0, 0xc1f8d8ba
     li t1, 0xcdd7463a
-    p.addRN t2, t0, t1, 0x1c
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xc1f8d8ba
+    li t2, 0x315ce79c
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -429,19 +400,13 @@ _alu_test:
     
     li t0, 0x2f8a7430
     li t1, 0x2c81a73f
-    p.addRN t2, t0, t1, 0x2
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x2f8a7430
+    li t2, 0x207a3a62
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0xc4108d2a
     li t1, 0x95effb8a
-    p.addRN t2, t0, t1, 0x11
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xc4108d2a
+    li t2, 0x903d1d31
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -483,10 +448,7 @@ _alu_test:
     
     li t0, 0xe1829f83
     li t1, 0xf37eb767
-    p.addRN t2, t0, t1, 0x1d
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xe1829f83
+    li t2, 0xb0c4a11d
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -496,10 +458,7 @@ _alu_test:
     
     li t0, 0x156184e4
     li t1, 0x3f6b1e1d
-    p.subRN t2, t0, t1, 0x9
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x156184e4
+    li t2, 0x7ccdd089
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -510,10 +469,7 @@ _alu_test:
     
     li t0, 0x98e359b3
     li t1, 0x69c1bc79
-    p.addRN t2, t0, t1, 0xc
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x98e359b3
+    li t2, 0xfcf8cec
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -586,10 +542,7 @@ _alu_test:
     
     li t0, 0x62cc9882
     li t1, 0x166e3b7
-    p.subuRN t2, t0, t1, 0x1
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x62cc9882
+    li t2, 0xf323e241
     p.subuRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -648,10 +601,7 @@ _alu_test:
     
     li t0, 0xbff7ec70
     li t1, 0x40102caf
-    p.subRN t2, t0, t1, 0x7
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xbff7ec70
+    li t2, 0x5fc445c7
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -696,10 +646,7 @@ _alu_test:
     
     li t0, 0xe06e110
     li t1, 0x13fde6f7
-    p.addRN t2, t0, t1, 0x10
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xe06e110
+    li t2, 0x52f08310
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -717,10 +664,7 @@ _alu_test:
     
     li t0, 0x4e8b861c
     li t1, 0x5ba1a999
-    p.addRN t2, t0, t1, 0x1e
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x4e8b861c
+    li t2, 0xd182c0be
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -733,10 +677,7 @@ _alu_test:
     
     li t0, 0x97efd4b1
     li t1, 0xe0069a74
-    p.subRN t2, t0, t1, 0x13
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x97efd4b1
+    li t2, 0xefbc60f3
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -781,10 +722,7 @@ _alu_test:
     
     li t0, 0xe20e17cf
     li t1, 0x15f1e29f
-    p.addRN t2, t0, t1, 0x1c
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xe20e17cf
+    li t2, 0x558f695c
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -798,37 +736,25 @@ _alu_test:
     
     li t0, 0x64c045a9
     li t1, 0x65deae03
-    p.subRN t2, t0, t1, 0xb
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x64c045a9
+    li t2, 0xeab1ed2b
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0x89f9c0d0
     li t1, 0x63618028
-    p.addRN t2, t0, t1, 0xc
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x89f9c0d0
+    li t2, 0xc2e1572c
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0xc9f7a344
     li t1, 0xae087e16
-    p.addRN t2, t0, t1, 0xf
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xc9f7a344
+    li t2, 0x56c90a2f
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0x505347de
     li t1, 0x8fa147b8
-    p.addRN t2, t0, t1, 0xe
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x505347de
+    li t2, 0x1cdd24ae
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -871,19 +797,13 @@ _alu_test:
     
     li t0, 0x80136a61
     li t1, 0xe67fea3e
-    p.subRN t2, t0, t1, 0x1f
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x80136a61
+    li t2, 0x4a71351f
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0x9c03febf
     li t1, 0xb09bff41
-    p.subuRN t2, t0, t1, 0x4
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x9c03febf
+    li t2, 0xc1831c04
     p.subuRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -892,12 +812,15 @@ _alu_test:
     pv.cmpgeu.h t2, t0, t1
     xor t3, t3, t2
     
+    j check_routine
+    routine_1: #### NEW SUB ROUTINE ####
+    li t0, 0x2
+    not t0, t0
+    and a0, a0, t0
+    
     li t0, 0x9efffa05
     li t1, 0x2bebd374
-    p.adduRN t2, t0, t1, 0xa
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x9efffa05
+    li t2, 0xd4db418a
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -956,10 +879,7 @@ _alu_test:
     
     li t0, 0xf849412d
     li t1, 0x46e0b4e9
-    p.subuN t2, t0, t1, 0x6
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xf849412d
+    li t2, 0xa30bb066
     p.subuNr t2, t0, t1
     xor t3, t3, t2
     
@@ -969,28 +889,19 @@ _alu_test:
     
     li t0, 0x5cb05c30
     li t1, 0x722d750f
-    p.subRN t2, t0, t1, 0x19
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x5cb05c30
+    li t2, 0x68c2ec19
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0xdd14e438
     li t1, 0x9cf44f30
-    p.subuRN t2, t0, t1, 0x7
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xdd14e438
+    li t2, 0xd0daf087
     p.subuRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0xa8f9842a
     li t1, 0x2eeb642b
-    p.adduRN t2, t0, t1, 0x8
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xa8f9842a
+    li t2, 0xcd6fec8
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -1044,10 +955,7 @@ _alu_test:
     
     li t0, 0xabadc3fa
     li t1, 0xf8848852
-    p.subuRN t2, t0, t1, 0x8
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xabadc3fa
+    li t2, 0xa2efce08
     p.subuRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -1096,10 +1004,7 @@ _alu_test:
     
     li t0, 0xa7eaf31c
     li t1, 0xa80d8ce7
-    p.subRN t2, t0, t1, 0x5
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xa7eaf31c
+    li t2, 0xe3c62aa5
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -1117,19 +1022,13 @@ _alu_test:
     
     li t0, 0x429a8d51
     li t1, 0x776272b0
-    p.addRN t2, t0, t1, 0x12
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x429a8d51
+    li t2, 0x29ca57b2
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0xb2a09f70
     li t1, 0xf3606090
-    p.addRN t2, t0, t1, 0x19
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xb2a09f70
+    li t2, 0x14e52bd9
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -1191,10 +1090,7 @@ _alu_test:
     
     li t0, 0xbfd79868
     li t1, 0xa126c867
-    p.subRN t2, t0, t1, 0x10
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xbfd79868
+    li t2, 0x2e6bd190
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -1220,10 +1116,7 @@ _alu_test:
     
     li t0, 0xba3f2f36
     li t1, 0x97d2c9fe
-    p.addRN t2, t0, t1, 0x1b
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xba3f2f36
+    li t2, 0x4b0c693b
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -1263,37 +1156,25 @@ _alu_test:
     
     li t0, 0x24150d58
     li t1, 0xef1bb38c
-    p.addRN t2, t0, t1, 0x0
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x24150d58
+    li t2, 0x69cb7500
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0x92ba86ac
     li t1, 0x7701d9c6
-    p.addRN t2, t0, t1, 0x0
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x92ba86ac
+    li t2, 0x34e5ba80
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0x60414356
     li t1, 0x17b6ece3
-    p.subRN t2, t0, t1, 0x0
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x60414356
+    li t2, 0x1a72dd40
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0xbf8cc1ab
     li t1, 0xf7a42f9
-    p.adduRN t2, t0, t1, 0x0
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xbf8cc1ab
+    li t2, 0x8d396ea0
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -1363,10 +1244,7 @@ _alu_test:
     
     li t0, 0x1801a48e
     li t1, 0xdc008e7b
-    p.adduRN t2, t0, t1, 0x15
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x1801a48e
+    li t2, 0x37b07bf5
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -1379,10 +1257,7 @@ _alu_test:
     
     li t0, 0x7f9956be
     li t1, 0x4b51ec3d
-    p.addRN t2, t0, t1, 0x2
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x7f9956be
+    li t2, 0xe92a4422
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -1426,10 +1301,7 @@ _alu_test:
     
     li t0, 0xd4f21682
     li t1, 0x42f3a90c
-    p.subRN t2, t0, t1, 0x1d
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xd4f21682
+    li t2, 0xd65f009d
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -1441,19 +1313,13 @@ _alu_test:
     
     li t0, 0xf638ada1
     li t1, 0x91b1e003
-    p.addRN t2, t0, t1, 0x7
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xf638ada1
+    li t2, 0x3597c027
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0xce48e105
     li t1, 0xec2c21a2
-    p.addRN t2, t0, t1, 0xc
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xce48e105
+    li t2, 0xbe0dbacc
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -1556,28 +1422,19 @@ _alu_test:
     
     li t0, 0xf049e402
     li t1, 0x9d7ae400
-    p.addRN t2, t0, t1, 0x18
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xf049e402
+    li t2, 0x72796c38
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0x6c7e00ed
     li t1, 0xcd70011b
-    p.adduRN t2, t0, t1, 0xc
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x6c7e00ed
+    li t2, 0x5bb817ec
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0x77860487
     li t1, 0x77f00487
-    p.subRN t2, t0, t1, 0x6
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x77860487
+    li t2, 0xcf58aa06
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -1659,10 +1516,7 @@ _alu_test:
     
     li t0, 0xa13fff01
     li t1, 0xe0840675
-    p.subRN t2, t0, t1, 0x1d
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xa13fff01
+    li t2, 0xeb52b3bd
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -1699,10 +1553,7 @@ _alu_test:
     
     li t0, 0x55497bf0
     li t1, 0xb000ba88
-    p.adduRN t2, t0, t1, 0x9
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x55497bf0
+    li t2, 0x3781b849
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -1725,19 +1576,13 @@ _alu_test:
     
     li t0, 0x55c8fa58
     li t1, 0xd7ca1036
-    p.subRN t2, t0, t1, 0x9
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x55c8fa58
+    li t2, 0xc3930649
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0x2aa9006c
     li t1, 0x6bd588fb
-    p.addRN t2, t0, t1, 0x4
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x2aa9006c
+    li t2, 0x61c98324
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -1800,16 +1645,19 @@ _alu_test:
     p.ff1 t2, t0
     xor t3, t3, t2
     
+    j check_routine
+    routine_2: #### NEW SUB ROUTINE ####
+    li t0, 0x4
+    not t0, t0
+    and a0, a0, t0
+    
     li t0, 0x2000000
     p.ff1 t2, t0
     xor t3, t3, t2
     
     li t0, 0x80bb4426
     li t1, 0x7b91a626
-    p.adduRN t2, t0, t1, 0x1a
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x80bb4426
+    li t2, 0x2c8f867a
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -1820,10 +1668,7 @@ _alu_test:
     
     li t0, 0xc428e019
     li t1, 0xae7d3869
-    p.subRN t2, t0, t1, 0xa
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xc428e019
+    li t2, 0x791e2f8a
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -1862,19 +1707,13 @@ _alu_test:
     
     li t0, 0x5a07fef6
     li t1, 0x1d0e003c
-    p.subuRN t2, t0, t1, 0x5
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x5a07fef6
+    li t2, 0x2decf545
     p.subuRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0x26f8935b
     li t1, 0xb40db9c8
-    p.addRN t2, t0, t1, 0x16
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x26f8935b
+    li t2, 0xa4cbb4b6
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -1993,19 +1832,13 @@ _alu_test:
     
     li t0, 0xe0dc102e
     li t1, 0xdd96de7e
-    p.subRN t2, t0, t1, 0x8
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xe0dc102e
+    li t2, 0x3541fc48
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0xf971c803
     li t1, 0x4c7942c3
-    p.adduRN t2, t0, t1, 0x18
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xf971c803
+    li t2, 0x4d55a738
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -2092,19 +1925,13 @@ _alu_test:
     
     li t0, 0x268ad6ab
     li t1, 0x7a7b29fc
-    p.subuRN t2, t0, t1, 0x6
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x268ad6ab
+    li t2, 0x92d65726
     p.subuRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0x6200c0d3
     li t1, 0x20004030
-    p.addRN t2, t0, t1, 0xd
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x6200c0d3
+    li t2, 0xbea133ad
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -2130,10 +1957,7 @@ _alu_test:
     
     li t0, 0x71d1f7f3
     li t1, 0x54558318
-    p.subRN t2, t0, t1, 0x2
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x71d1f7f3
+    li t2, 0x4874a342
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -2147,10 +1971,7 @@ _alu_test:
     
     li t0, 0x7cfdbdc9
     li t1, 0xbf84010b
-    p.adduRN t2, t0, t1, 0x18
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x7cfdbdc9
+    li t2, 0x4f191e78
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -2160,28 +1981,19 @@ _alu_test:
     
     li t0, 0xcba0ad79
     li t1, 0x547960f2
-    p.adduRN t2, t0, t1, 0x1
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xcba0ad79
+    li t2, 0xa8234b81
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0xd0e35357
     li t1, 0x69a67808
-    p.subRN t2, t0, t1, 0x1e
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xd0e35357
+    li t2, 0xa3dbbdfe
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0x51412d77
     li t1, 0xe0c179ec
-    p.adduRN t2, t0, t1, 0x1
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x51412d77
+    li t2, 0x2627c6c1
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -2289,19 +2101,13 @@ _alu_test:
     
     li t0, 0x1c9be378
     li t1, 0xf9208b86
-    p.addRN t2, t0, t1, 0x10
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x1c9be378
+    li t2, 0x687a45d0
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0xd5c58233
     li t1, 0x6584a76f
-    p.addRN t2, t0, t1, 0x19
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xd5c58233
+    li t2, 0x46a08579
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -2377,28 +2183,19 @@ _alu_test:
     
     li t0, 0xb4c2e70e
     li t1, 0x31ebc558
-    p.subRN t2, t0, t1, 0x2
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xb4c2e70e
+    li t2, 0xe53b4f22
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0x4a59cfbf
     li t1, 0x755800a9
-    p.subRN t2, t0, t1, 0x1a
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x4a59cfbf
+    li t2, 0x15347b9a
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0x253d0f9d
     li t1, 0xbad72175
-    p.subRN t2, t0, t1, 0xd
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x253d0f9d
+    li t2, 0x8a9a3dcd
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -2425,10 +2222,7 @@ _alu_test:
     
     li t0, 0x4f12ec6e
     li t1, 0xc77e33ec
-    p.adduRN t2, t0, t1, 0xc
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x4f12ec6e
+    li t2, 0xd7ec3e2c
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -2446,28 +2240,19 @@ _alu_test:
     
     li t0, 0xf7f62860
     li t1, 0xf1f04156
-    p.adduRN t2, t0, t1, 0xb
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xf7f62860
+    li t2, 0xbaec370b
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0x71905b27
     li t1, 0xe314eef
-    p.subRN t2, t0, t1, 0x1f
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x71905b27
+    li t2, 0x4842601f
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0xf0782d9b
     li t1, 0x31282777
-    p.addRN t2, t0, t1, 0xf
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xf0782d9b
+    li t2, 0xa421300f
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -2618,28 +2403,19 @@ _alu_test:
     
     li t0, 0xec957e40
     li t1, 0xc1270af8
-    p.subRN t2, t0, t1, 0x19
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xec957e40
+    li t2, 0xae8244f9
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0xfb7a6229
     li t1, 0xeaffe6a8
-    p.adduRN t2, t0, t1, 0x15
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xfb7a6229
+    li t2, 0x62de5ab5
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0xfede88db
     li t1, 0x3abffdbe
-    p.addRN t2, t0, t1, 0xd
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xfede88db
+    li t2, 0x58b796ad
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -2744,6 +2520,12 @@ _alu_test:
     divu t2, t0, t1
     xor t3, t3, t2
     
+    j check_routine
+    routine_3: #### NEW SUB ROUTINE ####
+    li t0, 0x8
+    not t0, t0
+    and a0, a0, t0
+    
     li t0, 0xbdc8f110
     li t1, 0xb006fab2
     pv.maxu.sc.h t2, t0, t1
@@ -2787,10 +2569,7 @@ _alu_test:
     
     li t0, 0x49eede4f
     li t1, 0x57fa78f9
-    p.subRN t2, t0, t1, 0x1a
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x49eede4f
+    li t2, 0x67963b9a
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -2871,10 +2650,7 @@ _alu_test:
     
     li t0, 0x2e2e2e8
     li t1, 0xc565f04e
-    p.adduN t2, t0, t1, 0x11
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x2e2e2e8
+    li t2, 0x2d968e91
     p.adduNr t2, t0, t1
     xor t3, t3, t2
     
@@ -3003,10 +2779,7 @@ _alu_test:
     
     li t0, 0x8038811d
     li t1, 0x29878e78
-    p.adduN t2, t0, t1, 0x13
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x8038811d
+    li t2, 0x31cc76b3
     p.adduNr t2, t0, t1
     xor t3, t3, t2
     
@@ -3055,10 +2828,7 @@ _alu_test:
     
     li t0, 0x94e6c8e7
     li t1, 0x1dfb4e8
-    p.subRN t2, t0, t1, 0x12
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x94e6c8e7
+    li t2, 0xdf579b2
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -3195,10 +2965,7 @@ _alu_test:
     
     li t0, 0x9b5c68ee
     li t1, 0x694c2878
-    p.subuRN t2, t0, t1, 0x1e
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x9b5c68ee
+    li t2, 0xeb17111e
     p.subuRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -3219,10 +2986,7 @@ _alu_test:
     
     li t0, 0x5afbbec8
     li t1, 0xf4fc450b
-    p.subRN t2, t0, t1, 0x10
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x5afbbec8
+    li t2, 0xacb182d0
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -3248,10 +3012,7 @@ _alu_test:
     
     li t0, 0xfbc39a4f
     li t1, 0x1e69c9f1
-    p.subuRN t2, t0, t1, 0x8
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xfbc39a4f
+    li t2, 0xd44733a8
     p.subuRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -3306,10 +3067,7 @@ _alu_test:
     
     li t0, 0xa1cc3cff
     li t1, 0xde26f99f
-    p.subuN t2, t0, t1, 0x3
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xa1cc3cff
+    li t2, 0x48a78c23
     p.subuNr t2, t0, t1
     xor t3, t3, t2
     
@@ -3366,10 +3124,7 @@ _alu_test:
     
     li t0, 0xd5643276
     li t1, 0x11dc35c3
-    p.subuN t2, t0, t1, 0x12
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xd5643276
+    li t2, 0x77c326b2
     p.subuNr t2, t0, t1
     xor t3, t3, t2
     
@@ -3425,6 +3180,12 @@ _alu_test:
     li t1, 0x829d5d99
     div t2, t0, t1
     xor t3, t3, t2
+    
+    j check_routine
+    routine_4: #### NEW SUB ROUTINE ####
+    li t0, 0x10
+    not t0, t0
+    and a0, a0, t0
     
     li t0, 0x7b148b6c
     li t1, 0xd6acab6
@@ -3490,10 +3251,7 @@ _alu_test:
     
     li t0, 0xae82346
     li t1, 0x6f1be94b
-    p.adduRN t2, t0, t1, 0x1d
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xae82346
+    li t2, 0x778df5d
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -3514,10 +3272,7 @@ _alu_test:
     
     li t0, 0x222b6eeb
     li t1, 0x8fae45ec
-    p.subRN t2, t0, t1, 0xe
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x222b6eeb
+    li t2, 0xa30c68ee
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -3576,10 +3331,7 @@ _alu_test:
     
     li t0, 0x62593511
     li t1, 0xdc622c37
-    p.adduN t2, t0, t1, 0x19
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x62593511
+    li t2, 0xba4df2d9
     p.adduNr t2, t0, t1
     xor t3, t3, t2
     
@@ -3590,10 +3342,7 @@ _alu_test:
     
     li t0, 0xcdc8cee3
     li t1, 0xc11dd8ad
-    p.adduN t2, t0, t1, 0xd
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xcdc8cee3
+    li t2, 0x1f3cfded
     p.adduNr t2, t0, t1
     xor t3, t3, t2
     
@@ -3633,10 +3382,7 @@ _alu_test:
     
     li t0, 0x11769cc6
     li t1, 0xde8e0f8f
-    p.adduN t2, t0, t1, 0x2
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x11769cc6
+    li t2, 0xfd8f42e2
     p.adduNr t2, t0, t1
     xor t3, t3, t2
     
@@ -3732,10 +3478,7 @@ _alu_test:
     
     li t0, 0xbd455c37
     li t1, 0x21b6e0ce
-    p.subuN t2, t0, t1, 0x1e
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xbd455c37
+    li t2, 0x6f08cade
     p.subuNr t2, t0, t1
     xor t3, t3, t2
     
@@ -3869,10 +3612,7 @@ _alu_test:
     
     li t0, 0x9a8c888b
     li t1, 0xcb802152
-    p.adduRN t2, t0, t1, 0x16
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x9a8c888b
+    li t2, 0xc1124636
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -4033,6 +3773,12 @@ _alu_test:
     and t2, t0, t1
     xor t3, t3, t2
     
+    j check_routine
+    routine_5: #### NEW SUB ROUTINE ####
+    li t0, 0x20
+    not t0, t0
+    and a0, a0, t0
+    
     li t0, 0x2adcfc08
     li t1, 0xa476cb0a
     bgeu t0, t1, label_n_26
@@ -4047,10 +3793,7 @@ _alu_test:
     
     li t0, 0x91ff8f41
     li t1, 0x9e5f17b6
-    p.adduRN t2, t0, t1, 0x10
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x91ff8f41
+    li t2, 0xf856e790
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -4078,10 +3821,7 @@ _alu_test:
     
     li t0, 0x776488e3
     li t1, 0x1a7bf0c7
-    p.adduRN t2, t0, t1, 0x14
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x776488e3
+    li t2, 0x9d1a5774
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -4121,10 +3861,7 @@ _alu_test:
     
     li t0, 0x48c40a2f
     li t1, 0xd989fdc7
-    p.adduN t2, t0, t1, 0x1a
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x48c40a2f
+    li t2, 0x9b907bda
     p.adduNr t2, t0, t1
     xor t3, t3, t2
     
@@ -4176,10 +3913,7 @@ _alu_test:
     
     li t0, 0x36c84211
     li t1, 0x9f44d4ba
-    p.adduN t2, t0, t1, 0xa
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x36c84211
+    li t2, 0xd5d26c0a
     p.adduNr t2, t0, t1
     xor t3, t3, t2
     
@@ -4190,10 +3924,7 @@ _alu_test:
     
     li t0, 0x6a683cec
     li t1, 0x96d04bb6
-    p.subuN t2, t0, t1, 0xf
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x6a683cec
+    li t2, 0x23789cf
     p.subuNr t2, t0, t1
     xor t3, t3, t2
     
@@ -4221,10 +3952,7 @@ _alu_test:
     
     li t0, 0xe08711a6
     li t1, 0x988a3b5f
-    p.subRN t2, t0, t1, 0x1a
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xe08711a6
+    li t2, 0x8ec0511a
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -4355,10 +4083,7 @@ _alu_test:
     
     li t0, 0xa186cfec
     li t1, 0xf08a8c98
-    p.addRN t2, t0, t1, 0x1d
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xa186cfec
+    li t2, 0xc1da1d7d
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -4573,10 +4298,7 @@ _alu_test:
     
     li t0, 0x2873076
     li t1, 0x2ecbbc10
-    p.adduN t2, t0, t1, 0xe
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x2873076
+    li t2, 0xeae40aee
     p.adduNr t2, t0, t1
     xor t3, t3, t2
     
@@ -4643,10 +4365,7 @@ _alu_test:
     
     li t0, 0xbfe17dd
     li t1, 0xc5a8020d
-    p.subRN t2, t0, t1, 0x2
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xbfe17dd
+    li t2, 0xc30161c2
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -4660,10 +4379,7 @@ _alu_test:
     
     li t0, 0x0
     li t1, 0x14a3db6a
-    p.adduN t2, t0, t1, 0x19
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x0
+    li t2, 0x9ce29cf9
     p.adduNr t2, t0, t1
     xor t3, t3, t2
     
@@ -4671,6 +4387,12 @@ _alu_test:
     li t1, 0xf868e26e
     rem t2, t0, t1
     xor t3, t3, t2
+    
+    j check_routine
+    routine_6: #### NEW SUB ROUTINE ####
+    li t0, 0x40
+    not t0, t0
+    and a0, a0, t0
     
     li t0, 0x800000
     li t1, 0x0
@@ -4697,10 +4419,7 @@ _alu_test:
     
     li t0, 0x2070749d
     li t1, 0x96334444
-    p.adduRN t2, t0, t1, 0x10
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x2070749d
+    li t2, 0x34c2e210
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -4778,10 +4497,7 @@ _alu_test:
     
     li t0, 0x713f5477
     li t1, 0x8e5b028d
-    p.adduRN t2, t0, t1, 0x19
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x713f5477
+    li t2, 0xc1df5599
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -4871,10 +4587,7 @@ _alu_test:
     
     li t0, 0x924a9dcc
     li t1, 0xed71896e
-    p.subRN t2, t0, t1, 0x15
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x924a9dcc
+    li t2, 0x784382b5
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -5000,10 +4713,7 @@ _alu_test:
     
     li t0, 0x9758161b
     li t1, 0xb051665f
-    p.adduRN t2, t0, t1, 0x10
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x9758161b
+    li t2, 0xbf1403b0
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -5036,10 +4746,7 @@ _alu_test:
     
     li t0, 0xeac8fbee
     li t1, 0x8bb6f6b0
-    p.addRN t2, t0, t1, 0x15
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xeac8fbee
+    li t2, 0xefbbb1d5
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -5121,10 +4828,7 @@ _alu_test:
     
     li t0, 0x1aae809
     li t1, 0x11f6e941
-    p.addRN t2, t0, t1, 0x1d
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x1aae809
+    li t2, 0xb99f80bd
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -5159,6 +4863,12 @@ _alu_test:
     rem t2, t0, t1
     xor t3, t3, t2
     
+    j check_routine
+    routine_7: #### NEW SUB ROUTINE ####
+    li t0, 0x80
+    not t0, t0
+    and a0, a0, t0
+    
     li t0, 0x0
     li t1, 0xfffffff8
     div t2, t0, t1
@@ -5171,10 +4881,7 @@ _alu_test:
     
     li t0, 0x340bc6ad
     li t1, 0x668c57bd
-    p.addRN t2, t0, t1, 0x8
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x340bc6ad
+    li t2, 0x6a3884c8
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -5290,10 +4997,7 @@ _alu_test:
     
     li t0, 0x7cee46ec
     li t1, 0xe3d9df5d
-    p.subuRN t2, t0, t1, 0xe
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x7cee46ec
+    li t2, 0xad0f818e
     p.subuRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -5319,10 +5023,7 @@ _alu_test:
     
     li t0, 0x5607b293
     li t1, 0x25161e9b
-    p.subuRN t2, t0, t1, 0x1f
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x5607b293
+    li t2, 0x474cf75f
     p.subuRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -5348,10 +5049,7 @@ _alu_test:
     
     li t0, 0x77d6cbda
     li t1, 0x73793a76
-    p.adduRN t2, t0, t1, 0x15
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x77d6cbda
+    li t2, 0x8d48b355
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -5362,10 +5060,7 @@ _alu_test:
     
     li t0, 0x4836968f
     li t1, 0xf9650365
-    p.addRN t2, t0, t1, 0x19
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x4836968f
+    li t2, 0x80b9bcb9
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -5446,10 +5141,7 @@ _alu_test:
     
     li t0, 0x3f6b8bf4
     li t1, 0x8d41b934
-    p.subRN t2, t0, t1, 0x7
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x3f6b8bf4
+    li t2, 0xd9b22467
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -5469,10 +5161,7 @@ _alu_test:
     
     li t0, 0x46ce7812
     li t1, 0x85dbcfb7
-    p.adduN t2, t0, t1, 0x1b
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x46ce7812
+    li t2, 0xa8e2f6bb
     p.adduNr t2, t0, t1
     xor t3, t3, t2
     
@@ -5630,10 +5319,7 @@ _alu_test:
     
     li t0, 0x183721f
     li t1, 0x87dd95e2
-    p.subRN t2, t0, t1, 0x17
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x183721f
+    li t2, 0xd2af4b77
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -5693,6 +5379,12 @@ _alu_test:
     rem t2, t0, t1
     xor t3, t3, t2
     
+    j check_routine
+    routine_8: #### NEW SUB ROUTINE ####
+    li t0, 0x100
+    not t0, t0
+    and a0, a0, t0
+    
     li t0, 0xe3709860
     li t1, 0x27a5f03a
     pv.pack.h t2, t0, t1
@@ -5710,10 +5402,7 @@ _alu_test:
     
     li t0, 0xcc6e6d2a
     li t1, 0x6ea9b5c5
-    p.adduRN t2, t0, t1, 0x17
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xcc6e6d2a
+    li t2, 0x3c111db7
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -5748,10 +5437,7 @@ _alu_test:
     
     li t0, 0x4845c48b
     li t1, 0xca13b607
-    p.adduN t2, t0, t1, 0xe
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x4845c48b
+    li t2, 0xf0c22c6e
     p.adduNr t2, t0, t1
     xor t3, t3, t2
     
@@ -5776,10 +5462,7 @@ _alu_test:
     
     li t0, 0x7d2fee1
     li t1, 0xcb219e20
-    p.addRN t2, t0, t1, 0x1c
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x7d2fee1
+    li t2, 0xd580b3c
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -5795,10 +5478,7 @@ _alu_test:
     
     li t0, 0x60e6d44f
     li t1, 0x116dad29
-    p.adduRN t2, t0, t1, 0x1a
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x60e6d44f
+    li t2, 0x16cfb8da
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -5875,10 +5555,7 @@ _alu_test:
     
     li t0, 0x52c5fd02
     li t1, 0x37579b0c
-    p.subuN t2, t0, t1, 0x18
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x52c5fd02
+    li t2, 0x9b219098
     p.subuNr t2, t0, t1
     xor t3, t3, t2
     
@@ -5908,10 +5585,7 @@ _alu_test:
     
     li t0, 0xac8d92e2
     li t1, 0xf56f682a
-    p.subuRN t2, t0, t1, 0x18
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xac8d92e2
+    li t2, 0x389b31b8
     p.subuRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -6002,10 +5676,7 @@ _alu_test:
     
     li t0, 0x3b7d0c70
     li t1, 0xee2f8025
-    p.addRN t2, t0, t1, 0x1b
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x3b7d0c70
+    li t2, 0x79f3871b
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -6052,10 +5723,7 @@ _alu_test:
     
     li t0, 0x4cf6a2f6
     li t1, 0x4b8a4f1
-    p.subuN t2, t0, t1, 0x5
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x4cf6a2f6
+    li t2, 0x44dd505
     p.subuNr t2, t0, t1
     xor t3, t3, t2
     
@@ -6072,10 +5740,7 @@ _alu_test:
     
     li t0, 0xd6b8450a
     li t1, 0x927f599d
-    p.subuRN t2, t0, t1, 0x4
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xd6b8450a
+    li t2, 0x2e3e26a4
     p.subuRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -6086,10 +5751,7 @@ _alu_test:
     
     li t0, 0xbc56de80
     li t1, 0x43c2b86c
-    p.adduN t2, t0, t1, 0x1b
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xbc56de80
+    li t2, 0x369919bb
     p.adduNr t2, t0, t1
     xor t3, t3, t2
     
@@ -6110,10 +5772,7 @@ _alu_test:
     
     li t0, 0xd1c34954
     li t1, 0x290e313f
-    p.subRN t2, t0, t1, 0x1a
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xd1c34954
+    li t2, 0xbf0fb9ba
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -6134,19 +5793,13 @@ _alu_test:
     
     li t0, 0xfc0932ec
     li t1, 0xbe6fd59a
-    p.subuN t2, t0, t1, 0x14
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xfc0932ec
+    li t2, 0x53d239b4
     p.subuNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0xbfc13df
     li t1, 0x143afd6b
-    p.subRN t2, t0, t1, 0x15
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xbfc13df
+    li t2, 0xc5aa4115
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -6182,10 +5835,7 @@ _alu_test:
     
     li t0, 0x9627d404
     li t1, 0x2c70e406
-    p.subRN t2, t0, t1, 0x13
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x9627d404
+    li t2, 0xbcfca233
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -6246,10 +5896,7 @@ _alu_test:
     
     li t0, 0x1f40842c
     li t1, 0x1d42c5d2
-    p.subuN t2, t0, t1, 0x6
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x1f40842c
+    li t2, 0xae7b6206
     p.subuNr t2, t0, t1
     xor t3, t3, t2
     
@@ -6299,10 +5946,7 @@ _alu_test:
     
     li t0, 0x216545ca
     li t1, 0xb8e202f8
-    p.adduRN t2, t0, t1, 0x11
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x216545ca
+    li t2, 0x278d1871
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -6310,6 +5954,12 @@ _alu_test:
     li t1, 0x0
     div t2, t0, t1
     xor t3, t3, t2
+    
+    j check_routine
+    routine_9: #### NEW SUB ROUTINE ####
+    li t0, 0x200
+    not t0, t0
+    and a0, a0, t0
     
     li t0, 0x1bf0743d
     li t1, 0x14b46164
@@ -6345,10 +5995,7 @@ _alu_test:
     
     li t0, 0x8e73122
     li t1, 0xb3cd7873
-    p.adduN t2, t0, t1, 0x1c
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x8e73122
+    li t2, 0x227a24bc
     p.adduNr t2, t0, t1
     xor t3, t3, t2
     
@@ -6373,10 +6020,7 @@ _alu_test:
     
     li t0, 0x3cebbf10
     li t1, 0xeef95492
-    p.addRN t2, t0, t1, 0x1b
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x3cebbf10
+    li t2, 0xe7f1507b
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -6506,10 +6150,7 @@ _alu_test:
     
     li t0, 0x5b14f687
     li t1, 0x4d499cf5
-    p.subuN t2, t0, t1, 0x9
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x5b14f687
+    li t2, 0xf0f2c2c9
     p.subuNr t2, t0, t1
     xor t3, t3, t2
     
@@ -6587,10 +6228,7 @@ _alu_test:
     
     li t0, 0x53b18a0a
     li t1, 0x8112bb89
-    p.adduRN t2, t0, t1, 0x18
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x53b18a0a
+    li t2, 0xdcd6c58
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -6652,10 +6290,7 @@ _alu_test:
     
     li t0, 0xbdc33c14
     li t1, 0x66b310e9
-    p.subRN t2, t0, t1, 0x10
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xbdc33c14
+    li t2, 0x7483c470
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -6666,10 +6301,7 @@ _alu_test:
     
     li t0, 0x44c14aa9
     li t1, 0x3f85a36d
-    p.subuN t2, t0, t1, 0xa
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x44c14aa9
+    li t2, 0x3cba8e6a
     p.subuNr t2, t0, t1
     xor t3, t3, t2
     
@@ -6754,10 +6386,7 @@ _alu_test:
     
     li t0, 0x528b57d9
     li t1, 0x7e1299e9
-    p.subRN t2, t0, t1, 0x11
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x528b57d9
+    li t2, 0xeefdb4b1
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -6866,6 +6495,12 @@ _alu_test:
     li t1, 0x4ab8d220
     pv.shuffle2.h t2, t0, t1
     xor t3, t3, t2
+    
+    j check_routine
+    routine_10: #### NEW SUB ROUTINE ####
+    li t0, 0x400
+    not t0, t0
+    and a0, a0, t0
     
     li t0, 0x9d974004
     li t1, 0xad2e5879
@@ -6983,10 +6618,7 @@ _alu_test:
     
     li t0, 0xdc1c7120
     li t1, 0x40ea3f5d
-    p.adduN t2, t0, t1, 0x8
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xdc1c7120
+    li t2, 0x241111a8
     p.adduNr t2, t0, t1
     xor t3, t3, t2
     
@@ -6996,19 +6628,13 @@ _alu_test:
     
     li t0, 0x94c88227
     li t1, 0xe1294be7
-    p.subRN t2, t0, t1, 0xc
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x94c88227
+    li t2, 0x49fd8fec
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0x2dba6054
     li t1, 0xc0a9d1d5
-    p.subuRN t2, t0, t1, 0x1e
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x2dba6054
+    li t2, 0xdb7a1dde
     p.subuRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -7024,19 +6650,13 @@ _alu_test:
     
     li t0, 0xec6d62d2
     li t1, 0xa3442392
-    p.subuRN t2, t0, t1, 0xa
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xec6d62d2
+    li t2, 0x4836910a
     p.subuRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0x322f1b61
     li t1, 0x13755807
-    p.subuN t2, t0, t1, 0x5
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x322f1b61
+    li t2, 0x7491d5c5
     p.subuNr t2, t0, t1
     xor t3, t3, t2
     
@@ -7101,10 +6721,7 @@ _alu_test:
     
     li t0, 0x1e0de034
     li t1, 0xaa9737ad
-    p.adduN t2, t0, t1, 0x17
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x1e0de034
+    li t2, 0x63175997
     p.adduNr t2, t0, t1
     xor t3, t3, t2
     
@@ -7197,10 +6814,7 @@ _alu_test:
     
     li t0, 0xe9403a25
     li t1, 0xb319627b
-    p.subRN t2, t0, t1, 0xa
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xe9403a25
+    li t2, 0x2c3ed6ca
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -7211,10 +6825,7 @@ _alu_test:
     
     li t0, 0xa2ccc505
     li t1, 0x3908f06c
-    p.addRN t2, t0, t1, 0x3
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xa2ccc505
+    li t2, 0x1bc6e9a3
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -7249,10 +6860,7 @@ _alu_test:
     
     li t0, 0xf29582a2
     li t1, 0x511c82e4
-    p.adduN t2, t0, t1, 0x2
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xf29582a2
+    li t2, 0xab8f30a2
     p.adduNr t2, t0, t1
     xor t3, t3, t2
     
@@ -7292,10 +6900,7 @@ _alu_test:
     
     li t0, 0x0
     li t1, 0x72dd0819
-    p.adduRN t2, t0, t1, 0x9
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x0
+    li t2, 0xe0d03109
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -7460,12 +7065,15 @@ _alu_test:
     div t2, t0, t1
     xor t3, t3, t2
     
+    j check_routine
+    routine_11: #### NEW SUB ROUTINE ####
+    li t0, 0x800
+    not t0, t0
+    and a0, a0, t0
+    
     li t0, 0xfa8e8bf3
     li t1, 0xe43592eb
-    p.addRN t2, t0, t1, 0xa
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xfa8e8bf3
+    li t2, 0x334160ea
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -7544,10 +7152,7 @@ _alu_test:
     
     li t0, 0xf519fae8
     li t1, 0xa8aea494
-    p.adduN t2, t0, t1, 0xa
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xf519fae8
+    li t2, 0x7691a9aa
     p.adduNr t2, t0, t1
     xor t3, t3, t2
     
@@ -7675,10 +7280,7 @@ _alu_test:
     
     li t0, 0x6a0974a0
     li t1, 0xf195d7c2
-    p.adduRN t2, t0, t1, 0x14
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x6a0974a0
+    li t2, 0x5373cb94
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -7965,10 +7567,7 @@ _alu_test:
     
     li t0, 0x51415db1
     li t1, 0xe9803285
-    p.adduRN t2, t0, t1, 0x8
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x51415db1
+    li t2, 0xe34a08
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -7988,6 +7587,12 @@ _alu_test:
     li t1, 0xefdb4937
     remu t2, t0, t1
     xor t3, t3, t2
+    
+    j check_routine
+    routine_12: #### NEW SUB ROUTINE ####
+    li t0, 0x1000
+    not t0, t0
+    and a0, a0, t0
     
     li t0, 0xffffffff
     li t1, 0x0
@@ -8030,19 +7635,13 @@ _alu_test:
     
     li t0, 0x48b62679
     li t1, 0xa8633c2d
-    p.subuN t2, t0, t1, 0x0
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x48b62679
+    li t2, 0x47b910c0
     p.subuNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0xb4ba3e9
     li t1, 0x6eff1927
-    p.subuRN t2, t0, t1, 0x7
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xb4ba3e9
+    li t2, 0xf4c34367
     p.subuRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -8087,10 +7686,7 @@ _alu_test:
     
     li t0, 0x711009e2
     li t1, 0x217f2c30
-    p.subRN t2, t0, t1, 0x1d
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x711009e2
+    li t2, 0xc76ea25d
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -8241,10 +7837,7 @@ _alu_test:
     
     li t0, 0xeadac804
     li t1, 0x1022e65d
-    p.adduN t2, t0, t1, 0xd
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xeadac804
+    li t2, 0x125b9ead
     p.adduNr t2, t0, t1
     xor t3, t3, t2
     
@@ -8309,10 +7902,7 @@ _alu_test:
     
     li t0, 0xeaad7eba
     li t1, 0xd6c56ebe
-    p.addRN t2, t0, t1, 0x1d
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xeaad7eba
+    li t2, 0xed2c4a7d
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -8323,10 +7913,7 @@ _alu_test:
     
     li t0, 0x42a123fa
     li t1, 0xf425a302
-    p.subRN t2, t0, t1, 0x17
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x42a123fa
+    li t2, 0x7c0c1297
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -8350,19 +7937,13 @@ _alu_test:
     
     li t0, 0xf27a6bd
     li t1, 0x7d3c4ce3
-    p.adduRN t2, t0, t1, 0x9
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xf27a6bd
+    li t2, 0x35ebc3e9
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0xb57d6f69
     li t1, 0x5e57462f
-    p.subRN t2, t0, t1, 0xc
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xb57d6f69
+    li t2, 0xd60bbccc
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -8402,10 +7983,7 @@ _alu_test:
     
     li t0, 0x6cb27c82
     li t1, 0x81dce6cf
-    p.adduN t2, t0, t1, 0x1d
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x6cb27c82
+    li t2, 0xdc9e26bd
     p.adduNr t2, t0, t1
     xor t3, t3, t2
     
@@ -8520,6 +8098,12 @@ _alu_test:
     div t2, t0, t1
     xor t3, t3, t2
     
+    j check_routine
+    routine_13: #### NEW SUB ROUTINE ####
+    li t0, 0x2000
+    not t0, t0
+    and a0, a0, t0
+    
     li t0, 0x6cae6262
     p.clipu t2, t0, 0x15
     xor t3, t3, t2
@@ -8581,10 +8165,7 @@ _alu_test:
     
     li t0, 0xdba6c3a4
     li t1, 0x7a252b4d
-    p.adduN t2, t0, t1, 0x15
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xdba6c3a4
+    li t2, 0xd374c8b5
     p.adduNr t2, t0, t1
     xor t3, t3, t2
     
@@ -8640,10 +8221,7 @@ _alu_test:
     
     li t0, 0x6a05b5b2
     li t1, 0x97ad1e65
-    p.adduRN t2, t0, t1, 0x19
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x6a05b5b2
+    li t2, 0x95e86119
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -8729,10 +8307,7 @@ _alu_test:
     
     li t0, 0x5a0e2cd2
     li t1, 0x401ae07b
-    p.adduRN t2, t0, t1, 0xb
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x5a0e2cd2
+    li t2, 0xb19cd30b
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -8748,10 +8323,7 @@ _alu_test:
     
     li t0, 0xa52805d5
     li t1, 0xa1b07e55
-    p.subRN t2, t0, t1, 0x1
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xa52805d5
+    li t2, 0x1be80541
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -8796,10 +8368,7 @@ _alu_test:
     
     li t0, 0x0
     li t1, 0x1145326a
-    p.adduRN t2, t0, t1, 0x1a
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x0
+    li t2, 0x7599849a
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -8810,10 +8379,7 @@ _alu_test:
     
     li t0, 0x3d4db76d
     li t1, 0x84cf1f5d
-    p.addRN t2, t0, t1, 0x11
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x3d4db76d
+    li t2, 0xe34f7af1
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -8921,10 +8487,7 @@ _alu_test:
     
     li t0, 0x453da913
     li t1, 0x5945ee8f
-    p.subRN t2, t0, t1, 0xf
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x453da913
+    li t2, 0xe5309c0f
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -8983,10 +8546,7 @@ _alu_test:
     
     li t0, 0x86ec6f31
     li t1, 0x2f24a252
-    p.adduN t2, t0, t1, 0x5
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x86ec6f31
+    li t2, 0xddafe225
     p.adduNr t2, t0, t1
     xor t3, t3, t2
     
@@ -8996,10 +8556,7 @@ _alu_test:
     
     li t0, 0xf66c3890
     li t1, 0x50b4130f
-    p.subuRN t2, t0, t1, 0x4
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xf66c3890
+    li t2, 0x56f43a24
     p.subuRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -9058,10 +8615,7 @@ _alu_test:
     
     li t0, 0x42a06d92
     li t1, 0x8adf9925
-    p.subuN t2, t0, t1, 0x9
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x42a06d92
+    li t2, 0x4550c929
     p.subuNr t2, t0, t1
     xor t3, t3, t2
     
@@ -9169,12 +8723,15 @@ _alu_test:
     p.cnt t2, t0
     xor t3, t3, t2
     
+    j check_routine
+    routine_14: #### NEW SUB ROUTINE ####
+    li t0, 0x4000
+    not t0, t0
+    and a0, a0, t0
+    
     li t0, 0xa1236a30
     li t1, 0x7e5ff26c
-    p.addRN t2, t0, t1, 0x1c
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xa1236a30
+    li t2, 0x3807b3c
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -9216,10 +8773,7 @@ _alu_test:
     
     li t0, 0x59b2a445
     li t1, 0x7996a732
-    p.subuRN t2, t0, t1, 0x18
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x59b2a445
+    li t2, 0x2b626ff8
     p.subuRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -9240,10 +8794,7 @@ _alu_test:
     
     li t0, 0x3782439d
     li t1, 0x3ef1cace
-    p.adduN t2, t0, t1, 0x6
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x3782439d
+    li t2, 0xe0a64766
     p.adduNr t2, t0, t1
     xor t3, t3, t2
     
@@ -9474,10 +9025,7 @@ _alu_test:
     
     li t0, 0xdc6876b3
     li t1, 0x2a2fd7b
-    p.adduRN t2, t0, t1, 0x1c
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xdc6876b3
+    li t2, 0x7fa7575c
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -9612,19 +9160,13 @@ _alu_test:
     
     li t0, 0x3a163407
     li t1, 0x5e752c4e
-    p.addRN t2, t0, t1, 0x16
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x3a163407
+    li t2, 0xb4824636
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0x3f1c84aa
     li t1, 0x491624ea
-    p.addRN t2, t0, t1, 0x10
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x3f1c84aa
+    li t2, 0x7bd70d10
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -9737,28 +9279,19 @@ _alu_test:
     
     li t0, 0x19c50a2
     li t1, 0x5c91f7b8
-    p.subRN t2, t0, t1, 0x1a
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x19c50a2
+    li t2, 0xa16758ba
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0x9a770b86
     li t1, 0xaf38a18d
-    p.subuN t2, t0, t1, 0x1f
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x9a770b86
+    li t2, 0x24dd651f
     p.subuNr t2, t0, t1
     xor t3, t3, t2
     
     li t0, 0x1c649cdf
     li t1, 0xdf16d75d
-    p.subuN t2, t0, t1, 0xe
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x1c649cdf
+    li t2, 0xe3d205ee
     p.subuNr t2, t0, t1
     xor t3, t3, t2
     
@@ -9786,6 +9319,12 @@ _alu_test:
     div t2, t0, t1
     xor t3, t3, t2
     
+    j check_routine
+    routine_15: #### NEW SUB ROUTINE ####
+    li t0, 0x8000
+    not t0, t0
+    and a0, a0, t0
+    
     li t0, 0x97ce19ba
     li t1, 0x4e2e228b
     remu t2, t0, t1
@@ -9797,10 +9336,7 @@ _alu_test:
     
     li t0, 0x89eb75c
     li t1, 0xa9f24b5c
-    p.adduRN t2, t0, t1, 0x11
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x89eb75c
+    li t2, 0x3fa34cf1
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -9811,10 +9347,7 @@ _alu_test:
     
     li t0, 0xb8a6690e
     li t1, 0xf0e8e63c
-    p.subuRN t2, t0, t1, 0x2
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xb8a6690e
+    li t2, 0x2d9b2f82
     p.subuRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -9840,10 +9373,7 @@ _alu_test:
     
     li t0, 0x5b28eb6e
     li t1, 0x288b0e06
-    p.adduN t2, t0, t1, 0x4
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x5b28eb6e
+    li t2, 0x280f4224
     p.adduNr t2, t0, t1
     xor t3, t3, t2
     
@@ -9904,10 +9434,7 @@ _alu_test:
     
     li t0, 0xed4561d9
     li t1, 0xcdaf74f0
-    p.adduRN t2, t0, t1, 0xb
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xed4561d9
+    li t2, 0x332b330b
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -9929,10 +9456,7 @@ _alu_test:
     
     li t0, 0x7126575d
     li t1, 0xf61d2a1c
-    p.addRN t2, t0, t1, 0x7
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x7126575d
+    li t2, 0x4a9ee047
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -10119,10 +9643,7 @@ _alu_test:
     
     li t0, 0xc531dc3e
     li t1, 0x678ab7f4
-    p.subRN t2, t0, t1, 0xa
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xc531dc3e
+    li t2, 0x3e57c40a
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -10189,10 +9710,7 @@ _alu_test:
     
     li t0, 0x33d0c37f
     li t1, 0x9c97de10
-    p.addRN t2, t0, t1, 0x6
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x33d0c37f
+    li t2, 0xf7907446
     p.addRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -10256,10 +9774,7 @@ _alu_test:
     
     li t0, 0x99529f01
     li t1, 0x4e37b110
-    p.adduRN t2, t0, t1, 0x11
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x99529f01
+    li t2, 0x38db2331
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -10386,10 +9901,7 @@ _alu_test:
     
     li t0, 0x68b4add9
     li t1, 0x198ce75c
-    p.subuRN t2, t0, t1, 0x14
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x68b4add9
+    li t2, 0xe5d192f4
     p.subuRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -10405,10 +9917,7 @@ _alu_test:
     
     li t0, 0xf7d24139
     li t1, 0xbef8823f
-    p.subuN t2, t0, t1, 0x7
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xf7d24139
+    li t2, 0x56194a07
     p.subuNr t2, t0, t1
     xor t3, t3, t2
     
@@ -10427,10 +9936,7 @@ _alu_test:
     
     li t0, 0x56fc6207
     li t1, 0xe93b6fd2
-    p.adduN t2, t0, t1, 0x4
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0x56fc6207
+    li t2, 0x46885384
     p.adduNr t2, t0, t1
     xor t3, t3, t2
     
@@ -10466,6 +9972,12 @@ _alu_test:
     li t0, 0x8909e5b8
     p.ff1 t2, t0
     xor t3, t3, t2
+    
+    j check_routine
+    routine_16: #### NEW SUB ROUTINE ####
+    li t0, 0x10000
+    not t0, t0
+    and a0, a0, t0
     
     li t0, 0x8df5156
     li t1, 0xb9241d0b
@@ -10606,10 +10118,7 @@ _alu_test:
     
     li t0, 0xb4a3e6ba
     li t1, 0xfc22617c
-    p.subRN t2, t0, t1, 0xb
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xb4a3e6ba
+    li t2, 0xae29a6ab
     p.subRNr t2, t0, t1
     xor t3, t3, t2
     
@@ -10682,10 +10191,7 @@ _alu_test:
     
     li t0, 0xdcb5d9a
     li t1, 0x17c4a120
-    p.adduN t2, t0, t1, 0x12
-    xor t3, t3, t2
-    ## -- ##
-    li t2, 0xdcb5d9a
+    li t2, 0x64973192
     p.adduNr t2, t0, t1
     xor t3, t3, t2
     
@@ -10710,6 +10216,47 @@ _alu_test:
     div t2, t0, t1
     xor t3, t3, t2
     
+    check_routine:
+        and a1, a0, 0x1
+    	   bne a1, x0, routine_0 #n. 0x1
+        and a1, a0, 0x2
+    	   bne a1, x0, routine_1 #n. 0x2
+        and a1, a0, 0x4
+    	   bne a1, x0, routine_2 #n. 0x4
+        and a1, a0, 0x8
+    	   bne a1, x0, routine_3 #n. 0x8
+        and a1, a0, 0x10
+    	   bne a1, x0, routine_4 #n. 0x10
+        and a1, a0, 0x20
+    	   bne a1, x0, routine_5 #n. 0x20
+        and a1, a0, 0x40
+    	   bne a1, x0, routine_6 #n. 0x40
+        and a1, a0, 0x80
+    	   bne a1, x0, routine_7 #n. 0x80
+        and a1, a0, 0x100
+    	   bne a1, x0, routine_8 #n. 0x100
+        and a1, a0, 0x200
+    	   bne a1, x0, routine_9 #n. 0x200
+        and a1, a0, 0x400
+    	   bne a1, x0, routine_10 #n. 0x400
+        li t0, 0x800
+        and a1, a0, t0
+    	   bne a1, x0, routine_11 #n. 0x800
+        li t0, 0x1000
+        and a1, a0, t0
+    	   bne a1, x0, routine_12 #n. 0x1000
+        li t0, 0x2000
+        and a1, a0, t0
+    	   bne a1, x0, routine_13 #n. 0x2000
+        li t0, 0x4000
+        and a1, a0, t0
+    	   bne a1, x0, routine_14 #n. 0x4000
+        li t0, 0x8000
+        and a1, a0, t0
+    	   bne a1, x0, routine_15 #n. 0x8000
+        li t0, 0x10000
+        and a1, a0, t0
+    	   bne a1, x0, routine_16 #n. 0x10000
     ##- END -##
 
     li t4, 0x12345678 # triggers sim log for t3

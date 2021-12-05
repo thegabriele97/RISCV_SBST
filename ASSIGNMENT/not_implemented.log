@@ -191,4 +191,4 @@ Not matched op: 0101101 rs1 =  0x4b958aac rs2 =  0xd6c1b1a6
 Not matched op: 0100000 rs1 =  0xa3f222b6 rs2 =  0xae663c87
 Not matched op: 0111100 rs1 =  0x57226d6e rs2 =  0xe4cd235d
 Not matched op: 0001111 rs1 =  0x4dbc2d29 rs2 =  0x8849acd0
-Total implemented: 6906
+Total implemented: 2040
