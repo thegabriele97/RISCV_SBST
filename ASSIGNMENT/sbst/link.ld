@@ -342,12 +342,6 @@ SECTIONS
   __BSS_END__ = .;
   __bss_end = .;
 
-  .__RAM_DATA_END         : ALIGN(16) 
-  {
-   __RAM_DATA_END = .;
-   *(.RAM_DATA_END)
-   __RAM_DATA_END = .;
-  } >dataram
 
   /* The compiler uses this to access data in the .sdata, .data, .sbss and .bss
      sections with fewer instructions (relaxation). This reduces code size. */
@@ -374,6 +368,13 @@ SECTIONS
    . = __stack_size;
    PROVIDE(_sp = .);
    PROVIDE(__stack_end = .);
+  } >dataram
+  
+  .__RAM_DATA_END         : ALIGN(16) 
+  {
+   __RAM_DATA_END = .;
+   *(.RAM_DATA_END)
+   __RAM_DATA_END = .;
   } >dataram
 
 

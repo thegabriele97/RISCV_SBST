@@ -77,7 +77,7 @@ _start:
 	call __libc_init_array
 
 /* call boot-time software-based self-test */
-	call _sbst_boot
+	//call _sbst_boot
 
 /* call main */
 	lw a0, 0(sp)                    /* a0 = argc */
