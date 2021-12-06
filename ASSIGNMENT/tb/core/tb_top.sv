@@ -147,6 +147,20 @@ module tb_top
 	  end 
 	end
     end
+    
+    //G&M: SBST signature log
+    always_ff @(posedge clk, negedge rst_n) begin
+        if (tb_top.riscv_wrapper_i.riscv_core_i.id_stage_i.registers_i.waddr_b_i == 6'h1d && tb_top.riscv_wrapper_i.riscv_core_i.id_stage_i.registers_i.wdata_b_i == 32'h12345678) begin
+		  $display("SBST SIGNATURE  LOG: reg[t3] = 0x%h, time %t", tb_top.riscv_wrapper_i.riscv_core_i.id_stage_i.registers_i.riscv_register_file_i.mem[28], $realtime); 
+        end
+    end
+    
+    //G&M: SBST time log
+    always_ff @(posedge clk, negedge rst_n) begin
+        if (tb_top.riscv_wrapper_i.riscv_core_i.id_stage_i.registers_i.waddr_b_i == 6'h1e && tb_top.riscv_wrapper_i.riscv_core_i.id_stage_i.registers_i.wdata_b_i == 32'h12345678) begin
+		  $display("SBST CHECKPOINT LOG: time %t", $realtime); 
+        end
+    end
 
     // wrapper for riscv, the memory system and stdout peripheral
     riscv_wrapper

@@ -1,5 +1,15 @@
 la x31, _STORAGE_POINTER_
+sw x0, 21*4(t0)
+la x31, _STORAGE_POINTER_
 li x1, 0x00000000
+
+j check_routine
+routine_0: #### NEW SUB ROUTINE ####
+li t1, 0x1
+not t1, t1
+and a0, a0, t1
+la t0, _STORAGE_POINTER_
+sw a0, 22*4(t0)
 
 li x0, 0x00000000
 sw x0, 20*4(x31)
@@ -389,38 +399,74 @@ sw x31, 20*4(x1)
 lw x31, 20*4(x1)
 li x1, 0xFFFFFFFF
 
+xor x30, x30, x2
 p.mac x0, x0, x0
+xor x30, x30, x1
 p.mac x1, x1, x1
+xor x30, x30, x2
 p.mac x2, x2, x2
+xor x30, x30, x3
 p.mac x3, x3, x3
+xor x30, x30, x4
 p.mac x4, x4, x4
+xor x30, x30, x5
 p.mac x5, x5, x5
+xor x30, x30, x6
 p.mac x6, x6, x6
+xor x30, x30, x7
 p.mac x7, x7, x7
+xor x30, x30, x8
 p.mac x8, x8, x8
+xor x30, x30, x9
 p.mac x9, x9, x9
+xor x30, x30, x10
 p.mac x10, x10, x10
+xor x30, x30, x11
 p.mac x11, x11, x11
+xor x30, x30, x12
 p.mac x12, x12, x12
+xor x30, x30, x13
 p.mac x13, x13, x13
+xor x30, x30, x14
 p.mac x14, x14, x14
+xor x30, x30, x15
 p.mac x15, x15, x15
+xor x30, x30, x16
 p.mac x16, x16, x16
+xor x30, x30, x17
 p.mac x17, x17, x17
+xor x30, x30, x18
 p.mac x18, x18, x18
+xor x30, x30, x19
 p.mac x19, x19, x19
+xor x30, x30, x20
 p.mac x20, x20, x20
+xor x30, x30, x21
 p.mac x21, x21, x21
+xor x30, x30, x22
 p.mac x22, x22, x22
+xor x30, x30, x23
 p.mac x23, x23, x23
+xor x30, x30, x24
 p.mac x24, x24, x24
+xor x30, x30, x25
 p.mac x25, x25, x25
+xor x30, x30, x26
 p.mac x26, x26, x26
+xor x30, x30, x27
 p.mac x27, x27, x27
+xor x30, x30, x28
 p.mac x28, x28, x28
+xor x30, x30, x29
 p.mac x29, x29, x29
+xor x29, x30, x2
 p.mac x30, x30, x30
+xor x29, x29, x31
 p.mac x31, x31, x31
+la t0, _STORAGE_POINTER_
+lw x31, 21*4(t0)
+xor x30, x29, x31
+sw x30, 21*4(t0)
 
 
 la x31, _STORAGE_POINTER_
@@ -814,42 +860,86 @@ sw x31, 20*4(x1)
 lw x31, 20*4(x1)
 li x1, 0xFFFF0000
 
+xor x30, x30, x2
 p.mac x0, x0, x0
+xor x30, x30, x1
 p.mac x1, x1, x1
+xor x30, x30, x2
 p.mac x2, x2, x2
+xor x30, x30, x3
 p.mac x3, x3, x3
+xor x30, x30, x4
 p.mac x4, x4, x4
+xor x30, x30, x5
 p.mac x5, x5, x5
+xor x30, x30, x6
 p.mac x6, x6, x6
+xor x30, x30, x7
 p.mac x7, x7, x7
+xor x30, x30, x8
 p.mac x8, x8, x8
+xor x30, x30, x9
 p.mac x9, x9, x9
+xor x30, x30, x10
 p.mac x10, x10, x10
+xor x30, x30, x11
 p.mac x11, x11, x11
+xor x30, x30, x12
 p.mac x12, x12, x12
+xor x30, x30, x13
 p.mac x13, x13, x13
+xor x30, x30, x14
 p.mac x14, x14, x14
+xor x30, x30, x15
 p.mac x15, x15, x15
+xor x30, x30, x16
 p.mac x16, x16, x16
+xor x30, x30, x17
 p.mac x17, x17, x17
+xor x30, x30, x18
 p.mac x18, x18, x18
+xor x30, x30, x19
 p.mac x19, x19, x19
+xor x30, x30, x20
 p.mac x20, x20, x20
+xor x30, x30, x21
 p.mac x21, x21, x21
+xor x30, x30, x22
 p.mac x22, x22, x22
+xor x30, x30, x23
 p.mac x23, x23, x23
+xor x30, x30, x24
 p.mac x24, x24, x24
+xor x30, x30, x25
 p.mac x25, x25, x25
+xor x30, x30, x26
 p.mac x26, x26, x26
+xor x30, x30, x27
 p.mac x27, x27, x27
+xor x30, x30, x28
 p.mac x28, x28, x28
+xor x30, x30, x29
 p.mac x29, x29, x29
+xor x29, x30, x2
 p.mac x30, x30, x30
+xor x29, x29, x31
 p.mac x31, x31, x31
+la t0, _STORAGE_POINTER_
+lw x31, 21*4(t0)
+xor x30, x29, x31
+sw x30, 21*4(t0)
 
 
 la x31, _STORAGE_POINTER_
 li x1, 0x00FF00FF
+
+j check_routine
+routine_1: #### NEW SUB ROUTINE ####
+li t1, 0x2
+not t1, t1
+and a0, a0, t1
+la t0, _STORAGE_POINTER_
+sw a0, 22*4(t0)
 
 li x0, 0x00FF00FF
 sw x0, 20*4(x31)
@@ -1239,38 +1329,74 @@ sw x31, 20*4(x1)
 lw x31, 20*4(x1)
 li x1, 0xFF00FF00
 
+xor x30, x30, x2
 p.mac x0, x0, x0
+xor x30, x30, x1
 p.mac x1, x1, x1
+xor x30, x30, x2
 p.mac x2, x2, x2
+xor x30, x30, x3
 p.mac x3, x3, x3
+xor x30, x30, x4
 p.mac x4, x4, x4
+xor x30, x30, x5
 p.mac x5, x5, x5
+xor x30, x30, x6
 p.mac x6, x6, x6
+xor x30, x30, x7
 p.mac x7, x7, x7
+xor x30, x30, x8
 p.mac x8, x8, x8
+xor x30, x30, x9
 p.mac x9, x9, x9
+xor x30, x30, x10
 p.mac x10, x10, x10
+xor x30, x30, x11
 p.mac x11, x11, x11
+xor x30, x30, x12
 p.mac x12, x12, x12
+xor x30, x30, x13
 p.mac x13, x13, x13
+xor x30, x30, x14
 p.mac x14, x14, x14
+xor x30, x30, x15
 p.mac x15, x15, x15
+xor x30, x30, x16
 p.mac x16, x16, x16
+xor x30, x30, x17
 p.mac x17, x17, x17
+xor x30, x30, x18
 p.mac x18, x18, x18
+xor x30, x30, x19
 p.mac x19, x19, x19
+xor x30, x30, x20
 p.mac x20, x20, x20
+xor x30, x30, x21
 p.mac x21, x21, x21
+xor x30, x30, x22
 p.mac x22, x22, x22
+xor x30, x30, x23
 p.mac x23, x23, x23
+xor x30, x30, x24
 p.mac x24, x24, x24
+xor x30, x30, x25
 p.mac x25, x25, x25
+xor x30, x30, x26
 p.mac x26, x26, x26
+xor x30, x30, x27
 p.mac x27, x27, x27
+xor x30, x30, x28
 p.mac x28, x28, x28
+xor x30, x30, x29
 p.mac x29, x29, x29
+xor x29, x30, x2
 p.mac x30, x30, x30
+xor x29, x29, x31
 p.mac x31, x31, x31
+la t0, _STORAGE_POINTER_
+lw x31, 21*4(t0)
+xor x30, x29, x31
+sw x30, 21*4(t0)
 
 
 la x31, _STORAGE_POINTER_
@@ -1664,42 +1790,86 @@ sw x31, 20*4(x1)
 lw x31, 20*4(x1)
 li x1, 0xF0F0F0F0
 
+xor x30, x30, x2
 p.mac x0, x0, x0
+xor x30, x30, x1
 p.mac x1, x1, x1
+xor x30, x30, x2
 p.mac x2, x2, x2
+xor x30, x30, x3
 p.mac x3, x3, x3
+xor x30, x30, x4
 p.mac x4, x4, x4
+xor x30, x30, x5
 p.mac x5, x5, x5
+xor x30, x30, x6
 p.mac x6, x6, x6
+xor x30, x30, x7
 p.mac x7, x7, x7
+xor x30, x30, x8
 p.mac x8, x8, x8
+xor x30, x30, x9
 p.mac x9, x9, x9
+xor x30, x30, x10
 p.mac x10, x10, x10
+xor x30, x30, x11
 p.mac x11, x11, x11
+xor x30, x30, x12
 p.mac x12, x12, x12
+xor x30, x30, x13
 p.mac x13, x13, x13
+xor x30, x30, x14
 p.mac x14, x14, x14
+xor x30, x30, x15
 p.mac x15, x15, x15
+xor x30, x30, x16
 p.mac x16, x16, x16
+xor x30, x30, x17
 p.mac x17, x17, x17
+xor x30, x30, x18
 p.mac x18, x18, x18
+xor x30, x30, x19
 p.mac x19, x19, x19
+xor x30, x30, x20
 p.mac x20, x20, x20
+xor x30, x30, x21
 p.mac x21, x21, x21
+xor x30, x30, x22
 p.mac x22, x22, x22
+xor x30, x30, x23
 p.mac x23, x23, x23
+xor x30, x30, x24
 p.mac x24, x24, x24
+xor x30, x30, x25
 p.mac x25, x25, x25
+xor x30, x30, x26
 p.mac x26, x26, x26
+xor x30, x30, x27
 p.mac x27, x27, x27
+xor x30, x30, x28
 p.mac x28, x28, x28
+xor x30, x30, x29
 p.mac x29, x29, x29
+xor x29, x30, x2
 p.mac x30, x30, x30
+xor x29, x29, x31
 p.mac x31, x31, x31
+la t0, _STORAGE_POINTER_
+lw x31, 21*4(t0)
+xor x30, x29, x31
+sw x30, 21*4(t0)
 
 
 la x31, _STORAGE_POINTER_
 li x1, 0x33333333
+
+j check_routine
+routine_2: #### NEW SUB ROUTINE ####
+li t1, 0x4
+not t1, t1
+and a0, a0, t1
+la t0, _STORAGE_POINTER_
+sw a0, 22*4(t0)
 
 li x0, 0x33333333
 sw x0, 20*4(x31)
@@ -2089,38 +2259,74 @@ sw x31, 20*4(x1)
 lw x31, 20*4(x1)
 li x1, 0xCCCCCCCC
 
+xor x30, x30, x2
 p.mac x0, x0, x0
+xor x30, x30, x1
 p.mac x1, x1, x1
+xor x30, x30, x2
 p.mac x2, x2, x2
+xor x30, x30, x3
 p.mac x3, x3, x3
+xor x30, x30, x4
 p.mac x4, x4, x4
+xor x30, x30, x5
 p.mac x5, x5, x5
+xor x30, x30, x6
 p.mac x6, x6, x6
+xor x30, x30, x7
 p.mac x7, x7, x7
+xor x30, x30, x8
 p.mac x8, x8, x8
+xor x30, x30, x9
 p.mac x9, x9, x9
+xor x30, x30, x10
 p.mac x10, x10, x10
+xor x30, x30, x11
 p.mac x11, x11, x11
+xor x30, x30, x12
 p.mac x12, x12, x12
+xor x30, x30, x13
 p.mac x13, x13, x13
+xor x30, x30, x14
 p.mac x14, x14, x14
+xor x30, x30, x15
 p.mac x15, x15, x15
+xor x30, x30, x16
 p.mac x16, x16, x16
+xor x30, x30, x17
 p.mac x17, x17, x17
+xor x30, x30, x18
 p.mac x18, x18, x18
+xor x30, x30, x19
 p.mac x19, x19, x19
+xor x30, x30, x20
 p.mac x20, x20, x20
+xor x30, x30, x21
 p.mac x21, x21, x21
+xor x30, x30, x22
 p.mac x22, x22, x22
+xor x30, x30, x23
 p.mac x23, x23, x23
+xor x30, x30, x24
 p.mac x24, x24, x24
+xor x30, x30, x25
 p.mac x25, x25, x25
+xor x30, x30, x26
 p.mac x26, x26, x26
+xor x30, x30, x27
 p.mac x27, x27, x27
+xor x30, x30, x28
 p.mac x28, x28, x28
+xor x30, x30, x29
 p.mac x29, x29, x29
+xor x29, x30, x2
 p.mac x30, x30, x30
+xor x29, x29, x31
 p.mac x31, x31, x31
+la t0, _STORAGE_POINTER_
+lw x31, 21*4(t0)
+xor x30, x29, x31
+sw x30, 21*4(t0)
 
 
 la x31, _STORAGE_POINTER_
@@ -2514,37 +2720,85 @@ sw x31, 20*4(x1)
 lw x31, 20*4(x1)
 li x1, 0xAAAAAAAA
 
+xor x30, x30, x2
 p.mac x0, x0, x0
+xor x30, x30, x1
 p.mac x1, x1, x1
+xor x30, x30, x2
 p.mac x2, x2, x2
+xor x30, x30, x3
 p.mac x3, x3, x3
+xor x30, x30, x4
 p.mac x4, x4, x4
+xor x30, x30, x5
 p.mac x5, x5, x5
+xor x30, x30, x6
 p.mac x6, x6, x6
+xor x30, x30, x7
 p.mac x7, x7, x7
+xor x30, x30, x8
 p.mac x8, x8, x8
+xor x30, x30, x9
 p.mac x9, x9, x9
+xor x30, x30, x10
 p.mac x10, x10, x10
+xor x30, x30, x11
 p.mac x11, x11, x11
+xor x30, x30, x12
 p.mac x12, x12, x12
+xor x30, x30, x13
 p.mac x13, x13, x13
+xor x30, x30, x14
 p.mac x14, x14, x14
+xor x30, x30, x15
 p.mac x15, x15, x15
+xor x30, x30, x16
 p.mac x16, x16, x16
+xor x30, x30, x17
 p.mac x17, x17, x17
+xor x30, x30, x18
 p.mac x18, x18, x18
+xor x30, x30, x19
 p.mac x19, x19, x19
+xor x30, x30, x20
 p.mac x20, x20, x20
+xor x30, x30, x21
 p.mac x21, x21, x21
+xor x30, x30, x22
 p.mac x22, x22, x22
+xor x30, x30, x23
 p.mac x23, x23, x23
+xor x30, x30, x24
 p.mac x24, x24, x24
+xor x30, x30, x25
 p.mac x25, x25, x25
+xor x30, x30, x26
 p.mac x26, x26, x26
+xor x30, x30, x27
 p.mac x27, x27, x27
+xor x30, x30, x28
 p.mac x28, x28, x28
+xor x30, x30, x29
 p.mac x29, x29, x29
+xor x29, x30, x2
 p.mac x30, x30, x30
+xor x29, x29, x31
 p.mac x31, x31, x31
+la t0, _STORAGE_POINTER_
+lw x31, 21*4(t0)
+xor x30, x29, x31
+sw x30, 21*4(t0)
 
+
+check_routine:
+    la t0, _STORAGE_POINTER_
+    lw a0, 22*4(t0)
+    and a1, a0, 0x1
+	   bne a1, x0, routine_0 #n. 0x1
+    and a1, a0, 0x2
+	   bne a1, x0, routine_1 #n. 0x2
+    and a1, a0, 0x4
+	   bne a1, x0, routine_2 #n. 0x4
+
+_done:
 
