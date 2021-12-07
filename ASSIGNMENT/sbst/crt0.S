@@ -77,11 +77,15 @@ _start:
 	call __libc_init_array
 
 /* call boot-time software-based self-test */
-    li a0, 0xfffff
+    li a0, 0x7fffff
     //call _alu_test
 
     srl a0, a0, 0x11
-    call _mul_test
+    //call _mul_test
+
+    srl a0, a0, 0x3
+    call _rf_test
+
 	//call _sbst_boot
 
 /* call main */
