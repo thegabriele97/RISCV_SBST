@@ -9,7 +9,7 @@
             "type": "python",
             "request": "launch",
             "program": "${file}",
-            "args": ["results/alu_atpg_seq.stil", "tmp/alu.S"],
+            "args": ["results/alu_atpg_seq.stil", "-p", "tmp/alu_sigs.txt"],
             "console": "integratedTerminal"
         }
     ]

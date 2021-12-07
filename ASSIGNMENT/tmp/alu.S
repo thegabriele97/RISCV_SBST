@@ -5358,16 +5358,16 @@ li t1, 0x7e190822
 rem t2, t0, t1
 xor t3, t3, t2
 
-li t0, 0x4583f335
-li t1, 0xe60e960c
-rem t2, t0, t1
-xor t3, t3, t2
-
 j check_routine
 routine_8: #### NEW SUB ROUTINE ####
 li t0, 0x100
 not t0, t0
 and a0, a0, t0
+
+li t0, 0x4583f335
+li t1, 0xe60e960c
+rem t2, t0, t1
+xor t3, t3, t2
 
 li t0, 0xe3709860
 li t1, 0x27a5f03a
@@ -5934,16 +5934,16 @@ li t2, 0x278d1871
 p.adduRNr t2, t0, t1
 xor t3, t3, t2
 
-li t0, 0x200000
-li t1, 0x0
-div t2, t0, t1
-xor t3, t3, t2
-
 j check_routine
 routine_9: #### NEW SUB ROUTINE ####
 li t0, 0x200
 not t0, t0
 and a0, a0, t0
+
+li t0, 0x200000
+li t1, 0x0
+div t2, t0, t1
+xor t3, t3, t2
 
 li t0, 0x1bf0743d
 li t1, 0x14b46164
@@ -6432,6 +6432,12 @@ li t1, 0x271a3986
 remu t2, t0, t1
 xor t3, t3, t2
 
+j check_routine
+routine_10: #### NEW SUB ROUTINE ####
+li t0, 0x400
+not t0, t0
+and a0, a0, t0
+
 li t0, 0x4ec0fbe6
 p.ff1 t2, t0
 xor t3, t3, t2
@@ -6479,12 +6485,6 @@ li t0, 0x6b56fd57
 li t1, 0x4ab8d220
 pv.shuffle2.h t2, t0, t1
 xor t3, t3, t2
-
-j check_routine
-routine_10: #### NEW SUB ROUTINE ####
-li t0, 0x400
-not t0, t0
-and a0, a0, t0
 
 li t0, 0x9d974004
 li t1, 0xad2e5879
@@ -7014,6 +7014,12 @@ li t1, 0xbeded9a
 divu t2, t0, t1
 xor t3, t3, t2
 
+j check_routine
+routine_11: #### NEW SUB ROUTINE ####
+li t0, 0x800
+not t0, t0
+and a0, a0, t0
+
 li t0, 0x1dc
 li t1, 0x100
 divu t2, t0, t1
@@ -7048,12 +7054,6 @@ li t0, 0x400
 li t1, 0xfffffc00
 div t2, t0, t1
 xor t3, t3, t2
-
-j check_routine
-routine_11: #### NEW SUB ROUTINE ####
-li t0, 0x800
-not t0, t0
-and a0, a0, t0
 
 li t0, 0xfa8e8bf3
 li t1, 0xe43592eb
@@ -7520,6 +7520,12 @@ li t1, 0x79e3ae81
 div t2, t0, t1
 xor t3, t3, t2
 
+j check_routine
+routine_12: #### NEW SUB ROUTINE ####
+li t0, 0x1000
+not t0, t0
+and a0, a0, t0
+
 li t0, 0x8c092dbd
 li t1, 0xd7e7cfd2
 pv.add.b t2, t0, t1
@@ -7571,12 +7577,6 @@ li t0, 0x6fd76995
 li t1, 0xefdb4937
 remu t2, t0, t1
 xor t3, t3, t2
-
-j check_routine
-routine_12: #### NEW SUB ROUTINE ####
-li t0, 0x1000
-not t0, t0
-and a0, a0, t0
 
 li t0, 0xffffffff
 li t1, 0x0
@@ -8033,6 +8033,12 @@ li t1, 0x7c5bcdf8
 rem t2, t0, t1
 xor t3, t3, t2
 
+j check_routine
+routine_13: #### NEW SUB ROUTINE ####
+li t0, 0x2000
+not t0, t0
+and a0, a0, t0
+
 li t0, 0x4332fd5e
 li t1, 0xadb5f6fc
 sltu t2, t0, t1
@@ -8081,12 +8087,6 @@ li t0, 0x33a61964
 li t1, 0xbf917227
 div t2, t0, t1
 xor t3, t3, t2
-
-j check_routine
-routine_13: #### NEW SUB ROUTINE ####
-li t0, 0x2000
-not t0, t0
-and a0, a0, t0
 
 li t0, 0x6cae6262
 p.clipu t2, t0, 0x15
@@ -8631,6 +8631,12 @@ li t1, 0x13bfe44e
 p.insertr t2, t0, t1
 xor t3, t3, t2
 
+j check_routine
+routine_14: #### NEW SUB ROUTINE ####
+li t0, 0x4000
+not t0, t0
+and a0, a0, t0
+
 li t0, 0x307e6280
 li t1, 0x5ad37e70
 p.slet t2, t0, t1
@@ -8706,12 +8712,6 @@ xor t3, t3, t2
 li t0, 0xc3be52bb
 p.cnt t2, t0
 xor t3, t3, t2
-
-j check_routine
-routine_14: #### NEW SUB ROUTINE ####
-li t0, 0x4000
-not t0, t0
-and a0, a0, t0
 
 li t0, 0xa1236a30
 li t1, 0x7e5ff26c
@@ -9241,6 +9241,12 @@ li t1, 0x80000000
 div t2, t0, t1
 xor t3, t3, t2
 
+j check_routine
+routine_15: #### NEW SUB ROUTINE ####
+li t0, 0x8000
+not t0, t0
+and a0, a0, t0
+
 li t0, 0xc00a576d
 li t1, 0x34cbd554
 remu t2, t0, t1
@@ -9302,12 +9308,6 @@ li t0, 0x4c5804f7
 li t1, 0xca62b183
 div t2, t0, t1
 xor t3, t3, t2
-
-j check_routine
-routine_15: #### NEW SUB ROUTINE ####
-li t0, 0x8000
-not t0, t0
-and a0, a0, t0
 
 li t0, 0x97ce19ba
 li t1, 0x4e2e228b
@@ -9879,6 +9879,12 @@ li t0, 0x8be4518f
 p.bclr t2, t0, 0x14, 0x1e
 xor t3, t3, t2
 
+j check_routine
+routine_16: #### NEW SUB ROUTINE ####
+li t0, 0x10000
+not t0, t0
+and a0, a0, t0
+
 li t0, 0xc8a68fdf
 p.extract t2, t0, 0x15, 0x19
 xor t3, t3, t2
@@ -9956,12 +9962,6 @@ xor t3, t3, t2
 li t0, 0x8909e5b8
 p.ff1 t2, t0
 xor t3, t3, t2
-
-j check_routine
-routine_16: #### NEW SUB ROUTINE ####
-li t0, 0x10000
-not t0, t0
-and a0, a0, t0
 
 li t0, 0x8df5156
 li t1, 0xb9241d0b
@@ -10200,6 +10200,7 @@ li t1, 0x6b1008c6
 div t2, t0, t1
 xor t3, t3, t2
 
+j check_routine
 check_routine:
     and a1, a0, 0x1
 	   bne a1, x0, routine_0 #n. 0x1

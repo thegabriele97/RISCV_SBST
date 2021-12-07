@@ -3,6 +3,8 @@
 import re, sys, io
 
 stil_filename = sys.argv[1]
+pass_through = len(sys.argv) > 3 and (sys.argv[1] == "-p" or sys.argv[2] == "-p")
+pass_through_file = None if len(sys.argv) < 3 else sys.argv[2] if sys.argv[1] == "-p" else sys.argv[3]
 
 
 signals_bits = [
@@ -164,6 +166,16 @@ inst2triple_2imm = {
 
 }
 
+pass_through_list = []
+if pass_through:
+	with open(pass_through_file) as pt_file:
+		for line in pt_file:
+			matched = re.search(r'SIGNATURE: (0x[0-9a-fA-F]+)', line)
+			if not matched:
+				continue
+			pass_through_list.append(matched.group(1))
+
+
 label_n = 0
 with open(stil_filename) as stil_file:
 	cnt_patterns = 0
@@ -178,12 +190,12 @@ with open(stil_filename) as stil_file:
 		0x10: 685,
 		0x20: 640,
 		0x40: 540,
-		0x80: 595,
+		0x80: 580,
 		0x100: 620,
-		0x200: 610,
-		0x400: 635,
+		0x200: 580,
+		0x400: 620,
 		0x800: 600,
-		0x1000: 540,
+		0x1000: 520,
 		0x2000: 615,
 		0x4000: 670,
 		0x8000: 605,
@@ -194,6 +206,7 @@ with open(stil_filename) as stil_file:
 	print("li t3, 0x0")
 	print()
 
+	is_first = True
 	for line in stil_file:
 
 		# Search for "_pi" line
@@ -214,7 +227,22 @@ with open(stil_filename) as stil_file:
 		print_ln = True
 
 		if rem_subroutines <= 0:
-			print("j check_routine")
+			if not pass_through or is_first:
+				print("j check_routine")
+				is_first = False
+			else:
+				print("li t6, {}".format(pass_through_list[cnt_subroutines-1]))
+				print("xor t6, t6, t5 # t6 base signature + other signatures 'till now (t3 contains 'till now)")
+				print("xor t5, x0, t3 # t5 contains 'till now")
+				print("beq t3, t6, check_routine")
+				print("j _halt_cpu")
+				print()
+
+			if pass_through and cnt_subroutines == 0:
+				print("_halt_cpu:")
+				print("    j _halt_cpu")
+				print()
+
 			print("routine_{}: #### NEW SUB ROUTINE ####".format(cnt_subroutines))
 			print("li t0, {}".format(hex(pow(2, cnt_subroutines))))
 			print("not t0, t0")
@@ -356,6 +384,15 @@ with open(stil_filename) as stil_file:
 		if print_ln:
 			print()
 
+	if not pass_through or is_first:
+		print("j check_routine")
+		is_first = False
+	else:
+		print("li t6, {}".format(pass_through_list[cnt_subroutines-1]))
+		print("xor t6, t6, t5 # t6 base signature + other signatures 'till now (t3 contains 'till now)")
+		print("xor t5, x0, t3 # t5 contains 'till now")
+		print("bne t3, t6, _halt_cpu")
+		print()
 
 	print("check_routine:")
 	for i in range(0, cnt_subroutines):
@@ -370,6 +407,7 @@ with open(stil_filename) as stil_file:
 
 	# print("    and a1, a0, 0x2")
 	# print("	   bne a1, x0, routine_1")
+
 
 
 print("Total implemented: {}".format(cnt_patterns), file= sys.stderr)		
