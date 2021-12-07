@@ -4,8 +4,8 @@
 
 _march_LA:                          // Execution of the March LA algorithm - a0 contains the 000000000 pattern
     not a1, a0                      // Negated pattern that is stored in a0
-	la t1, __RAM_DATA_START         // RAM starting location
-    la t2, __RAM_DATA_END           // RAM end location
+    la t1, __RAM_START              // RAM starting location
+    la t2, __RAM_END           // RAM end location
 
     m1:
         loop_m1:
@@ -14,8 +14,8 @@ _march_LA:                          // Execution of the March LA algorithm - a0 
         bne t1, t2, loop_m1         // Check if reached end location
     
     m2:                                                         
-	    la t1, __RAM_DATA_START        // RAM starting location
-        la t2, __RAM_DATA_END           // RAM end location
+	    la t1, __RAM_START        // RAM starting location
+        la t2, __RAM_END           // RAM end location
         addi t2, t2, -4   
         loop_m2:                                
             lw t3, 0*4(t2)          // r0
@@ -30,8 +30,8 @@ _march_LA:                          // Execution of the March LA algorithm - a0 
         bne t1, t2, loop_m2         // Check if reached end location
     
     m3:
-	    la t1, __RAM_DATA_START        // RAM starting location
-        la t2, __RAM_DATA_END           // RAM end location
+	    la t1, __RAM_START        // RAM starting location
+        la t2, __RAM_END           // RAM end location
         addi t2, t2, -4   
 	    loop_m3:
             lw t3, 0*4(t2)          // r1
@@ -46,8 +46,8 @@ _march_LA:                          // Execution of the March LA algorithm - a0 
         bne t1, t2, loop_m3         // Check if reached end location
         
     m4:
-	    la t1, __RAM_DATA_START        // RAM starting location
-        la t2, __RAM_DATA_END           // RAM end location
+	    la t1, __RAM_START        // RAM starting location
+        la t2, __RAM_END           // RAM end location
 	    loop_m4:
             lw t3, 0*4(t1)          // r0
             bne t3, a0, exit_error  // r0
@@ -61,8 +61,8 @@ _march_LA:                          // Execution of the March LA algorithm - a0 
         bne t1, t2, loop_m4         // Check if reached end location
         
     m5:
-	    la t1, __RAM_DATA_START        // RAM starting location
-        la t2, __RAM_DATA_END           // RAM end location
+	    la t1, __RAM_START        // RAM starting location
+        la t2, __RAM_END           // RAM end location
 	    loop_m5:
             lw t3, 0*4(t1)          // r1
             bne t3, a1, exit_error  // r1
@@ -76,8 +76,8 @@ _march_LA:                          // Execution of the March LA algorithm - a0 
         bne t1, t2, loop_m5         // Check if reached end location
         
     m6:
-	    la t1, __RAM_DATA_START        // RAM starting location
-        la t2, __RAM_DATA_END           // RAM end location
+	    la t1, __RAM_START        // RAM starting location
+        la t2, __RAM_END           // RAM end location
 	    loop_m6:
             lw t3, 0*4(t1)          // r0
             bne t3, a0, exit_error  // r0
@@ -91,7 +91,7 @@ _march_LA:                          // Execution of the March LA algorithm - a0 
     exit_error:
         li a0, 1
     exit_march_LA:
-ret
+    ret
 
 
 
@@ -99,6 +99,7 @@ _run_march_algorithm:                // Entry point
     li x31, 1
     add t4, x0, ra
     li a0, 0                         // First pattern  
+    li x30, 0x12345678 # triggers sim log for checkpoint
     call _march_LA                  
     li x31, 5
     bne a0, x0, exit_test_error
@@ -106,12 +107,14 @@ _run_march_algorithm:                // Entry point
     or a0, x0, 0xFF                // 2 pattern
     sll a0, a0, 8               
     or a0, a0, 0xFF                
+    li x30, 0x12345678 # triggers sim log for checkpoint
     call _march_LA                  
     bne a0, x0, exit_test_error
 
     or a0, x0, 0xFF                // 3 pattern
     sll a0, a0, 16               
     or a0, a0, 0xFF               
+    li x30, 0x12345678 # triggers sim log for checkpoint
     call _march_LA                  
     bne a0, x0, exit_test_error
 
@@ -122,6 +125,7 @@ _run_march_algorithm:                // Entry point
     or a0, a0, 0x0F               
     sll a0, a0, 8     
     or a0, a0, 0x0F                
+    li x30, 0x12345678 # triggers sim log for checkpoint
     call _march_LA                  
     bne a0, x0, exit_test_error
 
@@ -132,6 +136,7 @@ _run_march_algorithm:                // Entry point
     or a0, a0, 0x33               
     sll a0, a0, 8   
     or a0, a0, 0x33   
+    li x30, 0x12345678 # triggers sim log for checkpoint
     call _march_LA                  
     bne a0, x0, exit_test_error
 
@@ -142,6 +147,7 @@ _run_march_algorithm:                // Entry point
     or a0, a0, 0x55               
     sll a0, a0, 8   
     or a0, a0, 0x55 
+    li x30, 0x12345678 # triggers sim log for checkpoint
     call _march_LA                  
     bne a0, x0, exit_test_error
 
