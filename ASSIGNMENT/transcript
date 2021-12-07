@@ -1,1 +1,866 @@
-# Reading pref.tcl
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+# invalid command name "USER"
+root         1  0.0  0.0 191500  4532 ?        Ss   Nov11   0:30 /usr/lib/systemd/systemd --switched-root --system --deserialize 22
+# invalid command name "root"
+root         2  0.0  0.0      0     0 ?        S    Nov11   0:00 [kthreadd]
+# invalid command name "kthreadd"
+root         3  0.0  0.0      0     0 ?        S    Nov11   0:03 [ksoftirqd/0]
+# invalid command name "ksoftirqd/0"
+root         5  0.0  0.0      0     0 ?        S<   Nov11   0:00 [kworker/0:0H]
+# invalid command name "kworker/0:0H"
+root         7  0.0  0.0      0     0 ?        S    Nov11   0:16 [migration/0]
+# invalid command name "migration/0"
+root         8  0.0  0.0      0     0 ?        S    Nov11   0:00 [rcu_bh]
+# invalid command name "rcu_bh"
+root         9  0.0  0.0      0     0 ?        S    Nov11  18:37 [rcu_sched]
+# invalid command name "rcu_sched"
+root        10  0.0  0.0      0     0 ?        S<   Nov11   0:00 [lru-add-drain]
+# invalid command name "lru-add-drain"
+root        11  0.0  0.0      0     0 ?        S    Nov11   0:06 [watchdog/0]
+# invalid command name "watchdog/0"
+root        12  0.0  0.0      0     0 ?        S    Nov11   0:06 [watchdog/1]
+# invalid command name "watchdog/1"
+root        13  0.0  0.0      0     0 ?        S    Nov11   0:15 [migration/1]
+# invalid command name "migration/1"
+root        14  0.0  0.0      0     0 ?        S    Nov11   0:06 [ksoftirqd/1]
+# invalid command name "ksoftirqd/1"
+root        16  0.0  0.0      0     0 ?        S<   Nov11   0:00 [kworker/1:0H]
+# invalid command name "kworker/1:0H"
+root        17  0.0  0.0      0     0 ?        S    Nov11   0:06 [watchdog/2]
+# invalid command name "watchdog/2"
+root        18  0.0  0.0      0     0 ?        S    Nov11   0:14 [migration/2]
+# invalid command name "migration/2"
+root        19  0.0  0.0      0     0 ?        S    Nov11   0:07 [ksoftirqd/2]
+# invalid command name "ksoftirqd/2"
+root        21  0.0  0.0      0     0 ?        S<   Nov11   0:00 [kworker/2:0H]
+# invalid command name "kworker/2:0H"
+root        22  0.0  0.0      0     0 ?        S    Nov11   0:05 [watchdog/3]
+# invalid command name "watchdog/3"
+root        23  0.0  0.0      0     0 ?        S    Nov11   0:15 [migration/3]
+# invalid command name "migration/3"
+root        24  0.0  0.0      0     0 ?        S    Nov11   0:05 [ksoftirqd/3]
+# invalid command name "ksoftirqd/3"
+root        26  0.0  0.0      0     0 ?        S<   Nov11   0:00 [kworker/3:0H]
+# invalid command name "kworker/3:0H"
+root        27  0.0  0.0      0     0 ?        S    Nov11   0:05 [watchdog/4]
+# invalid command name "watchdog/4"
+root        28  0.0  0.0      0     0 ?        S    Nov11   0:16 [migration/4]
+# invalid command name "migration/4"
+root        29  0.0  0.0      0     0 ?        S    Nov11   0:04 [ksoftirqd/4]
+# invalid command name "ksoftirqd/4"
+root        31  0.0  0.0      0     0 ?        S<   Nov11   0:00 [kworker/4:0H]
+# invalid command name "kworker/4:0H"
+root        32  0.0  0.0      0     0 ?        S    Nov11   0:05 [watchdog/5]
+# invalid command name "watchdog/5"
+root        33  0.0  0.0      0     0 ?        S    Nov11   0:16 [migration/5]
+# invalid command name "migration/5"
+root        34  0.0  0.0      0     0 ?        S    Nov11   0:03 [ksoftirqd/5]
+# invalid command name "ksoftirqd/5"
+root        36  0.0  0.0      0     0 ?        S<   Nov11   0:00 [kworker/5:0H]
+# invalid command name "kworker/5:0H"
+root        37  0.0  0.0      0     0 ?        S    Nov11   0:06 [watchdog/6]
+# invalid command name "watchdog/6"
+root        38  0.0  0.0      0     0 ?        S    Nov11   0:13 [migration/6]
+# invalid command name "migration/6"
+root        39  0.0  0.0      0     0 ?        S    Nov11   0:05 [ksoftirqd/6]
+# invalid command name "ksoftirqd/6"
+root        41  0.0  0.0      0     0 ?        S<   Nov11   0:00 [kworker/6:0H]
+# invalid command name "kworker/6:0H"
+root        42  0.0  0.0      0     0 ?        S    Nov11   0:05 [watchdog/7]
+# invalid command name "watchdog/7"
+root        43  0.0  0.0      0     0 ?        S    Nov11   0:13 [migration/7]
+# invalid command name "migration/7"
+root        44  0.0  0.0      0     0 ?        S    Nov11   0:06 [ksoftirqd/7]
+# invalid command name "ksoftirqd/7"
+root        46  0.0  0.0      0     0 ?        S<   Nov11   0:00 [kworker/7:0H]
+# invalid command name "kworker/7:0H"
+root        48  0.0  0.0      0     0 ?        S    Nov11   0:00 [kdevtmpfs]
+# invalid command name "kdevtmpfs"
+root        49  0.0  0.0      0     0 ?        S<   Nov11   0:00 [netns]
+# invalid command name "netns"
+root        50  0.0  0.0      0     0 ?        S    Nov11   0:01 [khungtaskd]
+# invalid command name "khungtaskd"
+root        51  0.0  0.0      0     0 ?        S<   Nov11   0:00 [writeback]
+# invalid command name "writeback"
+root        52  0.0  0.0      0     0 ?        S<   Nov11   0:00 [kintegrityd]
+# invalid command name "kintegrityd"
+root        53  0.0  0.0      0     0 ?        S<   Nov11   0:00 [bioset]
+# invalid command name "bioset"
+root        54  0.0  0.0      0     0 ?        S<   Nov11   0:00 [bioset]
+# invalid command name "bioset"
+root        55  0.0  0.0      0     0 ?        S<   Nov11   0:00 [bioset]
+# invalid command name "bioset"
+root        56  0.0  0.0      0     0 ?        S<   Nov11   0:00 [kblockd]
+# invalid command name "kblockd"
+root        57  0.0  0.0      0     0 ?        S<   Nov11   0:00 [md]
+# invalid command name "md"
+root        58  0.0  0.0      0     0 ?        S<   Nov11   0:00 [edac-poller]
+# invalid command name "edac-poller"
+root        59  0.0  0.0      0     0 ?        S<   Nov11   0:00 [watchdogd]
+# invalid command name "watchdogd"
+root        65  0.0  0.0      0     0 ?        S    Nov11   0:01 [kswapd0]
+# invalid command name "kswapd0"
+root        66  0.0  0.0      0     0 ?        SN   Nov11   0:00 [ksmd]
+# invalid command name "ksmd"
+root        67  0.0  0.0      0     0 ?        SN   Nov11   0:11 [khugepaged]
+# invalid command name "khugepaged"
+root        68  0.0  0.0      0     0 ?        S<   Nov11   0:00 [crypto]
+# invalid command name "crypto"
+root        76  0.0  0.0      0     0 ?        S<   Nov11   0:00 [kthrotld]
+# invalid command name "kthrotld"
+root        78  0.0  0.0      0     0 ?        S<   Nov11   0:00 [kmpath_rdacd]
+# invalid command name "kmpath_rdacd"
+root        79  0.0  0.0      0     0 ?        S<   Nov11   0:00 [kaluad]
+# invalid command name "kaluad"
+root        81  0.0  0.0      0     0 ?        S<   Nov11   0:00 [kpsmoused]
+# invalid command name "kpsmoused"
+root        82  0.0  0.0      0     0 ?        S<   Nov11   0:00 [ipv6_addrconf]
+# invalid command name "ipv6_addrconf"
+root        96  0.0  0.0      0     0 ?        S<   Nov11   0:00 [deferwq]
+# invalid command name "deferwq"
+root       130  0.0  0.0      0     0 ?        S    Nov11   0:01 [kauditd]
+# invalid command name "kauditd"
+root       354  0.0  0.0      0     0 ?        S    Nov29   0:01 [kworker/7:1]
+# invalid command name "kworker/7:1"
+s284963    675  0.0  0.0 151296  5096 pts/40   S+   Nov17   0:00 vim ../zoix/bin/user.sff
+# invalid command name "s284963"
+root       771  0.0  0.0      0     0 ?        S<   Nov11   0:00 [ata_sff]
+# invalid command name "ata_sff"
+root      1146  0.0  0.0      0     0 ?        S    Nov11   0:00 [scsi_eh_0]
+# invalid command name "scsi_eh_0"
+root      1152  0.0  0.0      0     0 ?        S<   Nov11   0:00 [scsi_tmf_0]
+# invalid command name "scsi_tmf_0"
+root      1154  0.0  0.0      0     0 ?        S    Nov11   0:00 [scsi_eh_1]
+# invalid command name "scsi_eh_1"
+root      1155  0.0  0.0      0     0 ?        S<   Nov11   0:00 [scsi_tmf_1]
+# invalid command name "scsi_tmf_1"
+root      1275  0.0  0.0      0     0 ?        S<   Nov11   0:00 [ttm_swap]
+# invalid command name "ttm_swap"
+root      1606  0.0  0.0      0     0 ?        S<   Nov11   0:00 [virtscsi-scan]
+# invalid command name "virtscsi-scan"
+root      1609  0.0  0.0      0     0 ?        S    Nov11   0:00 [scsi_eh_2]
+# invalid command name "scsi_eh_2"
+root      1610  0.0  0.0      0     0 ?        S<   Nov11   0:00 [scsi_tmf_2]
+# invalid command name "scsi_tmf_2"
+root      1762  0.0  0.0      0     0 ?        S<   Nov11   0:01 [kworker/7:1H]
+# invalid command name "kworker/7:1H"
+root      1771  0.0  0.0      0     0 ?        S<   Nov11   0:01 [kworker/2:1H]
+# invalid command name "kworker/2:1H"
+root      1772  0.0  0.0      0     0 ?        S<   Nov11   0:00 [kworker/5:1H]
+# invalid command name "kworker/5:1H"
+root      1803  0.0  0.0      0     0 ?        S    Nov11   1:04 [jbd2/sda3-8]
+# invalid command name "jbd2/sda3-8"
+root      1804  0.0  0.0      0     0 ?        S<   Nov11   0:00 [ext4-rsv-conver]
+# invalid command name "ext4-rsv-conver"
+root      1882  0.0  0.0  47836 14364 ?        Ss   Nov11   7:46 /usr/lib/systemd/systemd-journald
+# invalid command name "root"
+root      1905  0.0  0.0      0     0 ?        S<   Nov11   0:00 [kworker/0:1H]
+# invalid command name "kworker/0:1H"
+root      1910  0.0  0.0 116628  1280 ?        Ss   Nov11   0:00 /usr/sbin/lvmetad -f
+# invalid command name "root"
+root      1918  0.0  0.0  45296  2580 ?        Ss   Nov11   0:00 /usr/lib/systemd/systemd-udevd
+# invalid command name "root"
+s288126   1940  0.0  0.1 555020 18408 ?        Sl   Nov24   0:00 /usr/libexec/mate-notification-daemon
+# invalid command name "s288126"
+s281565   1942  0.0  0.1 557704 18952 ?        Sl   Nov24   0:00 /usr/libexec/mate-notification-daemon
+# invalid command name "s281565"
+rpc       2481  0.0  0.0  73648  1632 ?        Ss   Nov16   0:02 /sbin/rpcbind -w
+# invalid command name "rpc"
+root      2792  0.0  0.0      0     0 ?        S    Nov11   0:00 [hwrng]
+# invalid command name "hwrng"
+root      3516  0.0  0.0      0     0 ?        S<   Nov11   0:00 [kvm-irqfd-clean]
+# invalid command name "kvm-irqfd-clean"
+root      3566  0.0  0.0      0     0 ?        S    Nov11   0:00 [jbd2/sda1-8]
+# invalid command name "jbd2/sda1-8"
+root      3567  0.0  0.0      0     0 ?        S<   Nov11   0:00 [ext4-rsv-conver]
+# invalid command name "ext4-rsv-conver"
+root      3589  0.0  0.0      0     0 ?        S<   Nov11   0:00 [rpciod]
+# invalid command name "rpciod"
+root      3590  0.0  0.0      0     0 ?        S<   Nov11   0:00 [xprtiod]
+# invalid command name "xprtiod"
+root      3596  0.0  0.0  62044  1272 ?        S<sl Nov11   0:06 /sbin/auditd
+# invalid command name "root"
+root      3598  0.0  0.0  84552   892 ?        S<sl Nov11   0:06 /sbin/audispd
+# invalid command name "root"
+root      3600  0.0  0.0  55628  1420 ?        S<   Nov11   0:04 /usr/sbin/sedispatch
+# invalid command name "root"
+root      3625  0.0  0.0  24896  2336 ?        Ss   Nov11   1:41 /usr/bin/qemu-ga --method=virtio-serial --path=/dev/virtio-ports/org.qemu.guest_agent.0 --blacklist=guest-file-open,guest-file-close,guest-file-read,guest-file-write,guest-file-seek,guest-file-flush,guest-exec,guest-exec-status -F/etc/qemu-ga/fsfreeze-hook
+# invalid command name "root"
+root      3628  0.0  0.0 430600  5524 ?        Ssl  Nov11   0:03 /usr/sbin/ModemManager
+# invalid command name "root"
+root      3629  0.0  0.0  26456  1840 ?        Ss   Nov11   0:12 /usr/lib/systemd/systemd-logind
+# invalid command name "root"
+root      3632  0.0  0.0  90396  3188 ?        Ss   Nov11   4:17 /sbin/rngd -f
+# invalid command name "root"
+avahi     3633  0.0  0.0  65972  6000 ?        Ss   Nov11  23:56 avahi-daemon: running [linux.local]
+# invalid command name "linux.local"
+polkitd   3634  0.0  0.2 624512 33204 ?        Ssl  Nov11   0:54 /usr/lib/polkit-1/polkitd --no-debug
+# invalid command name "polkitd"
+libstor+  3637  0.0  0.0   8576   824 ?        Ss   Nov11   0:04 /usr/bin/lsmd -d
+# invalid command name "libstor+"
+root      3646  0.0  0.0  21668  1272 ?        Ss   Nov11   0:52 /usr/sbin/irqbalance --foreground
+# invalid command name "root"
+root      3647  0.0  0.0 228248  6060 ?        Ss   Nov11   0:00 /usr/sbin/abrtd -d -s
+# invalid command name "root"
+root      3649  0.0  0.0 225720  4832 ?        Ss   Nov11   0:57 /usr/bin/abrt-watch-log -F BUG: WARNING: at WARNING: CPU: INFO: possible recursive locking detected ernel BUG at list_del corruption list_add corruption do_IRQ: stack overflow: ear stack overflow (cur: eneral protection fault nable to handle kernel ouble fault: RTNL: assertion failed eek! page_mapcount(page) went negative! adness at NETDEV WATCHDOG ysctl table check failed : nobody cared IRQ handler type mismatch Kernel panic - not syncing: Machine Check Exception: Machine check events logged divide error: bounds: coprocessor segment overrun: invalid TSS: segment not present: invalid opcode: alignment check: stack segment: fpu exception: simd exception: iret exception: /var/log/messages -- /usr/bin/abrt-dump-oops -xtD
+# invalid command name "root"
+root      3661  0.0  0.0  24432  2264 ?        Ss   Nov11   0:00 /usr/sbin/smartd -n -q never
+# invalid command name "root"
+avahi     3662  0.0  0.0  62144   396 ?        S    Nov11   0:00 avahi-daemon: chroot helper
+# invalid command name "avahi"
+dbus      3664  0.0  0.0  63612  5620 ?        Ss   Nov11   1:08 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation
+# invalid command name "dbus"
+root      3670  0.0  0.0 207828  1480 ?        Ssl  Nov11   0:02 /usr/sbin/gssproxy -D
+# invalid command name "root"
+ntp       3671  0.0  0.0  49352  2452 ?        Ss   Nov11   0:02 /usr/sbin/ntpd -u ntp:ntp -g
+# invalid command name "ntp"
+root      3673  0.0  0.0   4424  2376 ?        SLs  Nov11  21:16 /usr/sbin/watchdog
+# invalid command name "root"
+root      3701  0.0  0.0 480132  8952 ?        Ssl  Nov11   0:06 /usr/sbin/NetworkManager --no-daemon
+# invalid command name "root"
+root      3730  0.0  0.0 115564  1268 ?        S    Nov11   0:42 /bin/bash /usr/sbin/ksmtuned
+# invalid command name "root"
+ovirtag+  3731  0.2  0.3 561044 51352 ?        Ssl  Nov11  75:03 /usr/bin/python /usr/share/ovirt-guest-agent/ovirt-guest-agent.py
+# invalid command name "ovirtag+"
+root      3737  0.0  0.0 169816 12708 ?        S    Nov11  19:56 /usr/bin/perl /usr/sbin/x2gocleansessions
+# invalid command name "root"
+root      3796  0.0  0.0      0     0 ?        S<   Nov11   0:00 [kworker/4:1H]
+# invalid command name "kworker/4:1H"
+root      4002  0.0  0.0 112756  4340 ?        Ss   Nov11   0:00 /usr/sbin/sshd -D
+# invalid command name "root"
+root      4005  0.0  0.1 573824 17188 ?        Ssl  Nov11   2:19 /usr/bin/python2 -Es /usr/sbin/tuned -l -P
+# invalid command name "root"
+root      4006  0.0  0.0 197864  4200 ?        Ss   Nov11   0:00 /usr/sbin/cupsd -f
+# invalid command name "root"
+root      4009  0.0  0.1 554516 27592 ?        Ssl  Nov11   4:20 /usr/sbin/rsyslogd -n
+# invalid command name "root"
+root      4012  0.0  0.1 1003736 16500 ?       Ssl  Nov11   0:00 /usr/sbin/libvirtd
+# invalid command name "root"
+root      4016  0.0  0.0 110092   864 tty1     Ss+  Nov11   0:00 /sbin/agetty --noclear tty1 linux
+# invalid command name "root"
+root      4018  0.0  0.0 126288  1604 ?        Ss   Nov11   0:02 /usr/sbin/crond -n
+# invalid command name "root"
+root      4020  0.0  0.0  25904   960 ?        Ss   Nov11   0:00 /usr/sbin/atd -f
+# invalid command name "root"
+root      4113  0.0  0.0      0     0 ?        S<   Nov11   0:01 [kworker/1:1H]
+# invalid command name "kworker/1:1H"
+root      4167  0.0  0.0      0     0 ?        S    11:50   0:00 [kworker/3:2]
+# invalid command name "kworker/3:2"
+root      4206  0.0  0.0      0     0 ?        S<   Nov11   0:00 [kworker/3:1H]
+# invalid command name "kworker/3:1H"
+root      4284  0.0  0.0  91628  2208 ?        Ss   Nov11   0:05 /usr/libexec/postfix/master -w
+# invalid command name "root"
+postfix   4286  0.0  0.0  91908  4320 ?        S    Nov11   0:01 qmgr -l -t unix -u
+# child process exited abnormally
+s288126   4713  0.0  0.0  25192  4692 ?        Ss   Nov12   1:19 tmux
+# invalid command name "s288126"
+s288126   4714  0.0  0.0 116804  3628 pts/4    Ss+  Nov12   0:00 -bash
+# invalid command name "s288126"
+nobody    5179  0.0  0.0  53884  1088 ?        S    Nov11   0:00 /usr/sbin/dnsmasq --conf-file=/var/lib/libvirt/dnsmasq/default.conf --leasefile-ro --dhcp-script=/usr/libexec/libvirt_leaseshelper
+# invalid command name "nobody"
+root      5181  0.0  0.0  53856   372 ?        S    Nov11   0:00 /usr/sbin/dnsmasq --conf-file=/var/lib/libvirt/dnsmasq/default.conf --leasefile-ro --dhcp-script=/usr/libexec/libvirt_leaseshelper
+# invalid command name "root"
+s283858   5481  0.0  0.0 113176  1396 pts/9    T    Nov19   0:00 bash b12_simulation.sh
+# invalid command name "s283858"
+s283858   5530  0.0  0.1 323296 28212 pts/9    T    Nov19   0:00 /eda/mentor/2016-17/RHELx86/QUESTA-CORE-PRIME_10.5c-4/questasim/bin/../linux_x86_64/vish -- -vsim -c -novopt work.b12_testbench -do ../b12_simulation_script.tcl -wlf sim.wlf
+# invalid command name "s283858"
+s283858   5551  0.0  0.0  19008  2116 pts/9    S    Nov19   0:00 /eda/mentor/2016-17/RHELx86/QUESTA-CORE-PRIME_10.5c-4/questasim/linux_x86_64/vlm -2012612641 -1637956151
+# invalid command name "s283858"
+s283858   5552  0.0  0.0  44640  5688 pts/9    S    Nov19   0:01 /eda/mentor/2016-17/RHELx86/QUESTA-CORE-PRIME_10.5c-4/questasim/linux_x86_64/mgls/lib/mgls_asynch
+# invalid command name "s283858"
+s283858   5557  0.0  0.1 371744 25680 pts/9    T    Nov19   0:00 /eda/mentor/2016-17/RHELx86/QUESTA-CORE-PRIME_10.5c-4/questasim/linux_x86_64/vsimk -port 40471 -stdoutfilename /tmp/VSOUTut2e7f -c -novopt work.b12_testbench -do ../b12_simulation_script.tcl -wlf sim.wlf
+# invalid command name "s283858"
+s282133   5712  0.1  0.4 248076 67360 ?        S    Nov12  35:45 nxagent -nolisten tcp -nolisten tcp -dpi 120 -D -auth /home/s282133/.Xauthority -geometry 800x600 -name X2GO-s282133-125-1636724447_stDMATE_dp32 :125
+# invalid command name "s282133"
+s282133   5957  0.0  0.0 113180  1552 ?        Ss   Nov12   0:00 /bin/bash /usr/bin/x2goruncommand 125 5712 s282133-125-1636724447_stDMATE_dp32 55308 mate-session nosnd D
+# invalid command name "s282133"
+s282133   6071  0.0  0.0  49156  1208 ?        S    Nov12   0:00 /usr/bin/dbus-run-session /etc/x2go/Xsession
+# invalid command name "s282133"
+s282133   6072  0.0  0.0  60676  2796 ?        S    Nov12   0:00 dbus-daemon --nofork --print-address 4 --session
+# invalid command name "s282133"
+s282133   6073  0.0  0.1 681656 27168 ?        Sl   Nov12   0:05 mate-session
+# invalid command name "s282133"
+s282133   6190  0.0  0.0 391888  4320 ?        Sl   Nov12   0:00 /usr/libexec/imsettings-daemon
+# invalid command name "s282133"
+s282133   6194  0.0  0.0 388512  3936 ?        Sl   Nov12   0:00 /usr/libexec/gvfsd
+# invalid command name "s282133"
+s282133   6199  0.0  0.0 417808  3356 ?        Sl   Nov12   0:00 /usr/libexec/gvfsd-fuse /run/user/282133/gvfs -f -o big_writes
+# invalid command name "s282133"
+s279890   6232  0.0  0.0 116752  3548 pts/3    Ss   Nov17   0:00 -bash
+# invalid command name "s279890"
+s282133   6252  0.0  0.0  72312   780 ?        Ss   Nov12   0:06 /usr/bin/ssh-agent /bin/bash -c exec -l "/bin/bash" -c "/usr/bin/env LD_LIBRARY_PATH= mate-session"
+# invalid command name "s282133"
+s282133   6281  0.0  0.0 346884  3808 ?        Sl   Nov12   0:00 /usr/libexec/at-spi-bus-launcher
+# invalid command name "s282133"
+s282133   6286  0.0  0.0  60072  2276 ?        S    Nov12   0:00 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 3
+# invalid command name "s282133"
+s282133   6289  0.0  0.0 233088  4040 ?        Sl   Nov12   0:00 /usr/libexec/at-spi2-registryd --use-gnome-session
+# invalid command name "s282133"
+s282133   6303  0.0  0.0 187516  2988 ?        Sl   Nov12   0:00 /usr/libexec/dconf-service
+# invalid command name "s282133"
+s282133   6309  0.0  0.0 317288  5872 ?        Sl   Nov12   0:00 gnome-keyring-daemon --start
+# invalid command name "s282133"
+s282133   6315  0.1  0.0 1142580 15852 ?       Sl   Nov12  31:00 /usr/libexec/mate-settings-daemon
+# invalid command name "s282133"
+s282133   6321  0.0  0.1 528680 18648 ?        Sl   Nov12   0:01 marco
+# invalid command name "s282133"
+s282133   6326  0.0  0.1 618476 19052 ?        Sl   Nov12   0:26 mate-panel
+# invalid command name "s282133"
+s282133   6350  0.0  0.4 883548 66428 ?        Sl   Nov12   0:02 caja
+# invalid command name "s282133"
+s282133   6353  0.0  0.0 569384 15304 ?        Sl   Nov12   0:01 /usr/libexec/mate-panel/wnck-applet
+# invalid command name "s282133"
+s282133   6354  0.0  0.1 510356 21340 ?        Sl   Nov12   0:00 abrt-applet
+# invalid command name "s282133"
+s282133   6355  0.0  0.0 519184  9396 ?        Sl   Nov12   0:01 mate-screensaver
+# invalid command name "s282133"
+s282133   6357  0.0  0.0 416452  5740 ?        Sl   Nov12   0:19 /usr/libexec/gvfs-udisks2-volume-monitor
+# invalid command name "s282133"
+s282133   6363  0.0  0.0 431856  8708 ?        Sl   Nov12   0:11 /usr/libexec/polkit-mate-authentication-agent-1
+# invalid command name "s282133"
+s282133   6383  0.0  0.0 371576  3308 ?        Sl   Nov12   0:00 /usr/libexec/gvfs-goa-volume-monitor
+# invalid command name "s282133"
+s282133   6387  0.0  0.1 390940 16768 ?        Sl   Nov12   0:00 /usr/bin/python /usr/share/system-config-printer/applet.py
+# invalid command name "s282133"
+s282133   6390  0.0  0.0 718220 15156 ?        Sl   Nov12  24:06 mate-volume-control-applet
+# invalid command name "s282133"
+s282133   6392  0.0  0.1 101566892 27768 ?     Sl   Nov12   0:00 /usr/libexec/goa-daemon
+# invalid command name "s282133"
+s282133   6395  0.0  0.0  41276  1372 ?        Ss   Nov12   0:00 /usr/bin/spice-vdagent
+# invalid command name "s282133"
+s282133   6397  0.0  0.1 637172 20460 ?        Sl   Nov12   0:00 nm-applet
+# invalid command name "s282133"
+s282133   6430  0.0  0.0 532056  8532 ?        Sl   Nov12   0:45 /usr/libexec/goa-identity-service
+# invalid command name "s282133"
+s282133   6457  0.0  0.0 464656  6668 ?        Sl   Nov12   0:04 /usr/libexec/gvfsd-trash --spawner :1.4 /org/gtk/gvfs/exec_spaw/0
+# invalid command name "s282133"
+s282133   6498  0.0  0.0 411640  7712 ?        Sl   Nov12   0:05 /usr/libexec/mission-control-5
+# invalid command name "s282133"
+s282133   6514  0.0  0.0 400568  5672 ?        Sl   Nov12   0:00 /usr/libexec/gvfs-gphoto2-volume-monitor
+# invalid command name "s282133"
+s282133   6522  0.0  0.0 391480  3388 ?        Sl   Nov12   0:00 /usr/libexec/gvfs-mtp-volume-monitor
+# invalid command name "s282133"
+s282133   6530  0.0  0.0 478404  4276 ?        Sl   Nov12   0:00 /usr/libexec/gvfs-afc-volume-monitor
+# invalid command name "s282133"
+s282133   6552  0.0  0.1 620148 18340 ?        Sl   Nov12   0:18 /usr/libexec/mate-panel/clock-applet
+# invalid command name "s282133"
+s282133   6553  0.0  0.0 475828 11392 ?        Sl   Nov12   0:00 /usr/libexec/mate-panel/notification-area-applet
+# invalid command name "s282133"
+s282133   6632  0.0  0.0 317736  3296 ?        Sl   Nov12   0:00 /usr/libexec/gvfsd-metadata
+# invalid command name "s282133"
+root      6792  0.0  0.0      0     0 ?        S<   Nov11   0:13 [kworker/6:1H]
+# invalid command name "kworker/6:1H"
+s282133   6797  0.0  0.1 719876 29940 ?        Sl   Nov12   0:08 mate-terminal
+# invalid command name "s282133"
+s282133   6803  0.0  0.0   8532   740 ?        S    Nov12   0:00 gnome-pty-helper
+# invalid command name "s282133"
+s282133   6804  0.0  0.0 116756  3588 pts/5    Ss+  Nov12   0:00 bash
+# invalid command name "s282133"
+s279890   6870  0.0  0.0 116672  3324 pts/17   Ss   Nov17   0:00 -bash
+# invalid command name "s279890"
+s288126   8171  0.0  0.0 151472  5244 pts/10   S+   Nov18   0:00 vim b12_simulation.sh
+# invalid command name "s288126"
+s282133   8538  0.0  0.0 116756  3556 pts/6    Ss+  Nov12   0:00 bash
+# invalid command name "s282133"
+s282133   9061  0.0  0.0 116756  3396 pts/8    Ss+  Nov12   0:00 bash
+# invalid command name "s282133"
+s281565   9915  0.0  0.1 713172 27208 ?        Sl   Nov21   0:00 mate-terminal
+# invalid command name "s281565"
+s281565   9922  0.0  0.0   8532   724 ?        S    Nov21   0:00 gnome-pty-helper
+# invalid command name "s281565"
+s281565   9923  0.0  0.0 116756  3404 pts/2    Ss+  Nov21   0:00 bash
+# invalid command name "s281565"
+root      9939  0.0  0.0      0     0 ?        S    15:07   0:00 [kworker/2:0]
+# invalid command name "kworker/2:0"
+root      9981  0.0  0.0      0     0 ?        S    14:20   0:00 [kworker/0:2]
+# invalid command name "kworker/0:2"
+root     10044  0.0  0.0      0     0 ?        S    16:00   0:00 [kworker/6:2]
+# invalid command name "kworker/6:2"
+s283858  11226  0.0  0.0 116896  3628 pts/7    Ss+  Nov20   0:00 -bash
+# invalid command name "s283858"
+s283858  11285  0.0  0.0 116796  3596 pts/16   Ss+  Nov20   0:00 -bash
+# invalid command name "s283858"
+s282133  11969  0.0  0.1 559740 18936 ?        Sl   Nov17   0:00 /usr/libexec/mate-notification-daemon
+# invalid command name "s282133"
+s281589  12443  0.0  0.0 113176  1524 pts/24   S+   17:57   0:00 /bin/sh /eda/synopsys/2016-17/RHELx86/TMAX_2016.12/bin/tmax -shell ../tmax.tcl
+# invalid command name "s281589"
+s281589  12456 99.9  1.5 472688 244600 pts/24  R+   17:57  22:31 /eda/synopsys/2016-17/RHELx86/TMAX_2016.12/linux64/syn/bin/tmax64 ../tmax.tcl
+# invalid command name "s281589"
+root     13112  0.0  0.0      0     0 ?        S    Nov29   0:01 [kworker/3:0]
+# invalid command name "kworker/3:0"
+s281389  13684  0.2  0.8 318484 134268 ?       S    Nov29   5:43 nxagent -nolisten tcp -nolisten tcp -dpi 141 -D -auth /home/s281389/.Xauthority -geometry 800x600 -name X2GO-s281389-155-1638177660_stDMATE_dp24 :155
+# invalid command name "s281389"
+s281389  13911  0.0  0.0 113180  1548 ?        Ss   Nov29   0:00 /bin/bash /usr/bin/x2goruncommand 155 13684 s281389-155-1638177660_stDMATE_dp24 36316 mate-session nosnd D
+# invalid command name "s281389"
+s281589  13927  0.0  0.0 113180  1396 pts/19   S+   16:06   0:00 /bin/bash ./run_gate_gui.sh
+# invalid command name "s281589"
+s281589  13929  0.1  0.8 436464 140136 pts/19  S+   16:06   0:09 /eda/mentor/2016-17/RHELx86/QUESTA-CORE-PRIME_10.5c-4/questasim/bin/../linux_x86_64/vish -- -vsim -gui -work work_gate tb_top_vopt +firmware=/home/s281589/TestingFaultToleranceLabs/ASSIGNMENT/sbst/sbst.hex +dumpports+nocollapse -do /home/s281589/TestingFaultToleranceLabs/ASSIGNMENT/vsim.tcl
+# invalid command name "s281589"
+s281589  13952  0.0  0.0  19008  2236 pts/19   S    16:06   0:00 /eda/mentor/2016-17/RHELx86/QUESTA-CORE-PRIME_10.5c-4/questasim/linux_x86_64/vlm -1319948733 -1492902827
+# invalid command name "s281589"
+s281589  13953  0.0  0.0  53476  6352 pts/19   S    16:06   0:00 /eda/mentor/2016-17/RHELx86/QUESTA-CORE-PRIME_10.5c-4/questasim/linux_x86_64/mgls/lib/mgls_asynch
+# invalid command name "s281589"
+s281389  14037  0.0  0.0  49156  1208 ?        S    Nov29   0:00 /usr/bin/dbus-run-session /etc/x2go/Xsession
+# invalid command name "s281389"
+s281389  14038  0.0  0.0  60600  2768 ?        S    Nov29   0:00 dbus-daemon --nofork --print-address 4 --session
+# invalid command name "s281389"
+s281389  14047  0.0  0.1 681756 27264 ?        Sl   Nov29   0:00 mate-session
+# invalid command name "s281389"
+s281589  14053  7.8  1.1 593968 183216 pts/19  Sl+  16:06  10:26 /eda/mentor/2016-17/RHELx86/QUESTA-CORE-PRIME_10.5c-4/questasim/linux_x86_64/vsimk -port 35355 -stdoutfilename /tmp/VSOUTIcyxgM -gui -work work_gate tb_top_vopt +firmware=/home/s281589/TestingFaultToleranceLabs/ASSIGNMENT/sbst/sbst.hex +dumpports+nocollapse -do /home/s281589/TestingFaultToleranceLabs/ASSIGNMENT/vsim.tcl
+# invalid command name "s281589"
+s281389  14172  0.0  0.0 391888  4412 ?        Sl   Nov29   0:00 /usr/libexec/imsettings-daemon
+# invalid command name "s281389"
+s281389  14176  0.0  0.0 388512  3928 ?        Sl   Nov29   0:00 /usr/libexec/gvfsd
+# invalid command name "s281389"
+s281389  14182  0.0  0.0 417808  5404 ?        Sl   Nov29   0:00 /usr/libexec/gvfsd-fuse /run/user/281389/gvfs -f -o big_writes
+# invalid command name "s281389"
+s281389  14234  0.0  0.0  72312   776 ?        Ss   Nov29   0:00 /usr/bin/ssh-agent /bin/bash -c exec -l "/bin/bash" -c "/usr/bin/env LD_LIBRARY_PATH= mate-session"
+# invalid command name "s281389"
+s281389  14263  0.0  0.0 346884  3812 ?        Sl   Nov29   0:00 /usr/libexec/at-spi-bus-launcher
+# invalid command name "s281389"
+s281389  14268  0.0  0.0  60072  2268 ?        S    Nov29   0:00 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 3
+# invalid command name "s281389"
+s281389  14271  0.0  0.0 233096  3944 ?        Sl   Nov29   0:00 /usr/libexec/at-spi2-registryd --use-gnome-session
+# invalid command name "s281389"
+s281389  14285  0.0  0.0 187512  5020 ?        Sl   Nov29   0:00 /usr/libexec/dconf-service
+# invalid command name "s281389"
+s281389  14297  0.0  0.0 317288  3800 ?        Sl   Nov29   0:00 gnome-keyring-daemon --start
+# invalid command name "s281389"
+s281389  14303  0.1  0.1 1276340 19848 ?       Sl   Nov29   1:57 /usr/libexec/mate-settings-daemon
+# invalid command name "s281389"
+s281389  14309  0.0  0.1 529944 16424 ?        Sl   Nov29   0:01 marco
+# invalid command name "s281389"
+s281389  14319  0.0  0.1 617788 16808 ?        Sl   Nov29   0:02 mate-panel
+# invalid command name "s281389"
+s281389  14345  0.0  0.0 415800  5088 ?        Sl   Nov29   0:01 /usr/libexec/gvfs-udisks2-volume-monitor
+# invalid command name "s281389"
+s281389  14348  0.0  0.2 785124 47296 ?        Sl   Nov29   0:09 caja
+# invalid command name "s281389"
+s281389  14351  0.0  0.0 371580  5348 ?        Sl   Nov29   0:00 /usr/libexec/gvfs-goa-volume-monitor
+# invalid command name "s281389"
+s281389  14355  0.0  0.1 118344104 27752 ?     Sl   Nov29   0:00 /usr/libexec/goa-daemon
+# invalid command name "s281389"
+s281389  14356  0.0  0.0 497800 14600 ?        Sl   Nov29   0:00 abrt-applet
+# invalid command name "s281389"
+s281389  14357  0.0  0.0 519184 11192 ?        Sl   Nov29   0:00 mate-screensaver
+# invalid command name "s281389"
+s281389  14363  0.0  0.0 431856  8708 ?        Sl   Nov29   0:00 /usr/libexec/polkit-mate-authentication-agent-1
+# invalid command name "s281389"
+s281389  14371  0.0  0.1 568728 16852 ?        Sl   Nov29   0:02 /usr/libexec/mate-panel/wnck-applet
+# invalid command name "s281389"
+s281389  14392  0.0  0.1 390976 16768 ?        Sl   Nov29   0:00 /usr/bin/python /usr/share/system-config-printer/applet.py
+# invalid command name "s281389"
+s281389  14393  0.0  0.0 718256 15272 ?        Sl   Nov29   1:15 mate-volume-control-applet
+# invalid command name "s281389"
+s281389  14396  0.0  0.1 637136 20396 ?        Sl   Nov29   0:00 nm-applet
+# invalid command name "s281389"
+s281389  14397  0.0  0.0  41276  1372 ?        Ss   Nov29   0:00 /usr/bin/spice-vdagent
+# invalid command name "s281389"
+s281389  14441  0.0  0.0 464656  4584 ?        Sl   Nov29   0:00 /usr/libexec/gvfsd-trash --spawner :1.4 /org/gtk/gvfs/exec_spaw/0
+# invalid command name "s281389"
+s281389  14489  0.0  0.0 532056  8528 ?        Sl   Nov29   0:03 /usr/libexec/goa-identity-service
+# invalid command name "s281389"
+s281389  14532  0.0  0.0 411640  7828 ?        Sl   Nov29   0:00 /usr/libexec/mission-control-5
+# invalid command name "s281389"
+s281389  14535  0.0  0.0 400568  3632 ?        Sl   Nov29   0:00 /usr/libexec/gvfs-gphoto2-volume-monitor
+# invalid command name "s281389"
+s281389  14540  0.0  0.0 391480  3388 ?        Sl   Nov29   0:00 /usr/libexec/gvfs-mtp-volume-monitor
+# invalid command name "s281389"
+s281389  14545  0.0  0.0 478404  6316 ?        Sl   Nov29   0:00 /usr/libexec/gvfs-afc-volume-monitor
+# invalid command name "s281389"
+s281389  14576  0.0  0.1 620172 18604 ?        Sl   Nov29   0:01 /usr/libexec/mate-panel/clock-applet
+# invalid command name "s281389"
+s281389  14584  0.0  0.0 475820  9360 ?        Sl   Nov29   0:00 /usr/libexec/mate-panel/notification-area-applet
+# invalid command name "s281389"
+s281389  14817  0.0  0.1 713396 27456 ?        Sl   Nov29   0:01 mate-terminal
+# invalid command name "s281389"
+s281389  14825  0.0  0.0   8532   724 ?        S    Nov29   0:00 gnome-pty-helper
+# invalid command name "s281389"
+s281389  14826  0.0  0.0 116884  3632 pts/21   Ss+  Nov29   0:00 bash
+# invalid command name "s281389"
+root     15010  0.0  0.0      0     0 ?        S    06:30   0:00 [kworker/1:2]
+# invalid command name "kworker/1:2"
+s279890  15710  0.0  0.0 116752  3536 pts/20   Ss   Nov21   0:00 -bash
+# invalid command name "s279890"
+root     16906  0.0  0.0      0     0 ?        S    Nov29   0:01 [kworker/4:1]
+# invalid command name "kworker/4:1"
+root     18055  0.0  0.0 412060  9256 ?        Ssl  Nov11   0:19 /usr/libexec/packagekitd
+# invalid command name "root"
+root     18141  0.0  0.0      0     0 ?        S    Nov27   0:23 [kworker/2:1]
+# invalid command name "kworker/2:1"
+s281589  18719  0.0  0.0  25180  4580 ?        Ss   12:10   0:07 tmux
+# invalid command name "s281589"
+s281589  18720  0.0  0.0 116804  3636 pts/19   Ss   12:10   0:00 -bash
+# invalid command name "s281589"
+s279890  19045  0.0  0.0 151440  5216 pts/3    S+   Nov17   0:00 vim run_zoix_fsim.sh
+# invalid command name "s279890"
+s281589  19053  0.0  0.0 116804  3628 pts/23   Ss   12:11   0:00 -bash
+# invalid command name "s281589"
+postfix  19297  0.0  0.0  91732  4092 ?        S    17:06   0:00 pickup -l -t unix -u
+# child process exited abnormally
+s281565  20021  0.1  0.6 266980 100032 ?       S    Nov12  46:20 nxagent -nolisten tcp -nolisten tcp -dpi 96 -D -auth /home/s281565/.Xauthority -geometry 800x600 -name X2GO-s281565-98-1636672455_stDMATE_dp32 :98
+# invalid command name "s281565"
+s281565  20249  0.0  0.0 113180  1552 ?        Ss   Nov12   0:00 /bin/bash /usr/bin/x2goruncommand 98 20021 s281565-98-1636672455_stDMATE_dp32 50020 mate-session nosnd D
+# invalid command name "s281565"
+s281565  20383  0.0  0.0  49156  1208 ?        S    Nov12   0:00 /usr/bin/dbus-run-session /etc/x2go/Xsession
+# invalid command name "s281565"
+s281565  20384  0.0  0.0  60716  2860 ?        S    Nov12   0:01 dbus-daemon --nofork --print-address 4 --session
+# invalid command name "s281565"
+s281565  20387  0.0  0.1 681720 29452 ?        Sl   Nov12   0:06 mate-session
+# invalid command name "s281565"
+root     20402  0.0  0.0      0     0 ?        S    18:09   0:00 [kworker/u32:0]
+# invalid command name "kworker/u32:0"
+s281565  20504  0.0  0.0 391888  6396 ?        Sl   Nov12   0:00 /usr/libexec/imsettings-daemon
+# invalid command name "s281565"
+s281565  20508  0.0  0.0 388636  3988 ?        Sl   Nov12   0:00 /usr/libexec/gvfsd
+# invalid command name "s281565"
+s281565  20513  0.0  0.0 417808  5408 ?        Sl   Nov12   0:00 /usr/libexec/gvfsd-fuse /run/user/281565/gvfs -f -o big_writes
+# invalid command name "s281565"
+s281565  20569  0.0  0.0  72312   780 ?        Ss   Nov12   0:06 /usr/bin/ssh-agent /bin/bash -c exec -l "/bin/bash" -c "/usr/bin/env LD_LIBRARY_PATH= mate-session"
+# invalid command name "s281565"
+s281565  20597  0.0  0.0 346884  3808 ?        Sl   Nov12   0:00 /usr/libexec/at-spi-bus-launcher
+# invalid command name "s281565"
+s281565  20602  0.0  0.0  60072  2288 ?        S    Nov12   0:00 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 3
+# invalid command name "s281565"
+s281565  20605  0.0  0.0 233088  4040 ?        Sl   Nov12   0:02 /usr/libexec/at-spi2-registryd --use-gnome-session
+# invalid command name "s281565"
+s281565  20619  0.0  0.0 187512  2988 ?        Sl   Nov12   0:00 /usr/libexec/dconf-service
+# invalid command name "s281565"
+s281565  20625  0.0  0.0 317288  5844 ?        Sl   Nov12   0:00 gnome-keyring-daemon --start
+# invalid command name "s281565"
+s281565  20631  0.1  0.1 1470420 18092 ?       Sl   Nov12  32:11 /usr/libexec/mate-settings-daemon
+# invalid command name "s281565"
+s281565  20637  0.0  0.1 529340 17300 ?        Sl   Nov12   0:12 marco
+# invalid command name "s281565"
+s281565  20641  0.0  0.1 629100 26164 ?        Sl   Nov12   0:30 mate-panel
+# invalid command name "s281565"
+s281565  20645  0.0  0.5 1366232 82284 ?       Sl   Nov12   1:11 caja
+# invalid command name "s281565"
+s281565  20661  0.0  0.1 572088 19932 ?        Sl   Nov12   0:15 /usr/libexec/mate-panel/wnck-applet
+# invalid command name "s281565"
+s281565  20666  0.0  0.1 510336 23600 ?        Sl   Nov12   0:00 abrt-applet
+# invalid command name "s281565"
+s281565  20669  0.0  0.0 519072  9380 ?        Sl   Nov12   0:01 mate-screensaver
+# invalid command name "s281565"
+s281565  20681  0.0  0.0 431852  8700 ?        Sl   Nov12   0:11 /usr/libexec/polkit-mate-authentication-agent-1
+# invalid command name "s281565"
+s281565  20690  0.0  0.0 416452  5740 ?        Sl   Nov12   0:20 /usr/libexec/gvfs-udisks2-volume-monitor
+# invalid command name "s281565"
+s281565  20705  0.0  0.1 390940 16780 ?        Sl   Nov12   0:00 /usr/bin/python /usr/share/system-config-printer/applet.py
+# invalid command name "s281565"
+root     20707  0.0  0.0 453468  8472 ?        Ssl  Nov12   0:08 /usr/libexec/udisks2/udisksd
+# invalid command name "root"
+s281565  20708  0.0  0.1 717820 16644 ?        Sl   Nov12  24:28 mate-volume-control-applet
+# invalid command name "s281565"
+s281565  20710  0.0  0.0  41276  1372 ?        Ss   Nov12   0:00 /usr/bin/spice-vdagent
+# invalid command name "s281565"
+s281565  20712  0.0  0.1 637132 22772 ?        Sl   Nov12   0:00 nm-applet
+# invalid command name "s281565"
+root     20723  0.0  0.0  54440  1124 ?        Ss   Nov12   0:02 /usr/sbin/spice-vdagentd
+# invalid command name "root"
+s281565  20758  0.0  0.0 464652  6616 ?        Sl   Nov12   0:05 /usr/libexec/gvfsd-trash --spawner :1.4 /org/gtk/gvfs/exec_spaw/0
+# invalid command name "s281565"
+s281565  20810  0.0  0.0 371576  3304 ?        Sl   Nov12   0:00 /usr/libexec/gvfs-goa-volume-monitor
+# invalid command name "s281565"
+s281565  20820  0.0  0.1 118344108 27752 ?     Sl   Nov12   0:00 /usr/libexec/goa-daemon
+# invalid command name "s281565"
+s281565  20851  0.0  0.0 532056  8528 ?        Sl   Nov12   0:44 /usr/libexec/goa-identity-service
+# invalid command name "s281565"
+s281565  20858  0.0  0.0 411640  7820 ?        Sl   Nov12   0:05 /usr/libexec/mission-control-5
+# invalid command name "s281565"
+s281565  20861  0.0  0.0 400568  3636 ?        Sl   Nov12   0:00 /usr/libexec/gvfs-gphoto2-volume-monitor
+# invalid command name "s281565"
+s281565  20866  0.0  0.0 391480  3388 ?        Sl   Nov12   0:00 /usr/libexec/gvfs-mtp-volume-monitor
+# invalid command name "s281565"
+s281565  20871  0.0  0.0 478404  4420 ?        Sl   Nov12   0:00 /usr/libexec/gvfs-afc-volume-monitor
+# invalid command name "s281565"
+s281565  20911  0.0  0.1 620148 18340 ?        Sl   Nov12   0:08 /usr/libexec/mate-panel/clock-applet
+# invalid command name "s281565"
+s281565  20913  0.0  0.0 475820  9412 ?        Sl   Nov12   0:00 /usr/libexec/mate-panel/notification-area-applet
+# invalid command name "s281565"
+s281565  21110  0.0  0.0 317800  3432 ?        Sl   Nov12   0:00 /usr/libexec/gvfsd-metadata
+# invalid command name "s281565"
+s288126  21553  0.0  0.0  58896   964 ?        S    Nov18   0:00 dbus-launch --autolaunch 1fd203df469d4a3c9460d9e0d69a88ad --binary-syntax --close-stderr
+# invalid command name "s288126"
+s288126  21554  0.0  0.0  60076  1468 ?        Ss   Nov18   0:00 /usr/bin/dbus-daemon --fork --print-pid 5 --print-address 7 --session
+# invalid command name "s288126"
+s288126  21700  0.0  0.0 181688  3128 ?        S    Nov18   0:02 /usr/libexec/gconfd-2
+# invalid command name "s288126"
+s279890  21836  0.0  0.0 116804  3520 pts/0    Ss   Nov17   0:00 -bash
+# invalid command name "s279890"
+s281589  21852  0.0  0.0 116904  3664 pts/24   Ss   12:15   0:00 -bash
+# invalid command name "s281589"
+s284963  22088  0.0  0.0 116804  3612 pts/27   Ss+  Nov17   0:00 -bash
+# invalid command name "s284963"
+s279890  22211  0.0  0.0 151344  5440 pts/0    S+   Nov17   0:00 vim b12_testbench.vhd
+# invalid command name "s279890"
+root     22369  0.0  0.0      0     0 ?        S    18:12   0:00 [kworker/5:1]
+# invalid command name "kworker/5:1"
+root     22449  0.0  0.0 430236  5160 ?        Ssl  Nov18   0:01 /usr/libexec/upowerd
+# invalid command name "root"
+s279890  22892  0.0  0.0 151568  5392 pts/17   S+   Nov17   0:00 vim b12.v
+# invalid command name "s279890"
+s281565  22929  0.0  0.2 612716 34072 ?        Ssl  Nov12   0:02 emacs --daemon
+# invalid command name "s281565"
+s281565  22937  0.0  0.0 181792  3132 ?        S    Nov12   0:03 /usr/libexec/gconfd-2
+# invalid command name "s281565"
+s283858  23329  0.0  0.0  26576  6056 ?        Ss   Nov19   0:50 tmux
+# invalid command name "s283858"
+s283858  23330  0.0  0.0 116896  3624 pts/9    Ss+  Nov19   0:00 -bash
+# invalid command name "s283858"
+s279890  23393  0.0  0.0 151252  5312 pts/20   S+   Nov21   0:00 vim b12_simulation_script.tcl
+# invalid command name "s279890"
+s283858  23399  0.0  0.0 116896  3640 pts/11   Ss+  Nov19   0:00 -bash
+# invalid command name "s283858"
+s279890  23800  0.0  0.0 116804  3580 pts/30   Ss+  Nov17   0:00 -bash
+# invalid command name "s279890"
+s281589  23887  0.8  0.0 158896 12492 pts/23   S+   15:30   1:31 vim tmax.tcl
+# invalid command name "s281589"
+s279890  24062  0.0  0.0 116804  3556 pts/31   Ss   Nov17   0:00 -bash
+# invalid command name "s279890"
+root     25107  0.0  0.0      0     0 ?        S    09:09   0:00 [kworker/u32:1]
+# invalid command name "kworker/u32:1"
+root     25171  0.0  0.0      0     0 ?        S    09:09   0:00 [kworker/1:0]
+# invalid command name "kworker/1:0"
+root     25581  0.0  0.0      0     0 ?        S    18:17   0:00 [kworker/5:0]
+# invalid command name "kworker/5:0"
+root     25840  0.0  0.0 165780  6516 ?        Ss   14:43   0:00 sshd: s281589 [priv]
+# invalid command name "priv"
+s281589  25875  0.0  0.0 166068  2876 ?        S    14:43   0:07 sshd: s281589@pts/18
+# invalid command name "s281589"
+s281589  25876  0.0  0.0 116788  3392 pts/18   Ss   14:43   0:00 -bash
+# invalid command name "s281589"
+root     26003  0.0  0.0      0     0 ?        S    17:20   0:00 [kworker/6:0]
+# invalid command name "kworker/6:0"
+root     26140  0.0  0.0 165648  6408 ?        Ss   14:43   0:00 sshd: s281389 [priv]
+# invalid command name "priv"
+s281389  26188  0.0  0.0 166468  3484 ?        S    14:44   0:03 sshd: s281389@notty
+# invalid command name "s281389"
+s281389  26189  0.0  0.0 115304  1712 ?        Ss   14:44   0:00 -bash
+# invalid command name "s281389"
+s281389  26214  0.0  0.0 113444  2024 ?        S    14:44   0:00 bash
+# invalid command name "s281389"
+s281389  26260  0.0  0.0 113176  1440 ?        S    14:44   0:00 sh /home/s281389/.vscode-server/bin/3a6960b964327f0e3882ce18fcebd07ed191b316/server.sh --start-server --host=127.0.0.1 --enable-remote-auto-shutdown --port=0 --connection-secret /home/s281389/.vscode-server/.3a6960b964327f0e3882ce18fcebd07ed191b316.token
+# invalid command name "s281389"
+s281389  26275  0.1  0.7 1018760 126812 ?      Sl   14:44   0:17 /home/s281389/.vscode-server/bin/3a6960b964327f0e3882ce18fcebd07ed191b316/node /home/s281389/.vscode-server/bin/3a6960b964327f0e3882ce18fcebd07ed191b316/out/vs/server/main.js --start-server --host=127.0.0.1 --enable-remote-auto-shutdown --port=0 --connection-secret /home/s281389/.vscode-server/.3a6960b964327f0e3882ce18fcebd07ed191b316.token
+# invalid command name "s281389"
+s281389  26401  0.1  0.2 950540 41712 ?        Sl   14:44   0:18 /home/s281389/.vscode-server/bin/3a6960b964327f0e3882ce18fcebd07ed191b316/node /home/s281389/.vscode-server/bin/3a6960b964327f0e3882ce18fcebd07ed191b316/out/bootstrap-fork --type=ptyHost
+# invalid command name "s281389"
+s281389  26449  0.5  3.6 1376036 586944 ?      Sl   14:44   1:15 /home/s281389/.vscode-server/bin/3a6960b964327f0e3882ce18fcebd07ed191b316/node /home/s281389/.vscode-server/bin/3a6960b964327f0e3882ce18fcebd07ed191b316/out/bootstrap-fork --type=extensionHost --uriTransformerPath=/home/s281389/.vscode-server/bin/3a6960b964327f0e3882ce18fcebd07ed191b316/out/vs/server/uriTransformer.js
+# invalid command name "s281389"
+s281389  26462  0.0  0.2 931460 45080 ?        Sl   14:44   0:04 /home/s281389/.vscode-server/bin/3a6960b964327f0e3882ce18fcebd07ed191b316/node /home/s281389/.vscode-server/bin/3a6960b964327f0e3882ce18fcebd07ed191b316/out/bootstrap-fork --type=watcherServiceChokidar
+# invalid command name "s281389"
+s281589  26519  0.0  0.0 116804  3620 pts/1    Ss   18:18   0:00 -bash
+# invalid command name "s281589"
+root     26546  0.0  0.0 350468  6716 ?        Sl   18:18   0:00 /usr/sbin/abrt-dbus -t133
+# invalid command name "root"
+s281589  26734  0.0  0.0 113180  1396 pts/1    S+   18:18   0:00 /bin/bash ./run_gate_nogui.sh
+# invalid command name "s281589"
+s281589  26736  0.7  0.1 323884 28888 pts/1    S+   18:18   0:00 /eda/mentor/2016-17/RHELx86/QUESTA-CORE-PRIME_10.5c-4/questasim/bin/../linux_x86_64/vish -- -vsim -c -work work_gate tb_top_vopt +firmware=/home/s281589/TestingFaultToleranceLabs/ASSIGNMENT/sbst/sbst.hex +dumpports+nocollapse -suppress 3015 -do /home/s281589/TestingFaultToleranceLabs/ASSIGNMENT/vsim.tcl
+# invalid command name "s281589"
+s281589  26762  0.0  0.0  19008  2116 pts/1    S    18:18   0:00 /eda/mentor/2016-17/RHELx86/QUESTA-CORE-PRIME_10.5c-4/questasim/linux_x86_64/vlm 93888582 332370512
+# invalid command name "s281589"
+s281589  26763  0.1  0.0  44640  5688 pts/1    S    18:18   0:00 /eda/mentor/2016-17/RHELx86/QUESTA-CORE-PRIME_10.5c-4/questasim/linux_x86_64/mgls/lib/mgls_asynch
+# invalid command name "s281589"
+s281589  26776 80.1  0.7 378032 127288 pts/1   S+   18:18   1:06 /eda/mentor/2016-17/RHELx86/QUESTA-CORE-PRIME_10.5c-4/questasim/linux_x86_64/vsimk -port 37843 -stdoutfilename /tmp/VSOUT3lRDbc -c -work work_gate tb_top_vopt +firmware=/home/s281589/TestingFaultToleranceLabs/ASSIGNMENT/sbst/sbst.hex +dumpports+nocollapse -suppress 3015 -do /home/s281589/TestingFaultToleranceLabs/ASSIGNMENT/vsim.tcl
+# invalid command name "s281589"
+s279890  26875  0.0  0.0  26132  5532 ?        Ss   Nov17   1:05 tmux
+# invalid command name "s279890"
+s284963  26949  0.0  0.0  25620  5128 ?        Ss   Nov17   0:56 tmux
+# invalid command name "s284963"
+s284963  26950  0.0  0.0 116664  3308 pts/13   Ss+  Nov17   0:00 -bash
+# invalid command name "s284963"
+root     27033  0.0  0.0      0     0 ?        S    17:21   0:01 [kworker/5:2]
+# invalid command name "kworker/5:2"
+s284963  27034  0.0  0.0 116796  3612 pts/14   Ss+  Nov17   0:00 -bash
+# invalid command name "s284963"
+s281389  27082  0.0  0.0 116884  3708 pts/22   Ss+  14:44   0:00 /usr/bin/bash
+# invalid command name "s281389"
+root     27237  0.0  0.0 165648  6408 ?        Ss   14:44   0:00 sshd: s281389 [priv]
+# invalid command name "priv"
+s281389  27239  0.0  0.0 166156  3388 ?        S    14:44   0:02 sshd: s281389@notty
+# invalid command name "s281389"
+s288126  27372  0.0  0.0 116804  3636 pts/10   Ss   Nov18   0:00 -bash
+# invalid command name "s288126"
+s281589  27420  0.0  0.0  20036  1136 pts/18   S+   14:44   0:00 tmux attach -t 0
+# invalid command name "s281589"
+root     27525  0.0  0.0 107952   360 ?        S    18:19   0:00 sleep 60
+# invalid command name "root"
+s279890  27615  0.0  0.0 151276  5084 pts/31   S+   Nov17   0:00 vim user.sff
+# invalid command name "s279890"
+s281389  27726  0.0  0.0 178544  4088 ?        S    14:44   0:00 ssh -x -a -oClearAllForwardings=yes -oServerAliveInterval=300 -oIdentityFile=/home/s281389/.x2go/ssh/key.M14822 -oUserKnownHostsFile=/home/s281389/.x2go/ssh/key.M14822.ident -oPort=36317 -2 matteo@127.0.0.1 -s sftp
+# invalid command name "s281389"
+s281389  27731  0.0  0.0 107952   616 ?        S    18:20   0:00 sleep 180
+# invalid command name "s281389"
+s281589  27735  0.0  0.0 155360  1896 pts/25   R+   18:20   0:00 ps aux
+# invalid command name "s281589"
+s281589  27736  0.0  0.0 124672  5384 pts/25   R+   18:20   0:00 /eda/mentor/2016-17/RHELx86/QUESTA-CORE-PRIME_10.5c-4/questasim/bin/../linux_x86_64/vsim
+# invalid command name "s281589"
+s281389  27742  0.0  0.0 240216  2560 ?        Ssl  14:44   0:00 sshfs -o idmap=user,uid=281389,gid=281389,default_permissions,ServerAliveInterval=300,IdentityFile=/home/s281389/.x2go/ssh/key.M14822,UserKnownHostsFile=/home/s281389/.x2go/ssh/key.M14822.ident matteo@127.0.0.1:/home/matteo/.x2go/S-s281389-155-1638177660_stDMATE_dp24/spool /tmp/.x2go-s281389/spool/C-s281389-155-1638177660_stDMATE_dp24 -p 36317
+# invalid command name "s281389"
+deligia+ 28889  0.1  0.7 308380 129564 ?       S    Nov17  27:13 nxagent -nolisten tcp -nolisten tcp -dpi 96 -D -auth /home/deligiannis/.Xauthority -geometry 800x600 -name X2GO-deligiannis-131-1637159063_stDMATE_dp32 :131
+# invalid command name "deligia+"
+root     28931  0.0  0.0      0     0 ?        S    16:30   0:00 [kworker/0:0]
+# invalid command name "kworker/0:0"
+deligia+ 29128  0.0  0.0 113180  1552 ?        Ss   Nov17   0:00 /bin/bash /usr/bin/x2goruncommand 131 28889 deligiannis-131-1637159063_stDMATE_dp32 36632 mate-session nosnd D
+# invalid command name "deligia+"
+deligia+ 29247  0.0  0.0  49156  1208 ?        S    Nov17   0:00 /usr/bin/dbus-run-session /etc/x2go/Xsession
+# invalid command name "deligia+"
+deligia+ 29249  0.0  0.0  60732  2852 ?        S    Nov17   0:00 dbus-daemon --nofork --print-address 4 --session
+# invalid command name "deligia+"
+deligia+ 29261  0.0  0.1 681848 27556 ?        Sl   Nov17   0:04 mate-session
+# invalid command name "deligia+"
+deligia+ 29381  0.0  0.0 391888  4336 ?        Sl   Nov17   0:00 /usr/libexec/imsettings-daemon
+# invalid command name "deligia+"
+deligia+ 29386  0.0  0.0 388512  3952 ?        Sl   Nov17   0:00 /usr/libexec/gvfsd
+# invalid command name "deligia+"
+deligia+ 29391  0.0  0.0 417808  5404 ?        Sl   Nov17   0:00 /usr/libexec/gvfsd-fuse /run/user/2001/gvfs -f -o big_writes
+# invalid command name "deligia+"
+deligia+ 29443  0.0  0.0  72312   776 ?        Ss   Nov17   0:05 /usr/bin/ssh-agent /bin/bash -c exec -l "/bin/bash" -c "/usr/bin/env LD_LIBRARY_PATH= mate-session"
+# invalid command name "deligia+"
+deligia+ 29473  0.0  0.0 346884  3812 ?        Sl   Nov17   0:00 /usr/libexec/at-spi-bus-launcher
+# invalid command name "deligia+"
+deligia+ 29478  0.0  0.0  60072  2276 ?        S    Nov17   0:00 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 3
+# invalid command name "deligia+"
+deligia+ 29481  0.0  0.0 233096  3948 ?        Sl   Nov17   0:00 /usr/libexec/at-spi2-registryd --use-gnome-session
+# invalid command name "deligia+"
+deligia+ 29495  0.0  0.0 187512  2992 ?        Sl   Nov17   0:00 /usr/libexec/dconf-service
+# invalid command name "deligia+"
+deligia+ 29501  0.0  0.0 317288  3796 ?        Sl   Nov17   0:00 gnome-keyring-daemon --start
+# invalid command name "deligia+"
+deligia+ 29509  0.1  0.1 1142536 18160 ?       Sl   Nov17  22:21 /usr/libexec/mate-settings-daemon
+# invalid command name "deligia+"
+deligia+ 29515  0.0  0.1 529148 16916 ?        Sl   Nov17   0:01 marco
+# invalid command name "deligia+"
+deligia+ 29519  0.0  0.1 693608 18824 ?        Sl   Nov17   0:19 mate-panel
+# invalid command name "deligia+"
+deligia+ 29531  0.0  0.2 998284 48688 ?        Sl   Nov17   0:23 caja
+# invalid command name "deligia+"
+deligia+ 29546  0.0  0.0 568916 14900 ?        Sl   Nov17   0:01 /usr/libexec/mate-panel/wnck-applet
+# invalid command name "deligia+"
+deligia+ 29555  0.0  0.1 510208 23384 ?        Sl   Nov17   0:00 abrt-applet
+# invalid command name "deligia+"
+deligia+ 29557  0.0  0.0 519072 11168 ?        Sl   Nov17   0:01 mate-screensaver
+# invalid command name "deligia+"
+deligia+ 29563  0.0  0.0 416188  7516 ?        Sl   Nov17   0:14 /usr/libexec/gvfs-udisks2-volume-monitor
+# invalid command name "deligia+"
+deligia+ 29568  0.0  0.0 431848  8964 ?        Sl   Nov17   0:07 /usr/libexec/polkit-mate-authentication-agent-1
+# invalid command name "deligia+"
+deligia+ 29587  0.0  0.0 371580  3312 ?        Sl   Nov17   0:00 /usr/libexec/gvfs-goa-volume-monitor
+# invalid command name "deligia+"
+deligia+ 29591  0.0  0.1 390976 18816 ?        Sl   Nov17   0:00 /usr/bin/python /usr/share/system-config-printer/applet.py
+# invalid command name "deligia+"
+deligia+ 29594  0.0  0.0 719648 16236 ?        Sl   Nov17  18:16 mate-volume-control-applet
+# invalid command name "deligia+"
+deligia+ 29600  0.0  0.1 101566888 25720 ?     Sl   Nov17   0:00 /usr/libexec/goa-daemon
+# invalid command name "deligia+"
+deligia+ 29602  0.0  0.0  41276  1372 ?        Ss   Nov17   0:00 /usr/bin/spice-vdagent
+# invalid command name "deligia+"
+deligia+ 29604  0.0  0.1 637168 22432 ?        Sl   Nov17   0:00 nm-applet
+# invalid command name "deligia+"
+deligia+ 29662  0.0  0.0 464656  6628 ?        Sl   Nov17   0:03 /usr/libexec/gvfsd-trash --spawner :1.4 /org/gtk/gvfs/exec_spaw/0
+# invalid command name "deligia+"
+deligia+ 29710  0.0  0.0 532056 10572 ?        Sl   Nov17   0:33 /usr/libexec/goa-identity-service
+# invalid command name "deligia+"
+deligia+ 29741  0.0  0.0 411644  9604 ?        Sl   Nov17   0:03 /usr/libexec/mission-control-5
+# invalid command name "deligia+"
+deligia+ 29744  0.0  0.0 400568  3636 ?        Sl   Nov17   0:00 /usr/libexec/gvfs-gphoto2-volume-monitor
+# invalid command name "deligia+"
+deligia+ 29749  0.0  0.0 391480  3388 ?        Sl   Nov17   0:00 /usr/libexec/gvfs-mtp-volume-monitor
+# invalid command name "deligia+"
+deligia+ 29754  0.0  0.0 478404  4416 ?        Sl   Nov17   0:00 /usr/libexec/gvfs-afc-volume-monitor
+# invalid command name "deligia+"
+deligia+ 29796  0.0  0.1 620104 16344 ?        Sl   Nov17   0:13 /usr/libexec/mate-panel/clock-applet
+# invalid command name "deligia+"
+deligia+ 29798  0.0  0.0 475828  9424 ?        Sl   Nov17   0:00 /usr/libexec/mate-panel/notification-area-applet
+# invalid command name "deligia+"
+deligia+ 29833  0.0  0.0 317736  3280 ?        Sl   Nov17   0:00 /usr/libexec/gvfsd-metadata
+# invalid command name "deligia+"
+s288126  29941  0.1  0.5 227024 94620 ?        S    Nov18  25:19 nxagent -nolisten tcp -nolisten tcp -dpi 96 -D -auth /home/s288126/.Xauthority -geometry 1280x1024 -name X2GO-s288126-137-1637245771_stDMATE_dp32 :137
+# invalid command name "s288126"
+s288126  30214  0.0  0.0 113180  1552 ?        Ss   Nov18   0:00 /bin/bash /usr/bin/x2goruncommand 137 29941 s288126-137-1637245771_stDMATE_dp32 46724 mate-session nosnd D
+# invalid command name "s288126"
+s284963  30242  0.0  0.0 116804  3632 pts/15   Ss+  Nov17   0:00 -bash
+# invalid command name "s284963"
+s288126  30337  0.0  0.0  49156  1208 ?        S    Nov18   0:00 /usr/bin/dbus-run-session /etc/x2go/Xsession
+# invalid command name "s288126"
+s288126  30338  0.0  0.0  60600  2812 ?        S    Nov18   0:00 dbus-daemon --nofork --print-address 4 --session
+# invalid command name "s288126"
+s288126  30353  0.0  0.1 681772 29252 ?        Sl   Nov18   0:04 mate-session
+# invalid command name "s288126"
+s288126  30474  0.0  0.0 391884  6392 ?        Sl   Nov18   0:00 /usr/libexec/imsettings-daemon
+# invalid command name "s288126"
+s288126  30478  0.0  0.0 388612  5944 ?        Sl   Nov18   0:00 /usr/libexec/gvfsd
+# invalid command name "s288126"
+s288126  30484  0.0  0.0 417808  5408 ?        Sl   Nov18   0:00 /usr/libexec/gvfsd-fuse /run/user/288126/gvfs -f -o big_writes
+# invalid command name "s288126"
+s288126  30541  0.0  0.0  72312   776 ?        Ss   Nov18   0:04 /usr/bin/ssh-agent /bin/bash -c exec -l "/bin/bash" -c "/usr/bin/env LD_LIBRARY_PATH= mate-session"
+# invalid command name "s288126"
+s288126  30575  0.0  0.0 346880  3812 ?        Sl   Nov18   0:00 /usr/libexec/at-spi-bus-launcher
+# invalid command name "s288126"
+s288126  30580  0.0  0.0  60072  2280 ?        S    Nov18   0:00 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 3
+# invalid command name "s288126"
+s288126  30583  0.0  0.0 233088  3944 ?        Sl   Nov18   0:00 /usr/libexec/at-spi2-registryd --use-gnome-session
+# invalid command name "s288126"
+s288126  30597  0.0  0.0 187516  2972 ?        Sl   Nov18   0:00 /usr/libexec/dconf-service
+# invalid command name "s288126"
+root     30600  0.0  0.0      0     0 ?        S    15:40   0:00 [kworker/7:0]
+# invalid command name "kworker/7:0"
+s288126  30606  0.0  0.0 317288  5868 ?        Sl   Nov18   0:00 gnome-keyring-daemon --start
+# invalid command name "s288126"
+s288126  30617  0.0  0.0 1142584 15908 ?       Sl   Nov18  16:48 /usr/libexec/mate-settings-daemon
+# invalid command name "s288126"
+s288126  30623  0.0  0.0 527628 16160 ?        Sl   Nov18   0:02 marco
+# invalid command name "s288126"
+s288126  30627  0.0  0.1 693520 18704 ?        Sl   Nov18   0:18 mate-panel
+# invalid command name "s288126"
+s288126  30671  0.0  0.3 775924 63816 ?        Sl   Nov18   0:02 caja
+# invalid command name "s288126"
+s288126  30679  0.0  0.1 510344 21552 ?        Sl   Nov18   0:00 abrt-applet
+# invalid command name "s288126"
+s288126  30684  0.0  0.0 519192  9120 ?        Sl   Nov18   0:01 mate-screensaver
+# invalid command name "s288126"
+s288126  30698  0.0  0.0 431852  8700 ?        Sl   Nov18   0:07 /usr/libexec/polkit-mate-authentication-agent-1
+# invalid command name "s288126"
+s288126  30730  0.0  0.1 390976 16776 ?        Sl   Nov18   0:00 /usr/bin/python /usr/share/system-config-printer/applet.py
+# invalid command name "s288126"
+s288126  30732  0.1  0.0 718200 15208 ?        Sl   Nov18  20:12 mate-volume-control-applet
+# invalid command name "s288126"
+s288126  30736  0.0  0.0 416192  5476 ?        Sl   Nov18   0:13 /usr/libexec/gvfs-udisks2-volume-monitor
+# invalid command name "s288126"
+s288126  30739  0.0  0.0  41276  1372 ?        Ss   Nov18   0:00 /usr/bin/spice-vdagent
+# invalid command name "s288126"
+s288126  30741  0.0  0.1 637140 20520 ?        Sl   Nov18   0:00 nm-applet
+# invalid command name "s288126"
+s288126  30754  0.0  0.0 371444  3152 ?        Sl   Nov18   0:00 /usr/libexec/gvfs-goa-volume-monitor
+# invalid command name "s288126"
+s288126  30760  0.0  0.1 569104 17348 ?        Sl   Nov18   0:01 /usr/libexec/mate-panel/wnck-applet
+# invalid command name "s288126"
+s288126  30773  0.0  0.0 464656  4588 ?        Sl   Nov18   0:03 /usr/libexec/gvfsd-trash --spawner :1.4 /org/gtk/gvfs/exec_spaw/0
+# invalid command name "s288126"
+s288126  30792  0.0  0.1 118344100 25716 ?     Sl   Nov18   0:00 /usr/libexec/goa-daemon
+# invalid command name "s288126"
+s288126  30879  0.0  0.0 532056  8528 ?        Sl   Nov18   0:31 /usr/libexec/goa-identity-service
+# invalid command name "s288126"
+s288126  30896  0.0  0.0 411636  7716 ?        Sl   Nov18   0:03 /usr/libexec/mission-control-5
+# invalid command name "s288126"
+s288126  30899  0.0  0.0 400568  3632 ?        Sl   Nov18   0:00 /usr/libexec/gvfs-gphoto2-volume-monitor
+# invalid command name "s288126"
+s288126  30904  0.0  0.0 391480  5424 ?        Sl   Nov18   0:00 /usr/libexec/gvfs-mtp-volume-monitor
+# invalid command name "s288126"
+s288126  30912  0.0  0.0 478404  4416 ?        Sl   Nov18   0:00 /usr/libexec/gvfs-afc-volume-monitor
+# invalid command name "s288126"
+s288126  30972  0.0  0.1 620044 18336 ?        Sl   Nov18   0:13 /usr/libexec/mate-panel/clock-applet
+# invalid command name "s288126"
+s288126  30974  0.0  0.0 475828  9356 ?        Sl   Nov18   0:00 /usr/libexec/mate-panel/notification-area-applet
+# invalid command name "s288126"
+root     31181  0.0  0.0      0     0 ?        S    17:30   0:00 [kworker/4:2]
+# invalid command name "kworker/4:2"
+s284963  32104  0.0  0.0 116760  3572 pts/40   Ss   Nov17   0:00 -bash
+# invalid command name "s284963"
+s281589  32581  0.0  0.0 116904  3696 pts/25   Ss   15:43   0:00 -bash
+# invalid command name "s281589"
+s279890  32721  0.0  0.0 116796  3588 pts/12   Ss+  Nov17   0:00 -bash
+# invalid command name "s279890"
+# 
+# <EOF>
