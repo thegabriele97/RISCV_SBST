@@ -10202,43 +10202,43 @@ xor t3, t3, t2
 
 j check_routine
 check_routine:
-    and a1, a0, 0x1
-	   bne a1, x0, routine_0 #n. 0x1
-    and a1, a0, 0x2
-	   bne a1, x0, routine_1 #n. 0x2
-    and a1, a0, 0x4
-	   bne a1, x0, routine_2 #n. 0x4
-    and a1, a0, 0x8
-	   bne a1, x0, routine_3 #n. 0x8
-    and a1, a0, 0x10
-	   bne a1, x0, routine_4 #n. 0x10
-    and a1, a0, 0x20
-	   bne a1, x0, routine_5 #n. 0x20
-    and a1, a0, 0x40
-	   bne a1, x0, routine_6 #n. 0x40
-    and a1, a0, 0x80
-	   bne a1, x0, routine_7 #n. 0x80
-    and a1, a0, 0x100
-	   bne a1, x0, routine_8 #n. 0x100
-    and a1, a0, 0x200
-	   bne a1, x0, routine_9 #n. 0x200
-    and a1, a0, 0x400
-	   bne a1, x0, routine_10 #n. 0x400
+    and t6, a0, 0x1
+	   bne t6, x0, routine_0 #n. 0x1
+    and t6, a0, 0x2
+	   bne t6, x0, routine_1 #n. 0x2
+    and t6, a0, 0x4
+	   bne t6, x0, routine_2 #n. 0x4
+    and t6, a0, 0x8
+	   bne t6, x0, routine_3 #n. 0x8
+    and t6, a0, 0x10
+	   bne t6, x0, routine_4 #n. 0x10
+    and t6, a0, 0x20
+	   bne t6, x0, routine_5 #n. 0x20
+    and t6, a0, 0x40
+	   bne t6, x0, routine_6 #n. 0x40
+    and t6, a0, 0x80
+	   bne t6, x0, routine_7 #n. 0x80
+    and t6, a0, 0x100
+	   bne t6, x0, routine_8 #n. 0x100
+    and t6, a0, 0x200
+	   bne t6, x0, routine_9 #n. 0x200
+    and t6, a0, 0x400
+	   bne t6, x0, routine_10 #n. 0x400
     li t0, 0x800
-    and a1, a0, t0
-	   bne a1, x0, routine_11 #n. 0x800
+    and t6, a0, t0
+	   bne t6, x0, routine_11 #n. 0x800
     li t0, 0x1000
-    and a1, a0, t0
-	   bne a1, x0, routine_12 #n. 0x1000
+    and t6, a0, t0
+	   bne t6, x0, routine_12 #n. 0x1000
     li t0, 0x2000
-    and a1, a0, t0
-	   bne a1, x0, routine_13 #n. 0x2000
+    and t6, a0, t0
+	   bne t6, x0, routine_13 #n. 0x2000
     li t0, 0x4000
-    and a1, a0, t0
-	   bne a1, x0, routine_14 #n. 0x4000
+    and t6, a0, t0
+	   bne t6, x0, routine_14 #n. 0x4000
     li t0, 0x8000
-    and a1, a0, t0
-	   bne a1, x0, routine_15 #n. 0x8000
+    and t6, a0, t0
+	   bne t6, x0, routine_15 #n. 0x8000
     li t0, 0x10000
-    and a1, a0, t0
-	   bne a1, x0, routine_16 #n. 0x10000
+    and t6, a0, t0
+	   bne t6, x0, routine_16 #n. 0x10000

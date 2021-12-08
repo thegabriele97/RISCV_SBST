@@ -68,27 +68,39 @@ _scheduler_test:
 
     # ALU TEST #
 
-    mv t0, s1
-    li t1, 0x1ffff
-    and t0, t0, t1
-    p.cnt t0, t0 # Population counting for ALU's flags
+    #mv t0, s1
+    #li t1, 0x1ffff
+    #and t0, t0, t1
+    #p.cnt t0, t0 # Population counting for ALU's flags
 
-    mv s0, x0
-    j loop_if_
-    loop_:
-        lw t2, 0(a1)
-        xor s0, s0, t2
-        add a1, a1, 4
-        add t0, t0, -1
-    loop_if_:
-        bne t0, x0, loop_
+    #mv s0, x0
+    #j loop_if_
+    #loop_:
+    #    lw t2, 0(a1)
+    #    xor s0, s0, t2
+    #    add a1, a1, 4
+    #    add t0, t0, -1
+    #loop_if_:
+    #    bne t0, x0, loop_
 
+    li t0, 0x1ffff
+    and a0, s1, t0
+    call _get_sig
+    mv s0, a0
+
+    mv a0, s1
     call _alu_test
     bne a0, s0, _halt_cpu
 
+    srl s1, s1, 0x11
+    li t0, 0x7
+    and a0, s1, t0
+    call _get_sig
+    mv s0, a0
 
-    #srl a0, a0, 0x11
-    #call _mul_test
+    mv a0, s1
+    call _mul_test
+    bne a0, s0, _halt_cpu
 
     #srl a0, a0, 0x03
     #call _rf_test
@@ -100,6 +112,22 @@ _scheduler_test:
     lw a1, 8(sp)
     lw a0, 4(sp)
     lw ra, 0(sp)
+
+    ret
+
+# a0: flags
+# a1: pointer
+_get_sig:
+    p.cnt t0, a0 # population counting for flags
+    mv a0, x0
+    j loop_if_
+    loop_:
+        lw t1, 0(a1)
+        xor a0, a0, t1
+        add a1, a1, 4
+        add t0, t0, -1
+    loop_if_:
+        bne t0, x0, loop_     
 
     ret
 

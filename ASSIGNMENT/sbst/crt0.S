@@ -11,8 +11,9 @@
 
 .section .TEST_RODATA, "a"
 TEST_SIGNATURES:
+TEST_SIGNATURES_ALU:
     .long 0xce784a1f
-    #.long 0xac25f5ed
+    .long 0xac25f5ed
     .long 0x9843659d
     .long 0x0559277f
     .long 0xa6dc12f9
@@ -28,6 +29,12 @@ TEST_SIGNATURES:
     .long 0xa2bcf0ec
     .long 0x2350fec2
     .long 0xce72f5dc
+TEST_SIGNATURES_MUL:
+    # MUL SIGNATURES
+    .long 0x0838c234
+    .long 0x64ef7eae
+    .long 0x8697505c
+
 
 /* Entry point for bare metal programs */
 .section .text.start
@@ -97,10 +104,9 @@ _start:
 	call __libc_init_array
 
 /* call boot-time software-based self-test */
-    li a0, 0x5
-    la a1, TEST_SIGNATURES
+    li a0, 0xE0000
+    la a1, TEST_SIGNATURES_MUL
     call _scheduler_test
-	//call _sbst_boot
 
 /* call main */
 	lw a0, 0(sp)                    /* a0 = argc */

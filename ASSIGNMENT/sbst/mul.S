@@ -14,6 +14,8 @@ _mul_test:
     li x30, 0x12345678 # triggers sim log for checkpoint
 
     ##- START -##
+    li t3, 0x0
+    
     j check_routine
     routine_0: #### NEW SUB ROUTINE ####
     li t0, 0x1

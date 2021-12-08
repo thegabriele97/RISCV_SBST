@@ -36,3 +36,4 @@ do_final_parser: get_all_signatures
 
 get_all_signatures:
 	./try_subroutines.sh | grep 'SIGNATURE:' > tmp/$(DUT)_sigs.txt
+	cat tmp/$(DUT)_sigs.txt
