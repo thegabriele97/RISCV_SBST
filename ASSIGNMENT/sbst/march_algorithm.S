@@ -91,62 +91,40 @@ _march_LA:                          // Execution of the March LA algorithm - a0 
     exit_error:
         li a0, 1
     exit_march_LA:
-    ret
+        ret
 
 
 
-_run_march_algorithm:                // Entry point    
+_run_march_algorithm:              // Entry point    
     li x31, 1
     add t4, x0, ra
-    li a0, 0                         // First pattern  
+    li a0, 0                       // 1 pattern  
     li x30, 0x12345678 # triggers sim log for checkpoint
     call _march_LA                  
     li x31, 5
     bne a0, x0, exit_test_error
 
-    or a0, x0, 0xFF                // 2 pattern
-    sll a0, a0, 8               
-    or a0, a0, 0xFF                
+    li a0, 0x0000ffff              // 2 pattern
     li x30, 0x12345678 # triggers sim log for checkpoint
     call _march_LA                  
     bne a0, x0, exit_test_error
 
-    or a0, x0, 0xFF                // 3 pattern
-    sll a0, a0, 16               
-    or a0, a0, 0xFF               
+    li a0, 0x00ff00ff              // 3 pattern
     li x30, 0x12345678 # triggers sim log for checkpoint
     call _march_LA                  
     bne a0, x0, exit_test_error
 
-    or a0, x0, 0x0F                // 4 pattern
-    sll a0, a0, 8             
-    or a0, a0, 0x0F                
-    sll a0, a0, 8      
-    or a0, a0, 0x0F               
-    sll a0, a0, 8     
-    or a0, a0, 0x0F                
+    li a0, 0x0f0f0f0f              // 4 pattern
     li x30, 0x12345678 # triggers sim log for checkpoint
     call _march_LA                  
     bne a0, x0, exit_test_error
 
-    or a0, x0, 0x33                // 5 pattern
-    sll a0, a0, 8             
-    or a0, a0, 0x33                
-    sll a0, a0, 8      
-    or a0, a0, 0x33               
-    sll a0, a0, 8   
-    or a0, a0, 0x33   
+    li a0, 0x33333333              // 5 pattern
     li x30, 0x12345678 # triggers sim log for checkpoint
     call _march_LA                  
     bne a0, x0, exit_test_error
 
-    or a0, x0, 0x55                // 6 pattern
-    sll a0, a0, 8             
-    or a0, a0, 0x55                
-    sll a0, a0, 8      
-    or a0, a0, 0x55               
-    sll a0, a0, 8   
-    or a0, a0, 0x55 
+    li a0, 0x55555555              // 6 pattern
     li x30, 0x12345678 # triggers sim log for checkpoint
     call _march_LA                  
     bne a0, x0, exit_test_error
