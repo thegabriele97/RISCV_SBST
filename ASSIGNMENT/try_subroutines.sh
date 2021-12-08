@@ -1,6 +1,6 @@
 #!/bin/sh
 
-max=$(cat sbst/mul.S | grep 'n. 0x' | tail -n 1)
+max=$(cat sbst/rf.S | grep 'n. 0x' | tail -n 1)
 max=$(echo ${max} | sed 's/ /\n/g' | tail -n 1)
 echo $max
 actual=$(cat sbst/crt0.S | grep 'li a0, 0x' | tail -n 1)

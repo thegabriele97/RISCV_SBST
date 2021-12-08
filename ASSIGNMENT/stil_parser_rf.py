@@ -134,8 +134,8 @@ for i in range(0, cnt_subroutines):
     else:
         mask = hex(pow(2, i))
 
-    print("    and a1, a0, {}".format(mask))
-    print("	   bne a1, x0, routine_{} #n. {}".format(i, hex(pow(2, i))))
+    print("    and t0, a0, {}".format(mask))
+    print("	   bne t0, x0, routine_{} #n. {}".format(i, hex(pow(2, i))))
 
 
 print()

@@ -2793,12 +2793,12 @@ sw x30, 21*4(t0)
 check_routine:
     la t0, _STORAGE_POINTER_
     lw a0, 22*4(t0)
-    and a1, a0, 0x1
-	   bne a1, x0, routine_0 #n. 0x1
-    and a1, a0, 0x2
-	   bne a1, x0, routine_1 #n. 0x2
-    and a1, a0, 0x4
-	   bne a1, x0, routine_2 #n. 0x4
+    and t0, a0, 0x1
+	   bne t0, x0, routine_0 #n. 0x1
+    and t0, a0, 0x2
+	   bne t0, x0, routine_1 #n. 0x2
+    and t0, a0, 0x4
+	   bne t0, x0, routine_2 #n. 0x4
 
 _done:
 

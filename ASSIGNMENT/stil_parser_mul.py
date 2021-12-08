@@ -184,5 +184,5 @@ with open(stil_filename) as stil_file:
 		else:
 			mask = hex(pow(2, i))
 
-		print("    and a1, a0, {}".format(mask))
-		print("	   bne a1, x0, routine_{} #n. {}".format(i, hex(pow(2, i))))
+		print("    and t6, a0, {}".format(mask))
+		print("	   bne t6, x0, routine_{} #n. {}".format(i, hex(pow(2, i))))

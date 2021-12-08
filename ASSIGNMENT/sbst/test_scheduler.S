@@ -4,10 +4,10 @@
 
 ####################################################################################
 # Software Based Selft Test  -- MAIN SCHEDULER --                                  #
-# Overall Coverage:                 91.90%                                         #
-#    - ALU:                         xx.xx%                                         #
-#    - MUL:                         xx.xx%                                         #
-#    -  RF:                         xx.xx%                                         #
+# Overall Coverage:                                                                #
+#    - ALU:                         91.68%                                         #
+#    - MUL:                         96.60%                                         #
+#    -  RF:                         92.72%                                         #
 # Engineers:                        Battilana Matteo, La Greca Salvatore Gabriele  #
 #                                                                                  #
 #                                                                                  #
@@ -52,8 +52,8 @@
 #   *    - a1.11 <-> a1.14: mul                                                      #
 #   *    - a1.11 <-> a1.14: mul                                                      #
 #   * s0 - Stores the expected signature                                             #
-#   * s1 - Stores the original value of a0. a0 will be the result from the           #
-#          sub procedures.                                                           #
+#   * s1 - Stores a copy of a0, or a modified version of it. a0 is used as           #
+#          input / output for sub procedures.                                        #
 ######################################################################################
 _scheduler_test:
     
@@ -68,21 +68,6 @@ _scheduler_test:
 
     # ALU TEST #
 
-    #mv t0, s1
-    #li t1, 0x1ffff
-    #and t0, t0, t1
-    #p.cnt t0, t0 # Population counting for ALU's flags
-
-    #mv s0, x0
-    #j loop_if_
-    #loop_:
-    #    lw t2, 0(a1)
-    #    xor s0, s0, t2
-    #    add a1, a1, 4
-    #    add t0, t0, -1
-    #loop_if_:
-    #    bne t0, x0, loop_
-
     li t0, 0x1ffff
     and a0, s1, t0
     call _get_sig
@@ -91,6 +76,8 @@ _scheduler_test:
     mv a0, s1
     call _alu_test
     bne a0, s0, _halt_cpu
+
+    # MUL TEST #
 
     srl s1, s1, 0x11
     li t0, 0x7
@@ -102,8 +89,17 @@ _scheduler_test:
     call _mul_test
     bne a0, s0, _halt_cpu
 
-    #srl a0, a0, 0x03
-    #call _rf_test
+    # RF TEST #
+
+    srl s1, s1, 0x3
+    li t0, 0x7
+    and a0, s1, t0
+    call _get_sig
+    mv s0, a0
+
+    mv a0, s1
+    call _rf_test
+    bne a0, s0, _halt_cpu
 
 
     add sp, sp, -16
