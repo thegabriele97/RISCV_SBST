@@ -1,18 +1,20 @@
 #!/bin/sh
 
-max=$(cat sbst/mul.S | grep 'n. 0x' | tail -n 1)
+max=$(cat sbst/rf.S | grep 'n. 0x' | tail -n 1)
 max=$(echo ${max} | sed 's/ /\n/g' | tail -n 1)
 echo $max
 actual=$(cat sbst/crt0.S | grep 'li a0, 0x' | tail -n 1)
 actual=$(echo ${actual} | sed 's/ /\n/g' | tail -n 1)
 echo $actual
 
+make parser put_asm
+
 while [ $((actual)) -le $((max)) ]; do
-    make parser put_asm build get_signature
+    make build get_signature
 
     echo "--------------------"
     echo ""
-    read -u 3 input
+    #read -u 3 input
 
     p1=$(printf "0x%x" $actual)
     p2=$(printf "0x%x" $(($actual<<1)))

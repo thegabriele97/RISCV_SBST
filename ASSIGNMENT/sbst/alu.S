@@ -12,6 +12,7 @@
 _alu_test:
 
     li x30, 0x12345678 # triggers sim log for checkpoint
+    #li t5, 0x0
 
     ##- START -##
     li t3, 0x0
@@ -5374,16 +5375,16 @@ _alu_test:
     rem t2, t0, t1
     xor t3, t3, t2
     
-    li t0, 0x4583f335
-    li t1, 0xe60e960c
-    rem t2, t0, t1
-    xor t3, t3, t2
-    
     j check_routine
     routine_8: #### NEW SUB ROUTINE ####
     li t0, 0x100
     not t0, t0
     and a0, a0, t0
+    
+    li t0, 0x4583f335
+    li t1, 0xe60e960c
+    rem t2, t0, t1
+    xor t3, t3, t2
     
     li t0, 0xe3709860
     li t1, 0x27a5f03a
@@ -5950,16 +5951,16 @@ _alu_test:
     p.adduRNr t2, t0, t1
     xor t3, t3, t2
     
-    li t0, 0x200000
-    li t1, 0x0
-    div t2, t0, t1
-    xor t3, t3, t2
-    
     j check_routine
     routine_9: #### NEW SUB ROUTINE ####
     li t0, 0x200
     not t0, t0
     and a0, a0, t0
+    
+    li t0, 0x200000
+    li t1, 0x0
+    div t2, t0, t1
+    xor t3, t3, t2
     
     li t0, 0x1bf0743d
     li t1, 0x14b46164
@@ -6448,6 +6449,12 @@ _alu_test:
     remu t2, t0, t1
     xor t3, t3, t2
     
+    j check_routine
+    routine_10: #### NEW SUB ROUTINE ####
+    li t0, 0x400
+    not t0, t0
+    and a0, a0, t0
+    
     li t0, 0x4ec0fbe6
     p.ff1 t2, t0
     xor t3, t3, t2
@@ -6495,12 +6502,6 @@ _alu_test:
     li t1, 0x4ab8d220
     pv.shuffle2.h t2, t0, t1
     xor t3, t3, t2
-    
-    j check_routine
-    routine_10: #### NEW SUB ROUTINE ####
-    li t0, 0x400
-    not t0, t0
-    and a0, a0, t0
     
     li t0, 0x9d974004
     li t1, 0xad2e5879
@@ -7030,6 +7031,12 @@ _alu_test:
     divu t2, t0, t1
     xor t3, t3, t2
     
+    j check_routine
+    routine_11: #### NEW SUB ROUTINE ####
+    li t0, 0x800
+    not t0, t0
+    and a0, a0, t0
+    
     li t0, 0x1dc
     li t1, 0x100
     divu t2, t0, t1
@@ -7064,12 +7071,6 @@ _alu_test:
     li t1, 0xfffffc00
     div t2, t0, t1
     xor t3, t3, t2
-    
-    j check_routine
-    routine_11: #### NEW SUB ROUTINE ####
-    li t0, 0x800
-    not t0, t0
-    and a0, a0, t0
     
     li t0, 0xfa8e8bf3
     li t1, 0xe43592eb
@@ -7536,6 +7537,12 @@ _alu_test:
     div t2, t0, t1
     xor t3, t3, t2
     
+    j check_routine
+    routine_12: #### NEW SUB ROUTINE ####
+    li t0, 0x1000
+    not t0, t0
+    and a0, a0, t0
+    
     li t0, 0x8c092dbd
     li t1, 0xd7e7cfd2
     pv.add.b t2, t0, t1
@@ -7587,12 +7594,6 @@ _alu_test:
     li t1, 0xefdb4937
     remu t2, t0, t1
     xor t3, t3, t2
-    
-    j check_routine
-    routine_12: #### NEW SUB ROUTINE ####
-    li t0, 0x1000
-    not t0, t0
-    and a0, a0, t0
     
     li t0, 0xffffffff
     li t1, 0x0
@@ -8049,6 +8050,12 @@ _alu_test:
     rem t2, t0, t1
     xor t3, t3, t2
     
+    j check_routine
+    routine_13: #### NEW SUB ROUTINE ####
+    li t0, 0x2000
+    not t0, t0
+    and a0, a0, t0
+    
     li t0, 0x4332fd5e
     li t1, 0xadb5f6fc
     sltu t2, t0, t1
@@ -8097,12 +8104,6 @@ _alu_test:
     li t1, 0xbf917227
     div t2, t0, t1
     xor t3, t3, t2
-    
-    j check_routine
-    routine_13: #### NEW SUB ROUTINE ####
-    li t0, 0x2000
-    not t0, t0
-    and a0, a0, t0
     
     li t0, 0x6cae6262
     p.clipu t2, t0, 0x15
@@ -8647,6 +8648,12 @@ _alu_test:
     p.insertr t2, t0, t1
     xor t3, t3, t2
     
+    j check_routine
+    routine_14: #### NEW SUB ROUTINE ####
+    li t0, 0x4000
+    not t0, t0
+    and a0, a0, t0
+    
     li t0, 0x307e6280
     li t1, 0x5ad37e70
     p.slet t2, t0, t1
@@ -8722,12 +8729,6 @@ _alu_test:
     li t0, 0xc3be52bb
     p.cnt t2, t0
     xor t3, t3, t2
-    
-    j check_routine
-    routine_14: #### NEW SUB ROUTINE ####
-    li t0, 0x4000
-    not t0, t0
-    and a0, a0, t0
     
     li t0, 0xa1236a30
     li t1, 0x7e5ff26c
@@ -9257,6 +9258,12 @@ _alu_test:
     div t2, t0, t1
     xor t3, t3, t2
     
+    j check_routine
+    routine_15: #### NEW SUB ROUTINE ####
+    li t0, 0x8000
+    not t0, t0
+    and a0, a0, t0
+    
     li t0, 0xc00a576d
     li t1, 0x34cbd554
     remu t2, t0, t1
@@ -9318,12 +9325,6 @@ _alu_test:
     li t1, 0xca62b183
     div t2, t0, t1
     xor t3, t3, t2
-    
-    j check_routine
-    routine_15: #### NEW SUB ROUTINE ####
-    li t0, 0x8000
-    not t0, t0
-    and a0, a0, t0
     
     li t0, 0x97ce19ba
     li t1, 0x4e2e228b
@@ -9895,6 +9896,12 @@ _alu_test:
     p.bclr t2, t0, 0x14, 0x1e
     xor t3, t3, t2
     
+    j check_routine
+    routine_16: #### NEW SUB ROUTINE ####
+    li t0, 0x10000
+    not t0, t0
+    and a0, a0, t0
+    
     li t0, 0xc8a68fdf
     p.extract t2, t0, 0x15, 0x19
     xor t3, t3, t2
@@ -9972,12 +9979,6 @@ _alu_test:
     li t0, 0x8909e5b8
     p.ff1 t2, t0
     xor t3, t3, t2
-    
-    j check_routine
-    routine_16: #### NEW SUB ROUTINE ####
-    li t0, 0x10000
-    not t0, t0
-    and a0, a0, t0
     
     li t0, 0x8df5156
     li t1, 0xb9241d0b
@@ -10216,47 +10217,48 @@ _alu_test:
     div t2, t0, t1
     xor t3, t3, t2
     
+    j check_routine
     check_routine:
-        and a1, a0, 0x1
-    	   bne a1, x0, routine_0 #n. 0x1
-        and a1, a0, 0x2
-    	   bne a1, x0, routine_1 #n. 0x2
-        and a1, a0, 0x4
-    	   bne a1, x0, routine_2 #n. 0x4
-        and a1, a0, 0x8
-    	   bne a1, x0, routine_3 #n. 0x8
-        and a1, a0, 0x10
-    	   bne a1, x0, routine_4 #n. 0x10
-        and a1, a0, 0x20
-    	   bne a1, x0, routine_5 #n. 0x20
-        and a1, a0, 0x40
-    	   bne a1, x0, routine_6 #n. 0x40
-        and a1, a0, 0x80
-    	   bne a1, x0, routine_7 #n. 0x80
-        and a1, a0, 0x100
-    	   bne a1, x0, routine_8 #n. 0x100
-        and a1, a0, 0x200
-    	   bne a1, x0, routine_9 #n. 0x200
-        and a1, a0, 0x400
-    	   bne a1, x0, routine_10 #n. 0x400
+        and t6, a0, 0x1
+    	   bne t6, x0, routine_0 #n. 0x1
+        and t6, a0, 0x2
+    	   bne t6, x0, routine_1 #n. 0x2
+        and t6, a0, 0x4
+    	   bne t6, x0, routine_2 #n. 0x4
+        and t6, a0, 0x8
+    	   bne t6, x0, routine_3 #n. 0x8
+        and t6, a0, 0x10
+    	   bne t6, x0, routine_4 #n. 0x10
+        and t6, a0, 0x20
+    	   bne t6, x0, routine_5 #n. 0x20
+        and t6, a0, 0x40
+    	   bne t6, x0, routine_6 #n. 0x40
+        and t6, a0, 0x80
+    	   bne t6, x0, routine_7 #n. 0x80
+        and t6, a0, 0x100
+    	   bne t6, x0, routine_8 #n. 0x100
+        and t6, a0, 0x200
+    	   bne t6, x0, routine_9 #n. 0x200
+        and t6, a0, 0x400
+    	   bne t6, x0, routine_10 #n. 0x400
         li t0, 0x800
-        and a1, a0, t0
-    	   bne a1, x0, routine_11 #n. 0x800
+        and t6, a0, t0
+    	   bne t6, x0, routine_11 #n. 0x800
         li t0, 0x1000
-        and a1, a0, t0
-    	   bne a1, x0, routine_12 #n. 0x1000
+        and t6, a0, t0
+    	   bne t6, x0, routine_12 #n. 0x1000
         li t0, 0x2000
-        and a1, a0, t0
-    	   bne a1, x0, routine_13 #n. 0x2000
+        and t6, a0, t0
+    	   bne t6, x0, routine_13 #n. 0x2000
         li t0, 0x4000
-        and a1, a0, t0
-    	   bne a1, x0, routine_14 #n. 0x4000
+        and t6, a0, t0
+    	   bne t6, x0, routine_14 #n. 0x4000
         li t0, 0x8000
-        and a1, a0, t0
-    	   bne a1, x0, routine_15 #n. 0x8000
+        and t6, a0, t0
+    	   bne t6, x0, routine_15 #n. 0x8000
         li t0, 0x10000
-        and a1, a0, t0
-    	   bne a1, x0, routine_16 #n. 0x10000
+        and t6, a0, t0
+    	   bne t6, x0, routine_16 #n. 0x10000
     ##- END -##
 
     li t4, 0x12345678 # triggers sim log for t3

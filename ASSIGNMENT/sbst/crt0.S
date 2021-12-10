@@ -9,6 +9,36 @@
  * http://www.opensource.org/licenses.
  */
 
+.section .TEST_RODATA, "a"
+TEST_SIGNATURES:
+TEST_SIGNATURES_ALU:
+    .long 0xce784a1f
+#    .long 0xac25f5ed
+    .long 0x9843659d
+#    .long 0x0559277f
+    .long 0xa6dc12f9
+#    .long 0xb22db5b3
+    .long 0x865e0d8c
+#    .long 0x3b42df5f
+    .long 0x557a2e22
+#    .long 0x4e8a5bf8
+    .long 0x760e1125
+#    .long 0x50da8f57
+    .long 0xa4de0cf8
+#    .long 0x1a947a99
+    .long 0xa2bcf0ec
+#    .long 0x2350fec2
+    .long 0xce72f5dc
+TEST_SIGNATURES_MUL:
+    #.long 0x0838c234
+    .long 0x64ef7eae
+    #.long 0x8697505c
+TEST_SIGNATURES_RF:
+    .long 0x0000ffff
+#    .long 0xa93d4cf0
+    .long 0xd678748a
+
+
 /* Entry point for bare metal programs */
 .section .text.start
 .global _start
@@ -99,15 +129,9 @@ _start:
 	call __libc_init_array
 
 /* call boot-time software-based self-test */
-    li a0, 0x7fffff
-    #call _alu_test
-
-    srl a0, a0, 0x11
-    #call _mul_test
-
-    srl a0, a0, 0x3
-    #call _rf_test
-	#call _sbst_boot
+    li a0, 0x555555
+    la a1, TEST_SIGNATURES
+    call _scheduler_test
 
 /* call main */
 	//lw a0, 0(sp)                    /* a0 = argc */

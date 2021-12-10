@@ -1,3 +1,5 @@
+li t3, 0x0
+
 j check_routine
 routine_0: #### NEW SUB ROUTINE ####
 li t0, 0x1
@@ -1763,9 +1765,9 @@ p.mulsRN t2, t0, t1, 0x1f
 xor t3, t3, t2
 
 check_routine:
-    and a1, a0, 0x1
-	   bne a1, x0, routine_0 #n. 0x1
-    and a1, a0, 0x2
-	   bne a1, x0, routine_1 #n. 0x2
-    and a1, a0, 0x4
-	   bne a1, x0, routine_2 #n. 0x4
+    and t6, a0, 0x1
+	   bne t6, x0, routine_0 #n. 0x1
+    and t6, a0, 0x2
+	   bne t6, x0, routine_1 #n. 0x2
+    and t6, a0, 0x4
+	   bne t6, x0, routine_2 #n. 0x4
