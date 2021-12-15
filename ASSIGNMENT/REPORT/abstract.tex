@@ -1,0 +1,181 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeX Template: Project Titlepage
+%
+% Source: http://www.howtotex.com
+% Date: April 2011
+% 
+% This is a title page template which be used for articles & reports.
+% 
+% Feel free to distribute this example, but please keep the referral
+% to howtotex.com
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% How to use writeLaTeX: 
+%s
+% You edit the source code here on the left, and the preview on the
+% right shows you the result within a few seconds.
+%
+% Bookmark this page and share the URL with your co-authors. They can
+% edit at the same time!
+%
+% You can upload figures, bibliographies, custom classes and
+% styles using the files menu.
+%
+% If you're new to LaTeX, the wikibook is a great place to start:
+% http://en.wikibooks.org/wiki/LaTeX
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% --------------------------------------------------------------------
+% Preamble
+% --------------------------------------------------------------------
+\documentclass[paper=a4, fontsize=10pt]{scrartcl}	% KOMA
+\usepackage[bottom=1.1in, top=0.9in]{geometry}
+\usepackage{lmodern}
+
+\newcommand{\specialcell}[2][c]{%
+	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+\usepackage{todonotes}
+\usepackage{listings}
+\usepackage{graphbox}
+\usepackage{hyperref}
+\usepackage{twoopt}
+\usepackage{adjustbox}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{mwe}
+\usepackage{color, colortbl}
+\usepackage[protrusion=true,expansion=true]{microtype}	
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage{tabularx}
+\usepackage{float}
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\newcommand\setrow[1]{\gdef\rowmac{#1}#1\ignorespaces}
+\newcommand\clearrow{\global\let\rowmac\relax}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\definecolor{Red}{rgb}{1,0.7,0.7}
+\definecolor{Yellow}{HTML}{FAFAD2}
+\definecolor{Green}{HTML}{9ACD32}
+\definecolor{Blue}{rgb}{0.5,0.8,1}
+\lstset{
+	frame=single,
+	xleftmargin=15pt,
+	xrightmargin=15pt,
+	basicstyle=\ttfamily\small
+}
+% --------------------------------------------------------------------
+% Definitions (do not change this)
+% --------------------------------------------------------------------
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}} 	% Horizontal rule
+\newcommandtwoopt*{\myref}[3][][]{%
+	\hyperref[{#3}]{%
+		\ifx\\#1\\%
+		\else
+		#1~%
+		\fi
+		\ref*{#3}%
+		\ifx\\#2\\%
+		\else
+		\,#2%
+		\fi
+	}%
+}
+
+\makeatletter							% Title
+\def\printtitle{%						
+	{\centering \@title\par}}
+\makeatother									
+
+\makeatletter							% Author
+\def\printauthor{%					
+	{\centering \large \@author}}				
+\makeatother							
+
+% --------------------------------------------------------------------
+% Metadata (Change this)
+% --------------------------------------------------------------------
+\title{	\normalsize \textsc{Politecnico di Torino\\Testing and Fault Tolerance} 	% Subtitle
+	\\[2.0cm]								% 2cm spacing
+	\HRule{0.5pt} \\						% Upper rule
+	\LARGE \textbf{\uppercase{Report: SW ASSIGNMENT\\March Algorithm and SBST}}	% Title
+	\HRule{2pt} \\ [0.5cm]		% Lower rule + 0.5cm spacing
+	\normalsize 
+	\today % Todays date
+}
+
+\author{
+	Matteo Battilana s281389\newline
+	Gabriele Salvatore La Greca s281589
+}
+
+\begin{document}
+	% ------------------------------------------------------------------------------
+	% Maketitle
+	% ------------------------------------------------------------------------------
+	\thispagestyle{empty}		% Remove page numbering on this page
+	
+	\printtitle					% Print the title data as defined above
+	\vfill
+	\printauthor				% Print the author data as defined above
+	\newpage
+	% ------------------------------------------------------------------------------
+	% Begin document
+	% ------------------------------------------------------------------------------
+	\setcounter{page}{1}		% Set page numbering to begin on this page
+	\section{Introduction}
+	The software assignment was based on two portions of code that are used to:
+	\begin{itemize}
+		\itemsep0sp
+		\item A March test algorithm on the RAM
+		\item A set of SBST routines that are scheduled in portion of 1000 clock cycles, used to test three functional units: ALU, Multiplier and Register File.
+	\end{itemize}
+
+	\subsection{March Algorithm}
+	The March test has been put at the startup of the system, in order to perform a complete check of the data memory.
+	The method, called \texttt{\_run\_march\_algorithm} that is defined in the \texttt{march\_algorithm.S} file, is called in the \texttt{crt0.S} just after the initialization of all registers to 0.\newline\newline
+	The base idea of the March Test is to perform a sequence of March Elements. Each March Element is composed of a sequence of write/read operations that must be performed in a cells and also for all the others.
+	
+	The algorithm used in this assignment is the March LA, developed by Van de Goor, in 1996 has a complexity of $22n$ and it's able to detect Stuck-at-faults, Address-faults, Transition-faults and Coupling-faults, linked in any way. It composed of the following March elements:
+	\begin{itemize}
+		\itemsep0sp
+		\item $\updownarrow$ (w0)
+		\item $\Uparrow$ (r0, w1, w0, w1, r1)
+		\item $\Uparrow$ (r1, w0, w1, w0, r0)
+		\item $\Downarrow$ (r0, w1, w0, w1, r1)
+		\item $\Downarrow$ (r1, w0, w1, w0, r0)
+		\item $\Downarrow$ (r0)
+	\end{itemize}
+	Moreover in order to make the test complete, the algorithm does not simply write 0 and 1 in the memory locations, but uses $ \floor*{\log_2(m)} + 1$ patterns, where $m$ is the word size. This allows to test also the intra-word coupling faults. So, the total complexity of the march test is:
+	\[
+		6 \cdot 22 \cdot n = 132n
+	\]
+	For this reason the \texttt{\_run\_march\_algorithm} procedure acts only as a wrapper in order to call another procedure, called \texttt{\_march\_LA}.
+	
+	This last procedure, is used to perform entirely the March LA algorithm, by passing one parameter on the \texttt{a0} register that is used to define the 0 pattern that will be used when performing \textit{w0} and \textit{r0}. The 1 pattern is simply computed by the produced, by negating \texttt{a0}.
+	
+	This allows to not duplicate the code and execute the March LA for all the 6 patterns. 
+	
+	In order to speed up the end of the test, in case of error, the procedure terminates as soon as possible, returning 1 in case of an error and 0 otherwise.\newline\newline
+	In order to perform the test over the entire data ram, two sections have been defined:
+	\begin{enumerate}
+		\itemsep0sp
+		\item \_\_RAM\_START
+		\item \_\_RAM\_END
+	\end{enumerate}
+	The first one, is used to define the starting point of the March LA while the second one its end. The end address is loaded into the \texttt{t2} register but it can't be used as is. In fact, since it define the end point, the loop must avoid to write in that precise location (outside the dataram); for this reason, a subtraction of 4 is performed.
+	The algorithms is 1:1 the implementation of the March LA, and by using \texttt{t1} and \texttt{t2} as starting and ending references, all the locations are read/written accordingly to the March algorithm.
+	
+	\subsubsection{Problems}
+	One of the C library used in the linker script (newlib) creates in the .elf file a section in .data with a struct called \texttt{\_\_rent} whose address is defined by the symbol \_\_global\_impure\_pointer. The struct contains information about the errno, used by the ANSI C standard, stdout, stin and stderr and other callbacks.
+	At the beginning, the .elf loaded during the simulation contains that information, and running the March LA destroys everything. In particular, the crt0 executes the function \texttt{memset} for the initialization of the bss segment, that reads data from the \texttt{\_\_rent} structure, that has been erased by the memory test.
+	The problem is that the RAM sections are (improperly) initialized by the testbench at power-on and this has been solved by copying at the startup all sections into a portion of a Flash memory. In this way, at the end of the march algorithm, data saved into the flash are moved into the RAM.
+	
+	\subsection{Results}
+	As stated before, the March LA is a powerful algorithm to test memories that has the drawback of being complex from the point of view of the computational complexity. Moreover, the complexity increases even more, if the intra-coupling faults are tested. Having a RAM, which size is 0x40000, the time needed to test it with this implementation is: 212992660ns, that corresponds to more or less 0.2s.
+	
+\end{document}
