@@ -50,7 +50,20 @@
 \usepackage{amsmath,amsfonts,amsthm,amssymb}
 \usepackage{tabularx}
 \usepackage{float}
-
+\usepackage{subcaption}
+\usepackage{dirtree}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{tikz-timing}
+\usetikzlibrary{circuits.logic.US}
+\usepackage[most]{tcolorbox}
+\usepackage{array}
+\usepackage{bytefield}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{tabularx}
+\usepackage{multirow}
 \usepackage{mathtools}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
@@ -176,6 +189,32 @@
 	The problem is that the RAM sections are (improperly) initialized by the testbench at power-on and this has been solved by copying at the startup all sections into a portion of a Flash memory. In this way, at the end of the march algorithm, data saved into the flash are moved into the RAM.
 	
 	\subsection{Results}
-	As stated before, the March LA is a powerful algorithm to test memories that has the drawback of being complex from the point of view of the computational complexity. Moreover, the complexity increases even more, if the intra-coupling faults are tested. Having a RAM, which size is 0x40000, the time needed to test it with this implementation is: 212992660ns, that corresponds to more or less 0.2s.
+	As stated before, the March LA is a powerful algorithm to test memories that has the drawback of being complex from the point of view of the computational complexity. Moreover, the complexity increases even more, if the intra-coupling faults are tested. Having a RAM, which size is 0x40000, the time needed to test it with this implementation is: 212992660ns, that corresponds to more or less 200ms.
+
+	\section{Test scheduler}
+	Beside the March test, the Software-Based Self-Test needs to be split into smaller subroutines that do not last more than 1000 clock cycle. This means that, for testing a functional, more than one subroutine will be needed. In order to let the user to specify which subroutine of which module to run, a 32 bit flag register is used in the following way:
+	\begin{figure}[ht]
+		\begin{center}
+			\begin{bytefield}[endianness=big,bitwidth=0.03\linewidth]{32}
+				\bitheader{0, 16, 17, 19, 20, 22, 23, 31} \\
+				\bitbox{9}{UNUSED} &  & \bitbox{3}{RF} &  \bitbox{3}{MUL} & \bitbox{17}{ALU}\\
+			\end{bytefield}
+		\end{center}
+		\caption{\textit{Test flag register}}
+		\label{fig:test_flag}
+	\end{figure}
+	In fact, the ALU is composed of 17 subroutines, the multiplier by 3 as for the register file; the other bits are left unused. So, by setting that register to 0x03, only the first three subroutines for the ALU test are executed.\newline\newline
+	In order to work correctly, a zone in memory has been defined in the \texttt{.TEST\_RODATA} called \textit{TEST\_SIGNATURES}, that stores the expected signatures for all the subroutines enabled, in order to check the result after executing them. The memory locations assumes first the ALU signatures, then the multipliers one and in the last position the register file ones.
 	
+	The starting memory location is passed as parameter to the main test routing, assuming first 11 signatures for 
+	The entry point of our test routines for the functional units and the register file, is the \texttt{\_scheduler\_test} procedure that is contained into the \textit{test\_scheduler.S} file. This functions takes the following parameters:
+	\begin{enumerate}
+		\itemsep0sp
+		\item \textbf{a0}: Vector of flags for the test subroutines to be enabled, refer to Figure \ref{fig:test_flag};
+		\item \textbf{a1}: Pointer to the current in the vector of test signatures. Used to check the expected signature;
+		\item \textbf{s0}: Stores the expected signature 
+	\end{enumerate}
+	Based on the signature returned by the procedures and the vector of test signature given as input to this procedure, the scheduler will decide to halt the CPU or not if the test doesn't succeed.
+	
+	As described before, the register that contains the test flags taken and the subroutine \texttt{i} is executed only if \texttt{a1[i]} is set to one. At this point, the selected procedures of each module are executed and the signature computed for each one of them. \newline\newline\textbf{TO COMPLETE DESCRIPTION}
 \end{document}

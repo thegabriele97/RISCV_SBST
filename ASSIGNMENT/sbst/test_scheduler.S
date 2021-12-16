@@ -48,9 +48,9 @@
 #   * a1 - Pointer to the current in the vector of test signatures. Used to compute  #
 #          the expected signature.                                                   #
 #   * a0 - Vector of flags for sub routine enabling, to use as follow:               #
-#   *    - a1.00 <-> a1.10: alu                                                      #
-#   *    - a1.11 <-> a1.14: mul                                                      #
-#   *    - a1.11 <-> a1.14: mul                                                      #
+#   *    - a1.00 <-> a1.16: alu                                                      #
+#   *    - a1.17 <-> a1.19: mul                                                      #
+#   *    - a1.20 <-> a1.22: rf                                                       #
 #   * s0 - Stores the expected signature                                             #
 #   * s1 - Stores a copy of a0, or a modified version of it. a0 is used as           #
 #          input / output for sub procedures.                                        #
