@@ -153,7 +153,7 @@
 	The method, called \texttt{\_run\_march\_algorithm} that is defined in the \texttt{march\_algorithm.S} file, is called in the \texttt{crt0.S} just after the initialization of all registers to 0.\newline\newline
 	The base idea of the March Test is to perform a sequence of March Elements. Each March Element is composed of a sequence of write/read operations that must be performed in a cells and also for all the others.
 	
-	The algorithm used in this assignment is the March LA, developed by Van de Goor, in 1996 has a complexity of $22n$ and it's able to detect Stuck-at-faults, Address-faults, Transition-faults and Coupling-faults, linked in any way. It composed of the following March elements:
+	The algorithm used in this assignment is the March LA, developed by Van de Goor in 1996 with a complexity of $22n$ and it's able to detect Stuck-at-faults, Address-faults, Transition-faults and Coupling-faults, linked in any way. It composed of the following March elements:
 	\begin{itemize}
 		\itemsep0sp
 		\item $\updownarrow$ (w0)
@@ -216,7 +216,9 @@
 	\end{enumerate}
 	Based on the signature returned by the procedures and the vector of test signature given as input to this procedure, the scheduler will decide to halt the CPU or not if the test doesn't succeed.
 	
-	As described before, the register that contains the test flags taken and the subroutine \texttt{i} is executed only if \texttt{a1[i]} is set to one. At this point, the selected procedures of each module are executed and the signature computed for each one of them. \newline\newline\textbf{TO COMPLETE DESCRIPTION}
+	As described before, the register that contains the test flags taken and the subroutine \texttt{i} is executed only if \texttt{a1[i]} is set to one. At this point, the selected procedures of each module are executed and, the signature computed for each one of them, are merged together to perform a single signature for each unit by resorting to the XOR. 
+	
+	In order to check the test result, the signatures coming from each one of the units, must be compared with the expected one. For this reason, the \textit{test\_scheduler.S} includes a procedure called \texttt{\_get\_sig} that takes the test flag register and the starting location of the expected signature of all test subroutines. At this point, the procedure computes the expected signature for that functional unit by performing the XOR logical operation by taking the signatures of the enabled subroutines. The test scheduler on the main program, will check that the generate signatures from the test routines are the same with the respect to the expected ones. In case of a mismatch, the processor is halted by using an endless loop.
 
 	\section{Test Routines}
 	As said, the three functional units are tested by means of routines. Their aim is to test as much as possible the functional unit by executing some instructions. These instructions are not random generated and the process of generation of these routines is different if we consider the ALU or the MUL/MAC unit and if we consider the RF unit. \newline
@@ -271,7 +273,7 @@
 	At the end, after considering all these aspects, a new script with the same purpose of the ones used for ALU/MAC can be implemented. It's in charge of creating for each data background the three march element of the march algorithm described before and for each march action it takes care of applying the concepts explained in order to test all the ports of the register file. \newline
 
 	At each step a signature is computed but it can't be simply stored in the register file becuse it's under test with a march algorithm that destroys the content of the RF. So everytime, at each step, a load and store of a signature is performed from the memory.
-
+	\newpage
 	\section{Obtained coverage}
 
 	The following described coverages are guaranteed to be obtained only by enabling all the subroutines for each functional unit.
