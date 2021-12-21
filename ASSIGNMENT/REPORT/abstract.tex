@@ -216,5 +216,7 @@
 	\end{enumerate}
 	Based on the signature returned by the procedures and the vector of test signature given as input to this procedure, the scheduler will decide to halt the CPU or not if the test doesn't succeed.
 	
-	As described before, the register that contains the test flags taken and the subroutine \texttt{i} is executed only if \texttt{a1[i]} is set to one. At this point, the selected procedures of each module are executed and the signature computed for each one of them. \newline\newline\textbf{TO COMPLETE DESCRIPTION}
+	As described before, the register that contains the test flags taken and the subroutine \texttt{i} is executed only if \texttt{a1[i]} is set to one. At this point, the selected procedures of each module are executed and, the signature computed for each one of them, are merged together to perform a single signature for each unit by resorting to the XOR. 
+	
+	In order to check the test result, the signatures coming from each one of the units, must be compared with the expected one. For this reason, the \textit{test\_scheduler.S} includes a procedure called \texttt{\_get\_sig} that takes the test flag register and the starting location of the expected signature of all test subroutines. At this point, the procedure computes the expected signature for that functional unit by performing the XOR logical operation by taking the signatures of the enabled subroutines. The test scheduler on the main program, will check that the generate signatures from the test routines are the same with the respect to the expected ones. In case of a mismatch, the processor is halted by using an endless loop.
 \end{document}
