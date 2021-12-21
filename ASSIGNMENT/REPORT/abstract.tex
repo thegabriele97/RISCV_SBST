@@ -123,7 +123,7 @@
 
 \author{
 	Matteo Battilana s281389\newline
-	Gabriele Salvatore La Greca s281589
+	Salvatore Gabriele La Greca s281589
 }
 
 \begin{document}
@@ -153,7 +153,7 @@
 	The method, called \texttt{\_run\_march\_algorithm} that is defined in the \texttt{march\_algorithm.S} file, is called in the \texttt{crt0.S} just after the initialization of all registers to 0.\newline\newline
 	The base idea of the March Test is to perform a sequence of March Elements. Each March Element is composed of a sequence of write/read operations that must be performed in a cells and also for all the others.
 	
-	The algorithm used in this assignment is the March LA, developed by Van de Goor, in 1996 has a complexity of $22n$ and it's able to detect Stuck-at-faults, Address-faults, Transition-faults and Coupling-faults, linked in any way. It composed of the following March elements:
+	The algorithm used in this assignment is the March LA, developed by Van de Goor in 1996 with a complexity of $22n$ and it's able to detect Stuck-at-faults, Address-faults, Transition-faults and Coupling-faults, linked in any way. It composed of the following March elements:
 	\begin{itemize}
 		\itemsep0sp
 		\item $\updownarrow$ (w0)
@@ -192,7 +192,7 @@
 	As stated before, the March LA is a powerful algorithm to test memories that has the drawback of being complex from the point of view of the computational complexity. Moreover, the complexity increases even more, if the intra-coupling faults are tested. Having a RAM, which size is 0x40000, the time needed to test it with this implementation is: 212992660ns, that corresponds to more or less 200ms.
 
 	\section{Test scheduler}
-	Beside the March test, the Software-Based Self-Test needs to be split into smaller subroutines that do not last more than 1000 clock cycle. This means that, for testing a functional, more than one subroutine will be needed. In order to let the user to specify which subroutine of which module to run, a 32 bit flag register is used in the following way:
+	Beside the March test, the Software-Based Self-Test needs to be split into smaller subroutines that do not last more than 1000 clock cycle. This means that, for testing a functional unit, more than one subroutine will be needed. In order to let the user to specify which subroutine of which module to run, a 32 bit flag register is used in the following way:
 	\begin{figure}[ht]
 		\begin{center}
 			\begin{bytefield}[endianness=big,bitwidth=0.03\linewidth]{32}
@@ -202,7 +202,7 @@
 		\end{center}
 		\caption{\textit{Test flag register}}
 		\label{fig:test_flag}
-	\end{figure}
+	\end{figure}\newline
 	In fact, the ALU is composed of 17 subroutines, the multiplier by 3 as for the register file; the other bits are left unused. So, by setting that register to 0x03, only the first three subroutines for the ALU test are executed.\newline\newline
 	In order to work correctly, a zone in memory has been defined in the \texttt{.TEST\_RODATA} called \textit{TEST\_SIGNATURES}, that stores the expected signatures for all the subroutines enabled, in order to check the result after executing them. The memory locations assumes first the ALU signatures, then the multipliers one and in the last position the register file ones.
 	
@@ -219,4 +219,75 @@
 	As described before, the register that contains the test flags taken and the subroutine \texttt{i} is executed only if \texttt{a1[i]} is set to one. At this point, the selected procedures of each module are executed and, the signature computed for each one of them, are merged together to perform a single signature for each unit by resorting to the XOR. 
 	
 	In order to check the test result, the signatures coming from each one of the units, must be compared with the expected one. For this reason, the \textit{test\_scheduler.S} includes a procedure called \texttt{\_get\_sig} that takes the test flag register and the starting location of the expected signature of all test subroutines. At this point, the procedure computes the expected signature for that functional unit by performing the XOR logical operation by taking the signatures of the enabled subroutines. The test scheduler on the main program, will check that the generate signatures from the test routines are the same with the respect to the expected ones. In case of a mismatch, the processor is halted by using an endless loop.
+
+	\section{Test Routines}
+	As said, the three functional units are tested by means of routines. Their aim is to test as much as possible the functional unit by executing some instructions. These instructions are not random generated and the process of generation of these routines is different if we consider the ALU or the MUL/MAC unit and if we consider the RF unit. \newline
+
+	All the process of generation of the assembly code, compilation and simulation is automatized thanks to different scripts. In particular, there are 3 precreated files \texttt{alu.S}, \texttt{mul.S} and \texttt{rf.S} that contains the base structure of the assembly code and the parsers will insert the generated instructions between the two lines \texttt{\#\#- START -\#\#} and \texttt{\#\#- END -\#\#}.\newline
+
+	Moreover, in order to compute the time of exectuion of each routine, the testbench has been modified in order to log in the stdout the time when the register \texttt{x30} is loaded with the value \texttt{0x12345678} while when the register \texttt{t4} is loaded with the same value, the testbench will log both the time and the content of the register \texttt{t3} that contains the computed signature.
+
+	\subsection{Routines generation for ALU and MUL/MAC}
+	The first step in order to generate the routines for the ALU and the MUL/MAC units is to generate the test patterns by means of an ATPG (\textit{TetraMAX}). The ATPG is configured in order to generate the patterns only for that specific units, at the end a \texttt{.STIL} file is generated containing all the patterns. \newline
+
+	The second (and most important) step is to generates some assembly instructions starting from the patterns. The problem here is that obviously we don't have any direct access to the ALU (or MAC/MUL)'s entity from the software prespective, but we can only use the assembly instructions that the overall processor offers to us in order to mimic the patterns. \newline
+	
+	In fact, for each instruction, the core's decode unit will configure in a certain manner the inputs of the entity. So, the most difficult part here is to understand how the input of the entity are mapped to each instruction offered by the processor. \newline
+
+	After a deep analysis of the decode unit's verilog RTL description, together with the PULP's user manual in order to understand all the added hardware extensions that within our functional units, a set of instructions has been created. All these instructions are used more than once with different operands (up to 3 different operands) according to each generated pattern. The downside here is that not all the ALU (or MUL/MAC)'s control signals are directly controllable by assembly instructions so the coverage will not be exactly as the one obtained by the ATPG but it'll be sligthly lower. \newline
+	
+	There can be indentified two big sets of instructions (thanks to PULP's extensions): scalar instructions and vectorial instructions. The first ones are the classical ones (for example an add of two operands on 32 bits). The latter one regards vectorial operations, means that for example a vectorial add will consider the two 32 bits operands as groups of 8 or 16 bits so it will perform 2 or 4 adds in parallel by means of a single instruction. \newline
+
+	Finally, the last step is to generate the assembly code having the patterns generated at step 1 and a set of possible instructions generated at step 2. A script has been developed in order to accomplish this job automatically. The script is in charge of parsing the \texttt{.STIL} file and for each pattern find the most situable instruction and generate the assembly code. The script is pretty complicated and internally instructions are divided into subgroups (classical operations, branch instructions, single operand instructions, single immediate operand instructions, triple operands instructions, triple operands with 2 immediate instructions) and for each of them there may be a scalar or vector implementation of it. Howewer, the base assembly code generated for each of them is:
+	\begin{enumerate}
+		\itemsep0sp
+		\item loading the operands into temporary registers
+		\item execute the instruction
+		\item compute the cumulative signature on the result
+	\end{enumerate}
+
+	The script is in charge to automatically generate not only the entire test routine but either the subroutines, each of them with a duration < 1000 ccs. So the script will add, beside the classical test instructions, control instructions like which subroutine needs to be executed according to the flags given as input by the scheduler and to compute the cumulative signature.
+
+	\subsection{Routine for Register File}
+	A different approach has been adopted in order to test the Register File. Here the process of generation is a bit more complicated because of the nature on the Register File itself and its implementation in the given processor under test.
+
+	The test is based on a MARCH algorithm with different data backgrounds, the most simple one that performs the following march elements:
+
+	\begin{itemize}
+		\itemsep0sp
+		\item $\updownarrow$ (w0)
+		\item $\Uparrow$ (r0, w1)
+		\item $\Downarrow$ (r1)
+	\end{itemize}
+
+	Unfortunately, this is not enough to achieve a high fault coverage. This is because this implementation has three read ports and two write ports. 
+	
+	In order to apply for example the march element \textit{(r0)}, the \textit{(r0)} must be applied on all the three read ports, and from them the same value must be read. So in order to accomplish this, we need a triple operand instructions, and it's \texttt{p.mac t0, t1, t2} that performs $t0 = t0 + t1 \cdot t2$.\newline
+
+	Actually the most difficult part is to test the two write ports. In order to understand how the two write ports are used by the processor, another deep study of the decode unit and in general of the entire pipeline of the processor has been done. 
+	
+	What happens is that one of the write port is used during the write back stage that occurs after the memory stage so means that in order to test one of the two write ports we need a load instruction. 
+
+	A bit harder is to understand how the second write port is used and it's used when a forwarding path is enabled. \newline
+
+	At the end, after considering all these aspects, a new script with the same purpose of the ones used for ALU/MAC can be implemented. It's in charge of creating for each data background the three march element of the march algorithm described before and for each march action it takes care of applying the concepts explained in order to test all the ports of the register file. \newline
+
+	At each step a signature is computed but it can't be simply stored in the register file becuse it's under test with a march algorithm that destroys the content of the RF. So everytime, at each step, a load and store of a signature is performed from the memory.
+	\newpage
+	\section{Obtained coverage}
+
+	The following described coverages are guaranteed to be obtained only by enabling all the subroutines for each functional unit.
+
+	\begin{center}
+		\begin{tabular}{ |p{3cm}|p{3cm}|p{3cm}|  }
+			\hline
+			\multicolumn{3}{|c|}{Functional Units Coverage} \\
+			\hline
+			ALU&MUL/MAC&RF\\
+			\hline
+			91.68\%&96.60\%&92.72\%\\
+			\hline
+		\end{tabular}
+	\end{center}
+
 \end{document}
