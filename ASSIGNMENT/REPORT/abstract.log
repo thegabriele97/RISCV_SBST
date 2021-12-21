@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2021.11.8)  21 DEC 2021 13:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2021.11.8)  21 DEC 2021 17:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1201,7 +1201,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 222--223
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 227--228
+Underfull \hbox (badness 10000) in paragraph at lines 224--225
 
  []
 
@@ -1225,18 +1225,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 235--236
 
  []
 
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 261--262
+
+Underfull \hbox (badness 10000) in paragraph at lines 237--238
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 267--268
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 263--264
 
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 269--270
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 271--272
 
  []
 
@@ -1249,18 +1254,18 @@ Package rerunfilecheck Info: File `abstract.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 38432 strings out of 480539
- 790137 string characters out of 5900304
+ 38436 strings out of 480539
+ 790171 string characters out of 5900304
  1324878 words of memory out of 5000000
- 55233 multiletter control sequences out of 15000+600000
- 457616 words of font info for 115 fonts, out of 8000000 for 9000
+ 55234 multiletter control sequences out of 15000+600000
+ 457699 words of font info for 116 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  125i,14n,131p,10716b,589s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/home/gabriele97/.texlive2021/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/home/gabriele97/.texlive2021/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/home/gabriele97/.texlive2021/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/home/gabriele97/.texlive2021/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/home/gabriele97/.texlive2021/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}</home/gabriele97/.texlive2021/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></home/gabriele97/.texlive2021/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></home/gabriele97/.texlive2021/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></home/gabriele97/.texlive2021/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></home/gabriele97/.texlive2021/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr10.pfb></home/gabriele97/.texlive2021/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr12.pfb></home/gabriele97/.texlive2021/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr5.pfb></home/gabriele97/.texlive2021/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr7.pfb></home/gabriele97/.texlive2021/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmri10.pfb></home/gabriele97/.texlive2021/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></home/gabriele97/.texlive2021/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></home/gabriele97/.texlive2021/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on abstract.pdf (5 pages, 268775 bytes).
+Output written on abstract.pdf (5 pages, 272651 bytes).
 PDF statistics:
- 186 PDF objects out of 1000 (max. 8388607)
- 127 compressed objects within 2 object streams
- 22 named destinations out of 1000 (max. 500000)
- 33501 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 190 PDF objects out of 1000 (max. 8388607)
+ 131 compressed objects within 2 object streams
+ 23 named destinations out of 1000 (max. 500000)
+ 33509 words of extra memory for PDF output out of 35830 (max. 10000000)
 
