@@ -141,7 +141,7 @@
 	% ------------------------------------------------------------------------------
 	\setcounter{page}{1}		% Set page numbering to begin on this page
 	\section{Introduction}
-	The software assignment was based on two portions of code that are used to:
+	The software assignment was based on two portions of code:
 	\begin{itemize}
 		\itemsep0sp
 		\item A March test algorithm on the RAM
@@ -153,7 +153,7 @@
 	The method, called \texttt{\_run\_march\_algorithm} that is defined in the \texttt{march\_algorithm.S} file, is called in the \texttt{crt0.S} just after the initialization of all registers to 0.\newline\newline
 	The base idea of the March Test is to perform a sequence of March Elements. Each March Element is composed of a sequence of write/read operations that must be performed in a cells and also for all the others.
 	
-	The algorithm used in this assignment is the March LA, developed by Van de Goor in 1996 with a complexity of $22n$ and it's able to detect Stuck-at-faults, Address-faults, Transition-faults and Coupling-faults, linked in any way. It composed of the following March elements:
+	The algorithm used in this assignment is the March LA, developed by Van de Goor in 1996 with a complexity of $22n$ and it's able to detect Stuck-at-faults, Address-faults, Transition-faults and Coupling-faults, linked in any way. It is composed of the following March elements:
 	\begin{itemize}
 		\itemsep0sp
 		\item $\updownarrow$ (w0)
@@ -163,13 +163,13 @@
 		\item $\Downarrow$ (r1, w0, w1, w0, r0)
 		\item $\Downarrow$ (r0)
 	\end{itemize}
-	Moreover in order to make the test complete, the algorithm does not simply write 0 and 1 in the memory locations, but uses $ \floor*{\log_2(m)} + 1$ patterns, where $m$ is the word size. This allows to test also the intra-word coupling faults. So, the total complexity of the march test is:
+	Moreover, in order to make the test complete, the algorithm does not simply write 0 and 1 in the memory locations, but uses $ \floor*{\log_2(m)} + 1$ patterns, where $m$ is the word size. This allows to test also the intra-word coupling faults. So, the total complexity of the March Algorithm is:
 	\[
 		6 \cdot 22 \cdot n = 132n
 	\]
 	For this reason the \texttt{\_run\_march\_algorithm} procedure acts only as a wrapper in order to call another procedure, called \texttt{\_march\_LA}.
 	
-	This last procedure, is used to perform entirely the March LA algorithm, by passing one parameter on the \texttt{a0} register that is used to define the 0 pattern that will be used when performing \textit{w0} and \textit{r0}. The 1 pattern is simply computed by the produced, by negating \texttt{a0}.
+	This last procedure, is used to perform entirely the March LA algorithm, by passing one parameter on the \texttt{a0} register that is used to define the 0 pattern that will be used when performing \textit{w0} and \textit{r0}. The 1 pattern is simply computed by the procedure, by negating \texttt{a0}.
 	
 	This allows to not duplicate the code and execute the March LA for all the 6 patterns. 
 	
@@ -180,16 +180,16 @@
 		\item \_\_RAM\_START
 		\item \_\_RAM\_END
 	\end{enumerate}
-	The first one, is used to define the starting point of the March LA while the second one its end. The end address is loaded into the \texttt{t2} register but it can't be used as is. In fact, since it define the end point, the loop must avoid to write in that precise location (outside the dataram); for this reason, a subtraction of 4 is performed.
-	The algorithms is 1:1 the implementation of the March LA, and by using \texttt{t1} and \texttt{t2} as starting and ending references, all the locations are read/written accordingly to the March algorithm.
+	The first one, is used to define the starting point of the March LA while the second one its end. The end address is loaded into the \texttt{t2} register but it can't be used as is. In fact, since it define the end point, the loop must avoid to write in that last location (outside the dataram); for this reason, a subtraction of 4 is performed.
+	The algorithms is 1:1 with the respect to the implementation of the March LA, and by using \texttt{t1} and \texttt{t2} as starting and ending references, all the locations are read/written accordingly to the March algorithm.
 	
 	\subsubsection{Problems}
-	One of the C library used in the linker script (newlib) creates in the .elf file a section in .data with a struct called \texttt{\_\_rent} whose address is defined by the symbol \_\_global\_impure\_pointer. The struct contains information about the errno, used by the ANSI C standard, stdout, stin and stderr and other callbacks.
+	One of the C library used in the linker script (newlib) creates in the .elf file a section in \texttt{.data} with a struct called \texttt{\_\_rent} whose address is defined by the symbol \texttt{\_\_global\_impure\_pointer}. The struct contains information about the errno, used by the ANSI C standard, stdout, stin, stderr and other callbacks.
 	At the beginning, the .elf loaded during the simulation contains that information, and running the March LA destroys everything. In particular, the crt0 executes the function \texttt{memset} for the initialization of the bss segment, that reads data from the \texttt{\_\_rent} structure, that has been erased by the memory test.
 	The problem is that the RAM sections are (improperly) initialized by the testbench at power-on and this has been solved by copying at the startup all sections into a portion of a Flash memory. In this way, at the end of the march algorithm, data saved into the flash are moved into the RAM.
 	
 	\subsection{Results}
-	As stated before, the March LA is a powerful algorithm to test memories that has the drawback of being complex from the point of view of the computational complexity. Moreover, the complexity increases even more, if the intra-coupling faults are tested. Having a RAM, which size is 0x40000, the time needed to test it with this implementation is: 212992660ns, that corresponds to more or less 200ms.
+	As stated before, the March LA is a powerful algorithm to test memories but has the drawback of being complex from the point of view of the computational complexity. Moreover, the complexity increases even more, if the intra-coupling faults are tested. Having a RAM, which size is 0x40000, the time needed to test it with this implementation is: 212992660ns, that corresponds to more or less 213ms.
 
 	\section{Test scheduler}
 	Beside the March test, the Software-Based Self-Test needs to be split into smaller subroutines that do not last more than 1000 clock cycle. This means that, for testing a functional unit, more than one subroutine will be needed. In order to let the user to specify which subroutine of which module to run, a 32 bit flag register is used in the following way:
@@ -206,22 +206,20 @@
 	In fact, the ALU is composed of 17 subroutines, the multiplier by 3 as for the register file; the other bits are left unused. So, by setting that register to 0x03, only the first three subroutines for the ALU test are executed.\newline\newline
 	In order to work correctly, a zone in memory has been defined in the \texttt{.TEST\_RODATA} called \textit{TEST\_SIGNATURES}, that stores the expected signatures for all the subroutines enabled, in order to check the result after executing them. The memory locations assumes first the ALU signatures, then the multipliers one and in the last position the register file ones.
 	
-	The starting memory location is passed as parameter to the main test routing, assuming first 11 signatures for 
 	The entry point of our test routines for the functional units and the register file, is the \texttt{\_scheduler\_test} procedure that is contained into the \textit{test\_scheduler.S} file. This functions takes the following parameters:
 	\begin{enumerate}
 		\itemsep0sp
 		\item \textbf{a0}: Vector of flags for the test subroutines to be enabled, refer to Figure \ref{fig:test_flag};
-		\item \textbf{a1}: Pointer to the current in the vector of test signatures. Used to check the expected signature;
-		\item \textbf{s0}: Stores the expected signature 
+		\item \textbf{a1}: Pointer to the current in the vector of test signatures. Used to check the expected signature.
 	\end{enumerate}
 	Based on the signature returned by the procedures and the vector of test signature given as input to this procedure, the scheduler will decide to halt the CPU or not if the test doesn't succeed.
 	
-	As described before, the register that contains the test flags taken and the subroutine \texttt{i} is executed only if \texttt{a1[i]} is set to one. At this point, the selected procedures of each module are executed and, the signature computed for each one of them, are merged together to perform a single signature for each unit by resorting to the XOR. 
+	As described before, the test flag register contains the test flags and the subroutine \texttt{i} is executed only if \texttt{a1[i]} is set to one. At this point, the selected procedures of each module are executed and, the signature computed for each one of them, are merged together to perform a single signature for each unit by resorting to the XOR. 
 	
-	In order to check the test result, the signatures coming from each one of the units, must be compared with the expected one. For this reason, the \textit{test\_scheduler.S} includes a procedure called \texttt{\_get\_sig} that takes the test flag register and the starting location of the expected signature of all test subroutines. At this point, the procedure computes the expected signature for that functional unit by performing the XOR logical operation by taking the signatures of the enabled subroutines. The test scheduler on the main program, will check that the generate signatures from the test routines are the same with the respect to the expected ones. In case of a mismatch, the processor is halted by using an endless loop.
+	In order to check the test result, the signatures coming from each one of the units, must be compared with the expected ones. For this reason, the \textit{test\_scheduler.S} includes a procedure called \texttt{\_get\_sig} that takes the test flag register and the starting location of the expected signature of all test subroutines. At this point, the procedure computes the expected signature for that functional unit by performing the XOR logical operation of the signatures of the enabled subroutines. The test scheduler on the main program will check that the generate signatures from the test routines are the same with the respect to the expected ones. In case of a mismatch, the processor is halted by using an endless loop.
 
 	\section{Test Routines}
-	As said, the three functional units are tested by means of routines. Their aim is to test as much as possible the functional unit by executing some instructions. These instructions are not random generated and the process of generation of these routines is different if we consider the ALU or the MUL/MAC unit and if we consider the RF unit. \newline
+	As said, the three functional units are tested by means of routines. Their aim is to test as much as possible the functional units by executing some instructions. These instructions are not random generated and the process of generation of these routines is different if we consider the ALU or the MUL/MAC unit and if we consider the RF unit. \newline
 
 	All the process of generation of the assembly code, compilation and simulation is automatized thanks to different scripts. In particular, there are 3 precreated files \texttt{alu.S}, \texttt{mul.S} and \texttt{rf.S} that contains the base structure of the assembly code and the parsers will insert the generated instructions between the two lines \texttt{\#\#- START -\#\#} and \texttt{\#\#- END -\#\#}.\newline
 
@@ -234,7 +232,7 @@
 	
 	In fact, for each instruction, the core's decode unit will configure in a certain manner the inputs of the entity. So, the most difficult part here is to understand how the input of the entity are mapped to each instruction offered by the processor. \newline
 
-	After a deep analysis of the decode unit's verilog RTL description, together with the PULP's user manual in order to understand all the added hardware extensions that within our functional units, a set of instructions has been created. All these instructions are used more than once with different operands (up to 3 different operands) according to each generated pattern. The downside here is that not all the ALU (or MUL/MAC)'s control signals are directly controllable by assembly instructions so the coverage will not be exactly as the one obtained by the ATPG but it'll be sligthly lower. \newline
+	After a deep analysis of the decode unit's Verilog RTL description, together with the PULP's user manual in order to understand all the added hardware extensions that within our functional units, a set of instructions has been created. All these instructions are used more than once with different operands (up to 3 different operands) according to each generated pattern. The downside here is that not all the ALU (or MUL/MAC)'s control signals are directly controllable by assembly instructions so the coverage will not be exactly as the one obtained by the ATPG but it'll be sligthly lower. \newline
 	
 	There can be indentified two big sets of instructions (thanks to PULP's extensions): scalar instructions and vectorial instructions. The first ones are the classical ones (for example an add of two operands on 32 bits). The latter one regards vectorial operations, means that for example a vectorial add will consider the two 32 bits operands as groups of 8 or 16 bits so it will perform 2 or 4 adds in parallel by means of a single instruction. \newline
 
@@ -251,7 +249,7 @@
 	\subsection{Routine for Register File}
 	A different approach has been adopted in order to test the Register File. Here the process of generation is a bit more complicated because of the nature on the Register File itself and its implementation in the given processor under test.
 
-	The test is based on a MARCH algorithm with different data backgrounds, the most simple one that performs the following march elements:
+	The test is based on a March Algorithm with different data backgrounds, the most simple one that performs the following march elements:
 
 	\begin{itemize}
 		\itemsep0sp
@@ -273,7 +271,8 @@
 	At the end, after considering all these aspects, a new script with the same purpose of the ones used for ALU/MAC can be implemented. It's in charge of creating for each data background the three march element of the march algorithm described before and for each march action it takes care of applying the concepts explained in order to test all the ports of the register file. \newline
 
 	At each step a signature is computed but it can't be simply stored in the register file becuse it's under test with a march algorithm that destroys the content of the RF. So everytime, at each step, a load and store of a signature is performed from the memory.
-	\newpage
+
+
 	\section{Obtained coverage}
 
 	The following described coverages are guaranteed to be obtained only by enabling all the subroutines for each functional unit.
