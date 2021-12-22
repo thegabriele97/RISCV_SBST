@@ -1,0 +1,11 @@
+set(var=[resources], messages=[all])
+set(var=[defines], format=[standard])
+set(var=[fdef], method=[fr], fr.fr=[$ZOIX_DIR/bin/user.sff],abort=[error])
+set(var=[fsim],hyperfault=[0])
+design()
+
+addtst(test=[riscv_core], stimtype=[vcd], stim=[dumpports_gate.evcd.fixed], dut.stim=[riscv_core_0_128_1_16_1_1_0_0_0_0_0_0_0_0_0_3_6_15_5_1a110800, tb_top.riscv_wrapper_i.riscv_core_i], stim_options=[+TESTNAME=riscv_core])
+
+fsim()
+
+coverage(file=[SAF_coverage.sff])

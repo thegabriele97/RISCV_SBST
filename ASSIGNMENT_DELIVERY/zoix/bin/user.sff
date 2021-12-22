@@ -1,0 +1,21 @@
+#*******************************************************************************
+# (c) 2017 Synopsys, Inc.
+#
+# This file and it's contents are proprietary to Synopsys, Inc. and may 
+# only be used pursuant to the terms and conditions of a written license 
+# agreement with Synopsys, Inc. All other use, reproduction, modification, 
+# or distribution of this file is strictly prohibited.
+#*******************************************************************************
+
+# Set fault generation constraints
+FaultGenerate
+{
+
+    #NA [0,1] { PORT "riscv_core_0_128_1_16_1_1_0_0_0_0_0_0_0_0_0_3_6_15_5_1a110800.id_stage_i.registers_i.**" } 
+    #NA [0,1] { PORT "riscv_core_0_128_1_16_1_1_0_0_0_0_0_0_0_0_0_3_6_15_5_1a110800.ex_stage_i.alu_i.**" } 
+    #NA [0,1] { PORT "riscv_core_0_128_1_16_1_1_0_0_0_0_0_0_0_0_0_3_6_15_5_1a110800.ex_stage_i.alu_i.div_i.**" } 
+    NA [0,1] { PORT "riscv_core_0_128_1_16_1_1_0_0_0_0_0_0_0_0_0_3_6_15_5_1a110800.ex_stage_i.mult_i.**" } 
+    #NA [R,F] { PORT "riscv_core_0_128_1_16_1_1_0_0_0_0_0_0_0_0_0_3_6_15_5_1a110800.**" }
+    #NA [R,F] { PORT "riscv_core_0_128_1_16_1_1_0_0_0_0_0_0_0_0_0_3_6_15_5_1a110800.ex_stage.i_alu_i.**" }
+
+}
