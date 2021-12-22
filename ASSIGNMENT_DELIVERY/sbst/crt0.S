@@ -81,7 +81,7 @@ _start:
 
 /* Invoke MARCH test */
 
-	#call _run_march_algorithm
+	call _run_march_algorithm
 
 /* initialize global pointer */
 .option push
